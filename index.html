@@ -40,6 +40,50 @@
     @keyframes etComet { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     @keyframes etBreathe { 0%,100% { transform: scale(1); opacity: .8; } 50% { transform: scale(1.12); opacity: 1; } }
     @keyframes etShimmer { from { background-position: 200% center; } to { background-position: -200% center; } }
+
+    /* ── Responsive: layout styles are inline, so overrides need !important ── */
+    @media (max-width: 900px) {
+      /* Hero: stack text above phone, single column */
+      #top { grid-template-columns: 1fr !important; padding: 108px 22px 48px !important; gap: 40px !important; }
+      #top h1 { font-size: clamp(42px, 11.5vw, 64px) !important; }
+      /* floating chips: pull inside the viewport */
+      #top > div:nth-child(3) > div:nth-child(1) { left: 0 !important; }
+      #top > div:nth-child(3) > div:nth-child(2) { left: 0 !important; }
+      #top > div:nth-child(3) > div:nth-child(3) { right: 0 !important; }
+
+      /* Features: one column, cards centered */
+      #features { padding: 80px 22px 30px !important; }
+      #features > div:nth-child(2) { grid-template-columns: 1fr !important; max-width: 620px; margin: 40px auto 0 !important; }
+
+      /* Widgets: replace the pinned scroll stage with a simple stack */
+      #widgets { height: auto !important; margin-top: 40px !important; }
+      #widgets > div { position: static !important; height: auto !important; overflow: visible !important; padding: 30px 0 10px; }
+      #widgets > div > div:nth-child(2) { padding: 0 22px; }
+      #widgets > div > div:nth-child(3) { height: auto !important; width: min(440px, 92vw) !important; display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 26px !important; }
+      #widgets > div > div:nth-child(3) > div { position: static !important; transform: none !important; opacity: 1 !important; max-width: 100%; box-sizing: border-box; }
+
+      /* Watch: single column, copy first */
+      #watch { grid-template-columns: 1fr !important; padding: 84px 22px 70px !important; gap: 34px !important; }
+      #watch > div:nth-child(1) { order: 2; }
+
+      /* Clock faces / FAQ / download: tighter gutters */
+      #faces { padding: 80px 0 70px !important; }
+      #faces > div:first-child { padding: 0 22px !important; }
+      #faq { padding: 50px 22px 90px !important; }
+      #download { padding: 0 16px 80px !important; }
+      #download > div { padding: 56px 22px !important; border-radius: 28px !important; }
+
+      footer { padding: 28px 22px 34px !important; }
+      footer > div { justify-content: center !important; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      /* Nav: full-width pill, logo + Download only */
+      nav { left: 10px !important; right: 10px !important; transform: none !important; justify-content: space-between !important; gap: 10px !important; padding: 8px 10px 8px 16px !important; }
+      nav > div { display: none !important; }
+      /* Floating hero chips overlap the phone mockup on narrow screens */
+      #top > div:nth-child(3) > div:nth-child(-n+3) { display: none !important; }
+    }
   </style>
 </helmet>
 
