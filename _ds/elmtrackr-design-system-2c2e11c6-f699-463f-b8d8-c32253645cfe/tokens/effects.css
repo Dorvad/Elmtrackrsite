@@ -1,0 +1,60 @@
+/* ============================================================
+   Elmtrackr — Effects: shadows, blur, gradient helpers
+   Shadows are tinted indigo (never neutral grey) and soft —
+   large negative spread for a lifted-glass feel.
+   ============================================================ */
+:root {
+  /* Indigo-tinted elevation */
+  --shadow-card:      0 16px 40px -26px rgba(80, 64, 210, 0.34), 0 1px 3px rgba(80, 64, 210, 0.05);
+  --shadow-card-glow: 0 26px 60px -26px rgba(80, 64, 210, 0.50), 0 2px 8px rgba(80, 64, 210, 0.06);
+  --shadow-button:    0 14px 26px -10px rgba(91, 77, 242, 0.70);
+  --shadow-button-hi: 0 16px 30px -10px rgba(91, 77, 242, 0.85);
+  --shadow-pill:      0 8px 20px -8px rgba(91, 77, 242, 0.60);
+  --shadow-nav:       0 -4px 24px rgba(0, 0, 0, 0.25);
+
+  /* Glass blur */
+  --blur-glass: 14px;
+  --blur-nav:   22px;
+
+  /* Focus ring */
+  --ring: 0 0 0 2px var(--au-surface), 0 0 0 4px var(--au-indigo);
+}
+
+html.dark {
+  --shadow-card:      0 8px 24px -12px rgba(0, 0, 0, 0.60);
+  --shadow-card-glow: 0 12px 32px -12px rgba(0, 0, 0, 0.70);
+}
+
+/* ── Reusable surface utilities ─────────────────────────────
+   These match the app's hand-rolled `au-*` classes so design
+   recreations look identical to production.
+   ─────────────────────────────────────────────────────────── */
+.au-card      { box-shadow: var(--shadow-card); }
+.au-card-glow { box-shadow: var(--shadow-card-glow); }
+
+.au-gradient-text {
+  background: var(--au-grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.au-glass {
+  background: rgba(236, 238, 250, 0.82);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+}
+html.dark .au-glass { background: rgba(15, 23, 42, 0.88); }
+
+/* Subtle SVG film grain — drop over gradient panels at ~4% */
+.au-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}

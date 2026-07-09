@@ -1,0 +1,69 @@
+/* ============================================================
+   Elmtrackr — Color tokens  ("Aurora" palette)
+   Light is the default theme; .dark overrides on <html>.
+   Brand convention keeps the --au-* names; semantic aliases
+   (--text-*, --surface-*, --accent-*) are layered on top.
+   ============================================================ */
+:root {
+  /* ── Raw Aurora palette ─────────────────────────────────── */
+  --au-bg:           #ECEEFA;   /* app background — pale lavender   */
+  --au-ink:          #181530;   /* primary text — near-black navy   */
+  --au-ink-2:        #615C8A;   /* secondary text — muted indigo    */
+  --au-faint:        #A7A2C8;   /* placeholder / faint labels       */
+  --au-hair:         rgba(91, 77, 242, 0.10); /* hairline dividers  */
+  --au-surface:      #FFFFFF;   /* card / sheet surface             */
+  --au-surface-sub:  #F6F6FD;   /* inset / sub-surface              */
+
+  /* Brand hues */
+  --au-indigo:       #5B4DF2;   /* primary brand — "regular" hours  */
+  --au-indigo-deep:  #4133C8;   /* pressed / deep indigo            */
+  --au-plum:         #8B5CF6;   /* weekend / holiday accent         */
+  --au-aqua:         #16C8D6;   /* gradient tail / fresh accent     */
+  --au-peach:        #FF9E7D;   /* overtime accent                  */
+  --au-peach-deep:   #EF6F45;   /* overtime emphasis text           */
+  --au-pop:          #FF3D9A;   /* comet / hot highlight            */
+
+  /* Tinted state surfaces */
+  --au-overtime-bg:  #FFF0E9;
+  --au-overtime-ink: #C75A30;
+  --au-weekend-bg:   #F2EDFE;
+
+  /* Status / semantic hues */
+  --au-active:       #10B981;   /* live / clocked-in green          */
+  --au-danger:       #EF4444;   /* destructive red                  */
+
+  /* ── Gradients ──────────────────────────────────────────── */
+  --au-grad:      linear-gradient(118deg, #5B4DF2 0%, #7C5CF6 42%, #16C8D6 104%); /* @kind color */
+  --au-grad-warm: linear-gradient(120deg, #FF9E7D 0%, #F0609B 100%); /* @kind color */
+  --au-grad-text: linear-gradient(118deg, #5B4DF2 0%, #8B5CF6 45%, #16C8D6 110%); /* @kind color */
+
+  /* ── Semantic aliases ───────────────────────────────────── */
+  --text-strong:    var(--au-ink);
+  --text-body:      var(--au-ink-2);
+  --text-faint:     var(--au-faint);
+  --surface-page:   var(--au-bg);
+  --surface-card:   var(--au-surface);
+  --surface-inset:  var(--au-surface-sub);
+  --border-hair:    var(--au-hair);
+  --accent:         var(--au-indigo);
+  --accent-press:   var(--au-indigo-deep);
+}
+
+/* ============================================================
+   Dark theme  —  add class="dark" to <html>
+   ============================================================ */
+html.dark,
+.dark {
+  color-scheme: dark;
+  --au-bg:           #0B1020;
+  --au-surface:      #151D2E;
+  --au-surface-sub:  #202A3D;
+  --au-ink:          #F5F3FF;
+  --au-ink-2:        #C8D1E0;
+  --au-faint:        #A4B0C3;
+  --au-hair:         rgba(255, 255, 255, 0.08);
+  --au-overtime-bg:  #3A2618;
+  --au-overtime-ink: #FFB48A;
+  --au-weekend-bg:   #2A2240;
+  --au-peach-deep:   #FF9E7D;
+}

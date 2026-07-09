@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="Elmtrackr mark">
+  <defs>
+    <linearGradient id="elmGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5B4DF2"></stop>
+      <stop offset="42%" stop-color="#7C5CF6"></stop>
+      <stop offset="104%" stop-color="#16C8D6"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="44" height="44" rx="13" fill="url(#elmGrad)"></rect>
+  <path d="M24 9 13 25h7l-1 10 11-15h-7l1-11Z" fill="#fff"></path>
+</svg>

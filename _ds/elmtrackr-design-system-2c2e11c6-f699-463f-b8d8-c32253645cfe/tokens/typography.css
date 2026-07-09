@@ -1,0 +1,39 @@
+/* ============================================================
+   Elmtrackr — Typography scale
+   Display = Bricolage Grotesque (tight tracking, bold).
+   Body/UI = Hanken Grotesk. Mobile-first scale.
+   ============================================================ */
+:root {
+  /* Font sizes (rem on a 16px base) */
+  --text-3xs:  0.625rem;  /* 10px — micro labels, badge text   */
+  --text-2xs:  0.6875rem; /* 11px — tiny captions               */
+  --text-xs:   0.75rem;   /* 12px — captions, section eyebrows  */
+  --text-sm:   0.875rem;  /* 14px — body small, list rows       */
+  --text-base: 1rem;      /* 16px — body                        */
+  --text-lg:   1.125rem;  /* 18px — emphasised body / modal h   */
+  --text-xl:   1.5rem;    /* 24px — stat values                 */
+  --text-2xl:  1.875rem;  /* 30px — page titles (text-3xl)      */
+  --text-3xl:  2.5rem;    /* 40px — hero / clock readout        */
+  --text-4xl:  3.5rem;    /* 56px — big timers                  */
+  --text-5xl:  5.5rem;    /* 88px — minimal clock face          */
+
+  /* Weights */
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.15;
+  --leading-snug:    1.35;
+  --leading-normal:  1.55;
+
+  /* Letter spacing — display crunches in, eyebrows splay out */
+  --tracking-display: -0.03em;  /* titles, big numerals         */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.08em;
+  --tracking-widest:   0.16em;  /* uppercase eyebrow labels     */
+}

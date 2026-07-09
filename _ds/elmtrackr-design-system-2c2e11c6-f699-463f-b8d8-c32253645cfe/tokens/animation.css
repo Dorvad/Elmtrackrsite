@@ -1,0 +1,52 @@
+/* ============================================================
+   Elmtrackr — Motion
+   Aurora motion language: gentle drifts, soft count-settles,
+   a one-shot "bloom" ring on clock-in. Easings favour a quick
+   out, slow settle. All decorative loops respect reduced-motion.
+   ============================================================ */
+:root {
+  /* primary entrance ease */
+  --ease-settle:  cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  /* ring / progress sweep */
+  --ease-aurora:  cubic-bezier(0.3, 0.8, 0.3, 1); /* @kind other */
+  /* idle breathing loops */
+  --ease-breathe: cubic-bezier(0.45, 0, 0.55, 1); /* @kind other */
+
+  --dur-fast:   150ms; /* @kind other */
+  --dur-base:   250ms; /* @kind other */
+  --dur-slow:   500ms; /* @kind other */
+  --dur-sweep:  1000ms; /* @kind other */
+}
+
+/* ── Entrances ─────────────────────────────────────────────── */
+@keyframes auRise        { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in-up    { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade-in       { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scale-in      { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes auCountSettle { 0% { opacity: 0; transform: translateY(8px) scale(0.96); } 60% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+
+/* ── Aurora life ───────────────────────────────────────────── */
+@keyframes auMeshDrift { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-3%,2%,0) scale(1.08); } 100% { transform: translate3d(0,0,0) scale(1); } }
+@keyframes auPulse     { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.25); } }
+@keyframes auBreathe   { 0%,100% { transform: scale(1); opacity: 0.55; } 50% { transform: scale(1.12); opacity: 0.9; } }
+@keyframes auBloom     { 0% { opacity: 0; transform: scale(0.4); } 28% { opacity: 0.85; } 100% { opacity: 0; transform: scale(1.7); } }
+@keyframes auShimmer   { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+@keyframes auTwinkle   { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes bar-expand  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ── Utility classes (mirror the app) ──────────────────────── */
+.animate-fade-in-up { animation: fade-in-up 0.35s var(--ease-settle) both; }
+.animate-fade-in    { animation: fade-in 0.25s ease-out both; }
+.animate-scale-in   { animation: scale-in 0.3s var(--ease-settle) both; }
+.au-rise            { animation: auRise 0.5s var(--ease-aurora); }
+.au-mesh            { animation: auMeshDrift 26s ease-in-out infinite; pointer-events: none; }
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-mesh { animation: none !important; }
+}
