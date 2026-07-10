@@ -125,20 +125,26 @@
   </nav>
 
   <!-- ══════════ HERO ══════════ -->
-  <header id="top" data-screen-label="Hero" onMouseMove="{{ heroMouse }}" onMouseLeave="{{ heroMouseOut }}" style="position:relative; min-height:100vh; display:grid; grid-template-columns:minmax(420px,1fr) minmax(420px,1fr); align-items:center; gap:24px; max-width:1240px; margin:0 auto; padding:120px 40px 60px; box-sizing:border-box">
+  <header id="top" data-screen-label="Hero" onMouseMove="{{ heroMouse }}" onMouseLeave="{{ heroMouseOut }}" style="position:relative; min-height:100vh; display:grid; grid-template-columns:minmax(420px,1.08fr) minmax(400px,.92fr); align-items:center; gap:30px; max-width:1240px; margin:0 auto; padding:120px 40px 60px; box-sizing:border-box">
     <!-- aurora mesh backdrop -->
-    <div aria-hidden="true" style="position:absolute; inset:-20% -30%; z-index:0; pointer-events:none; filter:blur(60px); opacity:.8; animation:etDrift 26s ease-in-out infinite alternate; background:radial-gradient(34% 30% at 22% 18%, rgba(91,77,242,.28), transparent 70%), radial-gradient(36% 34% at 82% 12%, rgba(124,92,246,.24), transparent 72%), radial-gradient(40% 38% at 76% 84%, rgba(22,200,214,.22), transparent 72%), radial-gradient(36% 34% at 12% 82%, rgba(255,158,125,.16), transparent 72%)"></div>
+    <div aria-hidden="true" style="position:absolute; inset:-20% -30%; z-index:0; pointer-events:none; filter:blur(60px); opacity:.4; animation:etDrift 26s ease-in-out infinite alternate; background:radial-gradient(34% 30% at 22% 18%, rgba(91,77,242,.28), transparent 70%), radial-gradient(36% 34% at 82% 12%, rgba(124,92,246,.24), transparent 72%), radial-gradient(40% 38% at 76% 84%, rgba(22,200,214,.22), transparent 72%), radial-gradient(36% 34% at 12% 82%, rgba(255,158,125,.16), transparent 72%)"></div>
 
-    <div style="position:relative; z-index:2; display:flex; flex-direction:column; gap:26px; animation:etReveal .9s cubic-bezier(.16,1,.3,1) both">
-      <div style="display:inline-flex; align-items:center; gap:8px; align-self:flex-start; padding:8px 14px; border-radius:7px; background:#FFCB28; border:2px solid #181530; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-family:'IBM Plex Mono',monospace; color:#181530; box-shadow:3px 3px 0 #181530; transform:rotate(-1.5deg)">
-        <span style="width:7px; height:7px; border-radius:999px; background:#181530; animation:etPulseDot 2s ease-in-out infinite"></span>
-        Shift &amp; hours tracker
+    <div style="position:relative; z-index:2; display:flex; flex-direction:column; gap:28px; animation:etReveal .9s cubic-bezier(.16,1,.3,1) both">
+      <!-- timecard record strip: live, ticking -->
+      <div style="display:flex; flex-wrap:wrap; align-self:flex-start; max-width:100%; border:2px solid #181530; border-radius:10px; overflow:hidden; background:#fff; box-shadow:5px 5px 0 #181530; font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase">
+        <span style="display:inline-flex; align-items:center; padding:9px 14px; background:#181530; color:#FFCB28">Timecard Nº 001</span>
+        <span style="display:inline-flex; align-items:center; padding:9px 14px; color:#181530">Shift &amp; hours tracker</span>
+        <span style="display:inline-flex; align-items:center; gap:8px; padding:9px 14px; color:#181530; border-left:2px solid #181530; background:#FFF7DF; flex:1 1 auto">
+          <span style="width:8px; height:8px; border-radius:999px; background:#E5484D; animation:etPulseDot 1.2s ease-in-out infinite"></span>
+          Rec {{ heroTime }}
+        </span>
       </div>
-      <h1 style="margin:0; font-family:'Montserrat',sans-serif; font-size:clamp(46px,4.9vw,72px); line-height:1.02; font-weight:900; letter-spacing:-.03em; color:#181530; text-wrap:balance">
+      <h1 style="margin:0; font-family:'Montserrat',sans-serif; font-size:clamp(48px,5.2vw,78px); line-height:1.06; font-weight:900; letter-spacing:-.03em; color:#181530; text-wrap:balance">
         Your hours,<br>
-        <span style="color:transparent; -webkit-text-stroke:2.5px #5B4DF2; text-stroke:2.5px #5B4DF2">beautifully</span><br>accounted for.
+        <span style="display:inline-block; background:#181530; color:#F4F1E8; padding:.04em .2em .1em; border-radius:8px; transform:rotate(-1.2deg); box-shadow:6px 6px 0 #FFCB28">beautifully</span><br>
+        accounted for.
       </h1>
-      <p style="margin:0; max-width:44ch; font-size:17px; line-height:1.65; font-weight:500; color:#4A4668; text-wrap:pretty; border-left:3px solid #FFCB28; padding-left:16px">
+      <p style="margin:0; max-width:44ch; font-size:17px; line-height:1.65; font-weight:500; color:#4A4668; text-wrap:pretty">
         Clock in once — from your phone or your wrist. Elmtrackr shows hours, overtime, weekend premiums, and an estimated gross, live as you work.
       </p>
       <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px">
