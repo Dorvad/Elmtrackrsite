@@ -266,6 +266,10 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
 </style>
 <style>
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+[data-card]{transition:transform .25s ease, box-shadow .25s ease}
+[data-card]:hover{transform:translateY(-6px);box-shadow:0 34px 70px rgba(24,21,48,.16) !important}
 /* reveal on scroll — progressive enhancement, no-ops in older engines */
 @supports (animation-timeline: view()) {
   [data-reveal]{animation:riseIn 1ms linear both;animation-timeline:view();animation-range:entry 0% entry 34%}
@@ -305,7 +309,8 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
 
   <!-- nav -->
   <nav style="position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;animation:riseIn .7s cubic-bezier(.2,.7,.2,1) both">
-    <div style="display:flex;align-items:baseline;gap:10px">
+    <div style="display:flex;align-items:center;gap:11px">
+      <img src="assets/logo-mark.svg" alt="" width="26" height="26" style="display:block;border-radius:8px">
       <span style="font:800 22px/1 'Archivo',sans-serif;letter-spacing:-.03em;color:#181530">elmtrackr</span>
       <span style="width:34px;height:4px;border-radius:99px;background:linear-gradient(90deg,#5B4DF2,#16C8D6);display:inline-block"></span>
     </div>
@@ -326,7 +331,7 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
       <p style="margin:0;max-width:440px;font:500 20px/1.5 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:riseIn .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in once — phone or wrist. Hours, premiums and an estimated gross, recorded live while you work.</p>
       <div style="display:flex;align-items:center;gap:16px;animation:riseIn .8s .38s cubic-bezier(.2,.7,.2,1) both">
         <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" style-hover="background:#4133C8;color:#fff">
-          <svg width="15" height="17" viewBox="0 0 15 17" fill="none"><path d="M1 1.6c0-.9 1-1.5 1.8-1L13.6 7c.8.5.8 1.7 0 2.2L2.8 15.4c-.8.5-1.8-.1-1.8-1V1.6z" fill="url(#playg)"></path><defs><linearGradient id="playg" x1="0" y1="0" x2="15" y2="17"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#7C5CF6"></stop></linearGradient></defs></svg>
+          <img src="assets/google-play.svg" alt="" width="18" height="18" style="display:block">
           Get it on Google Play</a>
         <a href="#method" style="font:700 16px 'Archivo',sans-serif;color:#181530;padding:16px 26px;border-radius:999px;border:2px solid rgba(24,21,48,.22)" style-hover="border-color:#4133C8;color:#4133C8">See it work ↓</a>
       </div>
@@ -550,13 +555,13 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
       <p style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Punch from the home screen, glance at the tablet, read it off the watch. The reading follows you — live on every screen you own.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div data-reveal data-span2 style="grid-column:1 / -1;border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
+      <div data-reveal data-card data-span2 style="grid-column:1 / -1;border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
         <img src="assets/render-widgets-tablet.jpg" alt="Elmtrackr widgets in three sizes on a tablet home screen" loading="lazy" style="display:block;width:100%;height:auto">
       </div>
-      <div data-reveal style="border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
+      <div data-reveal data-card style="border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
         <img src="assets/render-watch-live.jpg" alt="Live shift progress on a Wear OS watch" loading="lazy" style="display:block;width:100%;height:auto">
       </div>
-      <div data-reveal style="border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
+      <div data-reveal data-card style="border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
         <img src="assets/render-watch-glance.jpg" alt="Day-at-a-glance progress on a Wear OS watch" loading="lazy" style="display:block;width:100%;height:auto">
       </div>
     </div>
@@ -571,17 +576,17 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
       <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Three steps. No account.</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-      <div style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div data-reveal data-card style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px">
         <span style="font:800 40px 'Archivo',sans-serif;letter-spacing:-.03em;background:linear-gradient(120deg,#5B4DF2,#7C5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">1</span>
         <h3 style="margin:0;font:800 22px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Set your rates once</h3>
         <p style="margin:0;font:500 16px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">Base rate, overtime threshold, weekend and night premiums — in your currency.</p>
       </div>
-      <div style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div data-reveal data-card style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px">
         <span style="font:800 40px 'Archivo',sans-serif;letter-spacing:-.03em;background:linear-gradient(120deg,#7C5CF6,#16C8D6);-webkit-background-clip:text;background-clip:text;color:transparent">2</span>
         <h3 style="margin:0;font:800 22px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Punch, phone or wrist</h3>
         <p style="margin:0;font:500 16px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">One tap when you start, one when you stop. Forgot one? Edit any punch in seconds.</p>
       </div>
-      <div style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div data-reveal data-card style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px">
         <span style="font:800 40px 'Archivo',sans-serif;letter-spacing:-.03em;background:linear-gradient(120deg,#16C8D6,#5B4DF2);-webkit-background-clip:text;background-clip:text;color:transparent">3</span>
         <h3 style="margin:0;font:800 22px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Check your payslip</h3>
         <p style="margin:0;font:500 16px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">Month report with every shift and formula. Export CSV whenever you want.</p>
@@ -595,21 +600,30 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
 </div>
 
 <!-- ═══════════ 06 — PRICE / FINAL CTA ═══════════ -->
-<div id="price" data-screen-label="06 Price" style="position:relative;background:#FBFAFE;padding:60px 56px 140px;scroll-margin-top:20px;overflow:hidden">
+<div id="price" data-screen-label="06 Price" style="position:relative;background:#FBFAFE;padding:110px 56px 140px;scroll-margin-top:20px;overflow:hidden">
   <div id="get" style="position:relative;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;scroll-margin-top:20px">
     <svg viewBox="0 0 900 120" width="min(900px,100%)" height="120" preserveAspectRatio="xMidYMid meet" style="overflow:visible"><path d="M0 90 C 180 30, 320 110, 470 60 S 740 10, 900 50" fill="none" stroke="url(#cta)" stroke-width="16" stroke-linecap="round" opacity=".55"></path><defs><linearGradient id="cta" x1="0" y1="120" x2="900" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#5B4DF2"></stop></linearGradient></defs></svg>
     <h2 style="margin:0;font:900 clamp(52px,6.4vw,96px)/1 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530">$3. Once<span style="color:#5B4DF2">.</span></h2>
     <p style="margin:0;max-width:460px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">No subscription, no account, no ads. Next payday, know the number.</p>
     <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 18px 'Archivo',sans-serif;padding:19px 36px;border-radius:999px;box-shadow:0 16px 34px rgba(24,21,48,.24)" style-hover="background:#4133C8;color:#fff">
-      <svg width="16" height="18" viewBox="0 0 15 17" fill="none"><path d="M1 1.6c0-.9 1-1.5 1.8-1L13.6 7c.8.5.8 1.7 0 2.2L2.8 15.4c-.8.5-1.8-.1-1.8-1V1.6z" fill="url(#playg2)"></path><defs><linearGradient id="playg2" x1="0" y1="0" x2="15" y2="17"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#7C5CF6"></stop></linearGradient></defs></svg>
+      <img src="assets/google-play.svg" alt="" width="20" height="20" style="display:block">
       Get it on Google Play</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font:700 15px 'Archivo',sans-serif;color:#181530;padding:13px 24px;border-radius:999px;border:2px solid rgba(24,21,48,.18);background:#fff" style-hover="border-color:#4133C8;color:#4133C8">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.35-4.1-1L3 20l1.3-5.2A8.2 8.2 0 0 1 3.5 11.5 8.4 8.4 0 0 1 12 3.2a8.4 8.4 0 0 1 9 8.3Z"></path><path d="M9 9.8c.4 2.2 2.6 4.4 4.9 4.9l1.3-1.3 1.9 1-1 1.9c-3.8.4-8.6-4.4-8.2-8.2l1.9-1 1 1.9L9 9.8Z"></path></svg>
+        WhatsApp updates</a>
+      <a href="https://discord.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font:700 15px 'Archivo',sans-serif;color:#181530;padding:13px 24px;border-radius:999px;border:2px solid rgba(24,21,48,.18);background:#fff" style-hover="border-color:#4133C8;color:#4133C8">
+        <img src="assets/discord.svg" alt="" width="17" height="17" style="display:block;border-radius:5px">
+        Discord community</a>
+    </div>
     <span style="font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.45)">ANDROID + WEAR OS &nbsp;·&nbsp; ₪ / $ / € &nbsp;·&nbsp; OFFLINE-FIRST</span>
   </div>
 </div>
 
 <!-- footer -->
 <div data-footer style="background:#FBFAFE;border-top:1px solid rgba(24,21,48,.09);padding:30px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
-  <div style="display:flex;align-items:baseline;gap:9px">
+  <div style="display:flex;align-items:center;gap:9px">
+    <img src="assets/logo-mark.svg" alt="" width="20" height="20" style="display:block;border-radius:6px">
     <span style="font:800 17px 'Archivo',sans-serif;letter-spacing:-.03em;color:#181530">elmtrackr</span>
     <span style="width:26px;height:3px;border-radius:99px;background:linear-gradient(90deg,#5B4DF2,#16C8D6);display:inline-block"></span>
   </div>
@@ -617,8 +631,8 @@ a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
     <a href="#method" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">METHOD</a>
     <a href="#watch" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">WATCH</a>
     <a href="#price" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">PRICE</a>
-    <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">WHATSAPP</a>
-    <a href="https://discord.com" target="_blank" rel="noopener" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">DISCORD</a>
+    <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.35-4.1-1L3 20l1.3-5.2A8.2 8.2 0 0 1 3.5 11.5 8.4 8.4 0 0 1 12 3.2a8.4 8.4 0 0 1 9 8.3Z"></path></svg>WHATSAPP</a>
+    <a href="https://discord.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8"><img src="assets/discord.svg" alt="" width="13" height="13" style="display:block;border-radius:3px">DISCORD</a>
   </div>
   <span style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.35)">PAY FIGURES ARE ESTIMATES — YOUR PAYSLIP IS THE RECORD</span>
 </div></x-dc>
