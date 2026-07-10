@@ -300,6 +300,15 @@ html{scroll-behavior:smooth}
   div[data-screen-label^="Hero"] > div:nth-child(4){padding:0 20px 20px !important}
   div[data-screen-label]:not([data-screen-label^="Hero"]){padding:72px 18px !important}
   #method svg[width="340"], #method div[style*="width:340px"]{max-width:88vw}
+  /* rate chip: keep inside the viewport */
+  #method div[style*="right:-22px"]{right:6px !important}
+  /* data note: stack label above text */
+  div[data-screen-label="06 Method"] > div > div:nth-child(3){flex-direction:column !important;align-items:flex-start !important;gap:10px !important;padding:20px 22px !important}
+  /* price squiggle: remove svg letterboxing */
+  #get > svg{height:64px !important}
+  /* footer: stacked, tighter */
+  [data-footer]{flex-direction:column !important;align-items:flex-start !important;gap:18px !important;padding:26px 18px 34px !important}
+  [data-footer] > div:nth-child(2){gap:14px 20px !important}
 }
 </style>
 </helmet>
