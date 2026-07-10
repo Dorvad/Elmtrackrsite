@@ -1033,6 +1033,13 @@
     };
   }
 
+  // src/bundled.ts
+  function bundledBlob(url) {
+    const blobs = window.__resourceBlobs;
+    const b = blobs ? blobs[url.split("#")[0]] : void 0;
+    return b instanceof Blob ? b : null;
+  }
+
   // src/cdn.ts
   var REACT_URL = "https://unpkg.com/react@18.3.1/umd/react.production.min.js";
   var REACT_SRI = "sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z";
@@ -1094,9 +1101,13 @@
         kind === "jsx" ? ensureBabel() : Promise.resolve(),
         after ?? Promise.resolve()
       ]);
-      const p = ready.then(() => fetch(url)).then((r) => {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
+      const p = ready.then(() => {
+        const pre = bundledBlob(url);
+        if (pre) return pre.text();
+        return fetch(url).then((r) => {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.text();
+        });
       }).then((src) => {
         const code = kind === "jsx" ? window.Babel.transform(src, {
           filename: url,
@@ -1439,19 +1450,23 @@
       if (r.fetched) return;
       r.fetched = true;
       const url = COMPONENT_DIR + "/" + encodeURIComponent(name) + ".dc.html";
-      fetch(url).then((res) => {
-        if (!res.ok) {
+      const res = window.__resources;
+      const pre = res ? res[url] : void 0;
+      const target = typeof pre === "string" && pre ? pre : url;
+      const blob = bundledBlob(target);
+      (blob ? blob.text() : fetch(target).then((res2) => {
+        if (!res2.ok) {
           console.error(
             '[dc-runtime] sibling fetch for "' + name + '" failed:',
             url,
             "returned",
-            res.status,
+            res2.status,
             "\u2014 the reference renders as an empty placeholder."
           );
           return "";
         }
-        return res.text();
-      }).then((t) => {
+        return res2.text();
+      })).then((t) => {
         if (!t) return;
         const parsed = parseDcText(t);
         if (!parsed) {
