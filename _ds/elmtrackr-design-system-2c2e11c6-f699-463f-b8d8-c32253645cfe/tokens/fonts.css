@@ -1,17 +1,17 @@
 /* ============================================================
    Elmtrackr — Webfonts
-   Display: Bricolage Grotesque · Body/UI: Hanken Grotesk
+   Display & body: Montserrat · Accents/numerals: IBM Plex Mono
    Both served from Google Fonts. If you need offline binaries,
    swap these @import lines for local @font-face + .ttf files.
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  --au-font: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
-  --au-display: 'Bricolage Grotesque', 'Hanken Grotesk', sans-serif; /* @kind font */
+  --au-font: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --au-display: 'Montserrat', sans-serif; /* @kind font */
 
   /* Semantic aliases */
   --font-body: var(--au-font);
   --font-display: var(--au-display);
-  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
