@@ -285,8 +285,10 @@ html{scroll-behavior:smooth}
   #method > div:nth-child(2){grid-template-columns:1fr !important;gap:48px !important}
   div[data-screen-label="03 The estimate"] > div{grid-template-columns:1fr !important;gap:48px !important}
   #watch > div:nth-child(2){grid-template-columns:1fr !important;gap:56px !important}
-  div[data-screen-label="05 On every screen"] > div > div:nth-child(2){grid-template-columns:1fr !important}
-  div[data-screen-label="05 On every screen"] [data-span2]{grid-column:auto !important}
+  #widgets{height:auto !important}
+  #widgets > div{position:static !important;height:auto !important;overflow:visible !important;padding:0 !important}
+  #widgets > div > div:nth-child(2){height:auto !important;width:100% !important;max-width:460px;display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:28px !important}
+  #widgets > div > div:nth-child(2) > div{position:static !important;transform:none !important;opacity:1 !important;max-width:100%}
   div[data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
   [data-footer]{padding:26px 24px !important}
 }
@@ -316,6 +318,7 @@ html{scroll-behavior:smooth}
     </div>
     <div style="display:flex;align-items:center;gap:34px">
       <a href="#method" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">METHOD</a>
+      <a href="#widgets" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">WIDGETS</a>
       <a href="#watch" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">WATCH</a>
       <a href="#price" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">PRICE</a>
       <a href="#get" style="font:700 14px 'Archivo',sans-serif;color:#fff;background:#181530;padding:11px 22px;border-radius:999px" style-hover="background:#4133C8;color:#fff">Get the app</a>
@@ -546,23 +549,65 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- ═══════════ 05 — ON EVERY SCREEN ═══════════ -->
-<div data-screen-label="05 On every screen" style="background:#F3F1FB;padding:120px 56px">
-  <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:52px">
-    <div style="display:flex;flex-direction:column;gap:20px;max-width:640px">
-      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">05 — ON EVERY SCREEN</span>
-      <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Widgets, tiles, faces.</h2>
-      <p style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Punch from the home screen, glance at the tablet, read it off the watch. The reading follows you — live on every screen you own.</p>
+<!-- ═══════════ 05 — WIDGETS (scroll stage) ═══════════ -->
+<div id="widgets" data-screen-label="05 Widgets" ref="{{ stageRef }}" style="position:relative;height:260vh;background:#F3F1FB;scroll-margin-top:20px">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 56px">
+    <div style="text-align:center;max-width:640px;display:flex;flex-direction:column;gap:20px;align-items:center">
+      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">05 — WIDGETS</span>
+      <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Punch in from the home screen.</h2>
+      <p style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Quick punch in. Live progress. Three sizes that keep the shift one glance away — keep scrolling.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div data-reveal data-card data-span2 style="grid-column:1 / -1;border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
-        <img src="assets/render-widgets-tablet.jpg" alt="Elmtrackr widgets in three sizes on a tablet home screen" loading="lazy" style="display:block;width:100%;height:auto">
+    <!-- widget canvas -->
+    <div style="position:relative;width:min(980px,92vw);height:400px;margin-top:30px">
+      <!-- 1x1 -->
+      <div ref="{{ w0Ref }}" style="position:absolute;left:4%;top:6%;width:150px;height:150px;border-radius:30px;background:linear-gradient(135deg,#5B4DF2 0%,#7C5CF6 55%,#4A9BF5 115%);box-shadow:0 26px 50px rgba(91,77,242,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;will-change:transform,opacity">
+        <div style="position:relative;width:72px;height:72px">
+          <svg width="72" height="72" viewBox="0 0 72 72" style="transform:rotate(-90deg)"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="6"></circle><circle cx="36" cy="36" r="30" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="{{ ringProgress }} 1"></circle></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"></path></svg></div>
+        </div>
+        <span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#fff">PUNCH IN</span>
       </div>
-      <div data-reveal data-card style="border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
-        <img src="assets/render-watch-live.jpg" alt="Live shift progress on a Wear OS watch" loading="lazy" style="display:block;width:100%;height:auto">
+      <!-- 4x1 -->
+      <div ref="{{ w1Ref }}" style="position:absolute;right:2%;top:2%;width:440px;border-radius:26px;background:linear-gradient(118deg,#5B4DF2 0%,#7C5CF6 48%,#3FB7E8 110%);box-shadow:0 26px 50px rgba(91,77,242,.32);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;will-change:transform,opacity;box-sizing:border-box">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <img src="assets/logo-mark.svg" alt="" width="17" height="17" style="border-radius:5px;display:block">
+            <span style="font:700 13px 'Archivo',sans-serif;color:#fff">ElmTrackr</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.2);font:600 8.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff"><span style="width:5px;height:5px;border-radius:999px;background:#4ADE80;display:inline-block"></span>CLOCKED IN</span>
+          </div>
+          <div style="font:800 27px/1.15 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff;margin-top:4px">{{ clockHM }}<span style="font-size:16px;color:#9DEBF2">{{ clockS }}</span></div>
+          <div style="font:500 10.5px 'Archivo',sans-serif;color:rgba(255,255,255,.75);margin-top:1px">Since 08:57 · ₪ {{ paySoFar }} so far</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+          <div style="width:44px;height:44px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.2)"><span style="width:13px;height:13px;border-radius:4px;background:#5B4DF2;display:inline-block"></span></div>
+          <span style="font:600 8.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff">PUNCH OUT</span>
+        </div>
       </div>
-      <div data-reveal data-card style="border-radius:20px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.12);background:#fff">
-        <img src="assets/render-watch-glance.jpg" alt="Day-at-a-glance progress on a Wear OS watch" loading="lazy" style="display:block;width:100%;height:auto">
+      <!-- 4x2 -->
+      <div ref="{{ w2Ref }}" style="position:absolute;right:6%;bottom:0;width:480px;border-radius:30px;background:linear-gradient(128deg,#5B4DF2 0%,#7C5CF6 42%,#16C8D6 118%);box-shadow:0 32px 64px rgba(91,77,242,.36);padding:20px 22px;will-change:transform,opacity;box-sizing:border-box">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:8px"><img src="assets/logo-mark.svg" alt="" width="19" height="19" style="border-radius:6px;display:block"><span style="font:700 13.5px 'Archivo',sans-serif;color:#fff">ElmTrackr</span></div>
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.2);font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff"><span style="width:5px;height:5px;border-radius:999px;background:#4ADE80;display:inline-block"></span>CLOCKED IN</span>
+        </div>
+        <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(255,255,255,.75);margin-top:12px">ON SHIFT</div>
+        <div style="font:800 40px/1.05 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff">{{ clockHM }}<span style="font-size:22px;color:#9DEBF2">{{ clockS }}</span></div>
+        <div style="font:500 11.5px 'Archivo',sans-serif;color:rgba(255,255,255,.75);margin-top:2px">Since 08:57 · ₪ {{ paySoFar }} so far</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:11px 15px;border-radius:17px;background:rgba(255,255,255,.18)">
+          <span style="display:flex;align-items:center;gap:9px;color:#fff;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.08em"><span style="width:26px;height:26px;border-radius:999px;background:#fff;display:inline-flex;align-items:center;justify-content:center"><span style="width:9px;height:9px;border-radius:3px;background:#5B4DF2;display:inline-block"></span></span>PUNCH OUT</span>
+          <span style="font:500 11px 'Archivo',sans-serif;color:rgba(255,255,255,.75)">tap to end shift</span>
+        </div>
+      </div>
+      <!-- goal card -->
+      <div ref="{{ w3Ref }}" style="position:absolute;left:8%;bottom:6%;width:300px;border-radius:24px;background:#fff;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.14);padding:18px 20px;display:flex;align-items:center;gap:16px;will-change:transform,opacity;box-sizing:border-box">
+        <div style="position:relative;width:62px;height:62px;flex:none">
+          <svg width="62" height="62" viewBox="0 0 62 62" style="transform:rotate(-90deg)"><circle cx="31" cy="31" r="26" fill="none" stroke="#ECEBFA" stroke-width="6"></circle><circle cx="31" cy="31" r="26" fill="none" stroke="url(#wgoal)" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="{{ ringProgress }} 1"></circle><defs><linearGradient id="wgoal" x1="0" y1="0" x2="62" y2="62"><stop stop-color="#5B4DF2"></stop><stop offset="1" stop-color="#16C8D6"></stop></linearGradient></defs></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 13px 'Archivo',sans-serif;color:#181530">{{ goalPct }}</div>
+        </div>
+        <div>
+          <div style="font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.45)">DAILY GOAL</div>
+          <div style="font:800 21px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530;margin-top:1px">{{ goalHM }}</div>
+          <div style="font:500 11px 'Archivo',sans-serif;color:rgba(24,21,48,.55)">of 8h 00m goal</div>
+        </div>
       </div>
     </div>
   </div>
@@ -644,19 +689,56 @@ class Component extends DCLogic {
   state = { seconds: 2 * 3600 + 35 * 60 + 12 };
   componentDidMount() {
     this.timer = setInterval(() => this.setState(s => ({ seconds: s.seconds + 1 })), 1000);
+    this._reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this._reduce) {
+      [this.w0, this.w1, this.w2, this.w3].forEach(el => { if (el) { el.style.opacity = 1; } });
+    } else {
+      this._raf = requestAnimationFrame(this._stage);
+    }
   }
-  componentWillUnmount() { clearInterval(this.timer); }
+  componentWillUnmount() { clearInterval(this.timer); cancelAnimationFrame(this._raf); }
+  _stage = () => {
+    if (this.stageEl) {
+      const vh = window.innerHeight;
+      const r = this.stageEl.getBoundingClientRect();
+      const total = r.height - vh;
+      const p = Math.max(0, Math.min(1, -r.top / total));
+      const ease = t => 1 - Math.pow(1 - t, 3);
+      const specs = [
+        [this.w0, -420, 160, -22, 0.05],
+        [this.w1, 460, -180, 14, 0.22],
+        [this.w2, 380, 300, 10, 0.42],
+        [this.w3, -360, 260, -12, 0.62]
+      ];
+      for (const [el, dx, dy, rot, start] of specs) {
+        if (!el) continue;
+        const k = ease(Math.max(0, Math.min(1, (p - start) / 0.26)));
+        const inv = 1 - k;
+        el.style.opacity = k;
+        el.style.transform = 'translate(' + (dx * inv).toFixed(1) + 'px,' + (dy * inv).toFixed(1) + 'px) rotate(' + (rot * inv).toFixed(2) + 'deg) scale(' + (0.72 + 0.28 * k).toFixed(3) + ')';
+      }
+    }
+    this._raf = requestAnimationFrame(this._stage);
+  };
   renderVals() {
     const s = this.state.seconds;
     const pad = n => String(n).padStart(2, '0');
     const rate = 42;
+    const goal = 8 * 3600;
     return {
       showWatch: this.props.showWatch ?? true,
       playState: (this.props.floatMotion ?? true) ? 'running' : 'paused',
       clockHM: pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60),
       clockS: ':' + pad(s % 60),
       paySoFar: Math.floor(s / 3600 * rate).toLocaleString(),
-      ringProgress: Math.min((s / 3600) / 8, 1).toFixed(3)
+      ringProgress: Math.min(s / goal, 1).toFixed(3),
+      goalPct: Math.round(Math.min(s / goal, 1) * 100) + '%',
+      goalHM: Math.floor(s / 3600) + 'h ' + pad(Math.floor(s / 60) % 60) + 'm',
+      stageRef: el => { this.stageEl = el; },
+      w0Ref: el => { this.w0 = el; },
+      w1Ref: el => { this.w1 = el; },
+      w2Ref: el => { this.w2 = el; },
+      w3Ref: el => { this.w3 = el; }
     };
   }
 }
