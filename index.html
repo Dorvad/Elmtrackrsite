@@ -290,6 +290,7 @@ html{scroll-behavior:smooth}
   #widgets > div > div:nth-child(2){height:auto !important;width:100% !important;max-width:460px;display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:28px !important}
   #widgets > div > div:nth-child(2) > div{position:static !important;transform:none !important;opacity:1 !important;max-width:100%}
   div[data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
+  #film > div{grid-template-columns:1fr !important;gap:48px !important}
   [data-footer]{padding:26px 24px !important}
 }
 @media (max-width:640px){
@@ -329,6 +330,7 @@ html{scroll-behavior:smooth}
       <a href="#method" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">METHOD</a>
       <a href="#widgets" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">WIDGETS</a>
       <a href="#watch" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">WATCH</a>
+      <a href="#film" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">FILM</a>
       <a href="#price" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">PRICE</a>
       <a href="#get" style="font:700 14px 'Archivo',sans-serif;color:#fff;background:#181530;padding:11px 22px;border-radius:999px" style-hover="background:#4133C8;color:#fff">Get the app</a>
     </div>
@@ -653,6 +655,28 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
+<!-- ═══════════ 07 — THE FILM ═══════════ -->
+<div id="film" data-screen-label="07 The film" style="background:#F3F1FB;padding:130px 56px;scroll-margin-top:20px">
+  <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(300px,390px);gap:90px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px;max-width:520px">
+      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">07 — THE FILM</span>
+      <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">One minute. A month, measured.</h2>
+      <p style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">From the first punch to the month&#x27;s report — watch a shift get logged, premiums sort themselves and the estimate build, exactly as it happens in the app.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#4133C8;background:rgba(91,77,242,.07);border:1px solid rgba(91,77,242,.25);border-radius:6px;padding:7px 12px">64 SECONDS</span>
+        <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.5);border:1px solid rgba(24,21,48,.15);border-radius:6px;padding:7px 12px">PLAYS SILENT — TAP FOR SOUND</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div ref="{{ filmCardRef }}" style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#E9E6F8">
+        <video ref="{{ filmVideoRef }}" src="assets/elmtrackr-tour.mp4" poster="assets/tour-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+        <span ref="{{ filmChipRef }}" style="position:absolute;left:14px;bottom:18px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#181530;background:rgba(255,255,255,.88);border:1px solid rgba(24,21,48,.12);border-radius:999px;padding:8px 14px;pointer-events:none">TAP FOR SOUND</span>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(24,21,48,.12)"><div ref="{{ filmBarRef }}" style="height:100%;width:0%;background:linear-gradient(90deg,#5B4DF2,#16C8D6)"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════ 06 — PRICE / FINAL CTA ═══════════ -->
 <div id="price" data-screen-label="06 Price" style="position:relative;background:#FBFAFE;padding:110px 56px 140px;scroll-margin-top:20px;overflow:hidden">
   <div id="get" style="position:relative;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;scroll-margin-top:20px">
@@ -704,8 +728,35 @@ class Component extends DCLogic {
     } else {
       this._raf = requestAnimationFrame(this._stage);
     }
+    this._filmSetup();
   }
-  componentWillUnmount() { clearInterval(this.timer); cancelAnimationFrame(this._raf); }
+  componentWillUnmount() { clearInterval(this.timer); cancelAnimationFrame(this._raf); if (this._filmIO) this._filmIO.disconnect(); }
+  _filmSetup() {
+    const v = this.filmV, card = this.filmCard, chip = this.filmChip, bar = this.filmBar;
+    if (!v || !card || this._filmDone) return;
+    this._filmDone = true;
+    v.muted = true; v.loop = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+    v.addEventListener('timeupdate', () => {
+      if (bar && v.duration) bar.style.width = (v.currentTime / v.duration * 100).toFixed(2) + '%';
+    });
+    if (this._reduce) {
+      v.controls = true;
+      if (chip) chip.style.display = 'none';
+      return;
+    }
+    card.style.cursor = 'pointer';
+    this._filmIO = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) v.play().catch(() => { v.muted = true; v.play().catch(() => {}); });
+      else v.pause();
+    }), { threshold: 0.35 });
+    this._filmIO.observe(card);
+    card.addEventListener('click', () => {
+      if (v.paused) v.play().catch(() => {});
+      v.muted = !v.muted;
+      if (chip) chip.textContent = v.muted ? 'TAP FOR SOUND' : 'SOUND ON — TAP TO MUTE';
+    });
+  }
   _stage = () => {
     if (this.stageEl) {
       const vh = window.innerHeight;
@@ -744,6 +795,10 @@ class Component extends DCLogic {
       goalPct: Math.round(Math.min(s / goal, 1) * 100) + '%',
       goalHM: Math.floor(s / 3600) + 'h ' + pad(Math.floor(s / 60) % 60) + 'm',
       stageRef: el => { this.stageEl = el; },
+      filmVideoRef: el => { if (el) this.filmV = el; },
+      filmCardRef: el => { if (el) this.filmCard = el; },
+      filmChipRef: el => { if (el) this.filmChip = el; },
+      filmBarRef: el => { if (el) this.filmBar = el; },
       w0Ref: el => { this.w0 = el; },
       w1Ref: el => { this.w1 = el; },
       w2Ref: el => { this.w2 = el; },
