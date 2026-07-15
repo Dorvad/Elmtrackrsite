@@ -330,6 +330,7 @@ html{scroll-behavior:smooth}
 /* ── responsive (layout styles are inline → !important) ── */
 @media (max-width:1020px){
   nav > div:nth-child(2) > a:not(:last-child){display:none}
+  nav > div:nth-child(2) > a:first-child{display:inline-block !important}
   div[data-screen-label^="Hero"] > div:nth-child(3){flex-direction:column !important;padding:0 24px !important;gap:10px !important}
   div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(1){padding:24px 0 14px !important;flex:none !important}
   div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(1) > div:nth-child(3){flex-wrap:wrap}
@@ -350,20 +351,33 @@ html{scroll-behavior:smooth}
 @media (max-width:640px){
   nav{padding:18px 18px !important}
   div[data-screen-label^="Hero"] h1{font-size:clamp(46px,12.5vw,64px) !important}
-  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2){min-height:680px !important}
+  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2){min-height:0 !important;height:680px;zoom:.7}
   div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2) > div:last-child{display:none !important}
   div[data-screen-label^="Hero"] > div:nth-child(4){padding:0 20px 20px !important}
   div[data-screen-label]:not([data-screen-label^="Hero"]){padding:72px 18px !important}
   #method svg[width="340"], #method div[style*="width:340px"]{max-width:88vw}
+  #method [data-reveal] > div:first-child > div > div:last-child{right:6px !important}
+  div[data-screen-label="02 Where minutes land"] > div > div:nth-child(2) > div:first-child > div > span{font-size:16px !important}
+  div[data-screen-label="02 Where minutes land"] > div > div:nth-child(2) > div:first-child > div{padding-inline-start:14px !important}
+  div[data-screen-label="03 The estimate"] > div > div:last-child > div:first-child > span:first-child{font-size:34px !important;white-space:nowrap}
+  nav > div:nth-child(1) > span:last-child{display:none}
+  nav{padding:18px 12px !important}
+  nav > div:nth-child(2){gap:10px !important}
+  nav > div:nth-child(2) > a:last-child{white-space:nowrap;padding:9px 12px !important;font-size:13px !important}
+  nav > div:nth-child(1){gap:8px !important}
+  nav > div:nth-child(2) > a:first-child{letter-spacing:.05em !important;font-size:11px !important}
   /* rate chip: keep inside the viewport */
   #method div[style*="right:-22px"]{right:6px !important}
   /* data note: stack label above text */
   div[data-screen-label="06 Method"] > div > div:nth-child(3){flex-direction:column !important;align-items:flex-start !important;gap:10px !important;padding:20px 22px !important}
   /* price squiggle: remove svg letterboxing */
-  #get > svg{height:64px !important}
+  #get > svg{height:auto !important}
   /* footer: stacked, tighter */
   [data-footer]{flex-direction:column !important;align-items:flex-start !important;gap:18px !important;padding:26px 18px 34px !important}
   [data-footer] > div:nth-child(2){gap:14px 20px !important}
+}
+@media (max-width:384px){
+  nav > div:nth-child(2) > a:first-child{display:none !important}
 }
 </style>
 </helmet>
