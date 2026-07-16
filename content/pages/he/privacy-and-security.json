@@ -16,6 +16,13 @@
       ]
     },
     {
+      "h2": "כיצד הנתונים זורמים",
+      "blocks": [
+        {"p": "במבט מהיר — היכן הנתונים נמצאים והמקרים היחידים שבהם הם יוצאים מהמכשיר:"},
+        {"html": "<figure class='cp-figure' style='display:block'><div style='display:flex;flex-wrap:wrap;gap:12px;align-items:stretch'><div style='flex:1 1 240px;background:#F3F1FB;border:1px solid rgba(24,21,48,.1);border-radius:14px;padding:16px 18px'><strong style='display:block;margin-bottom:6px'>במכשיר שלכם</strong><span style='display:block;font-size:14px;line-height:1.6;color:rgba(24,21,48,.66)'>מסד נתונים מקומי מוצפן (<span class='ltr'>Room</span> + <span class='ltr'>SQLCipher</span>), תמונות קבלה, וזיהוי טקסט במכשיר. עובד לא מקוון, ללא צורך בחשבון.</span></div><div style='flex:1 1 240px;background:#fff;border:1px dashed rgba(24,21,48,.25);border-radius:14px;padding:16px 18px'><strong style='display:block;margin-bottom:6px'>הענן של Elmtrackr — רק אם מתחברים ומפעילים סנכרון</strong><span style='display:block;font-size:14px;line-height:1.6;color:rgba(24,21,48,.66)'>מסד נתונים ואחסון ב־<span class='ltr'>Supabase</span> מחזיקים את הנתונים המסונכרנים של החשבון: משמרות, כללים, משימות, תביעות ותמונות קבלה.</span></div></div><div style='display:flex;flex-wrap:wrap;gap:12px;margin-top:12px'><div style='flex:1 1 240px;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.6;color:rgba(24,21,48,.66)'>דיווחי קריסות אופציונליים נשלחים ל־<span class='ltr'>Sentry</span> — רק אם הופעלו.</div><div style='flex:1 1 240px;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.6;color:rgba(24,21,48,.66)'>בנפרד מהאפליקציה: ה<strong>אתר</strong> מציג פרסומות <span class='ltr'>Google AdSense</span>. ל<strong>אפליקציה</strong> אין פרסומות.</div></div><figcaption>זרימת נתונים: נתוני העבודה שלכם נוצרים ונשמרים במסד נתונים מוצפן במכשיר ועובדים לא מקוון. רק כשמתחברים ומפעילים סנכרון, הנתונים של החשבון עוברים לענן של Elmtrackr ב־Supabase. דיווחי קריסות אופציונליים נשלחים ל־Sentry רק אם הפעלתם אותם. בנפרד, אתר elmtrackr.site מציג פרסומות Google AdSense; לאפליקציה עצמה אין פרסומות.</figcaption></figure>"}
+      ]
+    },
+    {
       "h2": "מסד הנתונים המקומי מוצפן",
       "blocks": [
         {"p": "מסד הנתונים המקומי מוצפן באמצעות <span class='ltr'>SQLCipher</span>, עם מפתח הצפנה שנוצר ונשמר במכשיר. אם קיים מסד נתונים ישן ולא מוצפן מגרסה קודמת, הוא מהוגר אל המוצפן. הכוונה היא שהנתונים הגולמיים על הכונן אינם קריאים כטקסט רגיל."}
@@ -49,7 +56,8 @@
       "h2": "מחיקת הנתונים שלכם",
       "blocks": [
         {"p": "אפשר למחוק את החשבון ואת הנתונים שלו מתוך האפליקציה. הסרת ההתקנה מוחקת את האפליקציה ואת הנתונים שנשמרו באותו מכשיר. אם השתמשתם בסנכרון בענן, מחיקת החשבון מתוך האפליקציה היא הדרך להסיר את הנתונים המסונכרנים של החשבון."},
-        {"note": {"label": "על העמוד הזה", "html": "זו סקירה מסבירה של אופן הטיפול בנתונים ב־Elmtrackr. זהו אינו המסמך המשפטי — ראו את <a href='/privacy.html'>מדיניות הפרטיות</a> לתנאים הרשמיים."}}
+        {"p": "כדי למחוק את החשבון והנתונים, פעלו לפי השלבים ב<a href='/he/delete-account/'>עמוד מחיקת החשבון</a>."},
+        {"note": {"label": "אפליקציה מול אתר", "html": "העמוד הזה עוסק ב<strong>אפליקציה</strong>, שאין בה פרסום ואין בה ערכות ניתוח (analytics) של צד שלישי. אתר elmtrackr.site שאתם קוראים הוא אתר שיווקי נפרד שכן מציג פרסומות <span class='ltr'>Google AdSense</span>. <a href='/privacy.html'>מדיניות הפרטיות</a> המלאה מכסה את שניהם, ואפשר למחוק את הנתונים בעמוד <a href='/he/delete-account/'>מחיקת החשבון</a>."}}
       ]
     }
   ],
@@ -72,7 +80,8 @@
   "related": [
     {"href": "/he/shift-tracker-android/", "label": "מעקב משמרות לאנדרואיד", "desc": "המעקב המקומי־קודם שההגנות האלה חלות עליו."},
     {"href": "/he/wear-os-shift-tracker/", "label": "מעקב משמרות ב־Wear OS", "desc": "כיצד השעון והחשבון משתלבים בסנכרון."},
-    {"href": "/he/receipt-expense-tracker/", "label": "קבלות והחזרים", "desc": "היכן נשמרות תמונות הקבלה והיכן הן מועלות."}
+    {"href": "/he/receipt-expense-tracker/", "label": "קבלות והחזרים", "desc": "היכן נשמרות תמונות הקבלה והיכן הן מועלות."},
+    {"href": "/he/delete-account/", "label": "מחיקת חשבון", "desc": "מה בדיוק מסירים מחיקה או הסרת התקנה."}
   ],
   "cta": {
     "h2": "הנתונים שלכם, בתנאים שלכם",

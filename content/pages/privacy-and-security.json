@@ -18,6 +18,13 @@
       ]
     },
     {
+      "h2": "How your data flows",
+      "blocks": [
+        {"p": "At a glance — where your data lives and the only times it leaves the device:"},
+        {"html": "<figure class='cp-figure' style='display:block'><div style='display:flex;flex-wrap:wrap;gap:12px;align-items:stretch'><div style='flex:1 1 240px;background:#F3F1FB;border:1px solid rgba(24,21,48,.1);border-radius:14px;padding:16px 18px'><strong style='display:block;margin-bottom:6px'>On your device</strong><span style='display:block;font-size:14px;line-height:1.5;color:rgba(24,21,48,.66)'>Encrypted local database (Room + SQLCipher), receipt images, and on-device OCR. Works offline, no account needed.</span></div><div style='flex:1 1 240px;background:#fff;border:1px dashed rgba(24,21,48,.25);border-radius:14px;padding:16px 18px'><strong style='display:block;margin-bottom:6px'>Elmtrackr cloud — only if you sign in &amp; enable sync</strong><span style='display:block;font-size:14px;line-height:1.5;color:rgba(24,21,48,.66)'>Supabase database + storage holds your account&#39;s synced data: shifts, rules, tasks, claims and receipt images.</span></div></div><div style='display:flex;flex-wrap:wrap;gap:12px;margin-top:12px'><div style='flex:1 1 240px;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.5;color:rgba(24,21,48,.66)'>Optional crash reports go to <strong>Sentry</strong> — only if enabled.</div><div style='flex:1 1 240px;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.5;color:rgba(24,21,48,.66)'>Separate from the app: the <strong>website</strong> shows Google AdSense. The <strong>app</strong> has no ads.</div></div><figcaption>Data flow: your work data is created and stored in an encrypted database on your device and works offline. Only when you sign in and enable sync does your account&#39;s data go to Elmtrackr&#39;s cloud on Supabase. Optional crash reports go to Sentry only if you enable them. Separately, the elmtrackr.site website shows Google AdSense advertising; the app itself contains no ads.</figcaption></figure>"}
+      ]
+    },
+    {
       "h2": "The local database is encrypted",
       "blocks": [
         {
@@ -64,9 +71,12 @@
           "p": "You can delete your account and its data from within the app. Uninstalling the app removes it and the data held on that device. If you have used cloud sync, in-app account deletion is how you remove the account's synced data."
         },
         {
+          "p": "To delete your account and data, follow the steps on the <a href='/delete-account/'>account-deletion page</a>."
+        },
+        {
           "note": {
-            "label": "About this page",
-            "html": "This is an educational overview of how Elmtrackr handles data. It is not the legal document — see the <a href='/privacy.html'>privacy policy</a> for the formal terms."
+            "label": "App vs website",
+            "html": "This page is about the <strong>app</strong>, which has no advertising and no third-party analytics SDKs. The elmtrackr.site <strong>website</strong> you are reading is a separate marketing site that does show Google AdSense. The full <a href='/privacy.html'>privacy policy</a> covers both, and you can delete your data from the <a href='/delete-account/'>account-deletion page</a>."
           }
         }
       ]
@@ -118,6 +128,11 @@
       "href": "/receipt-expense-tracker/",
       "label": "Receipts & reimbursements",
       "desc": "Where receipt images are stored and uploaded."
+    },
+    {
+      "href": "/delete-account/",
+      "label": "Delete account",
+      "desc": "Exactly what deleting or uninstalling removes."
     }
   ],
   "cta": {

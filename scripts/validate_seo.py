@@ -366,23 +366,28 @@ def check_play_link_consistency(rep: Report, manifest: dict) -> None:
     with open(idx, encoding="utf-8") as fh:
         html = fh.read()
 
-    # Every play.google.com link on the page must be the one canonical URL
-    # (with &amp; entity-encoded as it appears in HTML).
-    canonical_html = canonical_url.replace("&", "&amp;")
+    # Every Play link must reach the verified package listing and carry the
+    # constant campaign source/medium. utm_campaign / utm_content are allowed
+    # to differ per CTA (see docs/seo/analytics.md) — the destination listing
+    # is unchanged, so this stays a single canonical destination.
     play_links = re.findall(r'href="([^"]*play\.google\.com[^"]*)"', html)
     if not play_links:
         rep.warn("no Play Store links found on index.html")
-    bad = [u for u in play_links if u != canonical_html]
-    if bad:
-        rep.fail(f"non-canonical Play link(s): {bad}")
-    else:
-        rep.ok(f"all {len(play_links)} Play link(s) use the one canonical URL")
-
     generic = [u for u in play_links if "/store/apps/details" not in u]
     if generic:
         rep.fail(f"generic play.google.com destination still present: {generic}")
     else:
         rep.ok("no generic play.google.com home-page links remain")
+
+    def ok_params(u):
+        return (app_id in u
+                and "utm_source%3Delmtrackr.site" in u
+                and "utm_medium%3Dwebsite" in u)
+    bad = [u for u in play_links if not ok_params(u)]
+    if bad:
+        rep.fail(f"Play link(s) missing verified id / utm_source / utm_medium: {bad}")
+    else:
+        rep.ok(f"all {len(play_links)} Play link(s) reach the verified listing with consistent source/medium")
 
     if app_id and app_id not in canonical_url:
         rep.fail("manifest play_store.url does not contain the verified application_id")

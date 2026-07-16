@@ -430,3 +430,65 @@ readers and slow connections. Full inventory in `docs/seo/media-audit.md`.
 All changes are static-file edits deployed via GitHub Pages. Every phase is revertible by
 `git revert` of its commit; Pages redeploys the prior state on the next push to the canonical
 branch. Keep each phase in its own commit/PR to preserve granular rollback.
+
+---
+
+## Delivered — Legal & trust accuracy (Phase A)
+
+- **Goal:** make legal/trust content accurately distinguish the Android/Wear OS
+  app from the marketing website, without fabricating claims or giving legal advice.
+- **What shipped:**
+  - `privacy.html` rewritten into clearly separated **App data** vs **Website
+    data** sections. App section describes SQLCipher as local-database encryption
+    **at rest** (not end-to-end), on-device OCR (Latin + Hebrew, not perfect),
+    optional Supabase sync, optional Sentry, and in-app deletion. Website section
+    discloses **Google AdSense** honestly (cookies/storage/IP + Google policy
+    links) and states there is no first-party analytics product and no
+    first-party cookies. "Last updated: July 16, 2026." Kept
+    `noindex, follow` as a documented decision (HTML comment).
+  - `/delete-account/` and `/he/delete-account/` created: in-app deletion path
+    (Settings → Account → Delete account), cloud vs local data, uninstall
+    behavior, help via `support@elmtrackr.site`. Explicitly states there is **no**
+    web deletion form.
+  - Data-flow diagram added to the educational `/privacy-and-security/` page (and
+    Hebrew), with a `figcaption` text equivalent for accessibility.
+  - Footer (en + he, homepage + content pages) links Privacy Policy, Terms,
+    Privacy & security, and Delete account; contact email published.
+- **Consent:** no banner invented. EEA/UK AdSense consent is documented as a
+  blocker requiring a product/legal decision.
+- **Deliverables:** `docs/seo/privacy-data-inventory.md` (inventory + human
+  legal-review list).
+- **Files:** `privacy.html`, `terms.html`, `content/pages/delete-account.json`
+  (+ he), `content/pages/privacy-and-security.json` (+ he), `templates/footer*.html`,
+  `index.html`, `he/index.html`, `scripts/seo_manifest.json`.
+- **Human review required:** see the review list in `docs/seo/privacy-data-inventory.md`.
+
+## Delivered — Vendor-neutral analytics (Phase B)
+
+- **Goal:** measure SEO / AI-search acquisition without silently adding an
+  analytics provider or collecting personal data.
+- **What shipped:**
+  - `assets/analytics.js`: `window.trackElmEvent(name, properties)`. Forwards to
+    an already-configured `gtag`/`dataLayer`, else no-ops. Never throws, never
+    blocks navigation, embeds no GA property ID, respects
+    `window.__elmtrackrConsent`, strips PII (drops values >100 chars or
+    containing `@`/`http`), and only forwards an allow-listed property set.
+  - Referrer classified to a category (chatgpt/copilot/perplexity/bing/google/
+    social/internal/direct/other) from hostname only; raw referrer never sent.
+  - Session-scoped inbound UTM capture (consent + storage permitting).
+  - Play Store CTAs differentiated by `utm_campaign` (homepage/product/guide) and
+    `utm_content` (hero/price/header/article) while keeping one canonical listing.
+  - Events wired via delegation (click + auxclick, once per activation): Play
+    clicks, video milestones (once per load), language switch, WhatsApp, Discord,
+    FAQ expand, guide/product CTA.
+- **Deliverables:** `docs/seo/analytics.md` (event dictionary, property/privacy
+  definitions, referral rules, Play UTM scheme, GA reports, how to identify
+  chatgpt.com traffic, how to compare Play clicks by page/language, vendor
+  connection steps).
+- **QA:** links still navigate; middle-click + keyboard work; no duplicate
+  events; video milestones fire once; no errors when a provider is absent; no
+  PII; consent respected. Validated via Node harness against the module and its
+  DOM wiring.
+- **Files:** `assets/analytics.js`, `docs/seo/analytics.md`, `index.html`,
+  `he/index.html`, `templates/header*.html`, `templates/page.html`,
+  `scripts/build_content_pages.py`, `scripts/validate_seo.py`.

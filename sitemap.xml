@@ -196,4 +196,18 @@
     <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-review-work-hours-against-a-payslip/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-review-work-hours-against-a-payslip/"/>
   </url>
+  <url>
+    <loc>https://elmtrackr.site/delete-account/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/delete-account/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/delete-account/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/delete-account/"/>
+  </url>
 </urlset>

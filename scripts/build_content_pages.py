@@ -93,6 +93,20 @@ def read_template(name: str) -> str:
         return fh.read()
 
 
+def play_url(manifest, campaign, content):
+    """Play Store URL with differentiated campaign params (utm_source/medium
+    constant; utm_campaign = page category, utm_content = CTA location) carried
+    in Play's install `referrer`. Destination listing is unchanged."""
+    base = manifest["play_store"]["url"].split("&referrer=")[0]
+    ref = ("utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite"
+           "%26utm_campaign%3D" + campaign + "%26utm_content%3D" + content)
+    return base + "&referrer=" + ref
+
+
+def page_category(slug):
+    return "guide" if (slug == "guides" or slug.startswith("guides/")) else "product"
+
+
 # ── block renderers ─────────────────────────────────────────────────────────
 
 def render_blocks(blocks: list) -> str:
@@ -116,6 +130,8 @@ def render_blocks(blocks: list) -> str:
             out.append(render_example(b["example"]))
         elif "img" in b:
             out.append(render_figure(b["img"]))
+        elif "html" in b:
+            out.append(b["html"])  # trusted, author-written HTML (e.g. a diagram figure)
         else:
             raise ValueError(f"unknown block type: {list(b)}")
     return "\n".join(out)
@@ -218,12 +234,13 @@ def render_related(related: list, strings: dict) -> str:
     )
 
 
-def render_cta(cta: dict, play_url: str, strings: dict) -> str:
+def render_cta(cta: dict, play_href: str, strings: dict, event: str) -> str:
     return (
         '<section class="cp-cta">'
         f'<h2>{esc(cta["h2"])}</h2><p>{esc(cta["p"])}</p>'
         '<div class="cp-cta-actions">'
-        f'<a class="cp-btn-primary" href="{esc(play_url)}" target="_blank" rel="noopener" '
+        f'<a class="cp-btn-primary" href="{esc(play_href)}" target="_blank" rel="noopener" '
+        f'data-elm-event="{event}" data-elm-cta="article" data-elm-dest="play_store" '
         f'aria-label="{esc(strings["cta_aria"])}">{esc(strings["cta_primary"])}</a>'
         f'<a class="cp-btn-secondary" href="{strings["home_href"]}">{esc(strings["cta_back"])}</a>'
         "</div></section>"
@@ -303,7 +320,7 @@ def strip_tags(s: str) -> str:
 
 # ── page assembly ─────────────────────────────────────────────────────────────
 
-def build_article(page, play_url, og, strings) -> str:
+def build_article(page, play_href, og, strings, cta_event) -> str:
     parts = []
     if page.get("hero_eyebrow"):
         parts.append(f'<p class="cp-eyebrow">{esc(page["hero_eyebrow"])}</p>')
@@ -326,7 +343,7 @@ def build_article(page, play_url, og, strings) -> str:
         )
     parts.append(render_related(page.get("related"), strings))
     if page.get("cta"):
-        parts.append(render_cta(page["cta"], play_url, strings))
+        parts.append(render_cta(page["cta"], play_href, strings, cta_event))
     return "\n".join(p for p in parts if p)
 
 
@@ -344,14 +361,18 @@ def lang_switch_anchor(target_url, loc) -> str:
     strings = LOCALES[loc]
     return (
         f'<a class="cp-lang-switch" href="{target_url}" hreflang="{other}" lang="{other}" '
+        f'data-elm-event="language_switch" data-elm-cta="header" data-elm-to="{other}" '
         f'aria-label="{esc(strings["switch_aria"])}">{esc(strings["switch_label"])}</a>'
     )
 
 
 def render_page(page, manifest, page_tpl, header_raw, footer, loc):
     site_url = manifest["site_url"].rstrip("/")
-    play_url = manifest["play_store"]["url"]
     slug = page["slug"]
+    category = page_category(slug)
+    header_play = play_url(manifest, category, "header")
+    article_play = play_url(manifest, category, "article")
+    cta_event = "guide_cta_click" if category == "guide" else "product_page_cta_click"
     strings = dict(LOCALES[loc])
 
     en_canonical = f"{site_url}/{slug}/"
@@ -365,9 +386,9 @@ def render_page(page, manifest, page_tpl, header_raw, footer, loc):
         og.update(page["og_image"])
     og_abs = site_url + og["src"] if og["src"].startswith("/") else og["src"]
 
-    article = build_article(page, play_url, og, strings)
+    article = build_article(page, article_play, og, strings, cta_event)
     jsonld = build_jsonld(page, canonical, site_url, og, loc, strings)
-    header = header_raw.replace("{{PLAY_URL}}", play_url).replace(
+    header = header_raw.replace("{{PLAY_URL}}", header_play).replace(
         "{{LANG_SWITCH}}", lang_switch_anchor(counterpart, loc))
 
     subs = {
