@@ -1,0 +1,145 @@
+name: CI — build & audit
+
+# Quality gate for the marketing site. Runs on every pull request and on pushes
+# to the deployment branch. It must pass before a change can ship. No secrets
+# are used or required.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node (for JS syntax check)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generated output is up to date (deterministic build)
+        # Rebuilds content pages + sitemap and fails if they differ from what
+        # is committed — so no one can forget to regenerate.
+        run: make check-clean
+
+      - name: Validate metadata, structured data, locales, media, static source
+        run: make validate
+
+      - name: Comprehensive site audit (links, canonicals, hreflang, a11y, schema)
+        run: make audit
+
+      - name: Validate sitemap XML is well-formed
+        run: |
+          python3 - <<'PY'
+          import xml.dom.minidom, sys
+          try:
+              xml.dom.minidom.parse("sitemap.xml")
+              print("sitemap.xml is well-formed XML")
+          except Exception as exc:
+              print("sitemap.xml is not valid XML:", exc); sys.exit(1)
+          PY
+
+      - name: Parse every JSON-LD block on every page
+        run: |
+          python3 - <<'PY'
+          import json, re, sys, os
+          bad = 0
+          for root, _d, files in os.walk("."):
+              if any(s in root for s in ("/.git", "/templates", "/_ds", "/node_modules", "/scripts", "/_site")):
+                  continue
+              for f in files:
+                  if not f.endswith(".html"):
+                      continue
+                  p = os.path.join(root, f)
+                  html = open(p, encoding="utf-8").read()
+                  for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+                      try:
+                          json.loads(block)
+                      except json.JSONDecodeError as exc:
+                          print(f"INVALID JSON-LD in {p}: {exc}"); bad += 1
+          print("JSON-LD parse:", "FAIL" if bad else "PASS", f"({bad} invalid block(s))")
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Test JavaScript syntax
+        run: |
+          set -e
+          for f in assets/*.js support.js; do
+            if [ -f "$f" ]; then
+              echo "node --check $f"
+              node --check "$f"
+            fi
+          done
+
+      - name: Fail on any unresolved template placeholder in shipped HTML
+        run: |
+          if grep -RIl --include='*.html' -e '{{' \
+               --exclude-dir=templates --exclude-dir=_site . ; then
+            echo "ERROR: unresolved '{{' template token found in shipped HTML"; exit 1
+          fi
+          echo "no unresolved template placeholders"
+
+      - name: Assemble final static site
+        run: make dist
+
+      - name: Upload audit report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-audit-report
+          path: _reports/
+          if-no-files-found: warn
+
+  lighthouse:
+    # Optional. Performance/a11y/SEO budgets via Lighthouse CI. Never blocks the
+    # gate — informational only — because it depends on a headless Chrome that
+    # may not be available on every runner.
+    runs-on: ubuntu-latest
+    needs: build-and-audit
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Assemble final static site
+        run: make dist
+
+      - name: Run Lighthouse CI (best effort)
+        run: |
+          npx --yes @lhci/cli@0.13.x autorun || \
+            echo "Lighthouse CI unavailable on this runner — skipping (non-blocking)."
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: _reports/lighthouse/
+          if-no-files-found: ignore
