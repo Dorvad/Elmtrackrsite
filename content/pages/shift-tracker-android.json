@@ -1,0 +1,162 @@
+{
+  "slug": "shift-tracker-android",
+  "title": "Android Shift Tracker — Timer & Widgets | Elmtrackr",
+  "og_title": "Android Shift Tracker with Widgets and Offline Storage",
+  "description": "Elmtrackr is an Android shift tracker: clock in and out, run a live shift timer, add or correct past shifts, use home-screen widgets, and keep data offline.",
+  "h1": "Android shift tracker",
+  "breadcrumb": "Android shift tracker",
+  "hero_eyebrow": "Shift tracking",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr is a shift tracker for Android phones and tablets. Clock in and out with one tap, watch a live timer count the shift as it runs, and let each shift file itself with the hours recorded. Everything is written to your device first, so tracking keeps working even with no connection.",
+  "image": {
+    "src": "/assets/app-screenshot.jpg",
+    "alt": "Elmtrackr Android home screen showing an active shift with elapsed time, estimated gross and recent shifts.",
+    "w": 720,
+    "h": 1600,
+    "caption": "The home screen keeps the running shift, the hours distribution and recent shifts in one view."
+  },
+  "sections": [
+    {
+      "h2": "Clock in and out from anywhere",
+      "blocks": [
+        {
+          "p": "A shift starts with a single tap. You can clock in and out from the app itself, a home-screen widget, the ongoing notification, an app shortcut, or a paired Wear OS watch — so you are never more than one action away from starting the record. When you punch out, the shift is filed with its hours."
+        },
+        {
+          "note": {
+            "label": "Privacy trade-off",
+            "html": "If you enable the biometric app lock, clock actions triggered from the widget, notification or watch are held until you unlock the app. It is a deliberate choice between one-tap convenience and keeping your record private on a shared device."
+          }
+        }
+      ]
+    },
+    {
+      "h2": "The active-shift timer",
+      "blocks": [
+        {
+          "p": "While a shift runs, Elmtrackr keeps a live reading: the elapsed time, the pay rate that applies at that moment, and an estimated gross counted so far. An ongoing notification shows the running shift without opening the app, and optional overtime reminders can nudge you as a long shift crosses the thresholds you set."
+        },
+        {
+          "p": "For example, if you clock in at 09:00 on a regular rate and keep working past your daily overtime threshold, the timer keeps counting and the rate shown updates when the overtime tier begins — you can see the change happen rather than working it out later."
+        }
+      ]
+    },
+    {
+      "h2": "Add past shifts and correct mistakes",
+      "blocks": [
+        {
+          "p": "Forgot to punch, or need to fix a reading? You can add a shift after the fact and edit an existing one — adjust its start, end or rate. A correction recalculates the estimate straight away, so the record stays consistent with what actually happened."
+        }
+      ]
+    },
+    {
+      "h2": "Record what the time went on",
+      "blocks": [
+        {
+          "p": "You can attach tasks to a shift to capture what you were doing, with suggestions drawn from your own habits. The task detail is stored on the shift, and monthly reports can break your hours down by task. See <a href='/task-time-tracking/'>task time tracking</a> for how that works."
+        }
+      ]
+    },
+    {
+      "h2": "Home-screen widgets",
+      "blocks": [
+        {
+          "p": "Elmtrackr ships five home-screen widgets in 1×1, 4×1 and 4×2 sizes — from a single punch-in button to a live progress view — so the shift stays one glance away without opening the app."
+        },
+        {
+          "img": {
+            "src": "/assets/render-widgets-tablet.jpg",
+            "alt": "Several Elmtrackr home-screen widgets shown on an Android tablet, including a punch-in button and a live progress widget.",
+            "w": 1400,
+            "h": 933,
+            "caption": "Widgets in 1×1, 4×1 and 4×2 sizes, shown on a tablet home screen."
+          }
+        }
+      ]
+    },
+    {
+      "h2": "Runs on Android phones and tablets",
+      "blocks": [
+        {
+          "p": "The app requires Android 8.0 or newer and runs on both phones and tablets. A separate companion runs on Wear OS 3 and newer watches — see <a href='/wear-os-shift-tracker/'>the Wear OS shift tracker</a>."
+        }
+      ]
+    },
+    {
+      "h2": "Offline-first, with optional sync",
+      "blocks": [
+        {
+          "p": "Your shifts are written to an encrypted database on the device first, so tracking works with no connection. If you sign in and cloud sync has been set up, your data can sync across devices once you are back online; if you do not, everything simply stays on the device. Sync, signing in and receipt upload are the only parts that need a network."
+        },
+        {
+          "p": "How your data is stored and what can leave the device is covered on the <a href='/privacy-and-security/'>privacy and security</a> page."
+        }
+      ]
+    },
+    {
+      "h2": "Reports and exports",
+      "blocks": [
+        {
+          "p": "At the end of a period, monthly and weekly reports show your hours with regular, overtime and weekend breakdowns, and you can export any month as a CSV file or a PDF report. See <a href='/work-hours-reports/'>work-hours reports</a> for the detail."
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "A few things worth knowing before you rely on it:",
+    "items": [
+      "Clock actions from the widget, notification or watch are held while the biometric app lock is engaged, until you unlock the app.",
+      "Overtime reminders and some report insights are optional features you can switch on or off.",
+      "Cloud sync needs a signed-in account and a network connection; without them the app stays fully local.",
+      "The estimated gross is for your own reference. It is an estimate, not an official payslip."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Can I clock in without opening the app?",
+      "a": "Yes. You can start and end a shift from a home-screen widget, the ongoing notification, an app shortcut or a paired Wear OS watch, as well as from inside the app."
+    },
+    {
+      "q": "Does shift tracking work without internet?",
+      "a": "Yes. Shifts are saved on the device, so tracking works fully offline. A connection is only needed for optional cloud sync, signing in, and uploading receipts."
+    },
+    {
+      "q": "Can I fix a shift I forgot to start?",
+      "a": "Yes. You can add a shift after it happened, or edit an existing shift's start, end or rate, and the estimate updates to match."
+    },
+    {
+      "q": "Which Android version do I need?",
+      "a": "Android 8.0 or newer. A separate companion app runs on Wear OS 3 and newer."
+    },
+    {
+      "q": "Where is my shift data kept?",
+      "a": "In an encrypted database on your device. Cloud sync is optional and only moves data off the device once you sign in and it has been configured."
+    }
+  ],
+  "related": [
+    {
+      "href": "/hourly-pay-tracker/",
+      "label": "Hourly pay tracking",
+      "desc": "How the live estimated gross is built from your rate and rules."
+    },
+    {
+      "href": "/wear-os-shift-tracker/",
+      "label": "Wear OS shift tracker",
+      "desc": "Clock in from the watch and sync back to your phone."
+    },
+    {
+      "href": "/work-hours-reports/",
+      "label": "Work-hours reports",
+      "desc": "Monthly and weekly breakdowns with CSV and PDF export."
+    },
+    {
+      "href": "/task-time-tracking/",
+      "label": "Task time tracking",
+      "desc": "Attach tasks to a shift and report hours by task."
+    }
+  ],
+  "cta": {
+    "h2": "Track your next shift with Elmtrackr",
+    "p": "Clock in from your phone, tablet or watch and watch the hours add up in real time."
+  }
+}

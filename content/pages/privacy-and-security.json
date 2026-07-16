@@ -1,0 +1,127 @@
+{
+  "slug": "privacy-and-security",
+  "title": "Privacy & Security: On-Device, Encrypted Data | Elmtrackr",
+  "og_title": "Privacy & Security — On-Device, Encrypted Data",
+  "description": "How Elmtrackr protects your data: an encrypted on-device database, a biometric app lock, optional account sync, and opt-out crash reporting.",
+  "h1": "Privacy and security",
+  "breadcrumb": "Privacy & security",
+  "hero_eyebrow": "Data & security",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr is built to keep your work data on your device and under your control. Your shifts live in an encrypted local database, an app lock can guard access, and anything that leaves the device does so only when you choose to sign in and sync. This page explains how that works in plain terms.",
+  "sections": [
+    {
+      "h2": "Your device is the source of truth",
+      "blocks": [
+        {
+          "p": "Elmtrackr stores your shifts, rules and receipts in a local database on the device — built on Room, Android's on-device database layer. The app is designed to run fully from that local store, so it keeps working with no account and no connection."
+        }
+      ]
+    },
+    {
+      "h2": "The local database is encrypted",
+      "blocks": [
+        {
+          "p": "That local database is encrypted using SQLCipher, with a passphrase generated and kept on the device. If an older, unencrypted database exists from a previous version, it is migrated into the encrypted one. The intent is that the raw data on disk is not readable as plain text."
+        }
+      ]
+    },
+    {
+      "h2": "Locking the app",
+      "blocks": [
+        {
+          "p": "You can lock Elmtrackr behind your biometrics or your device credential (PIN, pattern or password). When the lock is on, it also guards remote clock actions — so a punch triggered from a widget, the notification or the watch is held until you unlock, keeping your record private on a shared or lost device."
+        }
+      ]
+    },
+    {
+      "h2": "Optional account and cloud sync",
+      "blocks": [
+        {
+          "p": "An account is entirely optional. If you want your data on more than one device, you can sign in with an email address and password, and Elmtrackr syncs through Supabase when sync has been configured and you are connected. There is no Google or social sign-in and no anonymous account — and if you never sign in, nothing syncs and everything stays local."
+        }
+      ]
+    },
+    {
+      "h2": "What stays on the device, and what can leave",
+      "blocks": [
+        {
+          "p": "Without an account, your shifts and receipt images stay on the device. Data leaves the device only for specific reasons: cloud sync of your records when signed in, receipt upload and retrieval as part of that sync, signing in to your account, and — if enabled — crash diagnostics. Everyday tracking and on-device receipt reading do not require the network."
+        }
+      ]
+    },
+    {
+      "h2": "Crash diagnostics you can turn off",
+      "blocks": [
+        {
+          "p": "Optional crash reporting can help fix problems. It is doubly gated: it only runs if a reporting key is built into the app and you have consented, and it is configured not to send personally identifying information by default. You can turn it off under Settings → Help & About → Share crash reports."
+        }
+      ]
+    },
+    {
+      "h2": "Deleting your data",
+      "blocks": [
+        {
+          "p": "You can delete your account and its data from within the app. Uninstalling the app removes it and the data held on that device. If you have used cloud sync, in-app account deletion is how you remove the account's synced data."
+        },
+        {
+          "note": {
+            "label": "About this page",
+            "html": "This is an educational overview of how Elmtrackr handles data. It is not the legal document — see the <a href='/privacy.html'>privacy policy</a> for the formal terms."
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "A few honest boundaries:",
+    "items": [
+      "Cloud sync and account features depend on signing in and having a connection; they are off until you opt in.",
+      "Crash diagnostics only run when a reporting key is present and you have consented, and can be switched off.",
+      "This page explains the app's behaviour and is separate from the legal privacy policy, which governs the formal terms.",
+      "Security features reduce risk but no software can promise absolute security."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Is my shift data encrypted on the device?",
+      "a": "Yes. The local database is encrypted with SQLCipher, using a passphrase kept on the device."
+    },
+    {
+      "q": "Do I need an account to use Elmtrackr?",
+      "a": "No. The app runs fully on the device without an account. Signing in with email and password is optional and only needed for cloud sync across devices."
+    },
+    {
+      "q": "Can I lock the app?",
+      "a": "Yes. You can require biometrics or your device credential to open it, which also guards clock actions from the widget, notification and watch."
+    },
+    {
+      "q": "What happens if I delete my account or uninstall?",
+      "a": "Deleting your account from within the app removes the account's data, including synced data. Uninstalling removes the app and the data stored on that device."
+    },
+    {
+      "q": "Can I stop crash reports being sent?",
+      "a": "Yes. Crash reporting is optional and off unless enabled; you can turn it off under Settings → Help & About → Share crash reports."
+    }
+  ],
+  "related": [
+    {
+      "href": "/shift-tracker-android/",
+      "label": "Android shift tracker",
+      "desc": "The offline-first tracking these protections apply to."
+    },
+    {
+      "href": "/wear-os-shift-tracker/",
+      "label": "Wear OS shift tracker",
+      "desc": "How the watch and account fit into sync."
+    },
+    {
+      "href": "/receipt-expense-tracker/",
+      "label": "Receipts & reimbursements",
+      "desc": "Where receipt images are stored and uploaded."
+    }
+  ],
+  "cta": {
+    "h2": "Your data, on your terms",
+    "p": "Track offline by default, and turn on an account only if you want to sync."
+  }
+}

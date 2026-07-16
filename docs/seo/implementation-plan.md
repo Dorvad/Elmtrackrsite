@@ -112,6 +112,49 @@ are preserved; no walls of text were added.
 
 ---
 
+## Delivered 2026-07-16 (3) — Static product-information page system
+
+Turned the one-page site into a small crawlable product site **without a
+client-side framework and without migrating the homepage**. All claims trace
+to `product-facts.md`.
+
+- **Build system (stdlib only):** `scripts/build_content_pages.py` renders
+  `content/pages/*.json` through `templates/` (`page.html`, `header.html`,
+  `footer.html`) into route directories (`<slug>/index.html`), using the
+  shared `assets/content-pages.css` (Aurora type + palette). Output is
+  deterministic; `--check` mode fails if the committed HTML is stale. Shared
+  header/footer, breadcrumbs, metadata, canonical + hreflang, visible
+  reviewed date, CTA, FAQ (`<details>`), and JSON-LD are all produced by the
+  templates.
+- **Eight English pages** (each: unique title/description, one `h1`, a short
+  direct answer, sections, a concrete example where useful, a Limitations
+  section, a visible FAQ, related-page links, homepage + Play CTA, breadcrumb,
+  canonical, and `WebPage` + `BreadcrumbList` + `FAQPage` structured data):
+  `/shift-tracker-android/`, `/hourly-pay-tracker/`, `/overtime-pay-tracker/`,
+  `/wear-os-shift-tracker/`, `/receipt-expense-tracker/`,
+  `/work-hours-reports/`, `/task-time-tracking/`, `/privacy-and-security/`.
+- **Real screenshots only:** the Android, hourly-pay and Wear OS pages reuse
+  existing product renders with descriptive alt text; pages without a relevant
+  asset carry no image (no stock or AI imagery).
+- **Verification-driven omissions:** requested items not backed by
+  `product-facts.md` were left out rather than invented — notably break
+  tracking / paid-vs-unpaid breaks, automatic receipt field extraction
+  (amount/merchant/currency/date), task icons/colours, and explicit
+  recent-task ordering. Presets are described as starting points, never as
+  legal compliance; pay is always an estimate; nothing claims automatic
+  payslip verification or claim submission to an employer.
+- **Internal linking:** homepage links to all eight pages (old placeholder
+  slugs repointed to the canonical ones); every page links home and to 2–4
+  related pages; the required cross-links (overtime→hourly+reports,
+  Wear OS→Android+privacy, receipts→reports+privacy, tasks→reports+shift) are
+  present. No broken internal links; no duplicated paragraphs across pages.
+- **SEO plumbing:** the eight routes are registered in `seo_manifest.json`
+  (`exists:true`), so `build_sitemap.py` now emits nine URLs and
+  `validate_seo.py` checks every page. The deploy workflow strips
+  `content/`, `templates/` and `scripts/` from the published artifact.
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.
