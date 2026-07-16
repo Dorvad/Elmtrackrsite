@@ -202,6 +202,40 @@ discarded.
 
 ---
 
+## Delivered 2026-07-16 (5) — Educational guides hub + first guide set (en + he)
+
+A `/guides/` (and `/he/guides/`) hub plus four guide pairs written to answer
+the broader questions people ask before they know the brand — grounded in real
+Elmtrackr workflows, not thin keyword pages.
+
+- **Hub** (`/guides/`, `/he/guides/`): organizes guides into five themes —
+  tracking work hours, estimating pay, overtime & premiums, reviewing work
+  records, and using Android/Wear OS tools (the last links to the product
+  pages). Two-level breadcrumb (Home / Guides).
+- **Four guide pairs** (Article schema, three-level breadcrumb Home / Guides /
+  guide, ~800–900 words each): how to track work hours; how to estimate hourly
+  pay; overtime vs premium pay; how to review work hours against a payslip.
+- **Consistent AI-answer structure** on every guide: direct answer up top, a
+  definition section, step-by-step, an illustrative example/table (clearly
+  labelled), common mistakes, "How Elmtrackr helps", "What Elmtrackr can't
+  determine", a visible FAQ, a Methodology & sources note, and a visible
+  reviewed date. Paragraphs are short and self-contained.
+- **Builder additions:** `schema_type` (`Article`/`WebPage`), optional
+  `parent` (3-level breadcrumb + BreadcrumbList), optional `cta`, and a
+  `methodology` block rendered after the FAQ. `FAQPage` is emitted only where a
+  visible FAQ exists. No fabricated authors, credentials or citations.
+- **Grounded, not name-dropped:** guides reference configurable thresholds,
+  visible pay breakdowns, local shift history, tasks, CSV/PDF reports, Wear OS
+  and widgets only where they genuinely answer the question, and each is
+  explicit about what the app cannot determine (legal correctness, contract
+  terms, taxes, whether a payslip is right).
+- **Integration:** "Guides"/"מדריכים" added to the content-page headers/footers
+  and both homepage navs; guides cross-link to each other and to the product
+  pages; 10 routes added to the manifest (sitemap now 28 URLs). `check_locales`,
+  `validate_seo`, `check_static_html`, and both `--check` builders pass.
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.

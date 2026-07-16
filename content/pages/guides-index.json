@@ -1,0 +1,60 @@
+{
+  "slug": "guides",
+  "schema_type": "WebPage",
+  "title": "Work-Hours & Pay Guides | Elmtrackr",
+  "og_title": "Guides to tracking work hours and estimating pay",
+  "description": "Practical guides to tracking work hours, estimating hourly pay, understanding overtime and premiums, and reviewing your hours against a payslip.",
+  "h1": "Guides",
+  "breadcrumb": "Guides",
+  "hero_eyebrow": "Learn",
+  "reviewed": "2026-07-16",
+  "lead": "These guides answer the everyday questions hourly and shift workers ask about their time and pay — how to keep an accurate record, how pay is estimated, and how to check it. They explain the ideas in plain terms, then show where a tool like Elmtrackr fits and where it does not.",
+  "sections": [
+    {
+      "h2": "Tracking work hours",
+      "blocks": [
+        {"p": "What to write down for each shift, and how to avoid forgotten entries."},
+        {"ul": [
+          "<a href='/guides/how-to-track-work-hours/'>How to track your work hours</a>"
+        ]}
+      ]
+    },
+    {
+      "h2": "Estimating pay",
+      "blocks": [
+        {"p": "How an hourly rate, paid time, overtime and premiums add up to an estimate — and why it is only an estimate."},
+        {"ul": [
+          "<a href='/guides/how-to-estimate-hourly-pay/'>How to estimate your hourly pay</a>"
+        ]}
+      ]
+    },
+    {
+      "h2": "Overtime and premiums",
+      "blocks": [
+        {"p": "The difference between extra pay for extra hours and extra pay for when you work."},
+        {"ul": [
+          "<a href='/guides/overtime-vs-premium-pay/'>Overtime vs premium pay: what's the difference?</a>"
+        ]}
+      ]
+    },
+    {
+      "h2": "Reviewing work records",
+      "blocks": [
+        {"p": "How to compare your own record with a payslip and raise a question when something looks off."},
+        {"ul": [
+          "<a href='/guides/how-to-review-work-hours-against-a-payslip/'>How to review your work hours against a payslip</a>"
+        ]}
+      ]
+    },
+    {
+      "h2": "Using Android and Wear OS tools",
+      "blocks": [
+        {"p": "How the app, home-screen widgets and a watch make it easier to capture time as it happens."},
+        {"ul": [
+          "<a href='/shift-tracker-android/'>Android shift tracker</a>",
+          "<a href='/wear-os-shift-tracker/'>Wear OS shift tracker</a>"
+        ]}
+      ]
+    }
+  ]
+}

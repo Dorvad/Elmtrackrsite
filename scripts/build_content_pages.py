@@ -61,6 +61,7 @@ LOCALES = {
         "switch_label": "עברית",
         "switch_aria": "View this page in Hebrew",
         "home_label": "Home",
+        "methodology": "Methodology & sources",
     },
     "he": {
         "lang": "he", "dir": "rtl", "og_locale": "he", "prefix": "/he",
@@ -78,6 +79,7 @@ LOCALES = {
         "switch_label": "English",
         "switch_aria": "צפייה בעמוד זה באנגלית",
         "home_label": "בית",
+        "methodology": "מתודולוגיה ומקורות",
     },
 }
 
@@ -222,11 +224,14 @@ def render_cta(cta: dict, play_url: str, strings: dict) -> str:
 
 
 def render_breadcrumbs(page: dict, strings: dict) -> str:
+    crumbs = [f'<li><a href="{strings["home_href"]}">{esc(strings["home_label"])}</a></li>']
+    if page.get("parent"):
+        p = page["parent"]
+        crumbs.append(f'<li><a href="{esc(p["href"])}">{esc(p["label"])}</a></li>')
+    crumbs.append(f'<li aria-current="page">{esc(page["breadcrumb"])}</li>')
     return (
         f'<nav class="cp-breadcrumbs" aria-label="{esc(strings["breadcrumb_aria"])}"><ol>'
-        f'<li><a href="{strings["home_href"]}">{esc(strings["home_label"])}</a></li>'
-        f'<li aria-current="page">{esc(page["breadcrumb"])}</li>'
-        "</ol></nav>"
+        + "".join(crumbs) + "</ol></nav>"
     )
 
 
@@ -234,34 +239,38 @@ def render_breadcrumbs(page: dict, strings: dict) -> str:
 
 def build_jsonld(page, canonical, site_url, og, loc, strings) -> str:
     home_url = site_url + ("/he/" if loc == "he" else "/")
+    schema_type = page.get("schema_type", "WebPage")
+    main_node = {
+        "@type": schema_type,
+        "@id": canonical + "#webpage",
+        "url": canonical,
+        "name": page.get("h1") or page["title"],
+        "description": page["description"],
+        "inLanguage": loc,
+        "isPartOf": {"@id": site_url + "/#website"},
+        "publisher": {"@id": site_url + "/#organization"},
+        "datePublished": page["reviewed"],
+        "dateModified": page["reviewed"],
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": site_url + og["src"] if og["src"].startswith("/") else og["src"],
+            "width": og["w"],
+            "height": og["h"],
+        },
+        "breadcrumb": {"@id": canonical + "#breadcrumb"},
+    }
+    if schema_type == "Article":
+        main_node["headline"] = page.get("h1") or page["title"]
+
+    crumbs = [{"@type": "ListItem", "position": 1, "name": strings["home_label"], "item": home_url}]
+    if page.get("parent"):
+        parent_url = site_url + page["parent"]["href"]
+        crumbs.append({"@type": "ListItem", "position": 2, "name": page["parent"]["label"], "item": parent_url})
+    crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": page["breadcrumb"], "item": canonical})
+
     graph = [
-        {
-            "@type": "WebPage",
-            "@id": canonical + "#webpage",
-            "url": canonical,
-            "name": page.get("h1") or page["title"],
-            "description": page["description"],
-            "inLanguage": loc,
-            "isPartOf": {"@id": site_url + "/#website"},
-            "publisher": {"@id": site_url + "/#organization"},
-            "datePublished": page["reviewed"],
-            "dateModified": page["reviewed"],
-            "primaryImageOfPage": {
-                "@type": "ImageObject",
-                "url": site_url + og["src"] if og["src"].startswith("/") else og["src"],
-                "width": og["w"],
-                "height": og["h"],
-            },
-            "breadcrumb": {"@id": canonical + "#breadcrumb"},
-        },
-        {
-            "@type": "BreadcrumbList",
-            "@id": canonical + "#breadcrumb",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": strings["home_label"], "item": home_url},
-                {"@type": "ListItem", "position": 2, "name": page["breadcrumb"], "item": canonical},
-            ],
-        },
+        main_node,
+        {"@type": "BreadcrumbList", "@id": canonical + "#breadcrumb", "itemListElement": crumbs},
     ]
     if page.get("faq"):
         graph.append({
@@ -302,8 +311,15 @@ def build_article(page, play_url, og, strings) -> str:
     parts.append(render_sections(page["sections"]))
     parts.append(render_limitations(page.get("limitations"), strings))
     parts.append(render_faq(page.get("faq"), strings))
+    if page.get("methodology"):
+        parts.append(
+            '<section class="cp-section cp-methodology" aria-labelledby="methodology">'
+            f'<h2 class="cp-h2" id="methodology">{esc(strings["methodology"])}</h2>'
+            f'<p class="cp-p">{page["methodology"]}</p></section>'
+        )
     parts.append(render_related(page.get("related"), strings))
-    parts.append(render_cta(page["cta"], play_url, strings))
+    if page.get("cta"):
+        parts.append(render_cta(page["cta"], play_url, strings))
     return "\n".join(p for p in parts if p)
 
 

@@ -1,0 +1,104 @@
+{
+  "slug": "guides/how-to-estimate-hourly-pay",
+  "schema_type": "Article",
+  "title": "How to Estimate Your Hourly Pay (With Example) | Elmtrackr",
+  "og_title": "How to estimate your hourly pay, with a worked example",
+  "description": "How to estimate hourly pay from your base rate, paid minutes, unpaid breaks, overtime tiers and premiums — with a worked example, and why the result is an estimate, not payroll.",
+  "h1": "How to estimate your hourly pay",
+  "breadcrumb": "How to estimate hourly pay",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-07-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "To estimate hourly pay, multiply your paid hours by your base rate, then add extra for any overtime hours and any premium hours at their higher rates. The figure you get is an estimate — a useful check on your payslip, but not the same as official payroll, which also applies taxes and deductions.",
+  "sections": [
+    {
+      "h2": "The pieces that make up the estimate",
+      "blocks": [
+        {"ul": [
+          "<strong>Base hourly rate</strong> — what one ordinary hour pays.",
+          "<strong>Paid minutes</strong> — the time you are actually paid for, which is where breaks matter.",
+          "<strong>Unpaid breaks</strong> — time on site that is not paid, and so is left out of paid minutes.",
+          "<strong>Overtime tiers</strong> — a higher rate once you pass a daily or weekly hours threshold.",
+          "<strong>Premiums</strong> — a higher rate for when you work, such as weekends, nights or holidays."
+        ]}
+      ]
+    },
+    {
+      "h2": "Step by step",
+      "blocks": [
+        {"h3": "1. Start from paid hours"},
+        {"p": "Take the total time worked and subtract any unpaid breaks. What remains is your paid time."},
+        {"h3": "2. Apply the base rate"},
+        {"p": "Multiply regular paid hours by your base hourly rate."},
+        {"h3": "3. Add overtime"},
+        {"p": "For hours past your overtime threshold, apply the overtime multiplier instead of the base rate."},
+        {"h3": "4. Add premiums"},
+        {"p": "For hours that fall in a premium window — a weekend or night, say — apply that premium. A single hour can be both overtime and a premium."},
+        {"h3": "5. Read it as an estimate"},
+        {"p": "The total is an estimated gross, before tax and deductions. Treat it as a figure to compare, not a final number."}
+      ]
+    },
+    {
+      "h2": "A worked example",
+      "blocks": [
+        {"p": "Illustrative month at a base rate of ₪42/hour, overtime at ×1.25 and a weekend premium at ×1.5. The numbers are examples only — your rate and rules decide the real figures."},
+        {"example": {
+          "title": "Illustrative monthly estimate",
+          "rows": [
+            ["<span class='ltr'>31h regular × ₪42</span>", "<span class='ltr'>₪ 1,302</span>"],
+            ["<span class='ltr'>8h overtime × ₪42 × 1.25</span>", "<span class='ltr'>₪ 420</span>"],
+            ["<span class='ltr'>3.5h weekend × ₪42 × 1.5</span>", "<span class='ltr'>₪ 220.50</span>"]
+          ],
+          "total": ["Estimated gross", "<span class='ltr'>₪ 1,942.50</span>"],
+          "note": "Estimated gross, before tax and deductions."
+        }}
+      ]
+    },
+    {
+      "h2": "Estimate vs official payroll",
+      "blocks": [
+        {"p": "An estimate is built from hours and rates. Official payroll starts from the same idea but then applies income tax, social contributions, benefits and any agreements specific to your employer — so the number on your payslip is normally lower than an estimated gross, and can differ for legitimate reasons."}
+      ]
+    },
+    {
+      "h2": "Common sources of discrepancy",
+      "blocks": [
+        {"ul": [
+          "Unpaid breaks counted differently than you expected.",
+          "An overtime threshold or multiplier that does not match your contract.",
+          "A premium window (weekend or night hours) defined differently by your employer.",
+          "Rounding of start and end times.",
+          "Taxes and deductions, which an estimate of gross pay does not include."
+        ]}
+      ]
+    },
+    {
+      "h2": "How Elmtrackr helps",
+      "blocks": [
+        {"p": "Elmtrackr builds this estimate for you as you work. You set your base rate, overtime tiers and premium profiles once, and it shows a live estimated gross with the regular, overtime and premium parts as separate lines, so you can see how the figure was reached. <a href='/hourly-pay-tracker/'>Hourly pay tracking</a> covers the live estimate, and <a href='/overtime-pay-tracker/'>overtime and premiums</a> covers the thresholds and multipliers."}
+      ]
+    },
+    {
+      "h2": "What Elmtrackr can't determine",
+      "blocks": [
+        {"p": "Elmtrackr does not know your taxes, deductions or the exact rules in your contract, and it does not read or verify your payslip. It gives you an independent estimate to compare yourself; it can't tell you your take-home pay or confirm that a payslip is correct."}
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Is estimated pay the same as take-home pay?", "a": "No. An estimate is a gross figure from hours and rates. Take-home pay is what remains after tax and deductions, which an estimate does not include."},
+    {"q": "How do unpaid breaks affect the estimate?", "a": "They reduce paid time. Subtract unpaid breaks from total time before applying your rate, or your estimate will be too high."},
+    {"q": "Can one hour be both overtime and a premium?", "a": "Yes. Overtime depends on how many hours you have worked; a premium depends on when you work. A weekend hour past your threshold can be both."},
+    {"q": "Why is my payslip different from the estimate?", "a": "Common reasons include taxes and deductions, a different break or overtime rule, or rounding. A difference is not automatically an error — it is a prompt to check."}
+  ],
+  "methodology": "This guide explains a general method for estimating gross pay and reflects how the Elmtrackr app performs the calculation (configurable base rate, overtime tiers and premium profiles, with a visible line-by-line breakdown). All figures are illustrative examples, not quoted from any external source, and nothing here is tax, payroll or legal advice.",
+  "related": [
+    {"href": "/guides/overtime-vs-premium-pay/", "label": "Overtime vs premium pay", "desc": "Why extra hours and premium time are counted separately."},
+    {"href": "/guides/how-to-review-work-hours-against-a-payslip/", "label": "Review hours against a payslip", "desc": "Use your estimate to check what you were paid."},
+    {"href": "/hourly-pay-tracker/", "label": "Hourly pay tracking", "desc": "See the live estimated gross in the app."}
+  ],
+  "cta": {
+    "h2": "See your estimated pay as the shift runs",
+    "p": "Set your rate and rules once, and let Elmtrackr show the breakdown."
+  }
+}
