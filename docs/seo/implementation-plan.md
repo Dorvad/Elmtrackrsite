@@ -68,6 +68,50 @@ marketing price ("$3. Once." / "$3 once, no subscription") and the
 
 ---
 
+## Delivered 2026-07-16 (2) — Homepage relevance & on-page content
+
+Content pass on `index.html`, still sourced only from `product-facts.md`.
+The editorial Aurora design, typography, animations and section numbering
+are preserved; no walls of text were added.
+
+- **Hero `h1`:** now leads with a visible, search-oriented line ("Hourly pay
+  and shift tracking for Android and Wear OS") above the oversized brand
+  statement "Every shift, measured." The supporting paragraph explains
+  clocking in from phone or watch, tracking hours, applying configured
+  overtime/premium rules, and the live estimated gross — stated explicitly as
+  an estimate, not an official payslip. ("Breaks" was intentionally **not**
+  claimed: it is not verified in the registry.)
+- **New concise sections:** an *Overview* band (what Elmtrackr is / who it's
+  for), an *Explore — focused guides* band, and a visible *FAQ*. Combined with
+  the existing numbered sections, the page now answers all ten target
+  questions (what/who/clock-in/estimate/overtime/Wear OS/reports/privacy/
+  offline/pricing).
+- **Visible FAQ:** eight native, keyboard-accessible `<details>` items; every
+  answer is present in the HTML even when collapsed; each answer traces to a
+  verified registry row.
+- **Compensation disclaimer:** a concise visible block in the estimate section
+  — rules are user-configured, presets are starting points, compare with the
+  employer's official records/payslip, and Elmtrackr is not legal, payroll or
+  tax advice.
+- **Pricing:** unverified price copy ("$3. Once." / "no subscription") was
+  **neutralized** (owner decision) — the price H2 slot keeps its visual
+  treatment with "Know the number." and the copy points to the live Google
+  Play listing for current pricing. No price is stated until verified.
+- **Contextual internal links** (descriptive, not "Learn more"): to
+  `/hourly-pay-tracker/`, `/android-shift-tracker/`, `/overtime-tracker/`,
+  `/wear-os/`, `/reports/`, `/tasks/`, `/receipts-reimbursements/` and the
+  existing `/privacy.html`.
+- **Planned focused pages:** the seven new destinations are registered in
+  `scripts/seo_manifest.json` as `exists:false` — excluded from the sitemap
+  and skipped by the validator until authored. **These links 404 until the
+  pages are built;** the next task should author each page, set `exists:true`
+  with a `lastmod`, and re-run `scripts/build_sitemap.py`.
+- **Verification:** static-HTML, SEO and sitemap checks pass; mobile (390px)
+  and desktop (1280px) layouts rendered and reviewed for the new sections
+  (overview grid, disclaimer, explore cards and FAQ all stack correctly).
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.

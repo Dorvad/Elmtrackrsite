@@ -380,6 +380,7 @@ html{scroll-behavior:smooth}
   #widgets > div > div:nth-child(2) > div{position:static !important;transform:none !important;opacity:1 !important;max-width:100%}
   [data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
   #film > div{grid-template-columns:1fr !important;gap:48px !important}
+  #overview > div{grid-template-columns:1fr !important;gap:36px !important}
   [data-footer]{padding:26px 24px !important}
 }
 @media (max-width:640px){
@@ -394,6 +395,8 @@ html{scroll-behavior:smooth}
   #method div[style*="right:-22px"]{right:6px !important}
   /* data note: stack label above text */
   [data-screen-label="06 Method"] > div > div:nth-child(3){flex-direction:column !important;align-items:flex-start !important;gap:10px !important;padding:20px 22px !important}
+  /* estimate disclaimer: stack label above text */
+  #estimate > div:nth-child(2){flex-direction:column !important;gap:10px !important}
   /* price squiggle: remove svg letterboxing */
   #get > svg{height:64px !important}
   /* footer: stacked, tighter */
@@ -409,6 +412,16 @@ html{scroll-behavior:smooth}
 /* widgets fly in only when JS drives the scroll choreography; visible otherwise */
 .js [data-w]{opacity:0}
 @media (prefers-reduced-motion:reduce){.js [data-w]{opacity:1}}
+/* FAQ (native, keyboard-accessible details; answers stay in the HTML when collapsed) */
+.faq-list details{border:1px solid rgba(24,21,48,.12);border-radius:14px;background:#fff}
+.faq-list details+details{margin-top:14px}
+.faq-list summary{list-style:none;cursor:pointer;padding:22px 26px;font:700 clamp(16px,1.7vw,18px)/1.4 'Archivo',sans-serif;color:#181530;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";font:600 26px/1 'Archivo',sans-serif;color:#4133C8;flex:none;transition:transform .2s ease}
+.faq-list details[open] summary::after{transform:rotate(45deg)}
+.faq-list summary:focus-visible{outline:2px solid #4133C8;outline-offset:3px;border-radius:14px}
+.faq-list .faq-a{margin:0;padding:0 26px 24px;font:500 16px/1.65 'Archivo',sans-serif;color:rgba(24,21,48,.66)}
+.explore-link:focus-visible{outline:2px solid #4133C8;outline-offset:3px;border-radius:18px}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -443,15 +456,15 @@ html{scroll-behavior:smooth}
 
     <!-- LEFT: massive type -->
     <div style="flex:1.05;display:flex;flex-direction:column;justify-content:center;gap:30px;padding:30px 0 80px;min-width:0">
-      <h1 style="margin:0;font:900 clamp(64px,8.6vw,124px)/0.96 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530;animation:riseIn .8s .18s cubic-bezier(.2,.7,.2,1) both">Every shift,<br>measured<span style="color:#5B4DF2">.</span></h1>
-      <p style="margin:0;max-width:440px;font:500 20px/1.5 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:riseIn .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in once — phone or wrist. Hours, premiums and an estimated gross, recorded live while you work.</p>
+      <h1 style="margin:0;font:900 clamp(64px,8.6vw,124px)/0.96 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530;animation:riseIn .8s .18s cubic-bezier(.2,.7,.2,1) both"><span style="display:block;font:600 clamp(15px,1.75vw,20px)/1.35 'Archivo',sans-serif;letter-spacing:-.005em;color:#4133C8;margin-bottom:20px">Hourly pay and shift tracking for Android and Wear OS</span>Every shift,<br>measured<span style="color:#5B4DF2">.</span></h1>
+      <p style="margin:0;max-width:474px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:riseIn .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in from your phone or watch. Elmtrackr tracks your hours, applies the overtime and premium rules you set, and shows an estimated gross as you work — an estimate to check against your payslip, not an official record.</p>
       <div style="display:flex;align-items:center;gap:16px;animation:riseIn .8s .38s cubic-bezier(.2,.7,.2,1) both">
         <a href="https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&amp;referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app" target="_blank" rel="noopener" aria-label="Get Elmtrackr on Google Play (opens in a new tab)" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" data-hover="background:#4133C8;color:#fff">
           <img src="assets/google-play.svg" alt="" width="18" height="18" style="display:block">
           Get it on Google Play</a>
         <a href="#method" style="font:700 16px 'Archivo',sans-serif;color:#181530;padding:16px 26px;border-radius:999px;border:2px solid rgba(24,21,48,.22)" data-hover="border-color:#4133C8;color:#4133C8">See it work ↓</a>
       </div>
-      <div style="font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.45);animation:riseIn .8s .46s cubic-bezier(.2,.7,.2,1) both">₪ / $ / € &nbsp;·&nbsp; OFFLINE-FIRST &nbsp;·&nbsp; $3 ONCE, NO SUBSCRIPTION</div>
+      <div style="font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.45);animation:riseIn .8s .46s cubic-bezier(.2,.7,.2,1) both">₪ / $ / € &nbsp;·&nbsp; WORKS OFFLINE &nbsp;·&nbsp; ANDROID + WEAR OS</div>
     </div>
 
     <!-- RIGHT: device composition -->
@@ -553,6 +566,24 @@ html{scroll-behavior:smooth}
 <main id="main">
 
 
+<!-- ═══════════ OVERVIEW — WHAT / WHO ═══════════ -->
+<section id="overview" data-screen-label="Overview" style="background:#F3F1FB;padding:110px 56px">
+  <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:70px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">WHAT ELMTRACKR IS</span>
+      <h2 style="margin:0;font:800 clamp(34px,3.4vw,50px)/1.05 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Built for hourly and shift work.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;max-width:620px">
+      <p style="margin:0;font:500 19px/1.6 'Archivo',sans-serif;color:rgba(24,21,48,.66)">Elmtrackr is an hourly-pay and shift tracker for Android phones and Wear OS watches. You clock in, and it records your hours, applies the pay rules you've set, and shows an estimated gross while you work.</p>
+      <p style="margin:0;font:500 19px/1.6 'Archivo',sans-serif;color:rgba(24,21,48,.66)">It's for anyone paid by the hour or by shift — working overtime, weekends, nights or premium rates — who wants to know what a shift is worth as it happens, then check that against their payslip.</p>
+      <div style="display:flex;gap:14px 28px;flex-wrap:wrap;margin-top:4px">
+        <a href="/hourly-pay-tracker/" style="font:700 15px 'Archivo',sans-serif;color:#4133C8;text-decoration:none;border-bottom:2px solid rgba(65,51,200,.28);padding-bottom:2px" data-hover="border-color:#4133C8">Tracking hourly pay and estimated gross →</a>
+        <a href="/android-shift-tracker/" style="font:700 15px 'Archivo',sans-serif;color:#4133C8;text-decoration:none;border-bottom:2px solid rgba(65,51,200,.28);padding-bottom:2px" data-hover="border-color:#4133C8">How shift tracking works on Android →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ 01 — THE CLOCK ═══════════ -->
 <section id="method" data-screen-label="01 The Clock" style="position:relative;background:#FBFAFE;padding:130px 56px 120px;scroll-margin-top:20px;overflow:hidden">
   <div style="position:absolute;left:0;top:0;width:44%;height:100%;background:linear-gradient(rgba(24,21,48,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(24,21,48,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(70% 70% at 30% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(70% 70% at 30% 50%,#000 30%,transparent 80%);pointer-events:none"></div>
@@ -587,6 +618,7 @@ html{scroll-behavior:smooth}
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">02 — WHERE MINUTES LAND</span>
       <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Premiums classify themselves.</h2>
       <p style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Overtime after hour eight. Weekend at +50%. Night rates. You set the rules once — every minute you work lands in the right bucket, measured, not typed in.</p>
+      <a href="/overtime-tracker/" style="align-self:flex-start;font:700 15px 'Archivo',sans-serif;color:#4133C8;text-decoration:none;border-bottom:2px solid rgba(65,51,200,.28);padding-bottom:2px" data-hover="border-color:#4133C8">How overtime and premium rates are calculated →</a>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px">
       <div style="display:flex;gap:6px;height:64px;border-radius:14px;overflow:hidden">
@@ -627,6 +659,10 @@ html{scroll-behavior:smooth}
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#4133C8">ALWAYS LABELED "ESTIMATE" — YOUR PAYSLIP IS THE RECORD</span>
     </div>
   </div>
+  <div style="max-width:1180px;margin:40px auto 0;display:flex;gap:16px;align-items:flex-start;background:#F3F1FB;border:1px solid rgba(24,21,48,.08);border-radius:14px;padding:22px 28px">
+    <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#4133C8;flex:none;padding-top:2px">BEFORE YOU RELY ON A NUMBER</span>
+    <p style="margin:0;font:500 15px/1.6 'Archivo',sans-serif;color:rgba(24,21,48,.64)">Estimates use the rules you configure, and regional presets are only starting points you can adjust. Always compare an estimate with your employer's official records and payslip. Elmtrackr is not legal, payroll or tax advice.</p>
+  </div>
 </section>
 
 <!-- ═══════════ 04 — THE WRIST (dark band) ═══════════ -->
@@ -642,6 +678,7 @@ html{scroll-behavior:smooth}
         <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#9DEBF2;border:1px solid rgba(157,235,242,.3);border-radius:6px;padding:7px 12px">ALWAYS-ON FACE</span>
         <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#9DEBF2;border:1px solid rgba(157,235,242,.3);border-radius:6px;padding:7px 12px">SYNCS WHEN YOU'RE BACK</span>
       </div>
+      <a href="/wear-os/" style="align-self:flex-start;font:700 15px 'Archivo',sans-serif;color:#9DEBF2;text-decoration:none;border-bottom:2px solid rgba(157,235,242,.35);padding-bottom:2px" data-hover="border-color:#9DEBF2">What you can do from a Wear OS watch →</a>
     </div>
     <div style="display:flex;justify-content:center">
       <div style="position:relative;width:250px;height:250px">
@@ -777,12 +814,85 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
+<!-- ═══════════ EXPLORE — FOCUSED GUIDES ═══════════ -->
+<section id="explore" data-screen-label="Explore" style="background:#FBFAFE;padding:120px 56px">
+  <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:660px">
+      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">GO DEEPER</span>
+      <h2 style="margin:0;font:800 clamp(34px,3.4vw,50px)/1.05 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Focused guides.</h2>
+      <p style="margin:0;font:500 18px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Short pages on each part of Elmtrackr — open the one that matches how you work.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+      <a class="explore-link" data-card href="/reports/" style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;text-decoration:none">
+        <h3 style="margin:0;font:800 20px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Reports and exports →</h3>
+        <p style="margin:0;font:500 15px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">Monthly and weekly summaries with regular, overtime and weekend breakdowns — export any month as CSV or PDF.</p>
+      </a>
+      <a class="explore-link" data-card href="/tasks/" style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;text-decoration:none">
+        <h3 style="margin:0;font:800 20px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Tasks on every shift →</h3>
+        <p style="margin:0;font:500 15px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">Record what you did during a shift, with suggestions drawn from your own habits.</p>
+      </a>
+      <a class="explore-link" data-card href="/receipts-reimbursements/" style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;text-decoration:none">
+        <h3 style="margin:0;font:800 20px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Receipts and reimbursements →</h3>
+        <p style="margin:0;font:500 15px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">Capture receipts, read them on-device with OCR, and export a commute-reimbursement packet.</p>
+      </a>
+      <a class="explore-link" data-card href="/privacy.html" style="background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;text-decoration:none">
+        <h3 style="margin:0;font:800 20px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530">Privacy and security →</h3>
+        <p style="margin:0;font:500 15px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.6)">How your shifts are stored encrypted on your device, with an optional biometric app lock.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq" data-screen-label="Questions" style="background:#F3F1FB;padding:120px 56px">
+  <div data-reveal style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:660px">
+      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">QUESTIONS</span>
+      <h2 style="margin:0;font:800 clamp(34px,3.4vw,50px)/1.05 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Does Elmtrackr calculate overtime automatically?</summary>
+        <p class="faq-a">Yes. You set your daily and weekly overtime thresholds once, and Elmtrackr applies them automatically to every shift, alongside the weekend, night and holiday premiums you configure.</p>
+      </details>
+      <details>
+        <summary>Is estimated pay the same as an official payslip?</summary>
+        <p class="faq-a">No. Every pay figure is an estimate based on the rules you set, and it is always labelled as an estimate. It's there to help you check your pay — your employer's records and payslip remain the official source.</p>
+      </details>
+      <details>
+        <summary>Can I clock in from a Wear OS watch?</summary>
+        <p class="faq-a">Yes. A Wear OS tile and a watch-face complication let you clock in and out straight from the watch — Wear OS 3 and newer — and the reading syncs back to your phone.</p>
+      </details>
+      <details>
+        <summary>Does Elmtrackr work without an internet connection?</summary>
+        <p class="faq-a">Yes. Tracking your shifts works fully offline and your data is saved on the device. A connection is only needed for optional cloud sync, signing in to an account, and uploading receipts.</p>
+      </details>
+      <details>
+        <summary>Can I export my shifts to CSV or PDF?</summary>
+        <p class="faq-a">Yes. You can export your shifts as a CSV file or as a PDF report, with regular, overtime and weekend hours broken out.</p>
+      </details>
+      <details>
+        <summary>Can I edit a forgotten or incorrect shift?</summary>
+        <p class="faq-a">Yes. You can add a shift after the fact or edit an existing one — adjust the start, end or rate if you forgot to punch or need to correct a reading.</p>
+      </details>
+      <details>
+        <summary>How are receipts handled?</summary>
+        <p class="faq-a">Elmtrackr can capture receipts with the camera and read them on-device using OCR for Latin-script text and Hebrew, as part of its commute-reimbursement tracking. The images stay on your device.</p>
+      </details>
+      <details>
+        <summary>Is my local shift data encrypted?</summary>
+        <p class="faq-a">Yes. Your on-device database is encrypted, and you can add a biometric or device-credential lock to open the app. Cloud sync is optional and off until you sign in.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ 06 — PRICE / FINAL CTA ═══════════ -->
 <section id="price" data-screen-label="06 Price" style="position:relative;background:#FBFAFE;padding:110px 56px 140px;scroll-margin-top:20px;overflow:hidden">
   <div id="get" style="position:relative;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;scroll-margin-top:20px">
     <svg viewBox="0 0 900 120" width="min(900px,100%)" height="120" preserveAspectRatio="xMidYMid meet" style="overflow:visible"><path d="M0 90 C 180 30, 320 110, 470 60 S 740 10, 900 50" fill="none" stroke="url(#cta)" stroke-width="16" stroke-linecap="round" opacity=".55"></path><defs><linearGradient id="cta" x1="0" y1="120" x2="900" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#5B4DF2"></stop></linearGradient></defs></svg>
-    <h2 style="margin:0;font:900 clamp(52px,6.4vw,96px)/1 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530">$3. Once<span style="color:#5B4DF2">.</span></h2>
-    <p style="margin:0;max-width:460px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">No subscription, no ads — your data stays encrypted on your device. Next payday, know the number.</p>
+    <h2 style="margin:0;font:900 clamp(52px,6.4vw,96px)/1 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530">Know the number<span style="color:#5B4DF2">.</span></h2>
+    <p style="margin:0;max-width:480px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Set your rates once, clock in, and see an estimated gross as the shift runs — your data stays encrypted on your device. Current pricing is shown on the Google Play listing.</p>
     <a href="https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&amp;referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app" target="_blank" rel="noopener" aria-label="Get Elmtrackr on Google Play (opens in a new tab)" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 18px 'Archivo',sans-serif;padding:19px 36px;border-radius:999px;box-shadow:0 16px 34px rgba(24,21,48,.24)" data-hover="background:#4133C8;color:#fff">
       <img src="assets/google-play.svg" alt="" width="20" height="20" style="display:block">
       Get it on Google Play</a>
