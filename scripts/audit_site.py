@@ -58,6 +58,11 @@ SITEMAP_PATH = os.path.join(REPO_ROOT, "sitemap.xml")
 VERIFIED_APP_ID = "com.elmlaunch.myapp"
 HEBREW_RE = re.compile(r"[֐-׿]")
 PLACEHOLDER_RE = re.compile(r"\{\{")
+# Off-screen hiding via a large negative PHYSICAL left/right offset (e.g.
+# left:-9999px). This is invisible in LTR but adds ~9999px of scrollable width
+# in RTL, which pushes every element into a narrow column. Use a vertical
+# offset (top:-9999px) or a clip-based visually-hidden pattern instead.
+OFFSCREEN_RTL_RE = re.compile(r"(?<![\w-])(left|right)\s*:\s*-\d{4,}\s*px", re.I)
 SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b.*?</\1\s*>", re.I | re.S)
 COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 # Hostnames / tokens that must never ship in a public page.
@@ -493,6 +498,12 @@ def audit(find: Findings):
         for m in STAGING_RE.finditer(raw):
             find.error(rel, "staging", f"accidental staging/preview token: {m.group(0)!r}")
 
+        # RTL-breaking off-screen hiding (physical left/right offset)
+        for m in OFFSCREEN_RTL_RE.finditer(raw):
+            find.error(rel, "rtl-offscreen",
+                       f"off-screen hiding via physical '{m.group(0)}' breaks RTL layout — "
+                       "use 'top:-9999px' or a clip-based visually-hidden pattern")
+
         # generic Play Store URLs
         for m in re.finditer(r"https://play\.google\.com[^\"'\s)]*", raw):
             url = m.group(0)
@@ -519,6 +530,20 @@ def audit(find: Findings):
         body = norm_text(re.sub(r"<[^>]+>", " ", m.group(0))) if m else ""
         if body:
             bodies.setdefault(body, []).append(rel)
+
+    # ---- external CSS: same RTL-breaking off-screen guard ------------------ #
+    assets_dir = os.path.join(REPO_ROOT, "assets")
+    for root, _dirs, files in os.walk(assets_dir):
+        for f in files:
+            if not f.endswith(".css"):
+                continue
+            cssp = os.path.join(root, f)
+            css = open(cssp, encoding="utf-8").read()
+            for m in OFFSCREEN_RTL_RE.finditer(css):
+                relc = os.path.relpath(cssp, REPO_ROOT)
+                find.error(relc, "rtl-offscreen",
+                           f"off-screen hiding via physical '{m.group(0)}' breaks RTL layout — "
+                           "use 'top:-9999px' or a clip-based visually-hidden pattern")
 
     # ---- cross-page checks ------------------------------------------------- #
     for title, pgs in titles.items():
