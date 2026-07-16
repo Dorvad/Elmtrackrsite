@@ -113,6 +113,13 @@ Every “Get it on Google Play” link reaches the same verified listing
 The destination listing is unchanged — only attribution differs, so this is
 still a single canonical destination (see `validate_seo.py`).
 
+**On footer CTAs:** the scheme reserves `utm_content=footer` and
+`cta_location=footer` for a footer app CTA. The site footers currently hold
+only legal/navigation links and a contact email — there is **no** "Get the app"
+button in the footer today, so no `footer` value is emitted. If a footer Play
+CTA is added later, give its link `data-elm-cta="footer"` and
+`utm_content=footer` and it will be attributed distinctly with no other change.
+
 ## Reports to create (GA4 or equivalent)
 
 1. **Acquisition by AI/search source** — sessions and Play clicks by
