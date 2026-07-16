@@ -1,0 +1,95 @@
+{
+  "slug": "guides/overtime-vs-premium-pay",
+  "schema_type": "Article",
+  "title": "Overtime vs Premium Pay: What's the Difference? | Elmtrackr",
+  "og_title": "Overtime vs premium pay: what's the difference?",
+  "description": "Overtime is extra pay for extra hours; a premium is extra pay for when you work. Learn why they differ, how they stack, why workplace rules vary, and how configurable tracking helps.",
+  "h1": "Overtime vs premium pay: what's the difference?",
+  "breadcrumb": "Overtime vs premium pay",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-07-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "Overtime is extra pay for working more hours than a threshold; a premium is extra pay for working at a particular time or in a particular category, like a weekend or a night. They are not the same thing, and a single hour can carry both at once — which is why they are worth tracking separately.",
+  "sections": [
+    {
+      "h2": "Two different ideas",
+      "blocks": [
+        {"p": "<strong>Overtime</strong> is about quantity. Once you pass a daily or weekly hours threshold, hours beyond it are paid at a higher rate."},
+        {"p": "<strong>Premium pay</strong> is about timing or category. Certain hours — a weekend, a night, a public holiday — are paid at a higher rate regardless of how many hours you have worked."},
+        {"p": "Because one measures how much you worked and the other measures when, the same hour can qualify for both."}
+      ]
+    },
+    {
+      "h2": "Why they are not automatically the same",
+      "blocks": [
+        {"p": "It is tempting to treat any higher-than-usual pay as \"overtime,\" but the two are triggered by different things. You can work a short weekend shift that earns a premium without any overtime, or a long weekday shift that earns overtime without any premium. Keeping them distinct is what lets a record show why an hour was paid the way it was."}
+      ]
+    },
+    {
+      "h2": "Stacking: when both apply at once",
+      "blocks": [
+        {"p": "When an hour is both overtime and a premium, a rule decides how they combine — this is often called stacking. Common approaches are to add the two extras together, to multiply them, or to apply only the higher of the two. Different workplaces choose different approaches, so the same hour can produce different pay under different rules."}
+      ]
+    },
+    {
+      "h2": "An example",
+      "blocks": [
+        {"p": "Consider one hour worked late on a Saturday, past a daily overtime threshold (illustrative):"},
+        {"example": {
+          "title": "One hour, two reasons for extra pay",
+          "rows": [
+            ["Why it's overtime", "it is beyond the daily hours threshold"],
+            ["Why it's a premium", "it falls in the weekend window"],
+            ["What decides the total", "the stacking rule your workplace uses"]
+          ],
+          "note": "Illustrative. The actual result depends entirely on your configured rules."
+        }}
+      ]
+    },
+    {
+      "h2": "Why workplace rules vary",
+      "blocks": [
+        {"p": "Thresholds, multipliers, which days count as the weekend and which hours count as night are all set by contracts, agreements and local norms that differ from place to place. There is no single universal rule, which is exactly why a tracker should let you describe your own."}
+      ]
+    },
+    {
+      "h2": "Common mistakes",
+      "blocks": [
+        {"ul": [
+          "Calling every higher rate \"overtime\" and missing a separate premium entitlement.",
+          "Assuming a weekend automatically means overtime, or vice versa.",
+          "Ignoring the stacking rule when an hour qualifies for both.",
+          "Copying another workplace's thresholds instead of your own."
+        ]}
+      ]
+    },
+    {
+      "h2": "How Elmtrackr helps",
+      "blocks": [
+        {"p": "Elmtrackr treats overtime and premiums as separate, configurable things. You set daily and weekly overtime thresholds and tier multipliers, define premium profiles for weekend, night and holiday work, and choose how they stack when they overlap — so an hour that is both is counted the way your workplace actually pays it. The detail is on <a href='/overtime-pay-tracker/'>the overtime and premiums page</a>."}
+      ]
+    },
+    {
+      "h2": "What Elmtrackr can't determine",
+      "blocks": [
+        {"p": "Elmtrackr applies the rules you enter; it does not know the rules that apply to you. It can't tell you what your legal overtime threshold is, which premiums you are entitled to, or how they must stack under your contract or local law. Those are decisions for your agreement and your employer, not the app."}
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Is weekend pay overtime?", "a": "Not necessarily. Weekend pay is usually a premium — extra for when you work — and applies whether or not you are also in overtime. You can earn one without the other."},
+    {"q": "Can an hour be both overtime and a premium?", "a": "Yes. Overtime depends on total hours; a premium depends on timing. A weekend hour past your threshold can qualify for both, and a stacking rule decides the total."},
+    {"q": "What is stacking?", "a": "Stacking is how two overlapping extras combine — for example adding them, multiplying them, or taking the higher one. Workplaces choose different approaches."},
+    {"q": "Why don't the same rules apply everywhere?", "a": "Thresholds, multipliers and premium windows come from contracts, agreements and local norms that vary. That is why a tracker should let you configure your own rather than assume a default."}
+  ],
+  "methodology": "This guide explains overtime and premium pay conceptually and reflects how the Elmtrackr app models them (separate, configurable thresholds, tier multipliers, premium profiles and stacking modes). It deliberately avoids jurisdiction-specific figures or legal advice; it cites no external legal sources. For the rules that apply to you, consult your contract, agreement or a qualified adviser.",
+  "related": [
+    {"href": "/guides/how-to-estimate-hourly-pay/", "label": "How to estimate hourly pay", "desc": "See overtime and premiums inside a full estimate."},
+    {"href": "/guides/how-to-review-work-hours-against-a-payslip/", "label": "Review hours against a payslip", "desc": "Check overtime brackets and premiums against your pay."},
+    {"href": "/overtime-pay-tracker/", "label": "Overtime & premiums", "desc": "Configure thresholds, multipliers, profiles and stacking."}
+  ],
+  "cta": {
+    "h2": "Track overtime and premiums the way your workplace pays them",
+    "p": "Set your thresholds, premiums and stacking once, and let every shift fall into place."
+  }
+}

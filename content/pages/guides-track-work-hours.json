@@ -1,0 +1,104 @@
+{
+  "slug": "guides/how-to-track-work-hours",
+  "schema_type": "Article",
+  "title": "How to Track Your Work Hours (Step by Step) | Elmtrackr",
+  "og_title": "How to track your work hours, step by step",
+  "description": "A practical guide to tracking work hours: what to record for each shift, how to handle breaks and corrections, and how a phone, widget or watch prevents forgotten entries.",
+  "h1": "How to track your work hours",
+  "breadcrumb": "How to track work hours",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-07-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "To track your work hours reliably, record the start and end time of every shift, note any unpaid breaks, and fix mistakes as soon as you notice them. What keeps a month accurate is capturing each entry the moment it happens and keeping it all in one place, rather than reconstructing it later from memory.",
+  "sections": [
+    {
+      "h2": "What a good shift record contains",
+      "blocks": [
+        {"p": "A work-hours record is simply a log of when you worked. For each shift, a complete entry usually captures:"},
+        {"ul": [
+          "The date of the shift.",
+          "The start time and the end time.",
+          "Any unpaid breaks, so paid time is separated from total time on site.",
+          "The pay category that applied — regular, overtime, weekend, night or holiday — if your pay changes with it.",
+          "What you worked on, if you track tasks.",
+          "A short note when something is unusual, so a future you understands the entry."
+        ]}
+      ]
+    },
+    {
+      "h2": "Step by step",
+      "blocks": [
+        {"h3": "1. Clock in when you start"},
+        {"p": "Mark the start at the moment you begin, not later. A time captured live is the one you can trust."},
+        {"h3": "2. Account for breaks"},
+        {"p": "If a break is unpaid, make sure your record reflects only paid time — for example by clocking out for the break, or by adjusting the shift afterwards."},
+        {"h3": "3. Clock out when you finish"},
+        {"p": "Mark the end the same way. A clear end time is what turns a shift into a countable number of hours."},
+        {"h3": "4. Correct anything you missed"},
+        {"p": "Forgot to clock in, or started late? Add or edit the shift while the details are still fresh, rather than guessing at month's end."},
+        {"h3": "5. Review at the end of the period"},
+        {"p": "Before payday, skim the period's shifts for gaps or obvious errors. A quick review catches the entry you forgot before it becomes a pay question."}
+      ]
+    },
+    {
+      "h2": "An example shift record",
+      "blocks": [
+        {"p": "A single Tuesday shift might be recorded like this (illustrative values):"},
+        {"example": {
+          "title": "Illustrative shift entry",
+          "rows": [
+            ["Date", "Tue 14 July"],
+            ["Start", "09:00"],
+            ["End", "18:30"],
+            ["Unpaid break", "30 min"],
+            ["Paid hours", "9h 00m"],
+            ["Category", "Regular, then daily overtime after 8h"],
+            ["Task / note", "Stocktake — covered for a colleague"]
+          ],
+          "note": "Illustrative only — your own fields and values will differ."
+        }}
+      ]
+    },
+    {
+      "h2": "Common mistakes",
+      "blocks": [
+        {"ul": [
+          "Clocking in or out from memory hours later, which quietly rounds away real minutes.",
+          "Forgetting to start a shift at all, so it never reaches the record.",
+          "Not separating unpaid breaks from paid time.",
+          "Keeping times in scattered places — a note here, a message there — that never add up.",
+          "Leaving corrections until payday, when the details are already fuzzy."
+        ]}
+      ]
+    },
+    {
+      "h2": "How Elmtrackr helps",
+      "blocks": [
+        {"p": "Elmtrackr is built to make capturing time effortless, which is the part people actually get wrong. You can clock in and out from the app, a home-screen widget, the ongoing notification, an app shortcut or a paired Wear OS watch — so a forgotten phone is no longer a forgotten shift. A live timer shows the shift as it runs, you can add or edit a past shift in seconds, and you can attach tasks to record what the time went on. Everything is kept in a local history on your device, and you can export a period as CSV or PDF. See <a href='/shift-tracker-android/'>the Android shift tracker</a> for the detail."}
+      ]
+    },
+    {
+      "h2": "What Elmtrackr can't determine",
+      "blocks": [
+        {"p": "A tracker records what you tell it; it does not know your contract. Elmtrackr can't decide whether a particular break is paid or unpaid for you, whether your recorded times match your employer's own system, or what you are legally entitled to. Those depend on your agreement and your workplace, and your employer's records remain the official source."}
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "What information should I record for each shift?", "a": "At minimum the date, start time and end time. Adding unpaid breaks, the pay category and a short note makes the record far more useful when you check it later."},
+    {"q": "Do I need to track breaks?", "a": "If a break is unpaid, yes — otherwise your hours will look longer than the time you are actually paid for. Record it so paid time is separated from total time on site."},
+    {"q": "What if I forget to clock in?", "a": "Add the shift after the fact and set the correct start and end. Doing it while you still remember the details keeps the record honest."},
+    {"q": "Where should the record be kept?", "a": "In one place you control. Elmtrackr keeps your shifts in a local history on your device, with optional export."},
+    {"q": "Can I track hours from a watch?", "a": "Yes. A Wear OS companion lets you clock in and out from the wrist and syncs back to your phone."}
+  ],
+  "methodology": "This guide describes general timekeeping practice and the specific, verified workflows in the Elmtrackr app (clocking in from multiple surfaces, a live timer, editable shifts, tasks, local history and CSV/PDF export). It does not cite external legal sources and gives no jurisdiction-specific advice; where entitlements or contract terms matter, check with your employer or payroll team.",
+  "related": [
+    {"href": "/guides/how-to-estimate-hourly-pay/", "label": "How to estimate your hourly pay", "desc": "Turn the hours you record into an estimated gross."},
+    {"href": "/guides/how-to-review-work-hours-against-a-payslip/", "label": "Review your hours against a payslip", "desc": "Compare your record with what you were paid."},
+    {"href": "/shift-tracker-android/", "label": "Android shift tracker", "desc": "The app, widgets and watch that capture time as it happens."}
+  ],
+  "cta": {
+    "h2": "Capture every shift, not just the ones you remember",
+    "p": "Clock in from your phone, a widget or your watch, and keep the record in one place."
+  }
+}

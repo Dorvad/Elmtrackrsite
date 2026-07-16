@@ -1,0 +1,148 @@
+{
+  "slug": "hourly-pay-tracker",
+  "title": "Hourly Pay Tracker — Live Estimated Gross Pay | Elmtrackr",
+  "og_title": "Hourly Pay Tracker with Live Estimated Gross",
+  "description": "Set your hourly rate and currency, and Elmtrackr builds a live estimated gross as you work, with the breakdown shown line by line — an estimate, not a payslip.",
+  "h1": "Hourly pay tracker",
+  "breadcrumb": "Hourly pay tracker",
+  "hero_eyebrow": "Estimated pay",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr turns the hours you clock into an estimated gross, in your own currency, as the shift runs. It shows the rate that applies at each moment and how the figure is built. The result is an estimate for your own reference — a number to check against your payslip, never a replacement for it.",
+  "image": {
+    "src": "/assets/elmtrackr-home-screen.jpg",
+    "alt": "Elmtrackr screen showing the month's estimated gross pay and the hours it is based on.",
+    "w": 720,
+    "h": 1600,
+    "caption": "The dashboard shows the estimated gross for the period and the hours behind it."
+  },
+  "sections": [
+    {
+      "h2": "Your rate and currency",
+      "blocks": [
+        {
+          "p": "You set a base hourly rate in the currency you are paid in. Elmtrackr works with different currencies through its regional presets or a fully custom setup, so the figures it shows are in the money you actually earn rather than a converted approximation."
+        }
+      ]
+    },
+    {
+      "h2": "A live estimated gross",
+      "blocks": [
+        {
+          "p": "Once a shift starts, the estimate builds in real time. As the clock passes a threshold you configured — say, into daily overtime, or into a weekend rate — the rate that applies changes, and the running total follows. You can watch the number grow rather than reconstructing it at the end of the month."
+        }
+      ]
+    },
+    {
+      "h2": "Compensation profiles",
+      "blocks": [
+        {
+          "p": "Rates are described by compensation profiles: your base rate, overtime tiers, and premium profiles for weekend, night or holiday work. You can start from a regional preset and adjust it, or build your own. The full detail of thresholds and multipliers lives on the <a href='/overtime-pay-tracker/'>overtime and premium</a> page."
+        }
+      ]
+    },
+    {
+      "h2": "The math is shown, not hidden",
+      "blocks": [
+        {
+          "p": "Elmtrackr shows how a figure is put together — the regular hours, any overtime, and any premium components each appear as their own line rather than disappearing into a single total. If a number looks off, you can see which part produced it."
+        }
+      ]
+    },
+    {
+      "h2": "A worked example",
+      "blocks": [
+        {
+          "p": "Here is an illustrative month for a ₪42/hour rate, with overtime at ×1.25 and a weekend premium at ×1.5. The exact rates and rules are whatever you set — these values are only to show how the breakdown reads."
+        },
+        {
+          "example": {
+            "title": "Illustrative monthly estimate",
+            "rows": [
+              [
+                "31h regular × ₪42",
+                "₪ 1,302"
+              ],
+              [
+                "8h overtime × ₪42 × 1.25",
+                "₪ 420"
+              ],
+              [
+                "3.5h weekend × ₪42 × 1.5",
+                "₪ 220.50"
+              ]
+            ],
+            "total": [
+              "Estimated gross",
+              "₪ 1,942.50"
+            ],
+            "note": "Always labelled an estimate — your payslip is the record."
+          }
+        }
+      ]
+    },
+    {
+      "h2": "Why it is an estimate",
+      "blocks": [
+        {
+          "p": "The figure depends entirely on the rate and rules you enter and on the hours you clock. Real pay can differ because of deductions, taxes, agreements or corrections that live in your employer's payroll — none of which Elmtrackr can see. That is why every pay figure is labelled an estimate."
+        }
+      ]
+    },
+    {
+      "h2": "Checking against your payslip",
+      "blocks": [
+        {
+          "p": "Elmtrackr gives you an independent figure to compare with the payslip when it arrives, which can make a discrepancy easier to spot and raise. It does not connect to your employer and does not read or verify your payslip automatically — the comparison is one you make yourself."
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "Keep these in mind when reading the estimate:",
+    "items": [
+      "The estimate is only as accurate as the rate and rules you configure and the hours you record.",
+      "Regional presets are starting points, not tailored advice for your contract.",
+      "Elmtrackr does not import, read or verify your official payslip; any comparison is manual.",
+      "Elmtrackr is not legal, payroll, tax, accounting or financial advice."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Does Elmtrackr show my exact take-home pay?",
+      "a": "No. It shows an estimated gross based on your rate, rules and hours. Deductions and taxes handled by your employer's payroll are not included, so treat the figure as an estimate."
+    },
+    {
+      "q": "Can I use my own currency?",
+      "a": "Yes. You set the rate in the currency you are paid in, using a regional preset or a custom setup."
+    },
+    {
+      "q": "Does it check my payslip for me?",
+      "a": "No. Elmtrackr gives you an independent estimate to compare against your payslip yourself. It does not connect to your employer or read official pay records."
+    },
+    {
+      "q": "Can I see how a figure was calculated?",
+      "a": "Yes. Regular, overtime and premium components are shown as separate lines, so you can see which part produced the total."
+    }
+  ],
+  "related": [
+    {
+      "href": "/overtime-pay-tracker/",
+      "label": "Overtime & premiums",
+      "desc": "Thresholds, tier multipliers, premium profiles and stacking."
+    },
+    {
+      "href": "/work-hours-reports/",
+      "label": "Work-hours reports",
+      "desc": "See the estimate broken down by month and by task."
+    },
+    {
+      "href": "/shift-tracker-android/",
+      "label": "Android shift tracker",
+      "desc": "How clocking in feeds the live estimate."
+    }
+  ],
+  "cta": {
+    "h2": "See what a shift is worth as you work",
+    "p": "Set your rate once and let Elmtrackr build the estimated gross in real time."
+  }
+}

@@ -22,9 +22,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Strip internal, non-site files from the publish set
-        # Keep internal repo docs and agent guidance out of the public site.
-        # These live in git but must not be served from elmtrackr.site.
-        run: rm -rf docs AGENTS.md
+        # Keep internal repo docs, agent guidance and build sources out of the
+        # public site. These live in git but must not be served from
+        # elmtrackr.site. Generated pages (route directories) and assets/ stay.
+        run: rm -rf docs AGENTS.md content templates scripts
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

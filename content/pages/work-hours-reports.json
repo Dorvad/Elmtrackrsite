@@ -1,0 +1,146 @@
+{
+  "slug": "work-hours-reports",
+  "title": "Work-Hours Reports with CSV & PDF Export | Elmtrackr",
+  "og_title": "Work-Hours Reports with CSV and PDF Export",
+  "description": "Monthly and weekly work-hours reports with regular, overtime and premium breakdowns, trends, task totals, and CSV or PDF export.",
+  "h1": "Work-hours reports and exports",
+  "breadcrumb": "Reports & exports",
+  "hero_eyebrow": "Reports",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr turns your recorded shifts into monthly and weekly reports. You can see where the hours went, how regular, overtime and premium time compare, and how a month stacks up against the last. Export any month as a CSV file or a PDF report to check against payroll.",
+  "sections": [
+    {
+      "h2": "Monthly and weekly views",
+      "blocks": [
+        {
+          "p": "Reports come in monthly and weekly views, so you can look at a full pay period or zoom into a single week. Both are built entirely from the shifts already on your device."
+        }
+      ]
+    },
+    {
+      "h2": "Where your hours went",
+      "blocks": [
+        {
+          "p": "Each report breaks the total down into regular, overtime and weekend hours, so the shape of a period is visible at a glance rather than buried in a single number. That breakdown is the same one behind the live estimate described on the <a href='/hourly-pay-tracker/'>hourly pay</a> page."
+        },
+        {
+          "example": {
+            "title": "Illustrative month",
+            "rows": [
+              [
+                "Regular",
+                "152h"
+              ],
+              [
+                "Overtime",
+                "12h"
+              ],
+              [
+                "Weekend",
+                "8h"
+              ]
+            ],
+            "total": [
+              "Total hours",
+              "172h"
+            ],
+            "note": "Illustrative totals — your report reflects your own shifts."
+          }
+        }
+      ]
+    },
+    {
+      "h2": "Trends over time",
+      "blocks": [
+        {
+          "p": "Reports include trends so you can compare one month with another and see whether hours, overtime or premium time are rising or falling. Some of the deeper insights are optional features you can enable."
+        }
+      ]
+    },
+    {
+      "h2": "Totals by task",
+      "blocks": [
+        {
+          "p": "If you attach tasks to your shifts, reports can aggregate hours by task, so you can see how time divided across the things you actually did. There is more on this on the <a href='/task-time-tracking/'>task time tracking</a> page."
+        }
+      ]
+    },
+    {
+      "h2": "Reimbursements in the packet",
+      "blocks": [
+        {
+          "p": "Commute-reimbursement claims can be gathered into a report and exported as a PDF packet, keeping expenses and hours in one place. See <a href='/receipt-expense-tracker/'>receipts and reimbursements</a> for how claims are captured."
+        }
+      ]
+    },
+    {
+      "h2": "Export as CSV or PDF",
+      "blocks": [
+        {
+          "p": "You can export a month as a CSV file for a spreadsheet, or as a PDF report to read or share. The PDF is produced on the device using Android's own document tools, and the CSV is a plain, monthly file — straightforward to open anywhere."
+        }
+      ]
+    },
+    {
+      "h2": "For payroll review, not payroll itself",
+      "blocks": [
+        {
+          "p": "A report is a strong reference for checking a payslip and raising a question if something looks wrong. It is not an official payroll record and does not replace one — your employer's system remains the authority on what you are paid."
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "How to read the reports responsibly:",
+    "items": [
+      "Reports are built from the shifts and rules you entered, so their accuracy depends on your records.",
+      "Some report insights are optional features that can be turned on or off.",
+      "Figures are estimates for review; they do not replace your employer's official payroll records.",
+      "Elmtrackr is not legal, payroll or tax advice."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Can I export my hours to a spreadsheet?",
+      "a": "Yes. You can export a month as a CSV file, as well as a PDF report."
+    },
+    {
+      "q": "Do reports show overtime and premiums separately?",
+      "a": "Yes. Each report breaks totals into regular, overtime and weekend hours."
+    },
+    {
+      "q": "Can I compare months?",
+      "a": "Yes. Reports include trends so you can compare one period with another. Some deeper insights are optional features."
+    },
+    {
+      "q": "Can a report replace my official payslip?",
+      "a": "No. Reports are for reviewing and cross-checking your pay. Your employer's payroll records remain the official source."
+    }
+  ],
+  "related": [
+    {
+      "href": "/hourly-pay-tracker/",
+      "label": "Hourly pay tracking",
+      "desc": "The estimated gross the reports are built from."
+    },
+    {
+      "href": "/overtime-pay-tracker/",
+      "label": "Overtime & premiums",
+      "desc": "How the overtime and premium hours are classified."
+    },
+    {
+      "href": "/task-time-tracking/",
+      "label": "Task time tracking",
+      "desc": "Break your reported hours down by task."
+    },
+    {
+      "href": "/shift-tracker-android/",
+      "label": "Android shift tracker",
+      "desc": "Where the recorded shifts come from."
+    }
+  ],
+  "cta": {
+    "h2": "Turn your shifts into a clear report",
+    "p": "Review your month, then export it as CSV or PDF to check against payroll."
+  }
+}

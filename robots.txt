@@ -1,4 +1,20 @@
+# Elmtrackr — https://elmtrackr.site/
+# Normal indexing is allowed for all crawlers. CSS, JavaScript, images,
+# video and inline JSON-LD are all reachable (nothing is disallowed), so
+# search and AI-search engines can fully render and understand each page.
+
 User-agent: *
 Allow: /
+
+# OpenAI's ChatGPT search crawler — explicitly allowed so the site can
+# surface in ChatGPT search results. This is distinct from GPTBot
+# (model-training). See docs/seo/crawler-policy.md.
+User-agent: OAI-SearchBot
+Allow: /
+
+# NOTE: GPTBot (OpenAI model-training crawler) is intentionally left to the
+# wildcard policy above and is NOT given a separate rule here. Changing the
+# GPTBot / training-data policy is a product decision — see
+# docs/seo/crawler-policy.md before adding one.
 
 Sitemap: https://elmtrackr.site/sitemap.xml

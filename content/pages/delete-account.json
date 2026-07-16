@@ -1,0 +1,66 @@
+{
+  "slug": "delete-account",
+  "schema_type": "WebPage",
+  "title": "Delete Your Elmtrackr Account & Data | Elmtrackr",
+  "og_title": "Delete your Elmtrackr account and data",
+  "description": "How to delete your Elmtrackr account from inside the app, exactly what cloud and local data is removed, what uninstalling does, and how to get help.",
+  "h1": "Delete your account and data",
+  "breadcrumb": "Delete account",
+  "hero_eyebrow": "Your data",
+  "reviewed": "2026-07-16",
+  "lead": "You delete your Elmtrackr account from inside the app, and it removes your account's data from our cloud. This page explains the exact steps, what each action removes, what uninstalling does on its own, and how to reach us if you can't access the app.",
+  "sections": [
+    {
+      "h2": "Delete your account in the app",
+      "blocks": [
+        {"p": "Account deletion happens in the app itself:"},
+        {"ul": [
+          "Open Elmtrackr and go to <strong>Settings → Account → Delete account</strong>.",
+          "Confirm when prompted. This permanently removes your account and its synced data from our cloud."
+        ]},
+        {"note": {"label": "Important", "html": "There is <strong>no web form</strong> that deletes your account server-side. Deletion is performed from within the app. If you can no longer open the app, use the support contact below and we will help you complete the request."}}
+      ]
+    },
+    {
+      "h2": "What cloud data is deleted",
+      "blocks": [
+        {"p": "If you used an account and cloud sync, in-app deletion removes the account's data held on our cloud (Supabase): your profile (email), shifts, breaks, notes and pay rules, tasks, reimbursement claims, and any uploaded receipt images."}
+      ]
+    },
+    {
+      "h2": "What local data is cleared",
+      "blocks": [
+        {"p": "Elmtrackr stores your data in an encrypted database on your device. The reliable way to remove that on-device data is to <strong>delete it in the app</strong> or to <strong>uninstall the app</strong> (see below). If you never created an account, there is no cloud data to delete — everything is local."}
+      ]
+    },
+    {
+      "h2": "What uninstalling alone does — and doesn't",
+      "blocks": [
+        {"p": "Uninstalling the app removes the app and the data stored on <em>that device</em>, including the local encrypted database and local receipt images. Uninstalling does <strong>not</strong> delete a cloud account you created: if you signed in and synced, use in-app account deletion first to remove the cloud copy, then uninstall if you wish."}
+      ]
+    },
+    {
+      "h2": "Retention",
+      "blocks": [
+        {"p": "When you delete your account, its data is removed from our active systems. We do not document separate retention exceptions here; if you need specifics for a formal request (for example about provider backups), contact support and we will respond with what applies."}
+      ]
+    },
+    {
+      "h2": "Get help",
+      "blocks": [
+        {"p": "If you can't complete deletion in the app, or have a question about your data, email <a href='mailto:support@elmtrackr.site'>support@elmtrackr.site</a> and we will help. For the full policy, see the <a href='/privacy.html'>privacy policy</a>; for a plain-language overview, see <a href='/privacy-and-security/'>privacy &amp; security</a>."}
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Is there a website form to delete my account?", "a": "No. Account deletion is done inside the app under Settings → Account → Delete account. If you can't open the app, email support@elmtrackr.site and we will help you complete the request."},
+    {"q": "Does uninstalling delete my cloud data?", "a": "No. Uninstalling removes the app and its data on that device. If you created an account and synced, use in-app account deletion to remove the cloud copy first."},
+    {"q": "What if I never made an account?", "a": "Then there is no cloud data. Your data is only on your device, and uninstalling (or deleting it in the app) removes it."},
+    {"q": "How do I reach support?", "a": "Email support@elmtrackr.site."}
+  ],
+  "related": [
+    {"href": "/privacy-and-security/", "label": "Privacy & security", "desc": "How your data is stored and protected."},
+    {"href": "/privacy.html", "label": "Privacy policy", "desc": "The formal policy for the app and website."},
+    {"href": "/shift-tracker-android/", "label": "Android shift tracker", "desc": "The app these controls live in."}
+  ]
+}

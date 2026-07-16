@@ -1,9 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://elmtrackr.site/</loc>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/shift-tracker-android/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/shift-tracker-android/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/shift-tracker-android/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/shift-tracker-android/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/hourly-pay-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/hourly-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/hourly-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/hourly-pay-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/overtime-pay-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/overtime-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/overtime-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/overtime-pay-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/wear-os-shift-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/wear-os-shift-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/wear-os-shift-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/wear-os-shift-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/receipt-expense-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/receipt-expense-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/receipt-expense-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/receipt-expense-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/work-hours-reports/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/work-hours-reports/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/work-hours-reports/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/work-hours-reports/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/task-time-tracking/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/task-time-tracking/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/task-time-tracking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/task-time-tracking/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/privacy-and-security/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/privacy-and-security/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/privacy-and-security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/privacy-and-security/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/shift-tracker-android/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/shift-tracker-android/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/shift-tracker-android/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/shift-tracker-android/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/hourly-pay-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/hourly-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/hourly-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/hourly-pay-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/overtime-pay-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/overtime-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/overtime-pay-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/overtime-pay-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/wear-os-shift-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/wear-os-shift-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/wear-os-shift-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/wear-os-shift-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/receipt-expense-tracker/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/receipt-expense-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/receipt-expense-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/receipt-expense-tracker/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/work-hours-reports/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/work-hours-reports/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/work-hours-reports/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/work-hours-reports/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/task-time-tracking/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/task-time-tracking/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/task-time-tracking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/task-time-tracking/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/privacy-and-security/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/privacy-and-security/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/privacy-and-security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/privacy-and-security/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/guides/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/guides/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/guides/how-to-track-work-hours/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/how-to-track-work-hours/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-track-work-hours/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-track-work-hours/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/guides/how-to-track-work-hours/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/how-to-track-work-hours/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-track-work-hours/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-track-work-hours/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/guides/how-to-estimate-hourly-pay/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/how-to-estimate-hourly-pay/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-estimate-hourly-pay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-estimate-hourly-pay/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/guides/how-to-estimate-hourly-pay/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/how-to-estimate-hourly-pay/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-estimate-hourly-pay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-estimate-hourly-pay/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/guides/overtime-vs-premium-pay/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/overtime-vs-premium-pay/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/overtime-vs-premium-pay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/overtime-vs-premium-pay/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/guides/overtime-vs-premium-pay/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/overtime-vs-premium-pay/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/overtime-vs-premium-pay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/overtime-vs-premium-pay/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/guides/how-to-review-work-hours-against-a-payslip/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/how-to-review-work-hours-against-a-payslip/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-review-work-hours-against-a-payslip/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-review-work-hours-against-a-payslip/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/guides/how-to-review-work-hours-against-a-payslip/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/guides/how-to-review-work-hours-against-a-payslip/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/guides/how-to-review-work-hours-against-a-payslip/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/guides/how-to-review-work-hours-against-a-payslip/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/delete-account/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/delete-account/"/>
+  </url>
+  <url>
+    <loc>https://elmtrackr.site/he/delete-account/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elmtrackr.site/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/delete-account/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/delete-account/"/>
   </url>
 </urlset>

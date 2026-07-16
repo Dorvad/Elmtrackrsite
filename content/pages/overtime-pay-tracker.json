@@ -1,0 +1,135 @@
+{
+  "slug": "overtime-pay-tracker",
+  "title": "Overtime Pay Tracker — Daily & Weekly Thresholds | Elmtrackr",
+  "og_title": "Overtime Pay Tracker with Configurable Tiers",
+  "description": "Set daily and weekly overtime thresholds, tier multipliers, and premium profiles with stacking. Regional presets included as starting points, not legal advice.",
+  "h1": "Overtime and premium pay tracker",
+  "breadcrumb": "Overtime & premiums",
+  "hero_eyebrow": "Overtime & premiums",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr applies your overtime and premium rules automatically as you work. You set daily and weekly thresholds, tier multipliers, and premium profiles for weekend, night and holiday work, then every minute lands in the right bucket. Presets get you started, but the rules are yours to define.",
+  "sections": [
+    {
+      "h2": "Daily and weekly overtime",
+      "blocks": [
+        {
+          "p": "You can set both a daily and a weekly overtime threshold. Hours worked beyond the daily threshold in a single shift, or beyond the weekly threshold across the week, are counted at your overtime rate rather than the regular one. You define where those thresholds sit."
+        }
+      ]
+    },
+    {
+      "h2": "Configurable tier multipliers",
+      "blocks": [
+        {
+          "p": "Overtime is not limited to a single rate. You can configure tiers — for example a first overtime tier at ×1.25 and a higher tier beyond it — so longer shifts are counted the way your agreement describes. The multipliers are values you set."
+        }
+      ]
+    },
+    {
+      "h2": "Overtime is not the same as a premium",
+      "blocks": [
+        {
+          "p": "It helps to keep two ideas separate. <strong>Overtime</strong> depends on how much you have worked — hours past a daily or weekly threshold. A <strong>premium</strong> depends on when you work — a weekend, a night, or a holiday — regardless of how many hours you have done. Elmtrackr treats them as distinct so a Saturday evening can be both, without one hiding the other."
+        }
+      ]
+    },
+    {
+      "h2": "Premium profiles and stacking",
+      "blocks": [
+        {
+          "p": "Premium profiles cover weekend, night and holiday rates. Because those conditions can overlap, Elmtrackr supports several stacking modes that decide how two premiums combine when they apply at once — so you control whether they add, multiply, or take the higher of the two."
+        }
+      ]
+    },
+    {
+      "h2": "Regional presets",
+      "blocks": [
+        {
+          "p": "To save setting everything by hand, Elmtrackr includes presets for the United States, California, the United Kingdom, the European Union and Israel, plus a fully custom option. A preset encodes region-specific defaults — for instance, the Israel preset treats Friday and Saturday as the weekend and defines night hours as 22:00 to 06:00."
+        },
+        {
+          "note": {
+            "label": "Important",
+            "html": "A preset is a convenient starting point, not a guarantee of legal compliance. Rules change and vary by contract and jurisdiction. Review and adjust a preset against your own agreement before relying on it."
+          }
+        }
+      ]
+    },
+    {
+      "h2": "A worked example",
+      "blocks": [
+        {
+          "p": "An illustrative day with a daily overtime threshold of 8 hours, a base rate of ₪42 and an overtime tier of ×1.25:"
+        },
+        {
+          "example": {
+            "title": "Illustrative single day",
+            "rows": [
+              [
+                "8h regular × ₪42",
+                "₪ 336"
+              ],
+              [
+                "2h overtime × ₪42 × 1.25",
+                "₪ 105"
+              ]
+            ],
+            "total": [
+              "Estimated day total",
+              "₪ 441"
+            ],
+            "note": "Thresholds and multipliers are whatever you configure."
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "Overtime and premium rules carry real-world caveats:",
+    "items": [
+      "No preset is a guarantee of legal compliance; treat every preset as a starting point to review against your own contract and local law.",
+      "Weekend, night and holiday definitions are configurable and default to a region's common pattern, which may not match your workplace.",
+      "The result is an estimate based on the rules you set — compare it with your employer's official records and payslip.",
+      "Elmtrackr is not legal, payroll or tax advice."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Does Elmtrackr calculate overtime automatically?",
+      "a": "Yes. Once you set your daily and weekly thresholds and tier multipliers, it applies them to every shift without you doing the arithmetic."
+    },
+    {
+      "q": "Can I have more than one overtime rate?",
+      "a": "Yes. You can configure overtime tiers, so a longer shift can move from one multiplier to a higher one at the point you define."
+    },
+    {
+      "q": "What is the difference between overtime and a premium?",
+      "a": "Overtime depends on how many hours you have worked past a threshold. A premium depends on when you work — weekend, night or holiday. Elmtrackr handles them separately and can apply both at once."
+    },
+    {
+      "q": "Are the regional presets legally accurate for me?",
+      "a": "Treat them as starting points, not legal advice. They encode common regional defaults, but you should review and adjust them against your own contract and local law."
+    }
+  ],
+  "related": [
+    {
+      "href": "/hourly-pay-tracker/",
+      "label": "Hourly pay tracking",
+      "desc": "How rates and rules become a live estimated gross."
+    },
+    {
+      "href": "/work-hours-reports/",
+      "label": "Work-hours reports",
+      "desc": "See regular, overtime and premium hours broken out."
+    },
+    {
+      "href": "/shift-tracker-android/",
+      "label": "Android shift tracker",
+      "desc": "Clocking in that feeds the overtime calculation."
+    }
+  ],
+  "cta": {
+    "h2": "Let your overtime rules do the counting",
+    "p": "Set your thresholds and premiums once, then see them applied to every shift."
+  }
+}

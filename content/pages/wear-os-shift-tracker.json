@@ -1,0 +1,119 @@
+{
+  "slug": "wear-os-shift-tracker",
+  "title": "Wear OS Shift Tracker — Clock In From Your Watch | Elmtrackr",
+  "og_title": "Wear OS Shift Tracker — Clock In From Your Watch",
+  "description": "Elmtrackr's Wear OS companion lets you clock in from the watch with a tile or complication, see the active shift, and sync back to your phone.",
+  "h1": "Wear OS shift tracker",
+  "breadcrumb": "Wear OS",
+  "hero_eyebrow": "On your wrist",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr includes a Wear OS companion so you can start and end a shift from your watch, without reaching for your phone. A tile and a watch-face complication put clock-in one tap away, and the reading syncs back to the phone when you are connected.",
+  "image": {
+    "src": "/assets/render-watch-live.jpg",
+    "alt": "Elmtrackr on a Wear OS watch face showing an active shift with elapsed time and pay so far.",
+    "w": 1100,
+    "h": 1100,
+    "caption": "The active shift on the wrist: elapsed time and pay counted so far."
+  },
+  "sections": [
+    {
+      "h2": "A companion delivered with the app",
+      "blocks": [
+        {
+          "p": "The watch app is a companion that ships alongside the phone app under the same listing, as a separate artifact for the watch. It requires Wear OS 3 or newer."
+        }
+      ]
+    },
+    {
+      "h2": "Clock in and out from the watch",
+      "blocks": [
+        {
+          "p": "You can start and end a shift straight from the watch. A Wear OS tile gives you a punch button in the tile carousel, and a watch-face complication puts clock-in on the face itself — so a shift begins with a single tap on your wrist."
+        }
+      ]
+    },
+    {
+      "h2": "The active shift on your wrist",
+      "blocks": [
+        {
+          "p": "While a shift runs, the watch shows the live reading — the elapsed time and the pay counted so far — so you can glance at progress without opening anything on the phone."
+        },
+        {
+          "p": "In practice: you arrive with your phone stowed away, raise your wrist and tap the Elmtrackr tile to start the shift. The watch keeps the elapsed time in view while you work, and when you clock out the punch syncs back to your phone the next time they connect."
+        }
+      ]
+    },
+    {
+      "h2": "Syncing with your phone",
+      "blocks": [
+        {
+          "p": "Punches made on the watch are recorded and sync back so your phone holds the same record. As with the rest of Elmtrackr, cloud sync across devices happens when you are signed in, sync has been configured, and you have a connection; until then the data stays local on the device."
+        }
+      ]
+    },
+    {
+      "h2": "Setting it up",
+      "blocks": [
+        {
+          "p": "Pair your watch with your phone as usual for Wear OS, then install the Elmtrackr companion on the watch. The phone app remains the main place to set your rates, rules and reports; the watch is there for the quick, hands-free part — clocking in and out."
+        }
+      ]
+    },
+    {
+      "h2": "What still needs the phone or an account",
+      "blocks": [
+        {
+          "p": "Configuring rates and rules, viewing full reports, and exporting are done on the phone. Signing in and cloud sync need a network connection and an account. If you never sign in, the watch and phone still work together for tracking, with everything held on the device."
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "A few boundaries to be aware of:",
+    "items": [
+      "The companion requires Wear OS 3 or newer and a paired phone running Elmtrackr.",
+      "Cloud sync across devices needs a signed-in account and a connection; without them, data stays local.",
+      "Detailed setup, reports and exports live on the phone app, not the watch.",
+      "Pay shown on the watch is an estimate, not an official payslip."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Can I clock in from my watch without my phone in hand?",
+      "a": "Yes. A Wear OS tile and a watch-face complication let you start and end a shift from the watch itself."
+    },
+    {
+      "q": "Which Wear OS version do I need?",
+      "a": "Wear OS 3 or newer, paired with a phone running Elmtrackr."
+    },
+    {
+      "q": "Do punches on the watch reach my phone?",
+      "a": "Yes. Watch punches are recorded and sync back to the phone. Cloud sync across devices happens when you are signed in, it has been configured, and you are connected."
+    },
+    {
+      "q": "Is the watch app separate from the phone app?",
+      "a": "It is a companion that ships with the same listing as a separate artifact for the watch. The phone app stays the main place for setup and reports."
+    }
+  ],
+  "related": [
+    {
+      "href": "/shift-tracker-android/",
+      "label": "Android shift tracker",
+      "desc": "The phone app the watch pairs with."
+    },
+    {
+      "href": "/privacy-and-security/",
+      "label": "Privacy & security",
+      "desc": "What stays on the device and what needs an account."
+    },
+    {
+      "href": "/work-hours-reports/",
+      "label": "Work-hours reports",
+      "desc": "Review the hours your watch punches add up to."
+    }
+  ],
+  "cta": {
+    "h2": "Clock in from your wrist",
+    "p": "Add the Wear OS companion and start a shift with one tap on the watch."
+  }
+}

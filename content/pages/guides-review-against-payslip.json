@@ -1,0 +1,99 @@
+{
+  "slug": "guides/how-to-review-work-hours-against-a-payslip",
+  "schema_type": "Article",
+  "title": "How to Check Your Work Hours Against a Payslip | Elmtrackr",
+  "og_title": "How to review your work hours against a payslip",
+  "description": "A step-by-step way to compare your own shift record with a payslip: regular hours, overtime brackets, premiums, unpaid breaks and reimbursements — and how to raise a discrepancy.",
+  "h1": "How to review your work hours against a payslip",
+  "breadcrumb": "Review hours against a payslip",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-07-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "To check a payslip, gather your own record of the month's shifts and compare it line by line with the payslip: regular hours first, then each overtime bracket, then premiums, breaks and any reimbursements. Where they differ, note it clearly and raise it with payroll — the goal is a documented question, not a verdict.",
+  "sections": [
+    {
+      "h2": "What you are comparing",
+      "blocks": [
+        {"p": "A review puts two records side by side: your own log of when you worked, and your employer's payslip for the same period. You are looking for differences worth asking about — not trying to declare who is right."}
+      ]
+    },
+    {
+      "h2": "Step by step",
+      "blocks": [
+        {"h3": "1. Collect the month's shifts"},
+        {"p": "Pull together every shift in the pay period from your own record, ideally exported so you can tick items off."},
+        {"h3": "2. Compare regular hours"},
+        {"p": "Add up your regular (non-overtime, non-premium) hours and compare the total with the base hours on the payslip."},
+        {"h3": "3. Compare overtime brackets"},
+        {"p": "Check each overtime tier separately — the number of overtime hours and the rate applied — rather than lumping them together."},
+        {"h3": "4. Compare premiums"},
+        {"p": "Match weekend, night or holiday premium hours against the payslip, remembering an hour can be both overtime and a premium."},
+        {"h3": "5. Check unpaid breaks"},
+        {"p": "Confirm that unpaid breaks were deducted the way you expect, and no more."},
+        {"h3": "6. Check reimbursements"},
+        {"p": "If you claimed travel or other reimbursements, confirm they appear."},
+        {"h3": "7. Document any discrepancy"},
+        {"p": "For each difference, write down the date, what you recorded, what the payslip shows, and the gap. A specific note is far easier to resolve than \"my pay looks wrong.\""},
+        {"h3": "8. Raise it with your employer or payroll"},
+        {"p": "Share the documented differences with whoever handles pay. Most are explained quickly; some lead to a correction."}
+      ]
+    },
+    {
+      "h2": "An example comparison",
+      "blocks": [
+        {"p": "A simple line-by-line check might look like this (illustrative):"},
+        {"example": {
+          "title": "Illustrative comparison",
+          "rows": [
+            ["Regular hours", "your record 152h · payslip 150h → ask"],
+            ["Overtime (×1.25)", "your record 12h · payslip 12h → ok"],
+            ["Weekend premium", "your record 8h · payslip 6h → ask"],
+            ["Unpaid breaks", "as expected → ok"],
+            ["Reimbursements", "1 travel claim · not shown → ask"]
+          ],
+          "note": "Illustrative. \"Ask\" means raise a question, not that the payslip is wrong."
+        }}
+      ]
+    },
+    {
+      "h2": "Common mistakes",
+      "blocks": [
+        {"ul": [
+          "Comparing only the bottom-line total instead of each category.",
+          "Treating gross estimate and net pay as if they should match.",
+          "Forgetting that one hour can be both overtime and a premium.",
+          "Raising a vague concern instead of specific dated differences.",
+          "Assuming a difference is automatically an error rather than a question."
+        ]}
+      ]
+    },
+    {
+      "h2": "How Elmtrackr helps",
+      "blocks": [
+        {"p": "Elmtrackr gives you the independent record to compare with. Monthly and weekly reports break your hours into regular, overtime and weekend totals, reimbursement claims can be gathered into the same report, and you can export a month as CSV or PDF to sit next to the payslip. See <a href='/work-hours-reports/'>work-hours reports</a>."}
+      ]
+    },
+    {
+      "h2": "What Elmtrackr can't determine",
+      "blocks": [
+        {"p": "Elmtrackr can show a difference; it cannot judge it. It does not decide whether a payslip is legally correct, does not read or import your payslip, and does not know the deductions and agreements behind your pay. It gives you the evidence to ask a good question — your employer's payroll remains the authority on what you are owed."}
+      ]
+    }
+  ],
+  "faq": [
+    {"q": "Does Elmtrackr tell me if my payslip is correct?", "a": "No. It gives you an independent record and reports to compare against, but it does not read your payslip or decide whether it is legally correct. Use it to spot and document differences to raise."},
+    {"q": "Should the estimate match my payslip exactly?", "a": "Not usually. An estimate is a gross figure; a payslip reflects taxes, deductions and agreements. Compare categories of hours, and treat differences as questions."},
+    {"q": "How do I document a discrepancy?", "a": "Note the date, what you recorded, what the payslip shows and the size of the gap. Exporting your month as CSV or PDF gives you something concrete to attach."},
+    {"q": "Who do I raise a discrepancy with?", "a": "Whoever handles pay where you work — a manager, HR or a payroll team. A specific, dated difference is the fastest way to get an answer."}
+  ],
+  "methodology": "This guide sets out a general review method and reflects the Elmtrackr features that support it (regular/overtime/weekend report breakdowns, reimbursement reporting, and CSV/PDF export). It makes no claim about legal correctness, cites no external legal sources, and is not payroll or legal advice; final authority rests with your employer's official records.",
+  "related": [
+    {"href": "/guides/how-to-estimate-hourly-pay/", "label": "How to estimate hourly pay", "desc": "Build the gross figure you compare against."},
+    {"href": "/guides/overtime-vs-premium-pay/", "label": "Overtime vs premium pay", "desc": "Understand the brackets you are checking."},
+    {"href": "/work-hours-reports/", "label": "Work-hours reports", "desc": "Export the month to sit beside your payslip."}
+  ],
+  "cta": {
+    "h2": "Bring your own record to payday",
+    "p": "Export a clear monthly report from Elmtrackr and check it against your payslip."
+  }
+}

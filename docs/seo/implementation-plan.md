@@ -21,6 +21,263 @@ derived from the Android repository `Dorvad/elmtrackr`, branch `Main` (read-only
 
 ---
 
+## Delivered 2026-07-16 — Technical SEO foundation (Phases 2, 3-partial, 4, 7)
+
+Implemented on branch `claude/technical-seo-foundation-fzqrk0`, using
+`docs/seo/product-facts.md` as the only source for product claims. No rating,
+price, review or compatibility claim was fabricated.
+
+- **Homepage metadata (`index.html`):** descriptive title, meta description
+  (price removed), self-referencing canonical, `robots` directive,
+  Open Graph (title/description/url/type/image + dimensions/alt/locale),
+  Twitter `summary_large_image`, light/dark `theme-color`, SVG + PNG favicons
+  and `apple-touch-icon`.
+- **Structured data:** one JSON-LD `@graph` — `Organization`, `WebSite`,
+  `SoftwareApplication`. Verified facts only; `offers`/price omitted (price
+  unverified), no `aggregateRating`/reviews, no "free"/payroll/"fully offline"
+  claims.
+- **Play Store links:** both CTAs now use the one canonical package-specific
+  URL derived from the verified application id `com.elmlaunch.myapp`, with
+  website-acquisition campaign params (via Play's `referrer`), `target=_blank`,
+  `rel="noopener"` and an `aria-label`. The generic `play.google.com`
+  home-page links are gone. **Listing public availability remains UNVERIFIED**
+  — status centralized in `scripts/seo_manifest.json` and documented in
+  `docs/seo/play-listing.md` (owner to confirm and flip `listing_public`).
+- **`robots.txt`:** upgraded, not replaced — normal indexing preserved,
+  `OAI-SearchBot` explicitly allowed, sitemap declared, nothing content-blocked.
+  `GPTBot` policy left unchanged (inherits `*`); the ChatGPT-search vs
+  model-training distinction is documented in `docs/seo/crawler-policy.md`.
+- **Sitemap:** hand-maintained file replaced by a reproducible generator
+  (`scripts/build_sitemap.py`) driven by a route manifest
+  (`scripts/seo_manifest.json`). Emits only canonical/indexable/existing
+  pages, accurate `lastmod`, no priority/changefreq, validates its XML, and
+  leaves `ads.txt` untouched.
+- **Canonicals & hreflang:** manifest-driven mechanism. Homepage carries
+  self-referencing `hreflang="en"` + `x-default`. **No Hebrew alternate is
+  emitted** because `/he/` does not exist yet (Phase 5).
+- **Validation:** `scripts/validate_seo.py` checks titles, descriptions,
+  canonicals, OG URLs, JSON-LD syntax + required schema properties,
+  sitemap/canonical consistency, absence of invented rating/price fields,
+  hreflang reciprocity, route uniqueness and Play-link centralization. Passes.
+
+**Still open (owner decisions, out of this phase's scope):** the visible
+marketing price ("$3. Once." / "$3 once, no subscription") and the
+"no ads" copy vs. the AdSense loader (Phase 8), brand capitalization
+(`Elmtrackr` visible vs verified `ElmTrackr` — used as JSON-LD `name` with
+`Elmtrackr` as `alternateName`), and the Hebrew route (Phase 5).
+
+---
+
+## Delivered 2026-07-16 (2) — Homepage relevance & on-page content
+
+Content pass on `index.html`, still sourced only from `product-facts.md`.
+The editorial Aurora design, typography, animations and section numbering
+are preserved; no walls of text were added.
+
+- **Hero `h1`:** now leads with a visible, search-oriented line ("Hourly pay
+  and shift tracking for Android and Wear OS") above the oversized brand
+  statement "Every shift, measured." The supporting paragraph explains
+  clocking in from phone or watch, tracking hours, applying configured
+  overtime/premium rules, and the live estimated gross — stated explicitly as
+  an estimate, not an official payslip. ("Breaks" was intentionally **not**
+  claimed: it is not verified in the registry.)
+- **New concise sections:** an *Overview* band (what Elmtrackr is / who it's
+  for), an *Explore — focused guides* band, and a visible *FAQ*. Combined with
+  the existing numbered sections, the page now answers all ten target
+  questions (what/who/clock-in/estimate/overtime/Wear OS/reports/privacy/
+  offline/pricing).
+- **Visible FAQ:** eight native, keyboard-accessible `<details>` items; every
+  answer is present in the HTML even when collapsed; each answer traces to a
+  verified registry row.
+- **Compensation disclaimer:** a concise visible block in the estimate section
+  — rules are user-configured, presets are starting points, compare with the
+  employer's official records/payslip, and Elmtrackr is not legal, payroll or
+  tax advice.
+- **Pricing:** unverified price copy ("$3. Once." / "no subscription") was
+  **neutralized** (owner decision) — the price H2 slot keeps its visual
+  treatment with "Know the number." and the copy points to the live Google
+  Play listing for current pricing. No price is stated until verified.
+- **Contextual internal links** (descriptive, not "Learn more"): to
+  `/hourly-pay-tracker/`, `/android-shift-tracker/`, `/overtime-tracker/`,
+  `/wear-os/`, `/reports/`, `/tasks/`, `/receipts-reimbursements/` and the
+  existing `/privacy.html`.
+- **Planned focused pages:** the seven new destinations are registered in
+  `scripts/seo_manifest.json` as `exists:false` — excluded from the sitemap
+  and skipped by the validator until authored. **These links 404 until the
+  pages are built;** the next task should author each page, set `exists:true`
+  with a `lastmod`, and re-run `scripts/build_sitemap.py`.
+- **Verification:** static-HTML, SEO and sitemap checks pass; mobile (390px)
+  and desktop (1280px) layouts rendered and reviewed for the new sections
+  (overview grid, disclaimer, explore cards and FAQ all stack correctly).
+
+---
+
+## Delivered 2026-07-16 (3) — Static product-information page system
+
+Turned the one-page site into a small crawlable product site **without a
+client-side framework and without migrating the homepage**. All claims trace
+to `product-facts.md`.
+
+- **Build system (stdlib only):** `scripts/build_content_pages.py` renders
+  `content/pages/*.json` through `templates/` (`page.html`, `header.html`,
+  `footer.html`) into route directories (`<slug>/index.html`), using the
+  shared `assets/content-pages.css` (Aurora type + palette). Output is
+  deterministic; `--check` mode fails if the committed HTML is stale. Shared
+  header/footer, breadcrumbs, metadata, canonical + hreflang, visible
+  reviewed date, CTA, FAQ (`<details>`), and JSON-LD are all produced by the
+  templates.
+- **Eight English pages** (each: unique title/description, one `h1`, a short
+  direct answer, sections, a concrete example where useful, a Limitations
+  section, a visible FAQ, related-page links, homepage + Play CTA, breadcrumb,
+  canonical, and `WebPage` + `BreadcrumbList` + `FAQPage` structured data):
+  `/shift-tracker-android/`, `/hourly-pay-tracker/`, `/overtime-pay-tracker/`,
+  `/wear-os-shift-tracker/`, `/receipt-expense-tracker/`,
+  `/work-hours-reports/`, `/task-time-tracking/`, `/privacy-and-security/`.
+- **Real screenshots only:** the Android, hourly-pay and Wear OS pages reuse
+  existing product renders with descriptive alt text; pages without a relevant
+  asset carry no image (no stock or AI imagery).
+- **Verification-driven omissions:** requested items not backed by
+  `product-facts.md` were left out rather than invented — notably break
+  tracking / paid-vs-unpaid breaks, automatic receipt field extraction
+  (amount/merchant/currency/date), task icons/colours, and explicit
+  recent-task ordering. Presets are described as starting points, never as
+  legal compliance; pay is always an estimate; nothing claims automatic
+  payslip verification or claim submission to an employer.
+- **Internal linking:** homepage links to all eight pages (old placeholder
+  slugs repointed to the canonical ones); every page links home and to 2–4
+  related pages; the required cross-links (overtime→hourly+reports,
+  Wear OS→Android+privacy, receipts→reports+privacy, tasks→reports+shift) are
+  present. No broken internal links; no duplicated paragraphs across pages.
+- **SEO plumbing:** the eight routes are registered in `seo_manifest.json`
+  (`exists:true`), so `build_sitemap.py` now emits nine URLs and
+  `validate_seo.py` checks every page. The deploy workflow strips
+  `content/`, `templates/` and `scripts/` from the published artifact.
+
+---
+
+## Delivered 2026-07-16 (4) — Hebrew (RTL) equivalents for the whole site
+
+Full Hebrew counterparts for the homepage and all eight product pages, under
+stable ASCII `/he/…` routes. Existing Hebrew work (the undeployed
+`6263daa:he/index.html`) was reviewed and its terminology reused rather than
+discarded.
+
+- **Locale-aware build:** `scripts/build_content_pages.py` now generates both
+  `en` (`content/pages/*.json`) and `he` (`content/pages/he/*.json`) into
+  `<slug>/` and `he/<slug>/`. Hebrew chrome comes from `templates/header.he.html`
+  and `templates/footer.he.html`; `templates/page.html` carries
+  `lang`/`dir`/locale tokens. 16 pages total.
+- **Hebrew homepage:** `he/index.html` (`<html lang="he" dir="rtl">`) mirrors
+  the current English homepage — hero, all numbered sections, overview,
+  explore cards, visible FAQ, video summary, CTA and footer localized. The
+  descriptive H1 is `מעקב שעות עבודה וחישוב שכר משוער בזמן אמת`; the brand line
+  `כל משמרת, נמדדת.` is preserved.
+- **Translation, not transliteration:** natural Israeli Hebrew using the app's
+  own terminology (`משמרת`, `החתמת כניסה/יציאה`, `שעות נוספות`, `תוספות`,
+  `פרופילי תגמול`, `דוחות`, `החזרים`, `נעילת אפליקציה`, `סנכרון`, `תלוש`).
+  Latin/number runs (Elmtrackr, Wear OS, CSV/PDF, ₪42, ×1.25, 22:00–06:00) are
+  wrapped in bidi-isolated `.ltr` spans for stable display.
+- **Typeface:** no Heebo. No Hebrew webfont is bundled, so Hebrew uses a safe
+  self-contained system stack (`system-ui, 'Segoe UI', 'Arial Hebrew',
+  'Noto Sans Hebrew', …`) with Archivo still serving Latin. No font files were
+  downloaded or committed.
+- **Hreflang & switcher:** every en/he pair carries reciprocal
+  `hreflang="en"`/`"he"`/`"x-default"`; each page canonicalises to itself. An
+  accessible language switcher links to the equivalent page (not the homepage),
+  visible on mobile too.
+- **Structured data:** localized names, descriptions, FAQ Q&A, breadcrumb
+  labels and `inLanguage`, with product identity, URLs and verified facts kept
+  consistent across languages.
+- **New checker:** `scripts/check_locales.py` verifies en↔he coverage,
+  hreflang reciprocity, self-canonicals, `dir="rtl"` on Hebrew pages, no
+  mixed-language metadata/body, and that every language-switch target exists.
+  Passes, along with `validate_seo` (18 sitemap URLs), `check_static_html`,
+  `build_content_pages --check` and `build_sitemap --check`.
+- **Responsive/RTL note:** content and typography verified in-browser at
+  phone/desktop widths. The pre-installed headless Chromium cannot *screenshot*
+  a page whose root element is `dir="rtl"` (it captures blank; the identical
+  page renders the moment `dir="rtl"` is removed) — a capture quirk, not a page
+  defect. RTL correctness is enforced via direction-aware CSS
+  (`text-align:start`, flex ordering, right-side bullets, `.ltr` isolation).
+
+---
+
+## Delivered 2026-07-16 (5) — Educational guides hub + first guide set (en + he)
+
+A `/guides/` (and `/he/guides/`) hub plus four guide pairs written to answer
+the broader questions people ask before they know the brand — grounded in real
+Elmtrackr workflows, not thin keyword pages.
+
+- **Hub** (`/guides/`, `/he/guides/`): organizes guides into five themes —
+  tracking work hours, estimating pay, overtime & premiums, reviewing work
+  records, and using Android/Wear OS tools (the last links to the product
+  pages). Two-level breadcrumb (Home / Guides).
+- **Four guide pairs** (Article schema, three-level breadcrumb Home / Guides /
+  guide, ~800–900 words each): how to track work hours; how to estimate hourly
+  pay; overtime vs premium pay; how to review work hours against a payslip.
+- **Consistent AI-answer structure** on every guide: direct answer up top, a
+  definition section, step-by-step, an illustrative example/table (clearly
+  labelled), common mistakes, "How Elmtrackr helps", "What Elmtrackr can't
+  determine", a visible FAQ, a Methodology & sources note, and a visible
+  reviewed date. Paragraphs are short and self-contained.
+- **Builder additions:** `schema_type` (`Article`/`WebPage`), optional
+  `parent` (3-level breadcrumb + BreadcrumbList), optional `cta`, and a
+  `methodology` block rendered after the FAQ. `FAQPage` is emitted only where a
+  visible FAQ exists. No fabricated authors, credentials or citations.
+- **Grounded, not name-dropped:** guides reference configurable thresholds,
+  visible pay breakdowns, local shift history, tasks, CSV/PDF reports, Wear OS
+  and widgets only where they genuinely answer the question, and each is
+  explicit about what the app cannot determine (legal correctness, contract
+  terms, taxes, whether a payslip is right).
+- **Integration:** "Guides"/"מדריכים" added to the content-page headers/footers
+  and both homepage navs; guides cross-link to each other and to the product
+  pages; 10 routes added to the manifest (sitemap now 28 URLs). `check_locales`,
+  `validate_seo`, `check_static_html`, and both `--check` builders pass.
+
+---
+
+## Delivered 2026-07-16 (6) — Media accessibility & performance (film + images)
+
+Made the product film and images understandable to search engines, AI, screen
+readers and slow connections. Full inventory in `docs/seo/media-audit.md`.
+
+- **Verified film facts** (MP4 atom parse + ffmpeg probe): H.264, 1080×1920,
+  30 fps, AAC stereo, 64.67 s. On-screen content read from decoded frames.
+- **Film accessibility (index.html + he/index.html):** descriptive heading and
+  an accurate summary; native `controls` (keyboard play/pause/mute/captions/
+  fullscreen); `<track kind="captions">` (en + he WebVTT in
+  `assets/captions/`); a full visible transcript in each language; renamed
+  descriptive poster (`elmtrackr-app-tour-poster.jpg`); `preload="metadata"`;
+  **no autoplay** (no sound without user action; reduced-motion respected by
+  default); `<source>` + a visible MP4 fallback link; the custom
+  autoplay/tap-to-unmute script removed.
+- **VideoObject JSON-LD** on both homepages with verified fields only (name,
+  description, thumbnailUrl, contentUrl, duration `PT1M5S`, uploadDate=site
+  publish date, inLanguage, width, height).
+- **Documented gap (not invented):** the clip has an audio track whose content
+  can't be verified here, so the transcript/captions describe the meaningful
+  **on-screen** content and say so; `uploadDate` uses the site publish date
+  because the file embeds none.
+- **Images:** classified every asset (screenshot / logo / decorative / poster /
+  OG / non-public upload). Renamed the two generic files
+  (`app-screenshot`→`elmtrackr-home-screen`, `tour-poster`→…poster). Meaningful
+  images have descriptive alt, width/height, `decoding="async"`, lazy below the
+  fold and eager for the hero; decorative icons/logos use `alt=""`.
+- **Performance:** WebP derivatives for the meaningful raster images
+  (~45–80% smaller), served via `<picture>` with JPG fallback (paths never
+  break); originals preserved; no upscaling. Content-page figures and the
+  homepage hero use `<picture>`.
+- **Social images:** homepage, product pages and the guides hub all use a real
+  product screenshot (`render-widgets-tablet.jpg`, 1400×933) as the OG image —
+  no generic/AI artwork.
+- **New checker:** `scripts/check_media.py` verifies broken media URLs, missing
+  dimensions/alt, duplicate alt, oversized assets, video controls/captions/
+  transcript/fallback, VideoObject consistency, transcript availability in both
+  languages, and that non-public `uploads/` are not linked. Passes across 30
+  pages.
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.
@@ -173,3 +430,65 @@ derived from the Android repository `Dorvad/elmtrackr`, branch `Main` (read-only
 All changes are static-file edits deployed via GitHub Pages. Every phase is revertible by
 `git revert` of its commit; Pages redeploys the prior state on the next push to the canonical
 branch. Keep each phase in its own commit/PR to preserve granular rollback.
+
+---
+
+## Delivered — Legal & trust accuracy (Phase A)
+
+- **Goal:** make legal/trust content accurately distinguish the Android/Wear OS
+  app from the marketing website, without fabricating claims or giving legal advice.
+- **What shipped:**
+  - `privacy.html` rewritten into clearly separated **App data** vs **Website
+    data** sections. App section describes SQLCipher as local-database encryption
+    **at rest** (not end-to-end), on-device OCR (Latin + Hebrew, not perfect),
+    optional Supabase sync, optional Sentry, and in-app deletion. Website section
+    discloses **Google AdSense** honestly (cookies/storage/IP + Google policy
+    links) and states there is no first-party analytics product and no
+    first-party cookies. "Last updated: July 16, 2026." Kept
+    `noindex, follow` as a documented decision (HTML comment).
+  - `/delete-account/` and `/he/delete-account/` created: in-app deletion path
+    (Settings → Account → Delete account), cloud vs local data, uninstall
+    behavior, help via `support@elmtrackr.site`. Explicitly states there is **no**
+    web deletion form.
+  - Data-flow diagram added to the educational `/privacy-and-security/` page (and
+    Hebrew), with a `figcaption` text equivalent for accessibility.
+  - Footer (en + he, homepage + content pages) links Privacy Policy, Terms,
+    Privacy & security, and Delete account; contact email published.
+- **Consent:** no banner invented. EEA/UK AdSense consent is documented as a
+  blocker requiring a product/legal decision.
+- **Deliverables:** `docs/seo/privacy-data-inventory.md` (inventory + human
+  legal-review list).
+- **Files:** `privacy.html`, `terms.html`, `content/pages/delete-account.json`
+  (+ he), `content/pages/privacy-and-security.json` (+ he), `templates/footer*.html`,
+  `index.html`, `he/index.html`, `scripts/seo_manifest.json`.
+- **Human review required:** see the review list in `docs/seo/privacy-data-inventory.md`.
+
+## Delivered — Vendor-neutral analytics (Phase B)
+
+- **Goal:** measure SEO / AI-search acquisition without silently adding an
+  analytics provider or collecting personal data.
+- **What shipped:**
+  - `assets/analytics.js`: `window.trackElmEvent(name, properties)`. Forwards to
+    an already-configured `gtag`/`dataLayer`, else no-ops. Never throws, never
+    blocks navigation, embeds no GA property ID, respects
+    `window.__elmtrackrConsent`, strips PII (drops values >100 chars or
+    containing `@`/`http`), and only forwards an allow-listed property set.
+  - Referrer classified to a category (chatgpt/copilot/perplexity/bing/google/
+    social/internal/direct/other) from hostname only; raw referrer never sent.
+  - Session-scoped inbound UTM capture (consent + storage permitting).
+  - Play Store CTAs differentiated by `utm_campaign` (homepage/product/guide) and
+    `utm_content` (hero/price/header/article) while keeping one canonical listing.
+  - Events wired via delegation (click + auxclick, once per activation): Play
+    clicks, video milestones (once per load), language switch, WhatsApp, Discord,
+    FAQ expand, guide/product CTA.
+- **Deliverables:** `docs/seo/analytics.md` (event dictionary, property/privacy
+  definitions, referral rules, Play UTM scheme, GA reports, how to identify
+  chatgpt.com traffic, how to compare Play clicks by page/language, vendor
+  connection steps).
+- **QA:** links still navigate; middle-click + keyboard work; no duplicate
+  events; video milestones fire once; no errors when a provider is absent; no
+  PII; consent respected. Validated via Node harness against the module and its
+  DOM wiring.
+- **Files:** `assets/analytics.js`, `docs/seo/analytics.md`, `index.html`,
+  `he/index.html`, `templates/header*.html`, `templates/page.html`,
+  `scripts/build_content_pages.py`, `scripts/validate_seo.py`.

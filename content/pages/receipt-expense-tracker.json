@@ -1,0 +1,117 @@
+{
+  "slug": "receipt-expense-tracker",
+  "title": "Receipt & Reimbursement Tracker for Shifts | Elmtrackr",
+  "og_title": "Receipt & Reimbursement Tracker for Shifts",
+  "description": "Attach commute-reimbursement claims to a shift, capture and scan receipts, and read them on-device with OCR for Latin-script text and Hebrew.",
+  "h1": "Receipt and reimbursement tracker",
+  "breadcrumb": "Receipts & reimbursements",
+  "hero_eyebrow": "Reimbursements",
+  "reviewed": "2026-07-16",
+  "lead": "Elmtrackr can track commute-reimbursement claims alongside your shifts. You capture a receipt with the camera, and on-device OCR reads the text to help you log the claim. The receipt images stay on your device, and claims can be included in your reports and PDF packets.",
+  "sections": [
+    {
+      "h2": "Reimbursement claims tied to a shift",
+      "blocks": [
+        {
+          "p": "The reimbursement workflow is for travel and commute claims connected to your work. A claim can record the provider you used — options include Lime, Dott, Bird, a taxi, or another provider — so the cost of getting to and from work is captured next to the shift it belongs to. This is a feature you can turn on when you need it."
+        }
+      ]
+    },
+    {
+      "h2": "Capture and scan receipts",
+      "blocks": [
+        {
+          "p": "You add a receipt by photographing it. Elmtrackr uses the camera and a document scanner to capture the page cleanly, so a crumpled receipt from a pocket becomes a usable image."
+        }
+      ]
+    },
+    {
+      "h2": "On-device OCR",
+      "blocks": [
+        {
+          "p": "The text on a receipt is read on the device itself — nothing has to be sent away to be processed. OCR recognises Latin-script text and Hebrew. Reading the text helps you fill in a claim without retyping everything by hand."
+        }
+      ]
+    },
+    {
+      "h2": "You confirm the claim details",
+      "blocks": [
+        {
+          "p": "OCR is an aid, not an oracle. You review a claim and set its details before saving it, so what ends up on record is what you have checked — useful when a faded receipt or an unusual layout confuses automatic reading."
+        }
+      ]
+    },
+    {
+      "h2": "In practice",
+      "blocks": [
+        {
+          "p": "Say you take a taxi to a late shift. You photograph the receipt when you arrive, and the document scanner captures the page cleanly. On-device OCR reads the text so you are not retyping everything, you confirm the amount and the provider, and the claim is attached to that shift — ready to be included in the month's PDF packet."
+        }
+      ]
+    },
+    {
+      "h2": "Where receipts are stored",
+      "blocks": [
+        {
+          "p": "Receipt images are stored locally on your device by default. They only leave the device if you have signed in and cloud sync is configured, in which case they can be uploaded and retrieved as part of sync. How that works is covered on the <a href='/privacy-and-security/'>privacy and security</a> page."
+        }
+      ]
+    },
+    {
+      "h2": "Receipts in your reports",
+      "blocks": [
+        {
+          "p": "Reimbursement claims can be pulled together into a report and exported as a PDF packet, so you have a tidy document to hand to whoever processes expenses. See <a href='/work-hours-reports/'>work-hours reports</a> for the export options."
+        }
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "What the receipt tools do and do not do:",
+    "items": [
+      "OCR reads text on the device but is not perfect; faded print, unusual layouts or poor lighting reduce accuracy, so review before saving.",
+      "On-device OCR recognises Latin-script text and Hebrew.",
+      "Elmtrackr does not submit claims to your employer; it prepares a record and an exportable packet that you share yourself.",
+      "The reimbursement feature is optional and can be switched on or off."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Does Elmtrackr read receipts on the device?",
+      "a": "Yes. OCR runs on the device and recognises Latin-script text and Hebrew. Receipt images are stored locally and only leave the device if you sign in and enable cloud sync."
+    },
+    {
+      "q": "Does it submit my expense claim to my employer?",
+      "a": "No. Elmtrackr prepares a claim record and can export a PDF packet, but sharing it with your employer is something you do yourself."
+    },
+    {
+      "q": "Which languages can the OCR read?",
+      "a": "Latin-script text and Hebrew."
+    },
+    {
+      "q": "Can I correct what the scan captured?",
+      "a": "Yes. You review and set a claim's details before saving, so the saved record reflects what you have checked."
+    }
+  ],
+  "related": [
+    {
+      "href": "/work-hours-reports/",
+      "label": "Work-hours reports",
+      "desc": "Export reimbursement claims in a PDF packet."
+    },
+    {
+      "href": "/privacy-and-security/",
+      "label": "Privacy & security",
+      "desc": "Where receipt images live and what can leave the device."
+    },
+    {
+      "href": "/shift-tracker-android/",
+      "label": "Android shift tracker",
+      "desc": "The shifts your claims attach to."
+    }
+  ],
+  "cta": {
+    "h2": "Keep commute claims next to the shift",
+    "p": "Capture a receipt, log the claim, and export it with your reports."
+  }
+}

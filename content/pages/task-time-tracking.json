@@ -1,0 +1,83 @@
+{
+  "slug": "task-time-tracking",
+  "title": "Task Time Tracking Within a Shift | Elmtrackr",
+  "og_title": "Task Time Tracking Within a Shift",
+  "description": "Attach tasks to a shift to record what your time went on, get suggestions from your habits, and report hours, overtime and estimated pay by task in Elmtrackr.",
+  "h1": "Task time tracking",
+  "breadcrumb": "Tasks",
+  "hero_eyebrow": "Tasks",
+  "reviewed": "2026-07-16",
+  "lead": "Beyond the clock, Elmtrackr lets you record what a shift went on. You attach tasks to a shift, adjust them later if needed, and let suggestions from your own habits speed up the common ones. Reports can then show hours, overtime and estimated pay grouped by task.",
+  "sections": [
+    {
+      "h2": "Attach a task to a shift",
+      "blocks": [
+        {"p": "When you clock in, you can attach one or more tasks to the shift to capture what you were doing. The task detail is stored on the shift itself, so the record of your time carries both the hours and the work behind them."}
+      ]
+    },
+    {
+      "h2": "Add or change tasks later",
+      "blocks": [
+        {"p": "You are not locked into what you picked at the start. You can add to or edit a shift's tasks afterwards, which matters when a shift turns out differently from how it began or you simply forgot to note something."}
+      ]
+    },
+    {
+      "h2": "Suggestions from your habits",
+      "blocks": [
+        {"p": "To save repeating yourself, Elmtrackr suggests tasks based on your habits — the patterns in what you have logged before. The more history you build, the more useful the suggestions become, since they are drawn from your own record rather than a generic list."}
+      ]
+    },
+    {
+      "h2": "Reporting by task",
+      "blocks": [
+        {"p": "Because tasks live on your shifts, reports can group your hours by task and show the regular, overtime and estimated-pay split for each — so you can see not just how long you worked, but how that time was spent. This feeds into the wider <a href='/work-hours-reports/'>work-hours reports</a>."}
+      ]
+    },
+    {
+      "h2": "A shift, by task",
+      "blocks": [
+        {"p": "Say a seven-hour shift covered a few different jobs. Attaching a task to each stretch means the shift is not just \"seven hours\" but a record of where the time actually went:"},
+        {"example": {
+          "title": "Illustrative shift breakdown",
+          "rows": [
+            ["Front desk", "4h 00m"],
+            ["Stockroom", "2h 00m"],
+            ["Close-down", "1h 00m"]
+          ],
+          "total": ["Logged across three tasks", "7h 00m"],
+          "note": "Tasks and hours are your own; this is only an example."
+        }}
+      ]
+    },
+    {
+      "h2": "Different rates for different work",
+      "blocks": [
+        {"p": "Where the type of work carries a different rate, your compensation profiles decide how it is paid, and the task record sits alongside that. The pay rules themselves are set the way the <a href='/overtime-pay-tracker/'>overtime and premium</a> page describes."}
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "Worth knowing about tasks:",
+    "items": [
+      "Task suggestions are based on the history you have built; with little history there is less to suggest.",
+      "Task detail is captured on the shift, so accurate reporting depends on attaching tasks as you work.",
+      "Task-level pay figures are estimates, in line with the rest of the app.",
+      "Elmtrackr is not legal, payroll or tax advice."
+    ]
+  },
+  "faq": [
+    {"q": "Can I record what I did during a shift?", "a": "Yes. You attach tasks to a shift to capture what your time went on, and the detail is stored on that shift."},
+    {"q": "Can I change a shift's tasks after it ends?", "a": "Yes. You can add to or edit the tasks on a shift after the fact."},
+    {"q": "Does it suggest tasks for me?", "a": "Yes. Elmtrackr suggests tasks based on your habits, and the suggestions improve as you build more history."},
+    {"q": "Can I see hours and pay per task?", "a": "Yes. Reports can group hours by task and show the regular, overtime and estimated-pay split for each."}
+  ],
+  "related": [
+    {"href": "/work-hours-reports/", "label": "Work-hours reports", "desc": "Aggregate your hours and estimated pay by task."},
+    {"href": "/shift-tracker-android/", "label": "Android shift tracker", "desc": "Where tasks attach to a shift as you clock in."},
+    {"href": "/hourly-pay-tracker/", "label": "Hourly pay tracking", "desc": "How rates turn task time into an estimate."}
+  ],
+  "cta": {
+    "h2": "See where your hours actually go",
+    "p": "Attach tasks to your shifts and let the reports break the time down."
+  }
+}
