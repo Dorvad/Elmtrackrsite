@@ -37,7 +37,7 @@ derived from the Android repository `Dorvad/elmtrackr`, branch `Main` (read-only
 - **Goal:** one predictable deploy source so later SEO work cannot be rolled back.
 - **Completed:**
   - Consolidated all branches into a single `main`. `main` matches the live site exactly (deployed files byte-identical); no SEO/Hebrew work was published.
-  - The undeployed work from `claude/elmtrackr-legal-pages-u9ga8y` and `cursor/setup-dev-environment-1a3e` is preserved in `main`'s history (`-s ours` merges) and under tags `archive/legal-pages-seo` (`6263daa`) and `archive/cursor-dev-env` (`43abb03`) — nothing lost.
+  - The undeployed work from `claude/elmtrackr-legal-pages-u9ga8y` (`6263daa`) and `cursor/setup-dev-environment-1a3e` (`43abb03`) is preserved in `main`'s history (`-s ours` merges) — the commits stay reachable from `origin/main` after the branches are deleted, retrievable with `git show 6263daa:<path>`. Nothing lost.
   - Narrowed `.github/workflows/deploy-pages.yml` `on.push.branches` to `[main]`, and added a step that strips internal files (`docs/`, `AGENTS.md`) from the published artifact so they are not served publicly.
 - **Still pending (requires repo admin — the agent lacks admin rights):**
   - Set `main` as the repository's **default branch** in GitHub → Settings → Branches.
