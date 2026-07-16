@@ -13,9 +13,40 @@ Static one-page marketing site for Elmtrackr, a work-hours tracking app for Andr
 - `.nojekyll` — stops GitHub Pages' Jekyll build from interfering with the deploy.
 - `_ds/` — legacy design-system tokens from an earlier version of the site (not referenced by the current page).
 
+## Build & quality gate
+
+The site has a small, deterministic build (locale-aware content pages + a
+sitemap) and a comprehensive quality gate. Everything is standard-library
+Python plus the repo's own scripts — no network, no unpublished local files.
+
+**One documented command runs the whole gate:**
+
+```sh
+make ci
+```
+
+`make ci` will, in order:
+
+1. **generate content pages** — `build_content_pages.py` renders the product,
+   guide and legal-adjacent pages (en + he) from `content/` + `templates/`;
+2. **generate the sitemap** — `build_sitemap.py` rebuilds `sitemap.xml` from the
+   route manifest (`scripts/seo_manifest.json`);
+3. **validate metadata** — titles, descriptions, canonicals, robots, hreflang;
+4. **validate structured data** — JSON-LD graph, no fictional ratings;
+5. **validate locale pairs** — reciprocal hreflang + language-switch links;
+6. **validate internal links** — anchors, internal links, images (`audit_site.py`);
+7. **produce the final static site** — assembles `_site/`, mirroring exactly what
+   GitHub Pages publishes (internal files stripped).
+
+Individual targets: `make build`, `make validate`, `make audit`, `make dist`,
+`make serve`, `make check-clean`, `make clean`, `make help`. The audit writes a
+readable report to `_reports/audit-report.md` (and `.json`).
+
+Both `_site/` and `_reports/` are build outputs and are git-ignored.
+
 ## Deployment (GitHub Pages)
 
-Deployment is automated via `.github/workflows/deploy-pages.yml`: every push to `main` publishes the repository root to GitHub Pages (source: GitHub Actions). Internal, non-site files (`docs/`, `AGENTS.md`) are stripped from the published artifact.
+Deployment is automated via `.github/workflows/deploy-pages.yml`: every push to `main` publishes the repository root to GitHub Pages (source: GitHub Actions). Internal, non-site files (`docs/`, `AGENTS.md`, `content/`, `templates/`, `scripts/`) are stripped from the published artifact. Continuous-integration checks run on pull requests via `.github/workflows/ci.yml` (build + audit + link/JSON-LD/JS checks).
 
 Custom domain: set `www.elmtrackr.site` in Settings → Pages, with a DNS CNAME record `www` → `dorvad.github.io`.
 

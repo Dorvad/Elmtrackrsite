@@ -1,6 +1,10 @@
 # Elmtrackr — Verified Product-Facts Registry
 
 **Date reviewed:** 2026-07-16
+**Re-verified:** 2026-07-16 against `Dorvad/elmtrackr` `Main` HEAD `df98c3e` — the
+same commit this registry was built from. The Android source has **not advanced**
+since the previous audit; every fact below was re-checked against source and no
+implementation has changed (see "Re-verification" note at the end).
 **Product source of truth:** `Dorvad/elmtrackr`, branch `Main` (HEAD `df98c3e`), directory `android/` (read-only).
 **Consuming repository:** `Dorvad/Elmtrackrsite` (marketing site).
 
@@ -48,7 +52,7 @@
 | 26 | Database encryption | **Implemented** (SQLCipher) | "Your on-device database is encrypted" | Passphrase generated/stored on device; one-time migration from any legacy plaintext DB | `data/local/ElmTrackrDatabase.kt:27,89` (`SupportOpenHelperFactory`, `System.loadLibrary("sqlcipher")`); `data/local/PlaintextDatabaseMigrator.kt` | No |
 | 27 | Biometric app lock | **Implemented** | "Lock the app with biometrics or your device credential" | Uses `BIOMETRIC_STRONG or DEVICE_CREDENTIAL`; guards remote clock actions when locked | `security/BiometricAuthPrompt.kt`, `security/AppLockController.kt`, `ui/security/AppLockGate.kt` | No |
 | 28 | Crash diagnostics | **Implemented** (Sentry, opt-out, double-gated) | "Optional crash reporting you can turn off" | Off unless a DSN is compiled in **and** the user consents (default on); `isSendDefaultPii = false` | `monitoring/CrashReporting.kt` (`SentryAndroid`, `BuildConfig.SENTRY_DSN`, `isEnabledByUser`); opt-out "Settings → Help & About → Share crash reports" | No |
-| 29 | Account & data deletion | **Implemented** (in-app) | "Delete your account and data from within the app" | In-app deletion via `delete_own_account` RPC. Play also requires a **web** deletion URL — that page is **not in this repo (unknown)** | `SupabaseAuthRepository.kt:189` (`rpc("delete_own_account")`); scope in `docs/supabase-contract.md`; UI `ui/settings/SettingsDetailScreens.kt` | No |
+| 29 | Account & data deletion | **Implemented** (in-app) | "Delete your account and data from within the app" | In-app deletion via `delete_own_account` RPC. Play also requires a **web** deletion URL — that page is **not in this repo (unknown)** | `SupabaseAuthRepository.kt:193` (`rpc("delete_own_account")`); scope in `docs/supabase-contract.md`; UI `ui/settings/SettingsDetailScreens.kt` | No |
 | 30 | Hebrew localization | **Implemented** — near-complete (not literal 100%) | "Full Hebrew support" | Avoid claiming literal 100% parity: 6 widget-preview strings are untranslated (see Conflicts) | `android/app/src/main/res/values-iw/` (16 string files + `arrays.xml`); ~1081 (iw) vs ~1087 (en) | Occasionally |
 | 31 | Offline behavior | **Implemented** (offline-first) | "Works fully offline; sync when you're back online" | Requires network only for sync, auth, receipt upload/retrieval and in-app updates. OCR is on-device | README "Offline-first sync"; Room-first writes with `PENDING_*` status; `data/sync/*` | No |
 | 32 | Notification & reminder rules | **Implemented** | "A live clocked-in notification and overtime reminders" | Feature-gated (`features_overtime_reminders`, default on); needs `POST_NOTIFICATIONS` on Android 13+; app works if denied | `notification/` + `ActiveShiftNotificationManager`; `LongShiftReminderWorker`; channels `active_shift`, `reminders`; strings `notif_overtime_*` | No |
@@ -74,3 +78,39 @@
 - **Store rating & review count** — not verifiable from any authoritative source; do not publish.
 - **Web account-deletion URL** — required by Play's data-safety form; the page is not in the Android repo. Confirm where it is hosted (candidate: this marketing site).
 - **Canonical brand spelling decision** — "ElmTrackr" per the app; confirm the owner wants the website aligned to it.
+
+---
+
+## Re-verification (2026-07-16)
+
+The Android app repo (`Dorvad/elmtrackr`) was re-cloned and its `Main` branch
+HEAD is `df98c3e` — identical to the commit this registry was originally built
+from. Because the source is byte-for-byte the same commit, **no implemented
+behavior has changed** and no fact row required a value update. Each of the
+following was re-checked directly against source at this HEAD and matches the
+registry:
+
+| Area | Re-checked value | Source |
+|---|---|---|
+| Version | `versionName 1.1.0`, `versionCode 10` | `android/app/build.gradle.kts` |
+| Min Android / SDKs | `minSdk 26`, `targetSdk 36`, `compileSdk 36` | `android/app/build.gradle.kts` |
+| Wear OS | `minSdk 30`, `targetSdk 36` | `android/wear/build.gradle.kts` |
+| Play listing status | still unverifiable from source (publishing pending) | release checklist |
+| Application ID | `com.elmlaunch.myapp` | `android/app/build.gradle.kts` |
+| Price / billing | no price string; no `BillingClient` present | `strings*.xml`, `android/**` |
+| Widgets | 5 Glance widgets (`ElmTrackrWidget`, `Minimal`, `Aurora`, `Ring`, `BigAction`) | `…/widget/` |
+| Tile & complication | `ElmTrackrTileService`, `ElmTrackrComplicationService` | `…/wear/tile`, `…/wear/complication` |
+| OCR | ML Kit (Latin) + Tesseract `heb.traineddata` (Hebrew), on device | `…/data/receipt/`, `assets/tessdata/` |
+| Receipt sync | receipts stored locally; sync only when Supabase configured + signed in | `data/sync/*`, `PhotoFileManager` |
+| Regional presets | 6: `US`, `US_CA`, `GB`, `EU`, `IL`, `CUSTOM` | `RegionPresets.kt` |
+| Overtime | daily & weekly, user thresholds | `PayrollCalculator.kt`, `RegionPresets.kt` |
+| Encryption | SQLCipher `SupportOpenHelperFactory` / `loadLibrary("sqlcipher")` (at rest) | `ElmTrackrDatabase.kt:27,86,89` |
+| Biometric lock | `BiometricAuthPrompt`, `AppLockController` | `…/security/` |
+| Sentry | DSN-gated, `isSendDefaultPii = false`, opt-out | `monitoring/CrashReporting.kt` |
+| Cloud sync | optional; `SyncResult.NotConfigured` when unset | `data/sync/SyncRepositoryImpl.kt` |
+| Account deletion | `rpc("delete_own_account")` in-app | `SupabaseAuthRepository.kt:193` |
+| Hebrew localization | ~1087 (en) vs ~1081 (iw) strings — near-complete, not literal 100% | `values/`, `values-iw/` |
+
+The only edit made during re-verification was correcting the deletion-RPC line
+citation (189 → 193). All open items in "Unresolved facts requiring manual
+confirmation" remain open — none is resolvable from source.

@@ -295,6 +295,12 @@
       "path": "/he/delete-account/", "file": "he/delete-account/index.html", "language": "he",
       "hreflang_group": "delete-account", "indexable": true, "redirect": false, "exists": true,
       "canonical": "https://elmtrackr.site/he/delete-account/", "lastmod": "2026-07-16"
+    },
+    {
+      "//": "GitHub Pages serves /404.html for unknown paths. Noindex utility page; never in the sitemap and has no hreflang alternate.",
+      "path": "/404.html", "file": "404.html", "language": "en",
+      "hreflang_group": "404", "indexable": false, "redirect": false, "exists": true,
+      "canonical": "https://elmtrackr.site/404.html", "lastmod": "2026-07-16"
     }
   ]
 }
