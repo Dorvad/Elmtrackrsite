@@ -32,18 +32,18 @@ derived from the Android repository `Dorvad/elmtrackr`, branch `Main` (read-only
 
 ---
 
-## Phase 1 — Deploy-topology consolidation & guardrails
+## Phase 1 — Deploy-topology consolidation & guardrails — **DONE (2026-07-16)**
 
 - **Goal:** one predictable deploy source so later SEO work cannot be rolled back.
-- **Work:**
-  - Decide the single canonical deploy branch (recommend creating/using `main`, or keeping the current default `claude/github-pages-deploy-i6mtq9` explicitly).
-  - Reduce `.github/workflows/deploy-pages.yml` `on.push.branches` to that one branch.
-  - Merge the useful undeployed work from `claude/elmtrackr-legal-pages-u9ga8y` into the canonical branch *before* narrowing triggers (so nothing is lost).
-  - Add a `CNAME` file if the project wants the domain pinned in-repo (currently only in Pages settings).
-- **Files likely to change:** `.github/workflows/deploy-pages.yml`, possibly new `CNAME`.
-- **Risks:** a misconfigured trigger could stop deploys; branch consolidation could drop the Hebrew work if merge order is wrong.
-- **Dependencies:** confirm with the owner which branch is canonical and whether `main` should exist.
-- **Rollback:** revert the workflow change; Pages redeploys from the prior branch.
+- **Completed:**
+  - Consolidated all branches into a single `main`. `main` matches the live site exactly (deployed files byte-identical); no SEO/Hebrew work was published.
+  - The undeployed work from `claude/elmtrackr-legal-pages-u9ga8y` and `cursor/setup-dev-environment-1a3e` is preserved in `main`'s history (`-s ours` merges) and under tags `archive/legal-pages-seo` (`6263daa`) and `archive/cursor-dev-env` (`43abb03`) — nothing lost.
+  - Narrowed `.github/workflows/deploy-pages.yml` `on.push.branches` to `[main]`, and added a step that strips internal files (`docs/`, `AGENTS.md`) from the published artifact so they are not served publicly.
+- **Still pending (requires repo admin — the agent lacks admin rights):**
+  - Set `main` as the repository's **default branch** in GitHub → Settings → Branches.
+  - After that, delete the old default `claude/github-pages-deploy-i6mtq9`.
+  - Optional: add a `CNAME` file if the project wants the custom domain pinned in-repo (currently only in Pages settings).
+- **Rollback:** revert the workflow change; the archived branches/tags allow full recovery of any prior state.
 
 ---
 

@@ -36,6 +36,8 @@ Because that branch also triggers the deploy workflow, this content was live at 
 
 > **Action rule for later phases:** the Hebrew page, canonical/hreflang tags and expanded sitemap already exist on `claude/elmtrackr-legal-pages-u9ga8y`. Reconcile with that branch first — do not re-author from scratch, and do not assume `/he/` never existed just because it 404s today.
 
+> **Branch consolidation (2026-07-16):** all branches were consolidated into a single `main` branch. `main` matches the live site exactly — none of this SEO/Hebrew work was published. The undeployed work is preserved in `main`'s history (folded in via `-s ours` merges) and under the tags `archive/legal-pages-seo` (commit `6263daa`) and `archive/cursor-dev-env` (commit `43abb03`). To retrieve the Hebrew/SEO source for a later phase: `git show archive/legal-pages-seo:he/index.html`, `git show archive/legal-pages-seo:index.html`, `git show archive/legal-pages-seo:sitemap.xml`.
+
 > **Note on automated fetch tools:** an LLM-based page fetch reported a fully rendered Hebrew page at `/he/` with a "₪10 one-time" price. Direct `curl` shows `/he/` returns **404** on the live site. The fetch output was a hallucination over the 404 body and must not be treated as evidence.
 
 ---
