@@ -21,6 +21,53 @@ derived from the Android repository `Dorvad/elmtrackr`, branch `Main` (read-only
 
 ---
 
+## Delivered 2026-07-16 — Technical SEO foundation (Phases 2, 3-partial, 4, 7)
+
+Implemented on branch `claude/technical-seo-foundation-fzqrk0`, using
+`docs/seo/product-facts.md` as the only source for product claims. No rating,
+price, review or compatibility claim was fabricated.
+
+- **Homepage metadata (`index.html`):** descriptive title, meta description
+  (price removed), self-referencing canonical, `robots` directive,
+  Open Graph (title/description/url/type/image + dimensions/alt/locale),
+  Twitter `summary_large_image`, light/dark `theme-color`, SVG + PNG favicons
+  and `apple-touch-icon`.
+- **Structured data:** one JSON-LD `@graph` — `Organization`, `WebSite`,
+  `SoftwareApplication`. Verified facts only; `offers`/price omitted (price
+  unverified), no `aggregateRating`/reviews, no "free"/payroll/"fully offline"
+  claims.
+- **Play Store links:** both CTAs now use the one canonical package-specific
+  URL derived from the verified application id `com.elmlaunch.myapp`, with
+  website-acquisition campaign params (via Play's `referrer`), `target=_blank`,
+  `rel="noopener"` and an `aria-label`. The generic `play.google.com`
+  home-page links are gone. **Listing public availability remains UNVERIFIED**
+  — status centralized in `scripts/seo_manifest.json` and documented in
+  `docs/seo/play-listing.md` (owner to confirm and flip `listing_public`).
+- **`robots.txt`:** upgraded, not replaced — normal indexing preserved,
+  `OAI-SearchBot` explicitly allowed, sitemap declared, nothing content-blocked.
+  `GPTBot` policy left unchanged (inherits `*`); the ChatGPT-search vs
+  model-training distinction is documented in `docs/seo/crawler-policy.md`.
+- **Sitemap:** hand-maintained file replaced by a reproducible generator
+  (`scripts/build_sitemap.py`) driven by a route manifest
+  (`scripts/seo_manifest.json`). Emits only canonical/indexable/existing
+  pages, accurate `lastmod`, no priority/changefreq, validates its XML, and
+  leaves `ads.txt` untouched.
+- **Canonicals & hreflang:** manifest-driven mechanism. Homepage carries
+  self-referencing `hreflang="en"` + `x-default`. **No Hebrew alternate is
+  emitted** because `/he/` does not exist yet (Phase 5).
+- **Validation:** `scripts/validate_seo.py` checks titles, descriptions,
+  canonicals, OG URLs, JSON-LD syntax + required schema properties,
+  sitemap/canonical consistency, absence of invented rating/price fields,
+  hreflang reciprocity, route uniqueness and Play-link centralization. Passes.
+
+**Still open (owner decisions, out of this phase's scope):** the visible
+marketing price ("$3. Once." / "$3 once, no subscription") and the
+"no ads" copy vs. the AdSense loader (Phase 8), brand capitalization
+(`Elmtrackr` visible vs verified `ElmTrackr` — used as JSON-LD `name` with
+`Elmtrackr` as `alternateName`), and the Hebrew route (Phase 5).
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.

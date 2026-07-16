@@ -2,10 +2,102 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elmtrackr — Every shift, measured</title>
-<meta name="description" content="Clock in once — phone or wrist. Elmtrackr records hours, premiums and an estimated gross live while you work. Android + Wear OS. $3 once, no subscription.">
-<link rel="icon" type="image/png" href="assets/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icon-192.png">
+<title>Hourly Pay &amp; Shift Tracker for Android and Wear OS | Elmtrackr</title>
+<meta name="description" content="Track work hours, overtime, premium rates and estimated gross pay in real time. Elmtrackr works on Android and Wear OS with widgets, reports and exports.">
+<link rel="canonical" href="https://elmtrackr.site/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<!-- hreflang: self-referencing en + x-default. A Hebrew (he) alternate is
+     added here only once /he/ actually ships (see scripts/seo_manifest.json). -->
+<link rel="alternate" hreflang="en" href="https://elmtrackr.site/">
+<link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elmtrackr">
+<meta property="og:title" content="Hourly Pay &amp; Shift Tracker for Android and Wear OS | Elmtrackr">
+<meta property="og:description" content="Track work hours, overtime, premium rates and estimated gross pay in real time. Elmtrackr works on Android and Wear OS with widgets, reports and exports.">
+<meta property="og:url" content="https://elmtrackr.site/">
+<meta property="og:image" content="https://elmtrackr.site/assets/render-widgets-tablet.jpg">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="933">
+<meta property="og:image:alt" content="Elmtrackr home-screen widgets showing hours and estimated pay on an Android tablet.">
+<meta property="og:locale" content="en">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hourly Pay &amp; Shift Tracker for Android and Wear OS | Elmtrackr">
+<meta name="twitter:description" content="Track work hours, overtime, premium rates and estimated gross pay in real time. Elmtrackr works on Android and Wear OS with widgets, reports and exports.">
+<meta name="twitter:image" content="https://elmtrackr.site/assets/render-widgets-tablet.jpg">
+<meta name="twitter:image:alt" content="Elmtrackr home-screen widgets showing hours and estimated pay on an Android tablet.">
+
+<meta name="theme-color" content="#FBFAFE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0C1F" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://elmtrackr.site/#organization",
+      "name": "ElmTrackr",
+      "alternateName": "Elmtrackr",
+      "url": "https://elmtrackr.site/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://elmtrackr.site/assets/icon-192.png",
+        "width": 192,
+        "height": 192
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://elmtrackr.site/#website",
+      "name": "Elmtrackr",
+      "url": "https://elmtrackr.site/",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://elmtrackr.site/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://elmtrackr.site/#app",
+      "name": "ElmTrackr",
+      "alternateName": "Elmtrackr",
+      "url": "https://elmtrackr.site/",
+      "description": "Track work hours, overtime, premium rates and an estimated gross in real time. ElmTrackr runs on Android phones and Wear OS watches, with home-screen widgets, monthly and weekly reports, and CSV or PDF export. Data is stored encrypted on your device, with optional cloud sync.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Android 8.0 and newer; Wear OS 3 and newer",
+      "softwareVersion": "1.1.0",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app",
+      "image": "https://elmtrackr.site/assets/render-widgets-tablet.jpg",
+      "inLanguage": ["en", "he"],
+      "publisher": { "@id": "https://elmtrackr.site/#organization" },
+      "featureList": [
+        "Clock in and out from the app, a home-screen widget, the notification, an app shortcut or your Wear OS watch",
+        "Home-screen widgets in 1x1, 4x1 and 4x2 sizes",
+        "Wear OS tile and watch-face complication for one-tap clock-in",
+        "Live estimated gross while you work (an estimate, not official payroll)",
+        "Daily and weekly overtime by your own thresholds",
+        "Premium profiles for weekend, night and holiday rates, with configurable stacking",
+        "Regional presets for the US, California, UK, EU and Israel, plus fully custom rules",
+        "Per-shift task tracking with smart suggestions",
+        "Monthly and weekly reports with regular, overtime and weekend breakdowns",
+        "Export shifts as CSV or PDF",
+        "On-device receipt OCR for Latin-script text and Hebrew",
+        "Commute-refund tracking with an exportable reimbursement packet",
+        "Encrypted on-device database",
+        "Optional cloud sync across devices",
+        "Optional biometric or device-credential app lock"
+      ]
+    }
+  ]
+}
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6818267616933452"
      crossorigin="anonymous"></script>
 
@@ -354,7 +446,7 @@ html{scroll-behavior:smooth}
       <h1 style="margin:0;font:900 clamp(64px,8.6vw,124px)/0.96 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530;animation:riseIn .8s .18s cubic-bezier(.2,.7,.2,1) both">Every shift,<br>measured<span style="color:#5B4DF2">.</span></h1>
       <p style="margin:0;max-width:440px;font:500 20px/1.5 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:riseIn .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in once — phone or wrist. Hours, premiums and an estimated gross, recorded live while you work.</p>
       <div style="display:flex;align-items:center;gap:16px;animation:riseIn .8s .38s cubic-bezier(.2,.7,.2,1) both">
-        <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" data-hover="background:#4133C8;color:#fff">
+        <a href="https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&amp;referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app" target="_blank" rel="noopener" aria-label="Get Elmtrackr on Google Play (opens in a new tab)" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" data-hover="background:#4133C8;color:#fff">
           <img src="assets/google-play.svg" alt="" width="18" height="18" style="display:block">
           Get it on Google Play</a>
         <a href="#method" style="font:700 16px 'Archivo',sans-serif;color:#181530;padding:16px 26px;border-radius:999px;border:2px solid rgba(24,21,48,.22)" data-hover="border-color:#4133C8;color:#4133C8">See it work ↓</a>
@@ -691,7 +783,7 @@ html{scroll-behavior:smooth}
     <svg viewBox="0 0 900 120" width="min(900px,100%)" height="120" preserveAspectRatio="xMidYMid meet" style="overflow:visible"><path d="M0 90 C 180 30, 320 110, 470 60 S 740 10, 900 50" fill="none" stroke="url(#cta)" stroke-width="16" stroke-linecap="round" opacity=".55"></path><defs><linearGradient id="cta" x1="0" y1="120" x2="900" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#5B4DF2"></stop></linearGradient></defs></svg>
     <h2 style="margin:0;font:900 clamp(52px,6.4vw,96px)/1 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530">$3. Once<span style="color:#5B4DF2">.</span></h2>
     <p style="margin:0;max-width:460px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">No subscription, no ads — your data stays encrypted on your device. Next payday, know the number.</p>
-    <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 18px 'Archivo',sans-serif;padding:19px 36px;border-radius:999px;box-shadow:0 16px 34px rgba(24,21,48,.24)" data-hover="background:#4133C8;color:#fff">
+    <a href="https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&amp;referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app" target="_blank" rel="noopener" aria-label="Get Elmtrackr on Google Play (opens in a new tab)" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 18px 'Archivo',sans-serif;padding:19px 36px;border-radius:999px;box-shadow:0 16px 34px rgba(24,21,48,.24)" data-hover="background:#4133C8;color:#fff">
       <img src="assets/google-play.svg" alt="" width="20" height="20" style="display:block">
       Get it on Google Play</a>
     <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">

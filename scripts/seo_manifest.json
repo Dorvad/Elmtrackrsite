@@ -1,0 +1,56 @@
+{
+  "//": "Single source of truth for the Elmtrackr site's canonical URLs, language annotations, indexability and last-modified dates. Consumed by scripts/build_sitemap.py and scripts/validate_seo.py. Every published canonical URL, hreflang pairing and sitemap entry is derived from this file — do not hand-edit sitemap.xml.",
+  "site_url": "https://elmtrackr.site",
+  "play_store": {
+    "//": "Play Store destination. application_id is verified from the Android source of truth (docs/seo/product-facts.md, row 2) and is permanent. listing_public reflects whether the production listing has been independently confirmed publicly available — see docs/seo/play-listing.md. Keep the campaign params in url; they are the only place a Play link should be defined.",
+    "application_id": "com.elmlaunch.myapp",
+    "listing_public": false,
+    "url": "https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app"
+  },
+  "routes": [
+    {
+      "path": "/",
+      "file": "index.html",
+      "language": "en",
+      "hreflang_group": "home",
+      "indexable": true,
+      "redirect": false,
+      "exists": true,
+      "canonical": "https://elmtrackr.site/",
+      "lastmod": "2026-07-16"
+    },
+    {
+      "path": "/he/",
+      "file": "he/index.html",
+      "language": "he",
+      "hreflang_group": "home",
+      "indexable": true,
+      "redirect": false,
+      "exists": false,
+      "canonical": "https://elmtrackr.site/he/",
+      "lastmod": null
+    },
+    {
+      "path": "/privacy.html",
+      "file": "privacy.html",
+      "language": "en",
+      "hreflang_group": "privacy",
+      "indexable": false,
+      "redirect": false,
+      "exists": true,
+      "canonical": "https://elmtrackr.site/privacy.html",
+      "lastmod": "2026-07-16"
+    },
+    {
+      "path": "/terms.html",
+      "file": "terms.html",
+      "language": "en",
+      "hreflang_group": "terms",
+      "indexable": false,
+      "redirect": false,
+      "exists": true,
+      "canonical": "https://elmtrackr.site/terms.html",
+      "lastmod": "2026-07-16"
+    }
+  ]
+}
