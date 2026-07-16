@@ -95,6 +95,21 @@
         "Optional cloud sync across devices",
         "Optional biometric or device-credential app lock"
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://elmtrackr.site/#film",
+      "name": "Elmtrackr app tour",
+      "description": "A one-minute silent screen recording of the Elmtrackr Android app: clocking in, the home dashboard, the shift list, capturing a receipt, monthly reports with CSV and PDF export, and the month's estimated gross. Figures shown are in-app sample values; pay figures are estimates.",
+      "thumbnailUrl": "https://elmtrackr.site/assets/elmtrackr-app-tour-poster.jpg",
+      "contentUrl": "https://elmtrackr.site/assets/elmtrackr-tour.mp4",
+      "duration": "PT1M5S",
+      "uploadDate": "2026-07-16",
+      "inLanguage": "en",
+      "width": 1080,
+      "height": 1920,
+      "isPartOf": { "@id": "https://elmtrackr.site/#website" },
+      "publisher": { "@id": "https://elmtrackr.site/#organization" }
     }
   ]
 }
@@ -516,7 +531,7 @@ html{scroll-behavior:smooth}
             <!-- screen -->
             <div style="position:relative;width:100%;height:100%;border-radius:36px;background:linear-gradient(170deg,#14112B,#0B0A18 60%);overflow:hidden;display:flex;flex-direction:column">
               <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:74px;height:22px;border-radius:99px;background:#000;z-index:5"></div>
-              <img src="assets/app-screenshot.jpg" alt="Elmtrackr home screen — hours distribution, gross pay and recent shifts" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2">
+              <picture><source type="image/webp" srcset="assets/elmtrackr-home-screen.webp"><img src="assets/elmtrackr-home-screen.jpg" alt="Elmtrackr home screen — hours distribution, gross pay and recent shifts" width="720" height="1600" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2"></picture>
               <!-- status bar -->
               <div style="display:flex;justify-content:space-between;padding:16px 24px 0;font:600 11px 'IBM Plex Mono',monospace;color:rgba(255,255,255,.55)"><span>11:49</span><span>▮▮ 100%</span></div>
               <!-- app header -->
@@ -800,18 +815,37 @@ html{scroll-behavior:smooth}
   <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(300px,390px);gap:90px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:22px;max-width:520px">
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">07 — THE FILM</span>
-      <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">One minute. A month, measured.</h2>
-      <p style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">From the first punch to the month&#x27;s report — watch a shift get logged, premiums sort themselves and the estimate build, exactly as it happens in the app.</p>
+      <h2 id="film-heading" style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">One minute. A month, measured.</h2>
+      <p id="film-summary" style="margin:0;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">A one-minute, silent-by-default screen recording of the Elmtrackr app: clocking in, the home dashboard, the shift list, capturing a receipt, monthly reports with CSV and PDF export, and the month&#x27;s estimated gross. Turn on sound with the player controls, or read the full transcript below.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#4133C8;background:rgba(91,77,242,.07);border:1px solid rgba(91,77,242,.25);border-radius:6px;padding:7px 12px">64 SECONDS</span>
-        <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.5);border:1px solid rgba(24,21,48,.15);border-radius:6px;padding:7px 12px">PLAYS SILENT — TAP FOR SOUND</span>
+        <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#4133C8;background:rgba(91,77,242,.07);border:1px solid rgba(91,77,242,.25);border-radius:6px;padding:7px 12px">≈65 SECONDS</span>
+        <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.5);border:1px solid rgba(24,21,48,.15);border-radius:6px;padding:7px 12px">CAPTIONS + TRANSCRIPT</span>
       </div>
+      <details style="margin-top:4px;border:1px solid rgba(24,21,48,.14);border-radius:12px;background:#fff;padding:2px 4px">
+        <summary style="cursor:pointer;padding:14px 16px;font:700 15px 'Archivo',sans-serif;color:#181530">Read the transcript</summary>
+        <div style="padding:2px 16px 18px;font:500 15px/1.65 'Archivo',sans-serif;color:rgba(24,21,48,.7)">
+          <p style="margin:0 0 12px">A one-minute, silent-by-default screen recording of the Elmtrackr Android app. It has a background audio track rather than spoken narration, so everything meaningful happens on screen and is described here in order. All figures are in-app sample values for illustration; pay figures are estimates, not an official payslip.</p>
+          <p style="margin:0 0 8px"><strong>0:00</strong> — A calendar page settles on 24 July, opening the tour.</p>
+          <p style="margin:0 0 8px"><strong>0:04</strong> — A taxi receipt (Gett, ₪42.50) appears — a travel expense that can be claimed later.</p>
+          <p style="margin:0 0 8px"><strong>0:09</strong> — A “Last week…” card teases the days of the week.</p>
+          <p style="margin:0 0 8px"><strong>0:13</strong> — The home screen: a “Clock in” button under a greeting, and a July summary showing 18 shifts, 142.5 hours in total (118 regular, 14.5 overtime, 10 weekend) and an estimated gross of ₪9,840 before tax.</p>
+          <p style="margin:0 0 8px"><strong>0:20</strong> — The Shifts screen: hours tracked and an estimated gross, a shift running live since 08:02, and a list of recent shifts with their times, breaks, overtime and weekend tags, and pay per shift.</p>
+          <p style="margin:0 0 8px"><strong>0:33</strong> — Receipt capture: a camera view frames a receipt to scan on the device.</p>
+          <p style="margin:0 0 8px"><strong>0:38</strong> — The Reports screen: a monthly view with tabs for Hours and Travel refunds, an hours breakdown into regular, overtime and weekend, CSV and PDF export buttons, and gross pay before tax alongside travel refunds.</p>
+          <p style="margin:0 0 8px"><strong>0:51</strong> — A clock-out card: a live shift timer reading 8:24:17 since 08:02, with a Clock out button.</p>
+          <p style="margin:0 0 8px"><strong>0:57</strong> — A monthly summary card: gross pay, total hours, the number of shifts and refunds.</p>
+          <p style="margin:0"><strong>1:01</strong> — The film closes on the ElmTrackr logo and the tagline “Your work. Your record.”</p>
+        </div>
+      </details>
+      <a href="assets/elmtrackr-tour.mp4" style="align-self:flex-start;font:700 14px 'Archivo',sans-serif;color:#4133C8;text-decoration:none;border-bottom:2px solid rgba(65,51,200,.28);padding-bottom:2px" data-hover="border-color:#4133C8">Download the video (MP4, ~11 MB) ↓</a>
     </div>
     <div style="display:flex;justify-content:center">
-      <div id="film-card" style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#E9E6F8">
-        <video id="film-video" src="assets/elmtrackr-tour.mp4" poster="assets/tour-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
-        <span id="film-chip" style="position:absolute;left:14px;bottom:18px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#181530;background:rgba(255,255,255,.88);border:1px solid rgba(24,21,48,.12);border-radius:999px;padding:8px 14px;pointer-events:none">TAP FOR SOUND</span>
-        <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(24,21,48,.12)"><div id="film-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#5B4DF2,#16C8D6)"></div></div>
+      <div style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#0B0A18">
+        <video controls preload="metadata" playsinline width="1080" height="1920" poster="assets/elmtrackr-app-tour-poster.jpg" aria-labelledby="film-heading" aria-describedby="film-summary" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0B0A18">
+          <source src="assets/elmtrackr-tour.mp4" type="video/mp4">
+          <track kind="captions" src="assets/captions/elmtrackr-tour.en.vtt" srclang="en" label="English" default>
+          <p style="color:#fff;padding:20px">Your browser can’t play embedded video. <a href="assets/elmtrackr-tour.mp4" style="color:#9DEBF2">Download the Elmtrackr tour (MP4)</a>.</p>
+        </video>
       </div>
     </div>
   </div>

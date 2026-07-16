@@ -102,6 +102,21 @@
         "סנכרון בענן אופציונלי בין מכשירים",
         "נעילת אפליקציה ביומטרית או באמצעי הזיהוי של המכשיר, אופציונלית"
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://elmtrackr.site/he/#film",
+      "name": "סיור באפליקציית Elmtrackr",
+      "description": "הקלטת מסך שקטה בת כדקה של אפליקציית Elmtrackr לאנדרואיד: החתמת כניסה, מסך הבית, רשימת המשמרות, צילום קבלה, דוחות חודשיים עם ייצוא CSV ו־PDF, והברוטו המשוער של החודש. הסכומים המוצגים הם ערכי דוגמה באפליקציה; סכומי השכר הם הערכה.",
+      "thumbnailUrl": "https://elmtrackr.site/assets/elmtrackr-app-tour-poster.jpg",
+      "contentUrl": "https://elmtrackr.site/assets/elmtrackr-tour.mp4",
+      "duration": "PT1M5S",
+      "uploadDate": "2026-07-16",
+      "inLanguage": "he",
+      "width": 1080,
+      "height": 1920,
+      "isPartOf": { "@id": "https://elmtrackr.site/#website" },
+      "publisher": { "@id": "https://elmtrackr.site/#organization" }
     }
   ]
 }
@@ -523,7 +538,7 @@ html{scroll-behavior:smooth}
             <!-- screen -->
             <div style="position:relative;width:100%;height:100%;border-radius:36px;background:linear-gradient(170deg,#14112B,#0B0A18 60%);overflow:hidden;display:flex;flex-direction:column">
               <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:74px;height:22px;border-radius:99px;background:#000;z-index:5"></div>
-              <img src="/assets/app-screenshot.jpg" alt="מסך הבית של Elmtrackr — פילוח שעות, שכר ברוטו ומשמרות אחרונות" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2">
+              <picture><source type="image/webp" srcset="/assets/elmtrackr-home-screen.webp"><img src="/assets/elmtrackr-home-screen.jpg" alt="מסך הבית של Elmtrackr — פילוח שעות, שכר ברוטו ומשמרות אחרונות" width="720" height="1600" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2"></picture>
               <!-- status bar -->
               <div style="display:flex;justify-content:space-between;padding:16px 24px 0;font:600 11px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;color:rgba(255,255,255,.55)"><span>11:49</span><span>▮▮ 100%</span></div>
               <!-- app header -->
@@ -807,18 +822,37 @@ html{scroll-behavior:smooth}
   <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(300px,390px);gap:90px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:22px;max-width:520px">
       <span style="font:600 12px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.18em;color:#4133C8">07 — הסרטון</span>
-      <h2 style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;letter-spacing:-.035em;color:#181530">דקה אחת. חודש שלם, נמדד.</h2>
-      <p style="margin:0;font:500 19px/1.55 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.62)">מההחתמה הראשונה ועד הדוח החודשי — צפו במשמרת נרשמת, בתוספות מסתדרות מעצמן ובהערכה שנבנית, בדיוק כפי שזה קורה באפליקציה.</p>
+      <h2 id="film-heading" style="margin:0;font:800 clamp(38px,3.6vw,54px)/1.04 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;letter-spacing:-.035em;color:#181530">דקה אחת. חודש שלם, נמדד.</h2>
+      <p id="film-summary" style="margin:0;font:500 19px/1.55 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.62)">הקלטת מסך שקטה כברירת מחדל, בת כדקה, של אפליקציית Elmtrackr: החתמת כניסה, מסך הבית, רשימת המשמרות, צילום קבלה, דוחות חודשיים עם ייצוא CSV ו־PDF, והברוטו המשוער של החודש. אפשר להפעיל צליל דרך פקדי הנגן, או לקרוא את התמלול המלא למטה.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span style="font:600 12px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.1em;color:#4133C8;background:rgba(91,77,242,.07);border:1px solid rgba(91,77,242,.25);border-radius:6px;padding:7px 12px">64 שניות</span>
-        <span style="font:600 12px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.1em;color:rgba(24,21,48,.5);border:1px solid rgba(24,21,48,.15);border-radius:6px;padding:7px 12px">מתנגן בשקט — הקש לצליל</span>
+        <span style="font:600 12px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.1em;color:#4133C8;background:rgba(91,77,242,.07);border:1px solid rgba(91,77,242,.25);border-radius:6px;padding:7px 12px">כ־65 שניות</span>
+        <span style="font:600 12px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.1em;color:rgba(24,21,48,.5);border:1px solid rgba(24,21,48,.15);border-radius:6px;padding:7px 12px">כתוביות + תמלול</span>
       </div>
+      <details style="margin-top:4px;border:1px solid rgba(24,21,48,.14);border-radius:12px;background:#fff;padding:2px 4px">
+        <summary style="cursor:pointer;padding:14px 16px;font:700 15px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:#181530">קראו את התמלול</summary>
+        <div style="padding:2px 16px 18px;font:500 15px/1.65 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.7)">
+          <p style="margin:0 0 12px">הקלטת מסך שקטה כברירת מחדל, בת כדקה, של אפליקציית Elmtrackr לאנדרואיד. יש לה פס־קול רקע ולא קריינות מדוברת, ולכן כל המידע המשמעותי מופיע על המסך ומתואר כאן לפי הסדר. כל הסכומים הם ערכי דוגמה באפליקציה להמחשה; סכומי השכר הם הערכה, לא תלוש רשמי.</p>
+          <p style="margin:0 0 8px"><strong>0:00</strong> — דף לוח שנה נעצר על 24 ביולי ופותח את הסיור.</p>
+          <p style="margin:0 0 8px"><strong>0:04</strong> — מופיעה קבלת מונית (Gett, ₪42.50) — הוצאת נסיעה שאפשר לתבוע בהמשך.</p>
+          <p style="margin:0 0 8px"><strong>0:09</strong> — כרטיס "השבוע שעבר…" מציג רמז לימות השבוע.</p>
+          <p style="margin:0 0 8px"><strong>0:13</strong> — מסך הבית: כפתור "החתמת כניסה" מתחת לברכה, וסיכום חודש יולי — 18 משמרות, 142.5 שעות בסך הכול (118 רגילות, 14.5 נוספות, 10 סוף שבוע) וברוטו משוער של ₪9,840 לפני מס.</p>
+          <p style="margin:0 0 8px"><strong>0:20</strong> — מסך המשמרות: שעות שנרשמו וברוטו משוער, משמרת שרצה מאז 08:02, ורשימת משמרות אחרונות עם השעות, ההפסקות, תגיות שעות נוספות וסוף שבוע, ושכר לכל משמרת.</p>
+          <p style="margin:0 0 8px"><strong>0:33</strong> — צילום קבלה: תצוגת מצלמה ממסגרת קבלה לסריקה במכשיר.</p>
+          <p style="margin:0 0 8px"><strong>0:38</strong> — מסך הדוחות: תצוגה חודשית עם לשוניות שעות והחזרי נסיעות, פילוח שעות לרגילות, נוספות וסוף שבוע, כפתורי ייצוא CSV ו־PDF, ושכר ברוטו לפני מס לצד החזרי נסיעות.</p>
+          <p style="margin:0 0 8px"><strong>0:51</strong> — כרטיס החתמת יציאה: טיימר משמרת חי שמראה 8:24:17 מאז 08:02, עם כפתור החתמת יציאה.</p>
+          <p style="margin:0 0 8px"><strong>0:57</strong> — כרטיס סיכום חודשי: שכר ברוטו, סך שעות, מספר המשמרות והחזרים.</p>
+          <p style="margin:0"><strong>1:01</strong> — הסרטון נחתם בלוגו של ElmTrackr ובסלוגן "Your work. Your record."</p>
+        </div>
+      </details>
+      <a href="/assets/elmtrackr-tour.mp4" style="align-self:flex-start;font:700 14px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:#4133C8;text-decoration:none;border-bottom:2px solid rgba(65,51,200,.28);padding-bottom:2px" data-hover="border-color:#4133C8">הורדת הסרטון (MP4, ~11MB) ↓</a>
     </div>
     <div style="display:flex;justify-content:center">
-      <div id="film-card" style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#E9E6F8">
-        <video id="film-video" src="/assets/elmtrackr-tour.mp4" poster="/assets/tour-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
-        <span id="film-chip" style="position:absolute;left:14px;bottom:18px;font:600 11px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.12em;color:#181530;background:rgba(255,255,255,.88);border:1px solid rgba(24,21,48,.12);border-radius:999px;padding:8px 14px;pointer-events:none">הקש לצליל</span>
-        <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(24,21,48,.12)"><div id="film-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#5B4DF2,#16C8D6)"></div></div>
+      <div style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#0B0A18">
+        <video controls preload="metadata" playsinline width="1080" height="1920" poster="/assets/elmtrackr-app-tour-poster.jpg" aria-labelledby="film-heading" aria-describedby="film-summary" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0B0A18">
+          <source src="/assets/elmtrackr-tour.mp4" type="video/mp4">
+          <track kind="captions" src="/assets/captions/elmtrackr-tour.he.vtt" srclang="he" label="עברית" default>
+          <p style="color:#fff;padding:20px">הדפדפן שלכם אינו יכול לנגן וידאו מוטמע. <a href="/assets/elmtrackr-tour.mp4" style="color:#9DEBF2">הורידו את סרטון Elmtrackr ‏(MP4)</a>.</p>
+        </video>
       </div>
     </div>
   </div>

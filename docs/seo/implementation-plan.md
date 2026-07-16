@@ -236,6 +236,48 @@ Elmtrackr workflows, not thin keyword pages.
 
 ---
 
+## Delivered 2026-07-16 (6) — Media accessibility & performance (film + images)
+
+Made the product film and images understandable to search engines, AI, screen
+readers and slow connections. Full inventory in `docs/seo/media-audit.md`.
+
+- **Verified film facts** (MP4 atom parse + ffmpeg probe): H.264, 1080×1920,
+  30 fps, AAC stereo, 64.67 s. On-screen content read from decoded frames.
+- **Film accessibility (index.html + he/index.html):** descriptive heading and
+  an accurate summary; native `controls` (keyboard play/pause/mute/captions/
+  fullscreen); `<track kind="captions">` (en + he WebVTT in
+  `assets/captions/`); a full visible transcript in each language; renamed
+  descriptive poster (`elmtrackr-app-tour-poster.jpg`); `preload="metadata"`;
+  **no autoplay** (no sound without user action; reduced-motion respected by
+  default); `<source>` + a visible MP4 fallback link; the custom
+  autoplay/tap-to-unmute script removed.
+- **VideoObject JSON-LD** on both homepages with verified fields only (name,
+  description, thumbnailUrl, contentUrl, duration `PT1M5S`, uploadDate=site
+  publish date, inLanguage, width, height).
+- **Documented gap (not invented):** the clip has an audio track whose content
+  can't be verified here, so the transcript/captions describe the meaningful
+  **on-screen** content and say so; `uploadDate` uses the site publish date
+  because the file embeds none.
+- **Images:** classified every asset (screenshot / logo / decorative / poster /
+  OG / non-public upload). Renamed the two generic files
+  (`app-screenshot`→`elmtrackr-home-screen`, `tour-poster`→…poster). Meaningful
+  images have descriptive alt, width/height, `decoding="async"`, lazy below the
+  fold and eager for the hero; decorative icons/logos use `alt=""`.
+- **Performance:** WebP derivatives for the meaningful raster images
+  (~45–80% smaller), served via `<picture>` with JPG fallback (paths never
+  break); originals preserved; no upscaling. Content-page figures and the
+  homepage hero use `<picture>`.
+- **Social images:** homepage, product pages and the guides hub all use a real
+  product screenshot (`render-widgets-tablet.jpg`, 1400×933) as the OG image —
+  no generic/AI artwork.
+- **New checker:** `scripts/check_media.py` verifies broken media URLs, missing
+  dimensions/alt, duplicate alt, oversized assets, video controls/captions/
+  transcript/fallback, VideoObject consistency, transcript availability in both
+  languages, and that non-public `uploads/` are not linked. Passes across 30
+  pages.
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.

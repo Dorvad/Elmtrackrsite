@@ -9,7 +9,7 @@
   "reviewed": "2026-07-16",
   "lead": "Elmtrackr turns the hours you clock into an estimated gross, in your own currency, as the shift runs. It shows the rate that applies at each moment and how the figure is built. The result is an estimate for your own reference — a number to check against your payslip, never a replacement for it.",
   "image": {
-    "src": "/assets/app-screenshot.jpg",
+    "src": "/assets/elmtrackr-home-screen.jpg",
     "alt": "Elmtrackr screen showing the month's estimated gross pay and the hours it is based on.",
     "w": 720,
     "h": 1600,

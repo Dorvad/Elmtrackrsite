@@ -145,12 +145,19 @@ def render_example(ex: dict) -> str:
 
 def render_figure(img: dict) -> str:
     cap = f'<figcaption>{esc(img["caption"])}</figcaption>' if img.get("caption") else ""
-    return (
-        '<figure class="cp-figure">'
-        f'<span class="cp-figimg"><img src="{esc(img["src"])}" alt="{esc(img["alt"])}" '
-        f'width="{img["w"]}" height="{img["h"]}" loading="lazy" decoding="async"></span>'
-        f"{cap}</figure>"
+    src = img["src"]
+    imgtag = (
+        f'<img src="{esc(src)}" alt="{esc(img["alt"])}" '
+        f'width="{img["w"]}" height="{img["h"]}" loading="lazy" decoding="async">'
     )
+    inner = imgtag
+    # Serve a WebP derivative when one exists next to the original (JPG/PNG
+    # stays the fallback, so GitHub Pages paths never break).
+    if src.lower().endswith((".jpg", ".jpeg", ".png")):
+        webp = src.rsplit(".", 1)[0] + ".webp"
+        if os.path.isfile(os.path.join(REPO_ROOT, webp.lstrip("/"))):
+            inner = f'<picture><source type="image/webp" srcset="{esc(webp)}">{imgtag}</picture>'
+    return f'<figure class="cp-figure"><span class="cp-figimg">{inner}</span>{cap}</figure>'
 
 
 def render_sections(sections: list) -> str:

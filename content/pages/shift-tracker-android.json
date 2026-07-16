@@ -9,7 +9,7 @@
   "reviewed": "2026-07-16",
   "lead": "Elmtrackr is a shift tracker for Android phones and tablets. Clock in and out with one tap, watch a live timer count the shift as it runs, and let each shift file itself with the hours recorded. Everything is written to your device first, so tracking keeps working even with no connection.",
   "image": {
-    "src": "/assets/app-screenshot.jpg",
+    "src": "/assets/elmtrackr-home-screen.jpg",
     "alt": "Elmtrackr Android home screen showing an active shift with elapsed time, estimated gross and recent shifts.",
     "w": 720,
     "h": 1600,
