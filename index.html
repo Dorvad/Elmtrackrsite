@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elmtrackr — Every shift, measured</title>
@@ -8,12 +8,7 @@
 <link rel="apple-touch-icon" href="assets/icon-192.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6818267616933452"
      crossorigin="anonymous"></script>
-<script src="./support.js"></script>
 
-</head>
-<body>
-<x-dc>
-<helmet>
 <style>/* vietnamese */
 @font-face {
   font-family: 'Archivo';
@@ -279,34 +274,34 @@ html{scroll-behavior:smooth}
 /* ── responsive (layout styles are inline → !important) ── */
 @media (max-width:1020px){
   nav > div:nth-child(2) > a:not(:last-child){display:none}
-  div[data-screen-label^="Hero"] > div:nth-child(3){flex-direction:column !important;padding:0 24px !important;gap:10px !important}
-  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(1){padding:24px 0 14px !important;flex:none !important}
-  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(1) > div:nth-child(3){flex-wrap:wrap}
-  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2){flex:none !important;min-height:690px !important;width:100% !important;max-width:480px;margin:0 auto}
-  div[data-screen-label]:not([data-screen-label^="Hero"]){padding:88px 24px !important}
+  [data-screen-label^="Hero"] > div:nth-child(3){flex-direction:column !important;padding:0 24px !important;gap:10px !important}
+  [data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(1){padding:24px 0 14px !important;flex:none !important}
+  [data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(1) > div:nth-child(3){flex-wrap:wrap}
+  [data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2){flex:none !important;min-height:690px !important;width:100% !important;max-width:480px;margin:0 auto}
+  [data-screen-label]:not([data-screen-label^="Hero"]){padding:88px 24px !important}
   #method > div:nth-child(2){grid-template-columns:1fr !important;gap:48px !important}
-  div[data-screen-label="03 The estimate"] > div{grid-template-columns:1fr !important;gap:48px !important}
+  [data-screen-label="03 The estimate"] > div{grid-template-columns:1fr !important;gap:48px !important}
   #watch > div:nth-child(2){grid-template-columns:1fr !important;gap:56px !important}
   #widgets{height:auto !important}
   #widgets > div{position:static !important;height:auto !important;overflow:visible !important;padding:0 !important}
   #widgets > div > div:nth-child(2){height:auto !important;width:100% !important;max-width:460px;display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:28px !important}
   #widgets > div > div:nth-child(2) > div{position:static !important;transform:none !important;opacity:1 !important;max-width:100%}
-  div[data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
+  [data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
   #film > div{grid-template-columns:1fr !important;gap:48px !important}
   [data-footer]{padding:26px 24px !important}
 }
 @media (max-width:640px){
   nav{padding:18px 18px !important}
-  div[data-screen-label^="Hero"] h1{font-size:clamp(46px,12.5vw,64px) !important}
-  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2){min-height:680px !important}
-  div[data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2) > div:last-child{display:none !important}
-  div[data-screen-label^="Hero"] > div:nth-child(4){padding:0 20px 20px !important}
-  div[data-screen-label]:not([data-screen-label^="Hero"]){padding:72px 18px !important}
+  [data-screen-label^="Hero"] h1{font-size:clamp(46px,12.5vw,64px) !important}
+  [data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2){min-height:680px !important}
+  [data-screen-label^="Hero"] > div:nth-child(3) > div:nth-child(2) > div:last-child{display:none !important}
+  [data-screen-label^="Hero"] > div:nth-child(4){padding:0 20px 20px !important}
+  [data-screen-label]:not([data-screen-label^="Hero"]){padding:72px 18px !important}
   #method svg[width="340"], #method div[style*="width:340px"]{max-width:88vw}
   /* rate chip: keep inside the viewport */
   #method div[style*="right:-22px"]{right:6px !important}
   /* data note: stack label above text */
-  div[data-screen-label="06 Method"] > div > div:nth-child(3){flex-direction:column !important;align-items:flex-start !important;gap:10px !important;padding:20px 22px !important}
+  [data-screen-label="06 Method"] > div > div:nth-child(3){flex-direction:column !important;align-items:flex-start !important;gap:10px !important;padding:20px 22px !important}
   /* price squiggle: remove svg letterboxing */
   #get > svg{height:64px !important}
   /* footer: stacked, tighter */
@@ -314,9 +309,22 @@ html{scroll-behavior:smooth}
   [data-footer] > div:nth-child(2){gap:14px 20px !important}
 }
 </style>
-</helmet>
 
-<div style="min-height:100vh;display:flex;flex-direction:column;background:#FBFAFE;overflow:hidden;position:relative" data-screen-label="Hero 2b — Launch Split">
+<style>
+.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#181530;color:#fff;padding:12px 18px;border-radius:0 0 12px 0;font:700 14px 'Archivo',system-ui,sans-serif}
+.skip-link:focus{left:0}
+[data-hover]{transition:background .2s ease,color .2s ease,border-color .2s ease}
+/* widgets fly in only when JS drives the scroll choreography; visible otherwise */
+.js [data-w]{opacity:0}
+@media (prefers-reduced-motion:reduce){.js [data-w]{opacity:1}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+
+<header style="min-height:100vh;display:flex;flex-direction:column;background:#FBFAFE;overflow:hidden;position:relative" data-screen-label="Hero 2b — Launch Split">
 
   <!-- faint coordinate grid, top-right quadrant only -->
   <div style="position:absolute;top:0;right:0;width:56%;height:78%;background:linear-gradient(rgba(24,21,48,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(24,21,48,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(75% 75% at 70% 40%,#000 30%,transparent 78%);-webkit-mask-image:radial-gradient(75% 75% at 70% 40%,#000 30%,transparent 78%);pointer-events:none"></div>
@@ -329,12 +337,12 @@ html{scroll-behavior:smooth}
       <span style="width:34px;height:4px;border-radius:99px;background:linear-gradient(90deg,#5B4DF2,#16C8D6);display:inline-block"></span>
     </div>
     <div style="display:flex;align-items:center;gap:34px">
-      <a href="#method" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">METHOD</a>
-      <a href="#widgets" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">WIDGETS</a>
-      <a href="#watch" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">WATCH</a>
-      <a href="#film" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">FILM</a>
-      <a href="#price" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" style-hover="color:#4133C8">PRICE</a>
-      <a href="#get" style="font:700 14px 'Archivo',sans-serif;color:#fff;background:#181530;padding:11px 22px;border-radius:999px" style-hover="background:#4133C8;color:#fff">Get the app</a>
+      <a href="#method" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" data-hover="color:#4133C8">METHOD</a>
+      <a href="#widgets" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" data-hover="color:#4133C8">WIDGETS</a>
+      <a href="#watch" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" data-hover="color:#4133C8">WATCH</a>
+      <a href="#film" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" data-hover="color:#4133C8">FILM</a>
+      <a href="#price" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.6)" data-hover="color:#4133C8">PRICE</a>
+      <a href="#get" style="font:700 14px 'Archivo',sans-serif;color:#fff;background:#181530;padding:11px 22px;border-radius:999px" data-hover="background:#4133C8;color:#fff">Get the app</a>
     </div>
   </nav>
 
@@ -346,10 +354,10 @@ html{scroll-behavior:smooth}
       <h1 style="margin:0;font:900 clamp(64px,8.6vw,124px)/0.96 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530;animation:riseIn .8s .18s cubic-bezier(.2,.7,.2,1) both">Every shift,<br>measured<span style="color:#5B4DF2">.</span></h1>
       <p style="margin:0;max-width:440px;font:500 20px/1.5 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:riseIn .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in once — phone or wrist. Hours, premiums and an estimated gross, recorded live while you work.</p>
       <div style="display:flex;align-items:center;gap:16px;animation:riseIn .8s .38s cubic-bezier(.2,.7,.2,1) both">
-        <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" style-hover="background:#4133C8;color:#fff">
+        <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" data-hover="background:#4133C8;color:#fff">
           <img src="assets/google-play.svg" alt="" width="18" height="18" style="display:block">
           Get it on Google Play</a>
-        <a href="#method" style="font:700 16px 'Archivo',sans-serif;color:#181530;padding:16px 26px;border-radius:999px;border:2px solid rgba(24,21,48,.22)" style-hover="border-color:#4133C8;color:#4133C8">See it work ↓</a>
+        <a href="#method" style="font:700 16px 'Archivo',sans-serif;color:#181530;padding:16px 26px;border-radius:999px;border:2px solid rgba(24,21,48,.22)" data-hover="border-color:#4133C8;color:#4133C8">See it work ↓</a>
       </div>
       <div style="font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.45);animation:riseIn .8s .46s cubic-bezier(.2,.7,.2,1) both">₪ / $ / € &nbsp;·&nbsp; OFFLINE-FIRST &nbsp;·&nbsp; $3 ONCE, NO SUBSCRIPTION</div>
     </div>
@@ -361,9 +369,8 @@ html{scroll-behavior:smooth}
       <div style="position:absolute;right:6%;top:12%;width:520px;height:520px;border-radius:999px;background:radial-gradient(circle,rgba(124,92,246,.14),rgba(22,200,214,.07) 55%,transparent 72%);pointer-events:none"></div>
 
       <!-- WATCH (z1, behind ribbon) -->
-      <sc-if value="{{ showWatch }}" hint-placeholder-val="{{ true }}">
       <div style="position:absolute;left:4%;bottom:22%;z-index:1;animation:settleWatch 1.1s .5s cubic-bezier(.2,.8,.2,1) both">
-        <div style="animation:floatWatch 7s 2s ease-in-out infinite;animation-play-state:{{ playState }};transform-style:preserve-3d">
+        <div style="animation:floatWatch 7s 2s ease-in-out infinite;animation-play-state:running;transform-style:preserve-3d">
           <div style="position:relative;width:158px;height:158px">
             <div style="position:absolute;right:-7px;top:62px;width:12px;height:30px;border-radius:4px;background:linear-gradient(90deg,#2A2650,#181530)"></div>
             <div style="position:absolute;left:44px;top:-26px;width:70px;height:40px;border-radius:12px 12px 0 0;background:linear-gradient(#3B3668,#241F49)"></div>
@@ -378,7 +385,6 @@ html{scroll-behavior:smooth}
           </div>
         </div>
       </div>
-      </sc-if>
 
       <!-- RIBBON (z2) — glow layer + drawn stroke -->
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none">
@@ -395,7 +401,7 @@ html{scroll-behavior:smooth}
 
       <!-- PHONE (z3, in front of ribbon) -->
       <div style="position:absolute;right:9%;top:9%;z-index:3;animation:settlePhone 1.1s .35s cubic-bezier(.2,.8,.2,1) both;transform:perspective(1100px) rotateY(-17deg) rotateX(6deg) rotateZ(3deg)">
-        <div style="animation:floatPhone 8s 2s ease-in-out infinite;animation-play-state:{{ playState }}">
+        <div style="animation:floatPhone 8s 2s ease-in-out infinite;animation-play-state:running">
           <div style="position:relative;width:296px;height:598px;border-radius:46px;background:linear-gradient(135deg,#3A3566,#181530 40%,#0E0C1F);box-shadow:-30px 44px 70px rgba(24,21,48,.32),-2px 0 0 rgba(255,255,255,.14) inset,2px 2px 1px rgba(255,255,255,.18) inset;padding:11px;box-sizing:border-box">
             <div style="position:absolute;left:-3px;top:130px;width:4px;height:64px;border-radius:3px;background:#2A2650"></div>
             <div style="position:absolute;left:-3px;top:210px;width:4px;height:38px;border-radius:3px;background:#2A2650"></div>
@@ -438,12 +444,10 @@ html{scroll-behavior:smooth}
       </div>
 
       <!-- annotation chip near watch -->
-      <sc-if value="{{ showWatch }}" hint-placeholder-val="{{ true }}">
       <div style="position:absolute;left:1%;bottom:9%;z-index:4;display:flex;align-items:center;gap:8px;animation:riseIn .8s 1.5s cubic-bezier(.2,.7,.2,1) both">
         <span style="width:26px;height:2px;background:rgba(24,21,48,.3);display:inline-block"></span>
         <span style="font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.55);background:rgba(251,250,254,.9);padding:4px 8px;border-radius:5px">SAME PUNCH, FROM THE WRIST</span>
       </div>
-      </sc-if>
     </div>
   </div>
 
@@ -452,20 +456,22 @@ html{scroll-behavior:smooth}
     <span style="font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:rgba(24,21,48,.4)">01 — THE CLOCK</span>
     <span style="font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:rgba(24,21,48,.4)">SCROLL ↓</span>
   </div>
-</div>
+</header>
+
+<main id="main">
 
 
 <!-- ═══════════ 01 — THE CLOCK ═══════════ -->
-<div id="method" data-screen-label="01 The Clock" style="position:relative;background:#FBFAFE;padding:130px 56px 120px;scroll-margin-top:20px;overflow:hidden">
+<section id="method" data-screen-label="01 The Clock" style="position:relative;background:#FBFAFE;padding:130px 56px 120px;scroll-margin-top:20px;overflow:hidden">
   <div style="position:absolute;left:0;top:0;width:44%;height:100%;background:linear-gradient(rgba(24,21,48,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(24,21,48,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(70% 70% at 30% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(70% 70% at 30% 50%,#000 30%,transparent 80%);pointer-events:none"></div>
   <div data-reveal style="position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:90px;align-items:center">
     <div style="display:flex;justify-content:center">
       <div style="position:relative;width:340px;height:340px">
-        <svg width="340" height="340" viewBox="0 0 340 340"><circle cx="170" cy="170" r="146" fill="none" stroke="rgba(24,21,48,.08)" stroke-width="14"></circle><circle cx="170" cy="170" r="146" fill="none" stroke="url(#bg1)" stroke-width="14" stroke-linecap="round" pathLength="1" stroke-dasharray="{{ ringProgress }} 1" transform="rotate(-90 170 170)"></circle><defs><linearGradient id="bg1" x1="0" y1="0" x2="340" y2="340"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#7C5CF6"></stop></linearGradient></defs></svg>
+        <svg width="340" height="340" viewBox="0 0 340 340"><circle cx="170" cy="170" r="146" fill="none" stroke="rgba(24,21,48,.08)" stroke-width="14"></circle><circle cx="170" cy="170" r="146" fill="none" stroke="url(#bg1)" stroke-width="14" stroke-linecap="round" pathLength="1" stroke-dasharray="0.323 1" data-ring transform="rotate(-90 170 170)"></circle><defs><linearGradient id="bg1" x1="0" y1="0" x2="340" y2="340"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#7C5CF6"></stop></linearGradient></defs></svg>
         <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
           <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.2em;color:rgba(24,21,48,.42)">ELAPSED</span>
-          <span style="font:800 58px/1 'Archivo',sans-serif;letter-spacing:-.03em;color:#181530">{{ clockHM }}<span style="font-size:32px;color:#4133C8">{{ clockS }}</span></span>
-          <span style="font:600 15px 'IBM Plex Mono',monospace;color:#4133C8">₪ {{ paySoFar }} so far</span>
+          <span style="font:800 58px/1 'Archivo',sans-serif;letter-spacing:-.03em;color:#181530"><span data-el="clock-hm">02:35</span><span style="font-size:32px;color:#4133C8"><span data-el="clock-s">:12</span></span></span>
+          <span style="font:600 15px 'IBM Plex Mono',monospace;color:#4133C8">₪ <span data-el="pay">108</span> so far</span>
         </div>
         <div style="position:absolute;right:-22px;top:34px;background:#fff;border:1px solid rgba(24,21,48,.12);border-radius:8px;padding:8px 12px;box-shadow:0 10px 24px rgba(24,21,48,.1);font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.6)">REGULAR RATE · ₪42/H</div>
       </div>
@@ -480,10 +486,10 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 02 — WHERE MINUTES LAND ═══════════ -->
-<div data-screen-label="02 Where minutes land" style="background:#F3F1FB;padding:120px 56px">
+<section id="premiums" data-screen-label="02 Where minutes land" style="background:#F3F1FB;padding:120px 56px">
   <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:52px">
     <div style="display:flex;flex-direction:column;gap:20px;max-width:640px">
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">02 — WHERE MINUTES LAND</span>
@@ -504,10 +510,10 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 03 — THE ESTIMATE ═══════════ -->
-<div data-screen-label="03 The estimate" style="background:#FBFAFE;padding:130px 56px">
+<section id="estimate" data-screen-label="03 The estimate" style="background:#FBFAFE;padding:130px 56px">
   <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(320px,480px);gap:90px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:22px;max-width:520px">
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">03 — THE ESTIMATE</span>
@@ -529,10 +535,10 @@ html{scroll-behavior:smooth}
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#4133C8">ALWAYS LABELED "ESTIMATE" — YOUR PAYSLIP IS THE RECORD</span>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 04 — THE WRIST (dark band) ═══════════ -->
-<div id="watch" data-screen-label="04 The wrist" style="position:relative;background:#0E0C1F;padding:130px 56px;scroll-margin-top:20px;overflow:hidden">
+<section id="watch" data-screen-label="04 The wrist" style="position:relative;background:#0E0C1F;padding:130px 56px;scroll-margin-top:20px;overflow:hidden">
   <div style="position:absolute;right:-8%;top:-30%;width:640px;height:640px;border-radius:999px;background:radial-gradient(circle,rgba(124,92,246,.22),rgba(22,200,214,.08) 55%,transparent 72%);pointer-events:none"></div>
   <div data-reveal style="position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(280px,380px);gap:90px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:22px;max-width:540px">
@@ -552,18 +558,18 @@ html{scroll-behavior:smooth}
         <div style="position:absolute;left:70px;bottom:-40px;width:110px;height:62px;border-radius:0 0 18px 18px;background:linear-gradient(#241F49,#3B3668)"></div>
         <div style="position:absolute;inset:0;border-radius:999px;background:linear-gradient(135deg,#34305E,#12101F);box-shadow:22px 32px 54px rgba(0,0,0,.5),inset 0 2px 3px rgba(255,255,255,.22)"></div>
         <div style="position:absolute;inset:14px;border-radius:999px;background:#0B0A18;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;overflow:hidden">
-          <svg width="222" height="222" viewBox="0 0 222 222" style="position:absolute;inset:0"><circle cx="111" cy="111" r="95" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="9"></circle><circle cx="111" cy="111" r="95" fill="none" stroke="url(#wg2)" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="{{ ringProgress }} 1" transform="rotate(-90 111 111)"></circle><defs><linearGradient id="wg2" x1="0" y1="0" x2="222" y2="222"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#7C5CF6"></stop></linearGradient></defs></svg>
+          <svg width="222" height="222" viewBox="0 0 222 222" style="position:absolute;inset:0"><circle cx="111" cy="111" r="95" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="9"></circle><circle cx="111" cy="111" r="95" fill="none" stroke="url(#wg2)" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="0.323 1" data-ring transform="rotate(-90 111 111)"></circle><defs><linearGradient id="wg2" x1="0" y1="0" x2="222" y2="222"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#7C5CF6"></stop></linearGradient></defs></svg>
           <span style="font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;color:rgba(255,255,255,.45)">ON SHIFT</span>
-          <span style="font:800 42px/1 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff">{{ clockHM }}<span style="font-size:23px;color:#9DEBF2">{{ clockS }}</span></span>
-          <span style="font:600 13px 'IBM Plex Mono',monospace;color:#9DEBF2">₪ {{ paySoFar }} SO FAR</span>
+          <span style="font:800 42px/1 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff"><span data-el="clock-hm">02:35</span><span style="font-size:23px;color:#9DEBF2"><span data-el="clock-s">:12</span></span></span>
+          <span style="font:600 13px 'IBM Plex Mono',monospace;color:#9DEBF2">₪ <span data-el="pay">108</span> SO FAR</span>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 05 — WIDGETS (scroll stage) ═══════════ -->
-<div id="widgets" data-screen-label="05 Widgets" ref="{{ stageRef }}" style="position:relative;height:260vh;background:#F3F1FB;scroll-margin-top:20px">
+<section id="widgets" data-screen-label="05 Widgets" style="position:relative;height:260vh;background:#F3F1FB;scroll-margin-top:20px">
   <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 56px">
     <div style="text-align:center;max-width:640px;display:flex;flex-direction:column;gap:20px;align-items:center">
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">05 — WIDGETS</span>
@@ -573,23 +579,23 @@ html{scroll-behavior:smooth}
     <!-- widget canvas -->
     <div style="position:relative;width:min(980px,92vw);height:400px;margin-top:30px">
       <!-- 1x1 -->
-      <div ref="{{ w0Ref }}" style="position:absolute;left:4%;top:6%;width:150px;height:150px;border-radius:30px;background:linear-gradient(135deg,#5B4DF2 0%,#7C5CF6 55%,#4A9BF5 115%);box-shadow:0 26px 50px rgba(91,77,242,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;will-change:transform,opacity">
+      <div data-w="0" style="position:absolute;left:4%;top:6%;width:150px;height:150px;border-radius:30px;background:linear-gradient(135deg,#5B4DF2 0%,#7C5CF6 55%,#4A9BF5 115%);box-shadow:0 26px 50px rgba(91,77,242,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;will-change:transform,opacity">
         <div style="position:relative;width:72px;height:72px">
-          <svg width="72" height="72" viewBox="0 0 72 72" style="transform:rotate(-90deg)"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="6"></circle><circle cx="36" cy="36" r="30" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="{{ ringProgress }} 1"></circle></svg>
+          <svg width="72" height="72" viewBox="0 0 72 72" style="transform:rotate(-90deg)"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="6"></circle><circle cx="36" cy="36" r="30" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="0.323 1" data-ring></circle></svg>
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"></path></svg></div>
         </div>
         <span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#fff">PUNCH IN</span>
       </div>
       <!-- 4x1 -->
-      <div ref="{{ w1Ref }}" style="position:absolute;right:2%;top:2%;width:440px;border-radius:26px;background:linear-gradient(118deg,#5B4DF2 0%,#7C5CF6 48%,#3FB7E8 110%);box-shadow:0 26px 50px rgba(91,77,242,.32);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;will-change:transform,opacity;box-sizing:border-box">
+      <div data-w="1" style="position:absolute;right:2%;top:2%;width:440px;border-radius:26px;background:linear-gradient(118deg,#5B4DF2 0%,#7C5CF6 48%,#3FB7E8 110%);box-shadow:0 26px 50px rgba(91,77,242,.32);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;will-change:transform,opacity;box-sizing:border-box">
         <div>
           <div style="display:flex;align-items:center;gap:8px">
             <img src="assets/logo-mark.svg" alt="" width="17" height="17" style="border-radius:5px;display:block">
             <span style="font:700 13px 'Archivo',sans-serif;color:#fff">ElmTrackr</span>
             <span style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.2);font:600 8.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff"><span style="width:5px;height:5px;border-radius:999px;background:#4ADE80;display:inline-block"></span>CLOCKED IN</span>
           </div>
-          <div style="font:800 27px/1.15 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff;margin-top:4px">{{ clockHM }}<span style="font-size:16px;color:#9DEBF2">{{ clockS }}</span></div>
-          <div style="font:500 10.5px 'Archivo',sans-serif;color:rgba(255,255,255,.75);margin-top:1px">Since 08:57 · ₪ {{ paySoFar }} so far</div>
+          <div style="font:800 27px/1.15 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff;margin-top:4px"><span data-el="clock-hm">02:35</span><span style="font-size:16px;color:#9DEBF2"><span data-el="clock-s">:12</span></span></div>
+          <div style="font:500 10.5px 'Archivo',sans-serif;color:rgba(255,255,255,.75);margin-top:1px">Since 08:57 · ₪ <span data-el="pay">108</span> so far</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
           <div style="width:44px;height:44px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.2)"><span style="width:13px;height:13px;border-radius:4px;background:#5B4DF2;display:inline-block"></span></div>
@@ -597,37 +603,37 @@ html{scroll-behavior:smooth}
         </div>
       </div>
       <!-- 4x2 -->
-      <div ref="{{ w2Ref }}" style="position:absolute;right:6%;bottom:0;width:480px;border-radius:30px;background:linear-gradient(128deg,#5B4DF2 0%,#7C5CF6 42%,#16C8D6 118%);box-shadow:0 32px 64px rgba(91,77,242,.36);padding:20px 22px;will-change:transform,opacity;box-sizing:border-box">
+      <div data-w="2" style="position:absolute;right:6%;bottom:0;width:480px;border-radius:30px;background:linear-gradient(128deg,#5B4DF2 0%,#7C5CF6 42%,#16C8D6 118%);box-shadow:0 32px 64px rgba(91,77,242,.36);padding:20px 22px;will-change:transform,opacity;box-sizing:border-box">
         <div style="display:flex;align-items:center;justify-content:space-between">
           <div style="display:flex;align-items:center;gap:8px"><img src="assets/logo-mark.svg" alt="" width="19" height="19" style="border-radius:6px;display:block"><span style="font:700 13.5px 'Archivo',sans-serif;color:#fff">ElmTrackr</span></div>
           <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.2);font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#fff"><span style="width:5px;height:5px;border-radius:999px;background:#4ADE80;display:inline-block"></span>CLOCKED IN</span>
         </div>
         <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(255,255,255,.75);margin-top:12px">ON SHIFT</div>
-        <div style="font:800 40px/1.05 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff">{{ clockHM }}<span style="font-size:22px;color:#9DEBF2">{{ clockS }}</span></div>
-        <div style="font:500 11.5px 'Archivo',sans-serif;color:rgba(255,255,255,.75);margin-top:2px">Since 08:57 · ₪ {{ paySoFar }} so far</div>
+        <div style="font:800 40px/1.05 'Archivo',sans-serif;letter-spacing:-.02em;color:#fff"><span data-el="clock-hm">02:35</span><span style="font-size:22px;color:#9DEBF2"><span data-el="clock-s">:12</span></span></div>
+        <div style="font:500 11.5px 'Archivo',sans-serif;color:rgba(255,255,255,.75);margin-top:2px">Since 08:57 · ₪ <span data-el="pay">108</span> so far</div>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:11px 15px;border-radius:17px;background:rgba(255,255,255,.18)">
           <span style="display:flex;align-items:center;gap:9px;color:#fff;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.08em"><span style="width:26px;height:26px;border-radius:999px;background:#fff;display:inline-flex;align-items:center;justify-content:center"><span style="width:9px;height:9px;border-radius:3px;background:#5B4DF2;display:inline-block"></span></span>PUNCH OUT</span>
           <span style="font:500 11px 'Archivo',sans-serif;color:rgba(255,255,255,.75)">tap to end shift</span>
         </div>
       </div>
       <!-- goal card -->
-      <div ref="{{ w3Ref }}" style="position:absolute;left:8%;bottom:6%;width:300px;border-radius:24px;background:#fff;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.14);padding:18px 20px;display:flex;align-items:center;gap:16px;will-change:transform,opacity;box-sizing:border-box">
+      <div data-w="3" style="position:absolute;left:8%;bottom:6%;width:300px;border-radius:24px;background:#fff;border:1px solid rgba(24,21,48,.1);box-shadow:0 24px 56px rgba(24,21,48,.14);padding:18px 20px;display:flex;align-items:center;gap:16px;will-change:transform,opacity;box-sizing:border-box">
         <div style="position:relative;width:62px;height:62px;flex:none">
-          <svg width="62" height="62" viewBox="0 0 62 62" style="transform:rotate(-90deg)"><circle cx="31" cy="31" r="26" fill="none" stroke="#ECEBFA" stroke-width="6"></circle><circle cx="31" cy="31" r="26" fill="none" stroke="url(#wgoal)" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="{{ ringProgress }} 1"></circle><defs><linearGradient id="wgoal" x1="0" y1="0" x2="62" y2="62"><stop stop-color="#5B4DF2"></stop><stop offset="1" stop-color="#16C8D6"></stop></linearGradient></defs></svg>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 13px 'Archivo',sans-serif;color:#181530">{{ goalPct }}</div>
+          <svg width="62" height="62" viewBox="0 0 62 62" style="transform:rotate(-90deg)"><circle cx="31" cy="31" r="26" fill="none" stroke="#ECEBFA" stroke-width="6"></circle><circle cx="31" cy="31" r="26" fill="none" stroke="url(#wgoal)" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="0.323 1" data-ring></circle><defs><linearGradient id="wgoal" x1="0" y1="0" x2="62" y2="62"><stop stop-color="#5B4DF2"></stop><stop offset="1" stop-color="#16C8D6"></stop></linearGradient></defs></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 13px 'Archivo',sans-serif;color:#181530"><span data-el="goal-pct">32%</span></div>
         </div>
         <div>
           <div style="font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(24,21,48,.45)">DAILY GOAL</div>
-          <div style="font:800 21px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530;margin-top:1px">{{ goalHM }}</div>
+          <div style="font:800 21px 'Archivo',sans-serif;letter-spacing:-.02em;color:#181530;margin-top:1px"><span data-el="goal-hm">2h 35m</span></div>
           <div style="font:500 11px 'Archivo',sans-serif;color:rgba(24,21,48,.55)">of 8h 00m goal</div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 06 — METHOD ═══════════ -->
-<div data-screen-label="06 Method" style="background:#FBFAFE;padding:130px 56px">
+<section id="steps" data-screen-label="06 Method" style="background:#FBFAFE;padding:130px 56px">
   <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
     <div style="display:flex;flex-direction:column;gap:20px;max-width:640px">
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">06 — METHOD</span>
@@ -655,10 +661,10 @@ html{scroll-behavior:smooth}
       <p style="margin:0;font:500 15px/1.5 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Your shifts are stored encrypted on your device — and sync when you&#x27;re back online. Export or delete everything, anytime.</p>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 07 — THE FILM ═══════════ -->
-<div id="film" data-screen-label="07 The film" style="background:#F3F1FB;padding:130px 56px;scroll-margin-top:20px">
+<section id="film" data-screen-label="07 The film" style="background:#F3F1FB;padding:130px 56px;scroll-margin-top:20px">
   <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(300px,390px);gap:90px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:22px;max-width:520px">
       <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">07 — THE FILM</span>
@@ -670,144 +676,154 @@ html{scroll-behavior:smooth}
       </div>
     </div>
     <div style="display:flex;justify-content:center">
-      <div ref="{{ filmCardRef }}" style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#E9E6F8">
-        <video ref="{{ filmVideoRef }}" src="assets/elmtrackr-tour.mp4" poster="assets/tour-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
-        <span ref="{{ filmChipRef }}" style="position:absolute;left:14px;bottom:18px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#181530;background:rgba(255,255,255,.88);border:1px solid rgba(24,21,48,.12);border-radius:999px;padding:8px 14px;pointer-events:none">TAP FOR SOUND</span>
-        <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(24,21,48,.12)"><div ref="{{ filmBarRef }}" style="height:100%;width:0%;background:linear-gradient(90deg,#5B4DF2,#16C8D6)"></div></div>
+      <div id="film-card" style="position:relative;width:100%;max-width:390px;aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(24,21,48,.1);box-shadow:0 34px 70px rgba(24,21,48,.16);background:#E9E6F8">
+        <video id="film-video" src="assets/elmtrackr-tour.mp4" poster="assets/tour-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+        <span id="film-chip" style="position:absolute;left:14px;bottom:18px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#181530;background:rgba(255,255,255,.88);border:1px solid rgba(24,21,48,.12);border-radius:999px;padding:8px 14px;pointer-events:none">TAP FOR SOUND</span>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(24,21,48,.12)"><div id="film-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#5B4DF2,#16C8D6)"></div></div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════════ 06 — PRICE / FINAL CTA ═══════════ -->
-<div id="price" data-screen-label="06 Price" style="position:relative;background:#FBFAFE;padding:110px 56px 140px;scroll-margin-top:20px;overflow:hidden">
+<section id="price" data-screen-label="06 Price" style="position:relative;background:#FBFAFE;padding:110px 56px 140px;scroll-margin-top:20px;overflow:hidden">
   <div id="get" style="position:relative;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;scroll-margin-top:20px">
     <svg viewBox="0 0 900 120" width="min(900px,100%)" height="120" preserveAspectRatio="xMidYMid meet" style="overflow:visible"><path d="M0 90 C 180 30, 320 110, 470 60 S 740 10, 900 50" fill="none" stroke="url(#cta)" stroke-width="16" stroke-linecap="round" opacity=".55"></path><defs><linearGradient id="cta" x1="0" y1="120" x2="900" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#16C8D6"></stop><stop offset="1" stop-color="#5B4DF2"></stop></linearGradient></defs></svg>
     <h2 style="margin:0;font:900 clamp(52px,6.4vw,96px)/1 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530">$3. Once<span style="color:#5B4DF2">.</span></h2>
     <p style="margin:0;max-width:460px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">No subscription, no ads — your data stays encrypted on your device. Next payday, know the number.</p>
-    <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 18px 'Archivo',sans-serif;padding:19px 36px;border-radius:999px;box-shadow:0 16px 34px rgba(24,21,48,.24)" style-hover="background:#4133C8;color:#fff">
+    <a href="https://play.google.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 18px 'Archivo',sans-serif;padding:19px 36px;border-radius:999px;box-shadow:0 16px 34px rgba(24,21,48,.24)" data-hover="background:#4133C8;color:#fff">
       <img src="assets/google-play.svg" alt="" width="20" height="20" style="display:block">
       Get it on Google Play</a>
     <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-      <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font:700 15px 'Archivo',sans-serif;color:#181530;padding:13px 24px;border-radius:999px;border:2px solid rgba(24,21,48,.18);background:#fff" style-hover="border-color:#4133C8;color:#4133C8">
+      <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font:700 15px 'Archivo',sans-serif;color:#181530;padding:13px 24px;border-radius:999px;border:2px solid rgba(24,21,48,.18);background:#fff" data-hover="border-color:#4133C8;color:#4133C8">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.35-4.1-1L3 20l1.3-5.2A8.2 8.2 0 0 1 3.5 11.5 8.4 8.4 0 0 1 12 3.2a8.4 8.4 0 0 1 9 8.3Z"></path><path d="M9 9.8c.4 2.2 2.6 4.4 4.9 4.9l1.3-1.3 1.9 1-1 1.9c-3.8.4-8.6-4.4-8.2-8.2l1.9-1 1 1.9L9 9.8Z"></path></svg>
         WhatsApp updates</a>
-      <a href="https://discord.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font:700 15px 'Archivo',sans-serif;color:#181530;padding:13px 24px;border-radius:999px;border:2px solid rgba(24,21,48,.18);background:#fff" style-hover="border-color:#4133C8;color:#4133C8">
+      <a href="https://discord.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font:700 15px 'Archivo',sans-serif;color:#181530;padding:13px 24px;border-radius:999px;border:2px solid rgba(24,21,48,.18);background:#fff" data-hover="border-color:#4133C8;color:#4133C8">
         <img src="assets/discord.svg" alt="" width="17" height="17" style="display:block;border-radius:5px">
         Discord community</a>
     </div>
     <span style="font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.45)">ANDROID + WEAR OS &nbsp;·&nbsp; ₪ / $ / € &nbsp;·&nbsp; OFFLINE-FIRST</span>
   </div>
-</div>
+</section>
+
+</main>
 
 <!-- footer -->
-<div data-footer style="background:#FBFAFE;border-top:1px solid rgba(24,21,48,.09);padding:30px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+<footer data-footer style="background:#FBFAFE;border-top:1px solid rgba(24,21,48,.09);padding:30px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
   <div style="display:flex;align-items:center;gap:9px">
     <img src="assets/logo-mark.svg" alt="" width="20" height="20" style="display:block;border-radius:6px">
     <span style="font:800 17px 'Archivo',sans-serif;letter-spacing:-.03em;color:#181530">elmtrackr</span>
     <span style="width:26px;height:3px;border-radius:99px;background:linear-gradient(90deg,#5B4DF2,#16C8D6);display:inline-block"></span>
   </div>
   <div style="display:flex;gap:28px;flex-wrap:wrap">
-    <a href="#method" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">METHOD</a>
-    <a href="#watch" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">WATCH</a>
-    <a href="#price" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8">PRICE</a>
-    <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.35-4.1-1L3 20l1.3-5.2A8.2 8.2 0 0 1 3.5 11.5 8.4 8.4 0 0 1 12 3.2a8.4 8.4 0 0 1 9 8.3Z"></path></svg>WHATSAPP</a>
-    <a href="https://discord.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" style-hover="color:#4133C8"><img src="assets/discord.svg" alt="" width="13" height="13" style="display:block;border-radius:3px">DISCORD</a>
+    <a href="#method" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" data-hover="color:#4133C8">METHOD</a>
+    <a href="#watch" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" data-hover="color:#4133C8">WATCH</a>
+    <a href="#price" style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" data-hover="color:#4133C8">PRICE</a>
+    <a href="https://chat.whatsapp.com/BWUCyX16z7c596iiYO9Vbv?s=cl&amp;p=a&amp;ilr=4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" data-hover="color:#4133C8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.35-4.1-1L3 20l1.3-5.2A8.2 8.2 0 0 1 3.5 11.5 8.4 8.4 0 0 1 12 3.2a8.4 8.4 0 0 1 9 8.3Z"></path></svg>WHATSAPP</a>
+    <a href="https://discord.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(24,21,48,.5)" data-hover="color:#4133C8"><img src="assets/discord.svg" alt="" width="13" height="13" style="display:block;border-radius:3px">DISCORD</a>
   </div>
   <span style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.35)">PAY FIGURES ARE ESTIMATES — YOUR PAYSLIP IS THE RECORD</span>
-</div></x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{
-  &quot;showWatch&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Composition&quot;},
-  &quot;floatMotion&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Motion&quot;}
-}">
-class Component extends DCLogic {
-  state = { seconds: 2 * 3600 + 35 * 60 + 12 };
-  componentDidMount() {
-    this.timer = setInterval(() => this.setState(s => ({ seconds: s.seconds + 1 })), 1000);
-    this._reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (this._reduce) {
-      [this.w0, this.w1, this.w2, this.w3].forEach(el => { if (el) { el.style.opacity = 1; } });
-    } else {
-      this._raf = requestAnimationFrame(this._stage);
+</footer>
+<script>
+/* Progressive enhancement only. All content above is static; if this script
+   fails or is blocked, the page stays complete and legible. */
+(function () {
+  "use strict";
+  try {
+    var reduce = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* live clock / pay / rings — mirrors the original demo values */
+    var RATE = 42, GOAL = 8 * 3600, seconds = 2 * 3600 + 35 * 60 + 12;
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    var hm = document.querySelectorAll('[data-el="clock-hm"]');
+    var sec = document.querySelectorAll('[data-el="clock-s"]');
+    var pay = document.querySelectorAll('[data-el="pay"]');
+    var gp = document.querySelectorAll('[data-el="goal-pct"]');
+    var gh = document.querySelectorAll('[data-el="goal-hm"]');
+    var rings = document.querySelectorAll("[data-ring]");
+    var setAll = function (list, v) { for (var i = 0; i < list.length; i++) list[i].textContent = v; };
+    var paint = function () {
+      var s = seconds, rp = Math.min(s / GOAL, 1);
+      setAll(hm, pad(Math.floor(s / 3600)) + ":" + pad(Math.floor(s / 60) % 60));
+      setAll(sec, ":" + pad(s % 60));
+      setAll(pay, Math.floor(s / 3600 * RATE).toLocaleString());
+      setAll(gp, Math.round(rp * 100) + "%");
+      setAll(gh, Math.floor(s / 3600) + "h " + pad(Math.floor(s / 60) % 60) + "m");
+      for (var i = 0; i < rings.length; i++) rings[i].setAttribute("stroke-dasharray", rp.toFixed(3) + " 1");
+    };
+    paint();
+    setInterval(function () { seconds += 1; paint(); }, 1000);
+
+    /* hover states via data-hover (progressive enhancement) */
+    var hov = document.querySelectorAll("[data-hover]");
+    for (var i = 0; i < hov.length; i++) {
+      (function (el) {
+        var extra = el.getAttribute("data-hover"), base = el.getAttribute("style") || "";
+        el.addEventListener("mouseenter", function () { el.setAttribute("style", base + ";" + extra); });
+        el.addEventListener("mouseleave", function () { el.setAttribute("style", base); });
+      })(hov[i]);
     }
-    this._filmSetup();
-  }
-  componentWillUnmount() { clearInterval(this.timer); cancelAnimationFrame(this._raf); if (this._filmIO) this._filmIO.disconnect(); }
-  _filmSetup() {
-    const v = this.filmV, card = this.filmCard, chip = this.filmChip, bar = this.filmBar;
-    if (!v || !card || this._filmDone) return;
-    this._filmDone = true;
-    v.muted = true; v.loop = true;
-    v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-    v.addEventListener('timeupdate', () => {
-      if (bar && v.duration) bar.style.width = (v.currentTime / v.duration * 100).toFixed(2) + '%';
-    });
-    if (this._reduce) {
-      v.controls = true;
-      if (chip) chip.style.display = 'none';
-      return;
+
+    /* widget scroll choreography */
+    var stage = document.getElementById("widgets");
+    var w = [0, 1, 2, 3].map(function (n) { return document.querySelector('[data-w="' + n + '"]'); });
+    if (reduce) {
+      w.forEach(function (el) { if (el) { el.style.opacity = 1; el.style.transform = "none"; } });
+    } else if (stage && w[0]) {
+      var specs = [[w[0], -420, 160, -22, 0.05], [w[1], 460, -180, 14, 0.22],
+                   [w[2], 380, 300, 10, 0.42], [w[3], -360, 260, -12, 0.62]];
+      var ease = function (x) { return 1 - Math.pow(1 - x, 3); };
+      var loop = function () {
+        var vh = window.innerHeight, r = stage.getBoundingClientRect(), total = r.height - vh;
+        var p = Math.max(0, Math.min(1, -r.top / total));
+        for (var j = 0; j < specs.length; j++) {
+          var el = specs[j][0], dx = specs[j][1], dy = specs[j][2], rot = specs[j][3], start = specs[j][4];
+          if (!el) continue;
+          var k = ease(Math.max(0, Math.min(1, (p - start) / 0.26))), inv = 1 - k;
+          el.style.opacity = k;
+          el.style.transform = "translate(" + (dx * inv).toFixed(1) + "px," + (dy * inv).toFixed(1) +
+            "px) rotate(" + (rot * inv).toFixed(2) + "deg) scale(" + (0.72 + 0.28 * k).toFixed(3) + ")";
+        }
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
     }
-    card.style.cursor = 'pointer';
-    this._filmIO = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) v.play().catch(() => { v.muted = true; v.play().catch(() => {}); });
-      else v.pause();
-    }), { threshold: 0.35 });
-    this._filmIO.observe(card);
-    card.addEventListener('click', () => {
-      if (v.paused) v.play().catch(() => {});
-      v.muted = !v.muted;
-      if (chip) chip.textContent = v.muted ? 'TAP FOR SOUND' : 'SOUND ON — TAP TO MUTE';
-    });
-  }
-  _stage = () => {
-    if (this.stageEl) {
-      const vh = window.innerHeight;
-      const r = this.stageEl.getBoundingClientRect();
-      const total = r.height - vh;
-      const p = Math.max(0, Math.min(1, -r.top / total));
-      const ease = t => 1 - Math.pow(1 - t, 3);
-      const specs = [
-        [this.w0, -420, 160, -22, 0.05],
-        [this.w1, 460, -180, 14, 0.22],
-        [this.w2, 380, 300, 10, 0.42],
-        [this.w3, -360, 260, -12, 0.62]
-      ];
-      for (const [el, dx, dy, rot, start] of specs) {
-        if (!el) continue;
-        const k = ease(Math.max(0, Math.min(1, (p - start) / 0.26)));
-        const inv = 1 - k;
-        el.style.opacity = k;
-        el.style.transform = 'translate(' + (dx * inv).toFixed(1) + 'px,' + (dy * inv).toFixed(1) + 'px) rotate(' + (rot * inv).toFixed(2) + 'deg) scale(' + (0.72 + 0.28 * k).toFixed(3) + ')';
+
+    /* product film */
+    var v = document.getElementById("film-video"),
+        card = document.getElementById("film-card"),
+        chip = document.getElementById("film-chip"),
+        bar = document.getElementById("film-bar");
+    if (v && card) {
+      v.muted = true; v.loop = true;
+      v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
+      v.addEventListener("timeupdate", function () {
+        if (bar && v.duration) bar.style.width = (v.currentTime / v.duration * 100).toFixed(2) + "%";
+      });
+      if (reduce) {
+        v.controls = true;
+        if (chip) chip.style.display = "none";
+      } else {
+        card.style.cursor = "pointer";
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (ent) {
+            if (ent.isIntersecting) v.play().catch(function () { v.muted = true; v.play().catch(function () {}); });
+            else v.pause();
+          });
+        }, { threshold: 0.35 });
+        io.observe(card);
+        card.addEventListener("click", function () {
+          if (v.paused) v.play().catch(function () {});
+          v.muted = !v.muted;
+          if (chip) chip.textContent = v.muted ? "TAP FOR SOUND" : "SOUND ON — TAP TO MUTE";
+        });
       }
     }
-    this._raf = requestAnimationFrame(this._stage);
-  };
-  renderVals() {
-    const s = this.state.seconds;
-    const pad = n => String(n).padStart(2, '0');
-    const rate = 42;
-    const goal = 8 * 3600;
-    return {
-      showWatch: this.props.showWatch ?? true,
-      playState: (this.props.floatMotion ?? true) ? 'running' : 'paused',
-      clockHM: pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60),
-      clockS: ':' + pad(s % 60),
-      paySoFar: Math.floor(s / 3600 * rate).toLocaleString(),
-      ringProgress: Math.min(s / goal, 1).toFixed(3),
-      goalPct: Math.round(Math.min(s / goal, 1) * 100) + '%',
-      goalHM: Math.floor(s / 3600) + 'h ' + pad(Math.floor(s / 60) % 60) + 'm',
-      stageRef: el => { this.stageEl = el; },
-      filmVideoRef: el => { if (el) this.filmV = el; },
-      filmCardRef: el => { if (el) this.filmCard = el; },
-      filmChipRef: el => { if (el) this.filmChip = el; },
-      filmBarRef: el => { if (el) this.filmBar = el; },
-      w0Ref: el => { this.w0 = el; },
-      w1Ref: el => { this.w1 = el; },
-      w2Ref: el => { this.w2 = el; },
-      w3Ref: el => { this.w3 = el; }
-    };
+  } catch (err) {
+    if (window.console) console.error("[elmtrackr] enhancement error:", err);
   }
-}
+})();
 </script>
 
 
