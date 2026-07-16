@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://elmtrackr.site/privacy-and-security/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="alternate" hreflang="en" href="https://elmtrackr.site/privacy-and-security/">
+<link rel="alternate" hreflang="he" href="https://elmtrackr.site/he/privacy-and-security/">
 <link rel="alternate" hreflang="x-default" href="https://elmtrackr.site/privacy-and-security/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Elmtrackr">
@@ -80,6 +81,7 @@
     {
       "@type": "FAQPage",
       "@id": "https://elmtrackr.site/privacy-and-security/#faq",
+      "inLanguage": "en",
       "mainEntity": [
         {
           "@type": "Question",
@@ -141,6 +143,7 @@
       <a href="/hourly-pay-tracker/">Hourly pay</a>
       <a href="/overtime-pay-tracker/">Overtime</a>
       <a href="/work-hours-reports/">Reports</a>
+      <a class="cp-lang-switch" href="https://elmtrackr.site/he/privacy-and-security/" hreflang="he" lang="he" aria-label="View this page in Hebrew">עברית</a>
       <a class="cp-nav-cta" href="https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dget_the_app" target="_blank" rel="noopener" aria-label="Get Elmtrackr on Google Play (opens in a new tab)">Get the app</a>
     </nav>
   </div>
@@ -152,7 +155,7 @@
 <p class="cp-eyebrow">Data &amp; security</p>
 <h1 class="cp-h1">Privacy and security</h1>
 <p class="cp-lead">Elmtrackr is built to keep your work data on your device and under your control. Your shifts live in an encrypted local database, an app lock can guard access, and anything that leaves the device does so only when you choose to sign in and sync. This page explains how that works in plain terms.</p>
-<p class="cp-reviewed">Last reviewed: 2026-07-16</p>
+<p class="cp-reviewed">Last reviewed: <span class="ltr">2026-07-16</span></p>
 <section class="cp-section"><h2 class="cp-h2">Your device is the source of truth</h2><p class="cp-p">Elmtrackr stores your shifts, rules and receipts in a local database on the device — built on Room, Android's on-device database layer. The app is designed to run fully from that local store, so it keeps working with no account and no connection.</p></section>
 <section class="cp-section"><h2 class="cp-h2">The local database is encrypted</h2><p class="cp-p">That local database is encrypted using SQLCipher, with a passphrase generated and kept on the device. If an older, unencrypted database exists from a previous version, it is migrated into the encrypted one. The intent is that the raw data on disk is not readable as plain text.</p></section>
 <section class="cp-section"><h2 class="cp-h2">Locking the app</h2><p class="cp-p">You can lock Elmtrackr behind your biometrics or your device credential (PIN, pattern or password). When the lock is on, it also guards remote clock actions — so a punch triggered from a widget, the notification or the watch is held until you unlock, keeping your record private on a shared or lost device.</p></section>

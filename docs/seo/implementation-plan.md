@@ -155,6 +155,53 @@ to `product-facts.md`.
 
 ---
 
+## Delivered 2026-07-16 (4) — Hebrew (RTL) equivalents for the whole site
+
+Full Hebrew counterparts for the homepage and all eight product pages, under
+stable ASCII `/he/…` routes. Existing Hebrew work (the undeployed
+`6263daa:he/index.html`) was reviewed and its terminology reused rather than
+discarded.
+
+- **Locale-aware build:** `scripts/build_content_pages.py` now generates both
+  `en` (`content/pages/*.json`) and `he` (`content/pages/he/*.json`) into
+  `<slug>/` and `he/<slug>/`. Hebrew chrome comes from `templates/header.he.html`
+  and `templates/footer.he.html`; `templates/page.html` carries
+  `lang`/`dir`/locale tokens. 16 pages total.
+- **Hebrew homepage:** `he/index.html` (`<html lang="he" dir="rtl">`) mirrors
+  the current English homepage — hero, all numbered sections, overview,
+  explore cards, visible FAQ, video summary, CTA and footer localized. The
+  descriptive H1 is `מעקב שעות עבודה וחישוב שכר משוער בזמן אמת`; the brand line
+  `כל משמרת, נמדדת.` is preserved.
+- **Translation, not transliteration:** natural Israeli Hebrew using the app's
+  own terminology (`משמרת`, `החתמת כניסה/יציאה`, `שעות נוספות`, `תוספות`,
+  `פרופילי תגמול`, `דוחות`, `החזרים`, `נעילת אפליקציה`, `סנכרון`, `תלוש`).
+  Latin/number runs (Elmtrackr, Wear OS, CSV/PDF, ₪42, ×1.25, 22:00–06:00) are
+  wrapped in bidi-isolated `.ltr` spans for stable display.
+- **Typeface:** no Heebo. No Hebrew webfont is bundled, so Hebrew uses a safe
+  self-contained system stack (`system-ui, 'Segoe UI', 'Arial Hebrew',
+  'Noto Sans Hebrew', …`) with Archivo still serving Latin. No font files were
+  downloaded or committed.
+- **Hreflang & switcher:** every en/he pair carries reciprocal
+  `hreflang="en"`/`"he"`/`"x-default"`; each page canonicalises to itself. An
+  accessible language switcher links to the equivalent page (not the homepage),
+  visible on mobile too.
+- **Structured data:** localized names, descriptions, FAQ Q&A, breadcrumb
+  labels and `inLanguage`, with product identity, URLs and verified facts kept
+  consistent across languages.
+- **New checker:** `scripts/check_locales.py` verifies en↔he coverage,
+  hreflang reciprocity, self-canonicals, `dir="rtl"` on Hebrew pages, no
+  mixed-language metadata/body, and that every language-switch target exists.
+  Passes, along with `validate_seo` (18 sitemap URLs), `check_static_html`,
+  `build_content_pages --check` and `build_sitemap --check`.
+- **Responsive/RTL note:** content and typography verified in-browser at
+  phone/desktop widths. The pre-installed headless Chromium cannot *screenshot*
+  a page whose root element is `dir="rtl"` (it captures blank; the identical
+  page renders the moment `dir="rtl"` is removed) — a capture quirk, not a page
+  defect. RTL correctness is enforced via direction-aware CSS
+  (`text-align:start`, flex ordering, right-side bullets, `.ltr` isolation).
+
+---
+
 ## Phase 0 — Verified product-facts registry & audit *(this deliverable — documentation only)*
 
 - **Deliverables:** `docs/seo/product-facts.md`, `docs/seo/site-audit.md`, `docs/seo/implementation-plan.md`.

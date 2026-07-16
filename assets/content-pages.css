@@ -139,7 +139,7 @@ main{display:block}
 @media (max-width:820px){
   .cp-header-inner{padding:14px 20px}
   .cp-nav{gap:16px}
-  .cp-nav a:not(.cp-nav-cta){display:none}
+  .cp-nav a:not(.cp-nav-cta):not(.cp-lang-switch){display:none}
   .cp-wrap{padding:0 20px}
   .cp-article{padding:0 20px 32px}
   .cp-breadcrumbs{padding:22px 20px 0}
@@ -148,3 +148,36 @@ main{display:block}
   .cp-footer-legal{grid-column:1}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+
+/* ── language switcher ── */
+.cp-lang-switch{font:700 12px 'Archivo',sans-serif !important;letter-spacing:0 !important;text-transform:none !important;color:var(--violet) !important;border:1.5px solid rgba(65,51,200,.35);border-radius:999px;padding:6px 14px;text-decoration:none}
+.cp-lang-switch:hover{background:rgba(65,51,200,.08)}
+
+/* ── Hebrew / RTL ──
+   No Hebrew webfont is bundled, so Hebrew falls back to a safe system stack
+   (Archivo still serves the Latin product names; per-glyph fallback covers
+   Hebrew). .ltr keeps Latin/number/currency runs left-to-right inside RTL. */
+html[lang="he"]{font-family:'Archivo', system-ui, 'Segoe UI', 'Arial Hebrew', 'Noto Sans Hebrew', Arial, sans-serif}
+.ltr{unicode-bidi:isolate;direction:ltr}
+
+html[lang="he"] .cp-eyebrow,
+html[lang="he"] .cp-reviewed,
+html[lang="he"] .cp-note-label,
+html[lang="he"] .cp-ex-title,
+html[lang="he"] .cp-ex-note,
+html[lang="he"] .cp-nav a,
+html[lang="he"] .cp-breadcrumbs ol,
+html[lang="he"] .cp-figure figcaption,
+html[lang="he"] .cp-footer-nav a,
+html[lang="he"] .cp-footer-legal a,
+html[lang="he"] .cp-footer-note{
+  font-family:'Archivo', system-ui, 'Segoe UI', 'Arial Hebrew', 'Noto Sans Hebrew', Arial, sans-serif;
+  letter-spacing:normal;
+  text-transform:none;
+}
+
+/* RTL: move the list bullet to the right */
+[dir="rtl"] .cp-li{padding-left:0;padding-right:26px}
+[dir="rtl"] .cp-li::before{left:auto;right:4px}
+/* RTL: keep the FAQ "+" and card arrows on the correct side (flex handles order) */
+[dir="rtl"] .cp-breadcrumbs li+li::before{content:"/"}
