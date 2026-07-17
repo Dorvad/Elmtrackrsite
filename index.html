@@ -148,6 +148,13 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 [data-card]{transition:transform .25s ease, box-shadow .25s ease}
 [data-card]:hover{transform:translateY(-6px);box-shadow:0 34px 70px rgba(24,21,48,.16) !important}
+/* Skip rendering (layout/paint) of below-the-fold sections until they approach
+   the viewport — cuts initial Style & Layout cost. Progressive enhancement: it
+   is a no-op where content-visibility is unsupported. #widgets is excluded (its
+   scroll choreography reads live geometry) and #film is excluded (lazy video).
+   contain-intrinsic-size uses the `auto` keyword so each section's real height
+   is remembered after first render, avoiding scrollbar jumps / layout shift. */
+#overview,#method,#premiums,#estimate,#watch,#steps,#explore,#faq,#price{content-visibility:auto;contain-intrinsic-size:auto 900px}
 /* reveal on scroll — progressive enhancement, no-ops in older engines */
 @supports (animation-timeline: view()) {
   [data-reveal]{animation:riseIn 1ms linear both;animation-timeline:view();animation-range:entry 0% entry 34%}
@@ -779,17 +786,28 @@ html{scroll-behavior:smooth}
       setAll(gh, Math.floor(s / 3600) + "h " + pad(Math.floor(s / 60) % 60) + "m");
       for (var i = 0; i < rings.length; i++) rings[i].setAttribute("stroke-dasharray", rp.toFixed(3) + " 1");
     };
-    paint();
-    setInterval(function () { seconds += 1; paint(); }, 1000);
+    paint(); /* immediate: keeps displayed values consistent with the static HTML */
 
-    /* hover states via data-hover (progressive enhancement) */
-    var hov = document.querySelectorAll("[data-hover]");
-    for (var i = 0; i < hov.length; i++) {
-      (function (el) {
-        var extra = el.getAttribute("data-hover"), base = el.getAttribute("style") || "";
-        el.addEventListener("mouseenter", function () { el.setAttribute("style", base + ";" + extra); });
-        el.addEventListener("mouseleave", function () { el.setAttribute("style", base); });
-      })(hov[i]);
+    /* Defer nonessential enhancement (the once-a-second live tick and the hover
+       wiring) until the browser is idle, so it never competes with first paint
+       or first input. Progressive enhancement: the static values already show. */
+    var startEnhancements = function () {
+      setInterval(function () { seconds += 1; paint(); }, 1000);
+
+      /* hover states via data-hover (progressive enhancement) */
+      var hov = document.querySelectorAll("[data-hover]");
+      for (var i = 0; i < hov.length; i++) {
+        (function (el) {
+          var extra = el.getAttribute("data-hover"), base = el.getAttribute("style") || "";
+          el.addEventListener("mouseenter", function () { el.setAttribute("style", base + ";" + extra); });
+          el.addEventListener("mouseleave", function () { el.setAttribute("style", base); });
+        })(hov[i]);
+      }
+    };
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(startEnhancements, { timeout: 2000 });
+    } else {
+      window.setTimeout(startEnhancements, 1200);
     }
 
   } catch (err) {
