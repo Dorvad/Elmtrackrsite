@@ -130,12 +130,16 @@
 <style>
 body{margin:0;background:#FBFAFE;font-family:'Archivo',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
 a{color:#4133C8;text-decoration:none}a:hover{color:#5B4DF2}
-@keyframes settlePhone{0%{transform:translateY(70px) perspective(1100px) rotateY(-24deg) rotateX(10deg) rotateZ(6deg);opacity:0}100%{transform:translateY(0) perspective(1100px) rotateY(-17deg) rotateX(6deg) rotateZ(3deg);opacity:1}}
+@keyframes settlePhone{0%{transform:translateY(70px) perspective(1100px) rotateY(-24deg) rotateX(10deg) rotateZ(6deg)}100%{transform:translateY(0) perspective(1100px) rotateY(-17deg) rotateX(6deg) rotateZ(3deg)}}
 @keyframes settleWatch{0%{transform:translateY(50px) perspective(900px) rotateY(26deg) rotateZ(-14deg);opacity:0}100%{transform:translateY(0) perspective(900px) rotateY(19deg) rotateZ(-8deg);opacity:1}}
 @keyframes floatPhone{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-14px,0)}}
 @keyframes floatWatch{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-9px,0)}}
 @keyframes ribbonDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes riseIn{from{transform:translateY(26px);opacity:0}to{transform:translateY(0);opacity:1}}
+/* heroRise: entrance for primary hero content (LCP candidates). Transform-only —
+   never fades opacity from 0, so the text/image stays a valid LCP candidate and
+   is visible by default even if the animation never runs. */
+@keyframes heroRise{from{transform:translateY(26px)}to{transform:translateY(0)}}
 @keyframes tickPulse{0%,100%{opacity:1}50%{opacity:.35}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
 </style>
@@ -243,8 +247,8 @@ html{scroll-behavior:smooth}
 
     <!-- LEFT: massive type -->
     <div style="flex:1.05;display:flex;flex-direction:column;justify-content:center;gap:30px;padding:30px 0 80px;min-width:0">
-      <h1 style="margin:0;font:900 clamp(64px,8.6vw,124px)/0.96 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530;animation:riseIn .8s .18s cubic-bezier(.2,.7,.2,1) both"><span style="display:block;font:600 clamp(15px,1.75vw,20px)/1.35 'Archivo',sans-serif;letter-spacing:-.005em;color:#4133C8;margin-bottom:20px">Hourly pay and shift tracking for Android and Wear OS</span>Every shift,<br>measured<span style="color:#5B4DF2">.</span></h1>
-      <p style="margin:0;max-width:474px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:riseIn .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in from your phone or watch. Elmtrackr tracks your hours, applies the overtime and premium rules you set, and shows an estimated gross as you work — an estimate to check against your payslip, not an official record.</p>
+      <h1 style="margin:0;font:900 clamp(64px,8.6vw,124px)/0.96 'Archivo',sans-serif;letter-spacing:-.045em;color:#181530;animation:heroRise .8s .18s cubic-bezier(.2,.7,.2,1) both"><span style="display:block;font:600 clamp(15px,1.75vw,20px)/1.35 'Archivo',sans-serif;letter-spacing:-.005em;color:#4133C8;margin-bottom:20px">Hourly pay and shift tracking for Android and Wear OS</span>Every shift,<br>measured<span style="color:#5B4DF2">.</span></h1>
+      <p style="margin:0;max-width:474px;font:500 19px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62);animation:heroRise .8s .28s cubic-bezier(.2,.7,.2,1) both">Clock in from your phone or watch. Elmtrackr tracks your hours, applies the overtime and premium rules you set, and shows an estimated gross as you work — an estimate to check against your payslip, not an official record.</p>
       <div style="display:flex;align-items:center;gap:16px;animation:riseIn .8s .38s cubic-bezier(.2,.7,.2,1) both">
         <a href="https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&amp;referrer=utm_source%3Delmtrackr.site%26utm_medium%3Dwebsite%26utm_campaign%3Dhomepage%26utm_content%3Dhero" target="_blank" rel="noopener" data-elm-event="play_store_click" data-elm-cta="hero" data-elm-dest="play_store" aria-label="Get Elmtrackr on Google Play (opens in a new tab)" style="display:inline-flex;align-items:center;gap:11px;background:#181530;color:#fff;font:700 17px 'Archivo',sans-serif;padding:17px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(24,21,48,.22)" data-hover="background:#4133C8;color:#fff">
           <img src="assets/google-play.svg" alt="" width="18" height="18" style="display:block">
