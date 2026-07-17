@@ -20,8 +20,10 @@ REPORTS := _reports
 # uploads this target's `_site/` output, so this list defines exactly what the
 # production artifact excludes.
 INTERNAL := docs uploads AGENTS.md PERFORMANCE_AUDIT.md PERFORMANCE_RESULTS.md \
-            THIRD_PARTY_JAVASCRIPT.md \
-            CACHE_DEPLOYMENT_OPTIONS.md content templates scripts support.js \
+            THIRD_PARTY_JAVASCRIPT.md LCP_DIAGNOSIS.md CRP_OPTIMIZATION.md \
+            ADS_PERFORMANCE.md HERO_IMAGE_RESPONSIVE.md \
+            CACHE_DEPLOYMENT_OPTIONS.md CACHE_HOSTING_GUIDE.md \
+            content templates scripts support.js \
             Makefile README.md lighthouse-budgets.json .lighthouserc.json \
             .github .git .gitignore \
             _ds dc-runtime node_modules $(DIST) $(REPORTS)
