@@ -1,7 +1,8 @@
 /*!
  * Elmtrackr — vendor-neutral analytics layer.
  *
- * Exposes window.trackElmEvent(name, properties). It sends events only to an
+ * Loaded after the critical page lifecycle by analytics-loader.js. Exposes
+ * window.trackElmEvent(name, properties). It sends events only to an
  * analytics provider that is ALREADY configured on the page (gtag / GTM
  * dataLayer); otherwise it is a safe no-op. It never throws, never blocks
  * navigation, never sends page copy / emails / other personal data, and

@@ -315,7 +315,7 @@ def audit(find: Findings):
         for f in files:
             if not f.endswith(".html"):
                 continue
-            relf = os.path.relpath(os.path.join(root, f), REPO_ROOT)
+            relf = os.path.relpath(os.path.join(root, f), REPO_ROOT).replace(os.sep, "/")
             if relf not in by_file:
                 find.error(relf, "manifest",
                            "shipped HTML file is not listed in seo_manifest.json")

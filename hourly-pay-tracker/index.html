@@ -30,6 +30,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="apple-touch-icon" sizes="192x192" href="/assets/icon-192.png">
+<link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/content-pages.css">
 <script type="application/ld+json">
 {
@@ -192,6 +193,8 @@
   </div>
 </footer>
 
-<script src="/assets/analytics.js" defer></script>
+<!-- Nonessential analytics wiring waits for load + idle and is fetched only
+     when a provider already exists. This bootstrap is not a consent manager. -->
+<script src="/assets/analytics-loader.js" data-analytics-src="/assets/analytics.js" defer></script>
 </body>
 </html>

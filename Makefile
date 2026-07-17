@@ -16,11 +16,14 @@ SCRIPTS := scripts
 DIST    := _site
 REPORTS := _reports
 
-# Internal, non-site files that must never be published. This mirrors the
-# strip step in .github/workflows/deploy-pages.yml so `make dist` produces
-# exactly what GitHub Pages serves.
-INTERNAL := docs AGENTS.md content templates scripts \
-            Makefile README.md .github .git .gitignore \
+# Internal, non-site files that must never be published. The Pages workflow
+# uploads this target's `_site/` output, so this list defines exactly what the
+# production artifact excludes.
+INTERNAL := docs uploads AGENTS.md PERFORMANCE_AUDIT.md PERFORMANCE_RESULTS.md \
+            THIRD_PARTY_JAVASCRIPT.md \
+            CACHE_DEPLOYMENT_OPTIONS.md content templates scripts support.js \
+            Makefile README.md lighthouse-budgets.json .lighthouserc.json \
+            .github .git .gitignore \
             _ds dc-runtime node_modules $(DIST) $(REPORTS)
 
 .DEFAULT_GOAL := ci
@@ -59,6 +62,10 @@ validate:
 	$(PY) $(SCRIPTS)/check_media.py
 	@echo "== static source (no unresolved templates, anchors, alt) =="
 	$(PY) $(SCRIPTS)/check_static_html.py
+	@echo "== third-party script loading (single Auto Ads tag, deferred analytics) =="
+	$(PY) $(SCRIPTS)/check_third_party_js.py
+	@echo "== motion performance (observer activation, cached geometry, transform-only writes) =="
+	$(PY) $(SCRIPTS)/check_motion_performance.py
 
 ## audit: run the comprehensive site audit and write a readable report artifact
 audit:
@@ -75,6 +82,7 @@ dist:
 	@tar --exclude-vcs \
 		$(foreach d,$(INTERNAL),--exclude=./$(d)) \
 		-cf - . | tar -xf - -C $(DIST)
+	$(PY) $(SCRIPTS)/fingerprint_assets.py --site $(DIST)
 	@touch $(DIST)/.nojekyll
 	@echo "Assembled final static site in $(DIST)/ ($$(find $(DIST) -name '*.html' | wc -l | tr -d ' ') HTML pages)."
 

@@ -21,11 +21,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Strip internal, non-site files from the publish set
-        # Keep internal repo docs, agent guidance and build sources out of the
-        # public site. These live in git but must not be served from
-        # elmtrackr.site. Generated pages (route directories) and assets/ stay.
-        run: rm -rf docs AGENTS.md content templates scripts
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build and verify production site
+        run: make ci
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -35,7 +37,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy
         id: deployment

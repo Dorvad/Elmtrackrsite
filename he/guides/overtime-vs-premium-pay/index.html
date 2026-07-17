@@ -201,6 +201,8 @@
   </div>
 </footer>
 
-<script src="/assets/analytics.js" defer></script>
+<!-- Nonessential analytics wiring waits for load + idle and is fetched only
+     when a provider already exists. This bootstrap is not a consent manager. -->
+<script src="/assets/analytics-loader.js" data-analytics-src="/assets/analytics.js" defer></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # Elmtrackr — Analytics layer
 
 **Date reviewed:** 2026-07-16
-**Module:** `assets/analytics.js` · **API:** `window.trackElmEvent(name, properties)`
+**Modules:** `assets/analytics-loader.js`, `assets/analytics.js` · **API:** `window.trackElmEvent(name, properties)`
 
 A vendor-neutral event layer for measuring SEO and AI-search acquisition
 **without** silently adding an analytics provider or collecting personal data.
@@ -10,7 +10,11 @@ A vendor-neutral event layer for measuring SEO and AI-search acquisition
 
 - It sends events **only to a provider that is already configured** on the
   page — `window.gtag` (GA) or a `window.dataLayer` (GTM). If neither exists it
-  is a safe **no-op**.
+  is a safe **no-op**. The loader checks this before fetching the runtime, so
+  the current provider-free site does not request `analytics.js` at all.
+- The loader waits for the window `load` event and then uses
+  `requestIdleCallback` (with a bounded timer fallback). Analytics therefore
+  cannot compete with the page's critical render.
 - It never throws, never calls `preventDefault`, and never blocks navigation.
 - It never sends page copy, email addresses, or full URLs. Values longer than
   100 chars, or containing `@` or `http(s)://`, are dropped.
@@ -22,8 +26,9 @@ A vendor-neutral event layer for measuring SEO and AI-search acquisition
 
 1. Decide on a provider and (for regulated regions) a consent mechanism first
    — see the review list in `docs/seo/privacy-data-inventory.md`.
-2. Add that provider's snippet to the pages (e.g. GA4 `gtag.js` with your
-   Measurement ID, or a GTM container that defines `window.dataLayer`).
+2. Add that provider's consent-aware snippet before `analytics-loader.js`
+   (e.g. GA4 `gtag.js` with your Measurement ID, or a GTM container that
+   defines `window.dataLayer`).
 3. Nothing else changes: `trackElmEvent` detects `gtag`/`dataLayer` and starts
    forwarding the same events. Update `privacy.html` to name the provider.
 4. If you use a consent tool, set `window.__elmtrackrConsent` to

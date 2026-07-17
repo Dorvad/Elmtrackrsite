@@ -51,8 +51,9 @@ def attrs(tag):
 
 def shipped_html():
     files = ["index.html", "privacy.html", "terms.html"]
-    files += [p for p in glob.glob("**/index.html", recursive=True)
-              if not p.startswith(("templates/", "content/", "node_modules/"))]
+    discovered = [p.replace(os.sep, "/") for p in glob.glob("**/index.html", recursive=True)]
+    files += [p for p in discovered
+              if not p.startswith(("templates/", "content/", "node_modules/", "_site/"))]
     seen, out = set(), []
     for f in files:
         full = os.path.join(REPO_ROOT, f)
@@ -98,10 +99,13 @@ def check_page_media(rep, page_rel):
     # <source> and <track> existence
     for tag in SOURCE_RE.findall(html) + TRACK_RE.findall(html):
         a = attrs(tag)
-        src = a.get("src") or a.get("srcset", "").split()[0] if (a.get("src") or a.get("srcset")) else ""
-        p = resolve(page_rel, src) if src else None
-        if p is not None and not os.path.isfile(p):
-            rep.fail(f"{page_rel}: broken media src {src}")
+        sources = [src for src in (a.get("src"), a.get("data-src")) if src]
+        sources += [candidate.strip().split()[0]
+                    for candidate in a.get("srcset", "").split(",") if candidate.strip()]
+        for src in sources:
+            p = resolve(page_rel, src)
+            if p is not None and not os.path.isfile(p):
+                rep.fail(f"{page_rel}: broken media src {src}")
 
 
 def check_video(rep, page_rel):
@@ -115,8 +119,8 @@ def check_video(rep, page_rel):
             rep.fail(f"{page_rel}: <video> lacks controls")
         else:
             rep.ok(f"{page_rel}: <video> has accessible native controls")
-        if a.get("preload") != "metadata":
-            rep.warn(f"{page_rel}: <video> preload is {a.get('preload')!r} (expected metadata)")
+        if a.get("preload") not in ("none", "metadata"):
+            rep.warn(f"{page_rel}: <video> preload is {a.get('preload')!r} (expected none or metadata)")
         if "autoplay" in tag.lower() and "muted" not in tag.lower():
             rep.fail(f"{page_rel}: <video> autoplays WITH sound")
         if not a.get("poster"):

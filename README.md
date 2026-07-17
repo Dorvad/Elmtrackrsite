@@ -8,7 +8,8 @@ Static one-page marketing site for Elmtrackr, a work-hours tracking app for Andr
 - `support.js` — the generated DC runtime from an earlier version of the site. **No longer used by `index.html`** (which is now standalone static HTML) and not referenced by any shipped page; retained only for history. It is generated from `dc-runtime/src/*.ts` (source not in this repo) and must not be hand-edited — regenerate with `cd dc-runtime && bun run build` if it is ever needed again.
 - `scripts/check_static_html.py` — stdlib-only static-source validator. Fails if a shipped page's initial HTML is incomplete or invalid: raw `{{ }}`, leftover custom template values, missing `lang`/`h1`/`main`, broken internal anchors, images without `alt`, or empty `href`. Run: `python3 scripts/check_static_html.py`.
 - `assets/fonts/` — self-hosted webfonts (Archivo + IBM Plex Mono), no Google Fonts request at runtime.
-- `assets/` — app icon, logos, the real app screenshot (`app-screenshot.jpg`, shown in the hero phone), web-optimized marketing renders used in the "On every screen" section, and the product film (`elmtrackr-tour.mp4`, faststart-remuxed, with `tour-poster.jpg`) shown in the "07 — The film" section. The film autoplays muted while scrolled into view, pauses off-screen, and unmutes on tap; the wiring lives in the inline script at the bottom of `index.html`.
+- `assets/` — app icon, logos, the real app screenshot (`app-screenshot.jpg`, shown in the hero phone), web-optimized marketing renders used in the "On every screen" section, and the optimized product-film assets (`elmtrackr-tour.webm`, `elmtrackr-tour.mp4`, and the WebP/JPEG posters) shown in the "07 — The film" section. `assets/lazy-video.js` attaches the video sources only when the film approaches the viewport or receives user interaction, then autoplays muted while sufficiently visible and pauses off-screen.
+- `docs/media-source/` — the original full-resolution product-film source and its reproducible production encoding settings. `docs/` is excluded from the GitHub Pages artifact.
 - `uploads/` — original full-resolution source images.
 - `.nojekyll` — stops GitHub Pages' Jekyll build from interfering with the deploy.
 - `_ds/` — legacy design-system tokens from an earlier version of the site (not referenced by the current page).
@@ -35,8 +36,9 @@ make ci
 4. **validate structured data** — JSON-LD graph, no fictional ratings;
 5. **validate locale pairs** — reciprocal hreflang + language-switch links;
 6. **validate internal links** — anchors, internal links, images (`audit_site.py`);
-7. **produce the final static site** — assembles `_site/`, mirroring exactly what
-   GitHub Pages publishes (internal files stripped).
+7. **produce the final static site** — assembles `_site/`, fingerprints
+   cacheable assets, writes `asset-manifest.json`, and mirrors exactly what
+   GitHub Pages publishes (source media and internal files stripped).
 
 Individual targets: `make build`, `make validate`, `make audit`, `make dist`,
 `make serve`, `make check-clean`, `make clean`, `make help`. The audit writes a
@@ -46,7 +48,7 @@ Both `_site/` and `_reports/` are build outputs and are git-ignored.
 
 ## Deployment (GitHub Pages)
 
-Deployment is automated via `.github/workflows/deploy-pages.yml`: every push to `main` publishes the repository root to GitHub Pages (source: GitHub Actions). Internal, non-site files (`docs/`, `AGENTS.md`, `content/`, `templates/`, `scripts/`) are stripped from the published artifact. Continuous-integration checks run on pull requests via `.github/workflows/ci.yml` (build + audit + link/JSON-LD/JS checks).
+Deployment is automated via `.github/workflows/deploy-pages.yml`: every push to `main` runs `make ci` and publishes the production-only `_site/` directory to GitHub Pages (source: GitHub Actions). Internal, non-site files and original source media are excluded; cacheable assets receive content-derived filenames. Continuous-integration checks run on pull requests via `.github/workflows/ci.yml` (build + audit + link/JSON-LD/JS checks).
 
 Custom domain: set `www.elmtrackr.site` in Settings → Pages, with a DNS CNAME record `www` → `dorvad.github.io`.
 

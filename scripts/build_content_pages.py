@@ -405,6 +405,10 @@ def render_page(page, manifest, page_tpl, header_raw, footer, loc):
         "{{OG_IMAGE_H}}": str(og["h"]),
         "{{OG_IMAGE_ALT}}": esc(og["alt"]),
         "{{HREFLANG}}": hreflang_block(en_canonical, he_canonical),
+        "{{FONT_PRELOAD}}": (
+            '<link rel="preload" href="/assets/fonts/archivo-latin.woff2" '
+            'as="font" type="font/woff2" crossorigin>\n' if loc == "en" else ""
+        ),
         "{{JSONLD}}": jsonld,
         "{{HEADER}}": header,
         "{{FOOTER}}": footer,
