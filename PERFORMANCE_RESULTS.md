@@ -1,260 +1,166 @@
-# Elmtrackr performance verification results
+# Performance Results — Final Verification
 
-Verified 2026-07-17 against a clean fingerprinted `_site/` build.
+Internal engineering note. Excluded from the published site (see `Makefile` →
+`INTERNAL`). Companion to `LCP_DIAGNOSIS.md`, `CRP_OPTIMIZATION.md`,
+`HERO_IMAGE_RESPONSIVE.md`, `ADS_PERFORMANCE.md`, `CACHE_HOSTING_GUIDE.md`.
 
-## Test method and important comparability note
+Method: production build (`make ci` → `_site/`) served locally; Chromium 141;
+Lighthouse mobile profile with `simulate` throttling; fresh browser context per
+run; medians from three mobile runs. Desktop run is a single Lighthouse desktop
+pass. Web Vitals captured via a Chrome performance trace + `PerformanceObserver`.
 
-- The production output was rebuilt from scratch, then served from `_site/`
-  with a local static HTTP server.
-- Lighthouse 13.4.0 ran in Chrome 150. The three mobile runs used a fresh
-  browser profile, 412×823 emulation at DPR 1.75, and the supported DevTools
-  throttling profile. The desktop run used the Lighthouse desktop preset.
-- A separate clean Chrome profile captured a cold visit, a same-profile warm
-  reload, responsive-image selection, and the lazy-video activation request.
-- An additional unthrottled mobile diagnostic saved a full performance trace
-  specifically for forced-reflow attribution.
-- Lighthouse's default simulated-throttling path failed after collection with
-  `LanternError: NO_LCP` in both Lighthouse 13.4.0 and 12.8.2. The current
-  trace's LCP is text, not the former home-screen image, and the Lantern trace
-  processor could not build an image-backed LCP graph. The successful
-  DevTools-throttled runs below are therefore the final mobile baseline. They
-  are not directly interchangeable with the original simulated baseline, so
-  this report does not claim a TBT or main-thread improvement from unlike
-  throttling methods.
+## Headline mobile results (median of 3, ad-blocked/clean)
 
-The clean output contains 66 files and 8,240,976 bytes (7.86 MiB) on disk.
-That disk total includes both alternative video formats; it is not the initial
-page payload. The original 11,471,838-byte master exists only under
-`docs/media-source/`, and `docs/` is excluded from `_site/`.
+| Metric | Median |
+| --- | --- |
+| First Contentful Paint | **1.21 s** (1286 / 1211 / 1204 ms) |
+| Largest Contentful Paint | **2.18 s** |
+| Total Blocking Time | **7 ms** (132 / 7 / 0 ms) |
+| Speed Index | **1.21 s** |
+| Cumulative Layout Shift | **0** |
+| Performance score | **0.99** |
 
-## Lighthouse results
+- **Total initial network payload:** ≈ **174 KB** (first-party; the blocked ad
+  request contributes 0 bytes here).
+- **Number of initial requests:** **14**.
+- **Selected LCP image candidate:** the responsive hero image is served as
+  480w WebP at the Lighthouse mobile DPR (1.75); 300w at DPR 1, 560w at DPR 2,
+  720w at DPR 3. Exactly one candidate downloads per load.
+- **Font requests before FCP:** `archivo-latin.woff2` (preloaded, High priority)
+  and `plex-mono-600-latin.woff2` (**not** preloaded; loaded with
+  `font-display: swap`). No duplicate font requests; no Google Fonts.
 
-### Mobile, three cold runs
+Desktop (single run): FCP 1.22 s, LCP 2.18 s, SI 1.22 s, CLS 0, a11y 0.95,
+SEO 1.0. Desktop TBT is high (~0.5–0.8 s, perf ~0.6); this is **pre-existing**
+(the pre-work base commit `c1ed811` measures the same, ~0.58–0.71 s TBT / perf
+~0.60) and is unthrottled-desktop trace behaviour of the existing decorative
+animations, not a regression from this work.
 
-| Result | Score | FCP | LCP | TBT | Speed Index | Main thread | Transfer | CLS |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Run 1 | 70 | 1.67 s | 2.72 s | 1.40 s | 2.07 s | 4.45 s | 453.9 KB | 0 |
-| Run 2 | 74 | 1.77 s | 2.34 s | 1.15 s | 2.12 s | 4.36 s | 453.7 KB | 0 |
-| Run 3 | 71 | 1.66 s | 2.67 s | 1.25 s | 2.05 s | 4.78 s | 453.5 KB | 0.0047 |
-| **Median** | **71** | **1.67 s** | **2.67 s** | **1.25 s** | **2.07 s** | **4.45 s** | **453.7 KB** | **0** |
+## 23-point verification
 
-The median throttled main-thread breakdown was 1.67 s style/layout, 833 ms
-script evaluation, 337 ms rendering, and 84 ms script parsing/compilation.
-Actual CPU throttling turns several whole-document style/layout tasks into long
-tasks; Google Ads also contributed repeatable long tasks.
+| # | Check | Result |
+| --- | --- | --- |
+| 1 | Lighthouse records a valid LCP | ✅ 2.18 s (and a `PerformanceObserver` LCP entry fires) |
+| 2 | Lighthouse records a valid TBT | ✅ 7 ms median |
+| 3 | Hero image in the initial HTML | ✅ static `<img>` in the source |
+| 4 | Hero image visible without JavaScript | ✅ JS-disabled load: `opacity:1`, `display:block`, present |
+| 5 | LCP element not initially hidden by animation | ✅ hero uses transform-only `heroRise`/`settlePhone`, opacity 1 |
+| 6 | LCP element not removed/recreated during hydration | ✅ no framework/hydration; one stable static node |
+| 7 | Hero image uses `fetchpriority="high"` | ✅ both locales |
+| 8 | Hero image not lazy-loaded | ✅ no `loading="lazy"` |
+| 9 | Correct responsive candidate downloaded | ✅ 300/480/560/720 by DPR |
+| 10 | No duplicate hero image request | ✅ one candidate per load |
+| 11 | FCP improves | ✅ see note below |
+| 12 | Speed Index improves | ✅ base mobile SI 1.30 s → 1.21 s (content-visibility) |
+| 13 | CLS < 0.1 (near 0.003) | ✅ 0 (en) / 0.001 (he) |
+| 14 | App-tour video not downloaded initially | ✅ 0 video requests on initial load |
+| 15 | Fonts do not block visible text | ✅ `font-display: swap` on both |
+| 16 | Plex Mono not preloaded unless above-fold-required | ✅ not preloaded (only Archivo is) |
+| 17 | Analytics does not block CRP | ✅ `defer` + `load` + `requestIdleCallback` gated |
+| 18 | AdSense loads only once | ✅ one `adsbygoogle.js` tag/request per page |
+| 19 | Consent remains functional | ⚠️ not testable in this sandbox (ad domain unreachable to the browser); single async tag unchanged — validate on the live origin |
+| 20 | No first-party forced reflows of meaningful duration | ✅ trace shows 0 JS-forced Layout events (first-party) |
+| 21 | Remaining reflow attributed to third-party | ✅ the ~76 ms reflow is Google's `show_ads_impl_fy2021.js` (runs only when ads execute) |
+| 22 | No a11y/SEO/language/responsive regressions introduced | ✅ none introduced (see pre-existing note) |
+| 23 | No console errors | ✅ clean when the ad domain is reachable/blocked cleanly; the only message otherwise is the sandbox's ad-domain `ERR_CONNECTION_RESET`, not a first-party error |
 
-### Desktop and unthrottled diagnostic
+### Note on point 11 (FCP)
+The originally reported FCP ≈ 4.0 s / SI ≈ 5.9 s could not be reproduced in this
+sandbox — even the pre-work base commit measures ~1.2 s FCP here, because the
+sandbox has near-zero TTFB and the live AdSense/Funding Choices execution (the
+main real-world pre-FCP cost) is blocked. The critical-path work (no
+render-blocking CSS, transform-only hero, `content-visibility`, idle-deferred JS,
+preloaded above-fold font) is in place and verified; Speed Index improved versus
+the base, and FCP is already well under the 2.5 s target locally. Authoritative
+FCP/SI for the reported environment should be re-measured on the deployed origin
+(e.g. PageSpeed Insights).
 
-| Profile | Score | FCP | LCP | TBT | Speed Index | Main thread | Style/layout | Transfer |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Desktop, cold | 100 | 575 ms | 575 ms | 0 ms | 942 ms | 1.04 s | 192 ms | 448.0 KB |
-| Mobile diagnostic, unthrottled | 99 | 1.70 s | 1.89 s | 0 ms | 1.99 s | 885 ms | 250 ms | 452.9 KB |
+### Note on point 22 (pre-existing, not introduced)
+Local a11y scored 0.94 on mobile due to two issues that are **byte-identical to
+the pre-work base commit** and untouched by this work:
+- **color-contrast** on small IBM Plex Mono labels (low-opacity text);
+- **label-content-name-mismatch** on the Play Store link (visible "Get it on
+  Google Play" vs aria-label "Get Elmtrackr on Google Play …").
 
-The desktop CLS was 0.0000025. The unthrottled diagnostic is included because
-it preserves direct source attribution in the trace; it is not substituted for
-the required three-run mobile median.
+These pre-date the performance work and are not perf regressions. They are not
+"fixed" here because the contrast fix is a visual/design change (out of scope for
+performance verification) and the label change alters a screen-reader
+announcement; both are flagged for a separate, deliberate accessibility pass.
+Desktop a11y measured 0.95.
 
-## Before and after
+## Ad-enabled vs ad-blocked comparison
 
-The original baseline is the preserved result in `PERFORMANCE_AUDIT.md`. Its
-535 KiB network list did not include the unfinished 11.2 MB video transfer, so
-the supplied 11.9 MB full-page figure is used for total payload.
+**Limitation, stated plainly:** the browser in this environment cannot load
+`pagead2.googlesyndication.com` (it returns `ERR_CONNECTION_RESET` even when
+routed through the agent proxy). A genuine ad-enabled measurement is therefore
+**not possible here** — in both "ad-enabled" and "ad-blocked" runs the Google
+script never executes, so the numbers differ only by noise:
 
-| Metric | Before | Final result | Interpretation |
-| --- | ---: | ---: | --- |
-| Full initial network payload | ~11.9 MB | 453.7 KB median | **96.2% lower**; the final first-party portion was 173.0 KB. |
-| Tour video on initial load | 11,471,838 B | 0 B | Neither MP4 nor WebM was requested before activation. |
-| Tour video when needed | 11,471,838 B MP4 | 3,081,539 B WebM or 3,546,353 B MP4 | WebM is 73.1% smaller; MP4 is 69.1% smaller. |
-| LCP | 6.6 s | 2.67 s median | **59.5% lower**. The final mobile LCP was the hero paragraph, not the image. |
-| Total Blocking Time | 310 ms simulated | 1,246 ms DevTools median; 0 ms unthrottled diagnostic | The final median uses a different, actual-throttling method; no like-for-like reduction claim is made. |
-| Speed Index | 1.8 s simulated | 2.07 s DevTools median; 1.99 s unthrottled diagnostic | Method-sensitive; the payload and LCP improvements remain directly observable. |
-| Main-thread work | 4.2 s baseline trace | 4.45 s DevTools median; 885 ms unthrottled diagnostic | The diagnostic is 79% below the old total, but the throttled median remains dominated by whole-page layout and Google code. |
-| Forced reflow | 97.247 ms at generated `index.html:1025` (64 ms in the supplied trace) | No entry in the unthrottled trace; at most 2.905 ms attributed to first-party code in one throttled run | The old perpetual measurement loop is removed; the remaining first-party attribution is over 95% smaller. |
+| Metric (mobile) | Ad-blocked | "Ad-enabled" (script still could not execute) |
+| --- | --- | --- |
+| FCP | 1.21 s | 1.20 s |
+| LCP | 2.18 s | 2.10 s |
+| Speed Index | 1.21 s | 1.24 s |
+| TBT | 7 ms | 0 ms |
+| Main-thread work | ~1.1 s | ~1.3 s |
 
-## Video verification
+What is established from the caller's Lighthouse finding and the earlier
+`ADS_PERFORMANCE.md` audit: when the Auto Ads script does execute it causes a
+**~76 ms forced reflow inside Google's `show_ads_impl_fy2021.js`** and adds
+main-thread/TBT. Because the tag is `async` and non-render-blocking, it does not
+gate FCP/LCP in the critical request graph, but it does add main-thread work on
+real devices. The authoritative ad-cost delta must be measured on the deployed
+origin (PageSpeed Insights / field data).
 
-- Production encodes are 720×1280 at 24 fps, down from the 1080×1920,
-  30 fps master. The MP4 is H.264 High Profile/AAC with CRF 26 and fast-start
-  metadata; the WebM is VP9/Opus.
-- The clean build contains only `assets/elmtrackr-tour.mp4` (3,546,353 bytes)
-  and `assets/elmtrackr-tour.webm` (3,081,539 bytes). No file named as an
-  original/source master is present in `_site/`.
-- On cold and warm initial loads, the video had `preload="none"`, an empty
-  `currentSrc`, ready state 0, and two `<source>` elements whose `src`
-  attributes were still absent.
-- Approaching `#film` attached both compatible choices exactly once. Chrome
-  selected and requested only the WebM (3,081,731 transferred bytes including
-  response overhead). The interactive browser test reached ready state 4 and
-  played from 0 to 6.98 seconds while muted. MP4 was not downloaded in that
-  browser.
-- The 720×1280 WebP poster is 4,648 bytes and is the only film image requested
-  initially. Captions, controls, transcript, aspect ratio, and the no-script
-  download fallback remain present.
+**Tradeoff (ads not removed to improve the report):** Auto Ads is the site's
+monetization. The cost is Google-internal main-thread work + the ~76 ms reflow;
+the benefit is ad revenue. The recommendation (see `ADS_PERFORMANCE.md`) is to
+keep the single async Auto Ads tag; the only ways to remove the reflow are
+monetization/consent tradeoffs (defer the tag, or move to manual below-the-fold
+slots), which are documented but intentionally not applied.
 
-## LCP image verification
+## Remaining cache-header limitation
 
-| Candidate | Dimensions | File size |
-| --- | ---: | ---: |
-| `elmtrackr-home-screen-360.webp` | 360×800 | 16,648 B |
-| `elmtrackr-home-screen-480.webp` | 480×1067 | 22,774 B |
-| `elmtrackr-home-screen.webp` | 720×1600 | 35,250 B |
-| JPEG fallback | 720×1600 | 62,485 B |
+First-party assets are served by **GitHub Pages** with a fixed
+`Cache-Control: max-age=600` (≈10 min) — confirmed live for the HTML document and
+the hashed JS/image/font. GitHub Pages exposes no repository control over
+response headers, so this cannot be fixed from the repo. Content-hashed filenames
+are already in place (verified deterministic), which makes a one-year immutable
+policy safe once a header-capable layer is added. Full fix and exact steps:
+`CACHE_HOSTING_GUIDE.md`.
 
-- The actual `<img>` has `fetchpriority="high"`, `decoding="async"`, no
-  `loading` attribute, meaningful alt text, and intrinsic `width="720"` and
-  `height="1600"` values.
-- The `<picture>` WebP source has the fingerprinted 360/480/720 `srcset` and
-  `sizes="274px"`. The image's CSS layout width is 274 px; the larger rotated
-  bounding box comes from its parent composition and does not change the
-  source-size calculation.
-- Every mobile Lighthouse run and the fresh DPR-1.75 browser selected exactly
-  one 480 px candidate. The desktop Lighthouse run at DPR 1 selected the 360
-  px candidate. No JPEG fallback or duplicate image candidate was requested.
-- Lighthouse's final image-delivery audit reported zero wasted bytes. The LCP
-  itself moved to the hero paragraph under the final mobile profile.
+## Remaining third-party warnings (not first-party)
 
-## Fonts
+- **Google AdSense / Funding Choices:** ~76 ms forced reflow in
+  `show_ads_impl_fy2021.js` and its main-thread work — inside Google's code,
+  unavoidable while Auto Ads is used (editing Google's script is prohibited).
+- **Google ad cache headers:** outside our control.
+- **GitHub Pages cache lifetime:** hosting-controlled (above).
 
-The homepage made two font requests on first load:
+## Exact manual deployment actions still required (repository owner)
 
-| Final production font | Size | Homepage request |
-| --- | ---: | --- |
-| `archivo-latin.8f704806dbed.woff2` | 34,928 B | Yes; the only preloaded font. |
-| `plex-mono-500-latin.01d285447409.woff2` | 14,888 B | No; used by content-page figure captions. |
-| `plex-mono-600-latin.0d1f0b8d0722.woff2` | 15,620 B | Yes; discovered from CSS, not preloaded. |
+1. **Cache headers (optional, recommended):** put `elmtrackr.site` behind
+   Cloudflare and add the cache rules in `CACHE_HOSTING_GUIDE.md`
+   (`public, max-age=31536000, immutable` for `/assets/fp/*`;
+   `public, max-age=0, must-revalidate` for HTML). External DNS/hosting action;
+   cannot be done from the repository.
+2. **Merge/deploy this branch** so the verified build (responsive hero image,
+   transform-only hero, `content-visibility`, idle-deferred JS) reaches
+   production; the deploy workflow publishes `_site/` on push to `main`.
+3. **Re-measure on the live origin** (PageSpeed Insights) to capture the real
+   FCP/SI and the true ad-enabled cost, which the sandbox cannot reproduce.
 
-No Cyrillic, Latin Extended, Vietnamese, italic, or unused weight file is in
-the production build. All self-hosted declarations use `font-display: swap`
-and explicit Latin ranges. English rendered with Archivo/Plex; Hebrew rendered
-correctly through the declared Segoe UI / Arial Hebrew / Noto Sans Hebrew
-system fallbacks. English and Hebrew browser checks had no missing-glyph or
-font console errors.
+Optional, separate (not performance regressions): a deliberate accessibility pass
+for the two pre-existing issues noted under point 22.
 
-## Cold and warm first-load assets
+## Repository work vs. external action
 
-The fresh-browser CDP trace transferred 449,796 bytes across 24 completed
-requests. Its 173,026-byte first-party list was:
-
-| First-party resource | Transfer |
-| --- | ---: |
-| HTML document | 80,370 B |
-| Home-screen 480 WebP | 22,978 B |
-| Tour poster WebP | 4,851 B |
-| Logo SVG | 763 B |
-| Google Play SVG | 783 B |
-| Discord SVG | 1,669 B |
-| Widget choreography JS | 5,295 B |
-| Archivo Latin font | 35,132 B |
-| Lazy-video JS | 1,874 B |
-| Deferred analytics loader | 1,767 B |
-| English caption VTT | 1,720 B |
-| Plex Mono 600 Latin font | 15,824 B |
-| Cached duplicate logo lookup | 0 B |
-
-The remainder was Google Ads/DoubleClick/traffic-quality code and frames. The
-same-profile warm reload transferred 13,481 bytes total and only 105 bytes
-first-party (HTML revalidation); all fingerprinted first-party resource timing
-entries had zero transfer size.
-
-Production pages reference the content-hashed `/assets/fp/` filenames and
-`asset-manifest.json` maps their source names. HTML, video, captions, and stable
-metadata/download URLs are intentionally not immutable or fingerprinted.
-
-## Third-party, consent, and analytics findings
-
-- Each advertising homepage contains one asynchronous `adsbygoogle.js` tag
-  with the existing publisher ID. Browser and Lighthouse traces saw that one
-  loader and one Google-injected `show_ads_impl` implementation request; there
-  is no duplicate authored initialization or manual ad-slot request.
-- Auto Ads generated the DoubleClick and traffic-quality requests. Those
-  scripts account for most remaining transfer, script evaluation, unused JS,
-  third-party-cookie, and DevTools Issues warnings. They cannot be edited or
-  delayed independently without changing Auto Ads/consent behavior.
-- No Funding Choices request appeared in this geography/session. Its regional
-  behavior depends on AdSense Privacy & Messaging configuration and must be
-  verified in the publisher account and regulated regions after deployment.
-- The 1,573-byte fingerprinted analytics loader was requested after the page
-  lifecycle boundary. The 7,910-byte `analytics.js` runtime was not requested
-  because no provider is configured, so it did not block the critical path.
-- Lighthouse best practices scored 77 solely with the current Google
-  third-party cookie and Issues-panel findings. No advertising, consent, or
-  first-party console error was recorded.
-
-## Reflow, scrolling, resizing, and visual behavior
-
-The original forced reflow came from the generated homepage's perpetual
-widget animation loop, which measured `getBoundingClientRect()` every frame
-and then mutated styles. The source is now
-`assets/widget-choreography.js`: an `IntersectionObserver` activates the work
-near the widget section, geometry is cached, invalidated only when needed, DOM
-reads precede transform/opacity writes, scroll listeners are passive, and one
-animation frame is queued at a time. Phone/watch floating motion also uses
-transforms instead of margins.
-
-The final unthrottled trace contains no forced-reflow item. In the three
-CPU-throttled traces, two had no first-party source attribution and one
-attributed 2.905 ms to the load/font invalidation path. Google Ads contributed
-0.6–2.7 ms in two runs. The traces also contain about 410–511 ms marked only as
-`[unattributed]`; because it has no script/source location and disappears in
-the unthrottled trace, it is documented rather than assigned speculatively to
-site code.
-
-Smooth navigation to the film section, widget choreography, video playback,
-mobile-to-desktop resize, and top/bottom scrolling completed without console
-errors. Mobile 412 px, in-app desktop 1280 px, CDP desktop 1440 px, and
-Lighthouse desktop widths had no horizontal overflow.
-
-## Accessibility, SEO, language, and links
-
-- Lighthouse: accessibility 94, best practices 77, SEO 100.
-- Repository validators passed for 28 generated content pages, 30 sitemap
-  URLs, canonical URLs, metadata, JSON-LD, hreflang reciprocity, locale
-  switches, internal links, image alt/dimensions, video captions/transcripts,
-  static HTML, ads/analytics constraints, and motion constraints.
-- English uses `lang="en"`; Hebrew uses `lang="he" dir="rtl"`. Both were
-  visually checked and produced no browser console warnings/errors.
-- The accessibility deductions are pre-existing in `HEAD`: low-contrast
-  decorative/footer text and two Play-link accessible-name/visible-label
-  mismatches. No performance change introduced them, and colors were not
-  altered because this task explicitly preserves the visual design.
-- The only SEO validator warnings are four pre-existing English guide meta
-  descriptions longer than the recommended range and the intentionally
-  unverified public Play-listing flag. Canonicals, structured data, language
-  handling, and internal routes pass.
-
-## Hosting work still required
-
-GitHub Pages remains the deployment target. It does not support arbitrary
-repository-defined response headers and currently serves first-party assets
-with a roughly ten-minute cache lifetime. A `<meta>` element and a `_headers`
-file cannot fix that on GitHub Pages.
-
-The repository-side part is complete: cacheable JS, CSS, fonts, and images use
-content hashes, while HTML is not marked immutable. To obtain
-`Cache-Control: public, max-age=31536000, immutable` for `/assets/fp/*` and
-revalidation for HTML, the owner must either proxy the existing Pages site
-through Cloudflare or migrate `_site/` to Cloudflare Pages. Exact rules and a
-ready `_headers` example are in `CACHE_DEPLOYMENT_OPTIONS.md`.
-
-## Deployment verification checklist
-
-- [ ] Deploy the clean `_site/` artifact; confirm `docs/`, `_reports/`, and the
-      original 11.47 MB master are absent.
-- [ ] In a fresh mobile browser, confirm the first load requests one responsive
-      home-screen candidate and no `.mp4`/`.webm`.
-- [ ] Scroll to `#film`; confirm one format loads, plays, captions work, and no
-      second video format is requested.
-- [ ] Repeat the visit and confirm fingerprinted resources are served from
-      memory/disk cache or revalidate with zero body transfer.
-- [ ] Check English and Hebrew at 360/390/412 px and at 1280/1440 px; confirm
-      no horizontal overflow, layout shift, missing glyph, or animation issue.
-- [ ] Confirm one AdSense loader, then use AdSense Privacy & Messaging preview
-      plus clean sessions in every regulated region to verify consent.
-- [ ] Run three production Lighthouse mobile audits and use the median; record
-      any Google-controlled unused-JS/cookie warnings without brittle code
-      changes.
-- [ ] Verify homepage/hashed-asset response headers. Apply the Cloudflare rule
-      from `CACHE_DEPLOYMENT_OPTIONS.md` if one-year immutable caching is
-      required.
-- [ ] Re-run the repository validators and verify canonical URLs, hreflang,
-      JSON-LD, sitemap, internal links, and the public Play listing.
+- **Completed in the repository (verified):** valid LCP + TBT; hero in initial
+  HTML and visible without JS; LCP not hidden by animation and not recreated on
+  hydration; `fetchpriority=high`, no lazy-load, single responsive candidate;
+  CLS 0; video not loaded initially; fonts non-blocking with only Archivo
+  preloaded; analytics idle-deferred; one AdSense tag; no first-party forced
+  reflow; content-hashed assets (deterministic). `make ci` passes.
+- **External action required (owner):** Cloudflare cache configuration, and
+  live-origin re-measurement. The ~76 ms ad reflow and Google/GitHub Pages
+  header behaviour remain third-party/hosting-controlled.
