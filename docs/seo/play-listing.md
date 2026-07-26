@@ -26,29 +26,16 @@ https://play.google.com/store/apps/details?id=com.elmlaunch.myapp&referrer=utm_s
 - **Link safety:** every CTA keeps `target="_blank"` with `rel="noopener"`
   and an `aria-label` ("Get Elmtrackr on Google Play (opens in a new tab)").
 
-## Listing availability status — UNVERIFIED
+## Listing availability status — CONFIRMED PUBLIC
 
-`play_store.listing_public` is `false` in the manifest.
+`play_store.listing_public` is `true` in the manifest.
 
-Whether `com.elmlaunch.myapp` is **published and publicly reachable** on the
-Play Store is **not verifiable from the product source** — publishing steps
-were still pending in the Android release checklist, and this cannot be
-confirmed from code (see `product-facts.md`, row 7 and "Unresolved facts").
-
-**Decision applied (per the current task):** the site links to the
-package-specific canonical URL — the intended destination — rather than
-silently sending users to the generic `https://play.google.com` home page.
-The generic home-page links have been removed entirely.
-
-**Action for the owner:**
-
-1. Confirm the listing is live and public (open the URL above in a private
-   browser session).
-2. When confirmed, set `play_store.listing_public` to `true` in
-   `scripts/seo_manifest.json` and record the confirmation date here.
-3. If the listing is **not** yet public, decide whether to keep the CTA
-   pointing at the (pending) listing or to gate it until launch. Until then,
-   this file is the single record of that status.
+**Confirmed 2026-07-26:** the owner supplied the live listing URL
+(`https://play.google.com/store/apps/details?id=com.elmlaunch.myapp`) and an
+unauthenticated request to it returned HTTP 200, so the listing for
+`com.elmlaunch.myapp` is published and publicly reachable. All site CTAs
+already pointed at the package-specific canonical URL above; no link changes
+were required.
 
 > Do **not** add price, "free", ratings or review counts to the listing
 > metadata or structured data — none of those are verified (see
