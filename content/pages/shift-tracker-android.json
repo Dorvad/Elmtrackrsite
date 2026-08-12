@@ -67,8 +67,8 @@
           "img": {
             "src": "/assets/render-widgets-tablet.jpg",
             "alt": "Several Elmtrackr home-screen widgets shown on an Android tablet, including a punch-in button and a live progress widget.",
-            "w": 1400,
-            "h": 933,
+            "w": 1536,
+            "h": 1024,
             "caption": "Widgets in 1×1, 4×1 and 4×2 sizes, shown on a tablet home screen."
           }
         }

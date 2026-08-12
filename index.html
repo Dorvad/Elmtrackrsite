@@ -154,7 +154,9 @@ html{scroll-behavior:smooth}
    scroll choreography reads live geometry) and #film is excluded (lazy video).
    contain-intrinsic-size uses the `auto` keyword so each section's real height
    is remembered after first render, avoiding scrollbar jumps / layout shift. */
-#overview,#method,#premiums,#estimate,#watch,#steps,#explore,#faq,#price{content-visibility:auto;contain-intrinsic-size:auto 900px}
+#overview,#method,#premiums,#estimate,#watch,#steps,#gallery,#explore,#faq,#price{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* gallery: CSS-columns masonry, no JS */
+#gallery .gal-cols{column-count:3;column-gap:20px}
 /* reveal on scroll — progressive enhancement, no-ops in older engines */
 @supports (animation-timeline: view()) {
   [data-reveal]{animation:riseIn 1ms linear both;animation-timeline:view();animation-range:entry 0% entry 34%}
@@ -176,6 +178,7 @@ html{scroll-behavior:smooth}
   #widgets > div > div:nth-child(2) > div{position:static !important;transform:none !important;opacity:1 !important;max-width:100%}
   [data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
   #film > div{grid-template-columns:1fr !important;gap:48px !important}
+  #gallery .gal-cols{column-count:2}
   #overview > div{grid-template-columns:1fr !important;gap:36px !important}
   [data-footer]{padding:26px 24px !important}
 }
@@ -198,6 +201,7 @@ html{scroll-behavior:smooth}
   /* footer: stacked, tighter */
   [data-footer]{flex-direction:column !important;align-items:flex-start !important;gap:18px !important;padding:26px 18px 34px !important}
   [data-footer] > div:nth-child(2){gap:14px 20px !important}
+  #gallery .gal-cols{column-count:1}
 }
 </style>
 
@@ -263,6 +267,13 @@ html{scroll-behavior:smooth}
         <a href="#method" style="font:700 16px 'Archivo',sans-serif;color:#181530;padding:16px 26px;border-radius:999px;border:2px solid rgba(24,21,48,.22)" data-hover="border-color:#4133C8;color:#4133C8">See it work ↓</a>
       </div>
       <div style="font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(24,21,48,.45);animation:riseIn .8s .46s cubic-bezier(.2,.7,.2,1) both">₪ / $ / € &nbsp;·&nbsp; WORKS OFFLINE &nbsp;·&nbsp; ANDROID + WEAR OS</div>
+      <a href="https://www.betterlaunch.co/product/elmtrackr" target="_blank" rel="noopener" data-elm-event="betterlaunch_click" data-elm-cta="hero" data-elm-dest="betterlaunch" aria-label="Elmtrackr is featured on BetterLaunch (opens in a new tab)" style="display:inline-flex;align-items:center;gap:14px;align-self:flex-start;background:#fff;border:1px solid rgba(24,21,48,.14);border-radius:999px;padding:11px 22px 11px 18px;box-shadow:0 10px 26px rgba(24,21,48,.08);animation:riseIn .8s .54s cubic-bezier(.2,.7,.2,1) both" data-hover="border-color:#4133C8">
+        <span style="font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:rgba(24,21,48,.5)">FEATURED ON</span>
+        <picture>
+          <source type="image/webp" srcset="assets/betterlaunch-logo.webp">
+          <img src="assets/betterlaunch-logo.png" alt="BetterLaunch" width="300" height="70" decoding="async" style="display:block;width:126px;height:auto">
+        </picture>
+      </a>
     </div>
 
     <!-- RIGHT: device composition -->
@@ -641,6 +652,64 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
+<!-- ═══════════ 08 — GALLERY ═══════════ -->
+<section id="gallery" data-screen-label="08 Gallery" style="background:#EFECFA;padding:120px 56px;scroll-margin-top:20px">
+  <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:660px">
+      <span style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:#4133C8">08 — GALLERY</span>
+      <h2 style="margin:0;font:800 clamp(34px,3.4vw,50px)/1.05 'Archivo',sans-serif;letter-spacing:-.035em;color:#181530">The app, from every angle.</h2>
+      <p style="margin:0;font:500 18px/1.55 'Archivo',sans-serif;color:rgba(24,21,48,.62)">Renders of the watch app, the home-screen widgets and the phone dashboard — including the Hebrew interface. Open any image for the full-size version.</p>
+    </div>
+    <div class="gal-cols">
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="assets/render-watch-glance.jpg" target="_blank" rel="noopener" aria-label="Open the full-size 'Your day at a glance' watch render in a new tab" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="assets/render-watch-glance.webp">
+            <img src="assets/render-watch-glance.jpg" alt="ElmTrackr on a round Wear OS watch showing 04:36:27 elapsed of an 8-hour goal with an on-shift badge, beside the headline 'Your day at a glance'." width="1254" height="1254" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo',sans-serif;color:rgba(24,21,48,.65)">Your day at a glance, on the wrist.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="assets/render-widgets-tablet.jpg" target="_blank" rel="noopener" aria-label="Open the full-size tablet widgets render in a new tab" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="assets/render-widgets-tablet.webp">
+            <img src="assets/render-widgets-tablet.jpg" alt="ElmTrackr home-screen widgets in 1×1, 4×1 and 4×2 sizes on an Android tablet, with a quick punch-in button and live shift progress." width="1536" height="1024" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo',sans-serif;color:rgba(24,21,48,.65)">Widgets for every screen.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="assets/render-app-overview-he.jpg" target="_blank" rel="noopener" aria-label="Open the full-size Hebrew app overview render in a new tab" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="assets/render-app-overview-he.webp">
+            <img src="assets/render-app-overview-he.jpg" alt="ElmTrackr phone dashboard and watch app with the Hebrew interface, showing a running shift, weekly hours and estimated gross pay." width="1254" height="1254" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo',sans-serif;color:rgba(24,21,48,.65)">Hours, pay and travel refunds — here in Hebrew.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="assets/render-watch-live.jpg" target="_blank" rel="noopener" aria-label="Open the full-size live shift progress watch render in a new tab" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="assets/render-watch-live.webp">
+            <img src="assets/render-watch-live.jpg" alt="Close-up of the ElmTrackr watch face with a live progress ring around 04:36:27 elapsed, and a summary card reading 57% of the day's goal." width="1254" height="1254" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo',sans-serif;color:rgba(24,21,48,.65)">Live shift progress on Wear OS.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="assets/render-widgets-phone-he.jpg" target="_blank" rel="noopener" aria-label="Open the full-size Hebrew phone widgets render in a new tab" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="assets/render-widgets-phone-he.webp">
+            <img src="assets/render-widgets-phone-he.jpg" alt="ElmTrackr widgets with the Hebrew interface on a phone home screen, showing a shift timer at 2:35:11 and today's progress at 32%." width="940" height="1672" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo',sans-serif;color:rgba(24,21,48,.65)">Punch in straight from the home screen.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ EXPLORE — FOCUSED GUIDES ═══════════ -->
 <section id="explore" data-screen-label="Explore" style="background:#FBFAFE;padding:120px 56px">
   <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
@@ -758,6 +827,7 @@ html{scroll-behavior:smooth}
     <a href="/privacy-and-security/" style="font:600 12px 'Archivo',sans-serif;color:rgba(24,21,48,.55)" data-hover="color:#4133C8">Privacy &amp; security</a>
     <a href="/delete-account/" style="font:600 12px 'Archivo',sans-serif;color:rgba(24,21,48,.55)" data-hover="color:#4133C8">Delete account</a>
     <a href="/guides/" style="font:600 12px 'Archivo',sans-serif;color:rgba(24,21,48,.55)" data-hover="color:#4133C8">Guides</a>
+    <a href="https://www.betterlaunch.co/product/elmtrackr" target="_blank" rel="noopener" data-elm-event="betterlaunch_click" data-elm-cta="footer" data-elm-dest="betterlaunch" style="font:600 12px 'Archivo',sans-serif;color:rgba(24,21,48,.55)" data-hover="color:#4133C8">Featured on BetterLaunch</a>
     <a href="mailto:support@elmtrackr.site" style="font:600 12px 'Archivo',sans-serif;color:rgba(24,21,48,.55)" data-hover="color:#4133C8">support@elmtrackr.site</a>
   </nav>
 </footer>
