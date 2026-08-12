@@ -11,8 +11,8 @@
   "image": {
     "src": "/assets/render-watch-live.jpg",
     "alt": "Elmtrackr on a Wear OS watch face showing an active shift with elapsed time and pay so far.",
-    "w": 1100,
-    "h": 1100,
+    "w": 1254,
+    "h": 1254,
     "caption": "The active shift on the wrist: elapsed time and pay counted so far."
   },
   "sections": [

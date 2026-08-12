@@ -160,7 +160,9 @@ html{scroll-behavior:smooth}
    scroll choreography reads live geometry) and #film is excluded (lazy video).
    contain-intrinsic-size uses the `auto` keyword so each section's real height
    is remembered after first render, avoiding scrollbar jumps / layout shift. */
-#overview,#method,#premiums,#estimate,#watch,#steps,#explore,#faq,#price{content-visibility:auto;contain-intrinsic-size:auto 900px}
+#overview,#method,#premiums,#estimate,#watch,#steps,#gallery,#explore,#faq,#price{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* gallery: CSS-columns masonry, no JS */
+#gallery .gal-cols{column-count:3;column-gap:20px}
 /* reveal on scroll — progressive enhancement, no-ops in older engines */
 @supports (animation-timeline: view()) {
   [data-reveal]{animation:riseIn 1ms linear both;animation-timeline:view();animation-range:entry 0% entry 34%}
@@ -182,6 +184,7 @@ html{scroll-behavior:smooth}
   #widgets > div > div:nth-child(2) > div{position:static !important;transform:none !important;opacity:1 !important;max-width:100%}
   [data-screen-label="06 Method"] > div > div:nth-child(2){grid-template-columns:1fr !important}
   #film > div{grid-template-columns:1fr !important;gap:48px !important}
+  #gallery .gal-cols{column-count:2}
   #overview > div{grid-template-columns:1fr !important;gap:36px !important}
   [data-footer]{padding:26px 24px !important}
 }
@@ -204,6 +207,7 @@ html{scroll-behavior:smooth}
   /* footer: stacked, tighter */
   [data-footer]{flex-direction:column !important;align-items:flex-start !important;gap:18px !important;padding:26px 18px 34px !important}
   [data-footer] > div:nth-child(2){gap:14px 20px !important}
+  #gallery .gal-cols{column-count:1}
 }
 </style>
 
@@ -643,6 +647,64 @@ html{scroll-behavior:smooth}
           </video>
         </noscript>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 08 — GALLERY ═══════════ -->
+<section id="gallery" data-screen-label="08 Gallery" style="background:#EFECFA;padding:120px 56px;scroll-margin-top:20px">
+  <div data-reveal style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:660px">
+      <span style="font:600 12px 'IBM Plex Mono','Segoe UI','Arial Hebrew','Noto Sans Hebrew',monospace;letter-spacing:.18em;color:#4133C8">08 — הגלריה</span>
+      <h2 style="margin:0;font:800 clamp(34px,3.4vw,50px)/1.05 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;letter-spacing:-.035em;color:#181530">האפליקציה, מכל זווית.</h2>
+      <p style="margin:0;font:500 18px/1.55 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.62)">הדמיות של לוח המחוונים בטלפון, אפליקציית השעון והווידג'טים למסך הבית — כולל הממשק בעברית. פתחו כל תמונה לגרסה בגודל מלא.</p>
+    </div>
+    <div class="gal-cols">
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="/assets/render-app-overview-he.jpg" target="_blank" rel="noopener" aria-label="פתיחת הדמיית סקירת האפליקציה בעברית בגודל מלא בלשונית חדשה" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="/assets/render-app-overview-he.webp">
+            <img src="/assets/render-app-overview-he.jpg" alt="‏לוח המחוונים של ElmTrackr בטלפון ואפליקציית השעון בממשק עברי, עם משמרת פעילה, שעות שבועיות וברוטו משוער." width="1254" height="1254" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.65)">מעקב שעות, חישוב שכר והחזרי נסיעות — במקום אחד.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="/assets/render-watch-glance.jpg" target="_blank" rel="noopener" aria-label="פתיחת הדמיית השעון 'היום שלכם במבט אחד' בגודל מלא בלשונית חדשה" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="/assets/render-watch-glance.webp">
+            <img src="/assets/render-watch-glance.jpg" alt="‏ElmTrackr על שעון Wear OS עגול המציג 04:36:27 שחלפו מתוך יעד של 8 שעות, עם תג משמרת פעילה." width="1254" height="1254" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.65)">היום שלכם, במבט אחד על פרק היד.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="/assets/render-widgets-tablet.jpg" target="_blank" rel="noopener" aria-label="פתיחת הדמיית הווידג'טים בטאבלט בגודל מלא בלשונית חדשה" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="/assets/render-widgets-tablet.webp">
+            <img src="/assets/render-widgets-tablet.jpg" alt="‏ווידג'טים של ElmTrackr בגדלים 1×1‏, 4×1 ו־4×2 על מסך הבית של טאבלט אנדרואיד, עם כפתור החתמה והתקדמות חיה." width="1536" height="1024" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.65)">ווידג'טים לכל מסך.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="/assets/render-watch-live.jpg" target="_blank" rel="noopener" aria-label="פתיחת הדמיית התקדמות המשמרת בשעון בגודל מלא בלשונית חדשה" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="/assets/render-watch-live.webp">
+            <img src="/assets/render-watch-live.jpg" alt="‏תקריב של פני שעון ElmTrackr עם טבעת התקדמות חיה סביב 04:36:27, וכרטיס סיכום המציג 57% מיעד היום." width="1254" height="1254" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.65)">התקדמות משמרת חיה ב־Wear OS.</figcaption>
+      </figure>
+      <figure data-card style="margin:0 0 20px;break-inside:avoid;background:#fff;border:1px solid rgba(24,21,48,.1);border-radius:18px;overflow:hidden">
+        <a href="/assets/render-widgets-phone-he.jpg" target="_blank" rel="noopener" aria-label="פתיחת הדמיית הווידג'טים בעברית בגודל מלא בלשונית חדשה" style="display:block">
+          <picture>
+            <source type="image/webp" srcset="/assets/render-widgets-phone-he.webp">
+            <img src="/assets/render-widgets-phone-he.jpg" alt="‏ווידג'טים של ElmTrackr בממשק עברי על מסך הבית של טלפון, עם טיימר משמרת על 2:35:11 והתקדמות יומית של 32%." width="940" height="1672" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </picture>
+        </a>
+        <figcaption style="padding:14px 18px;font:600 14px 'Archivo','Segoe UI','Arial Hebrew','Noto Sans Hebrew',sans-serif;color:rgba(24,21,48,.65)">החתמת כניסה ישירות ממסך הבית.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
