@@ -37,9 +37,18 @@ TEMPLATE_DIR = os.path.join(REPO_ROOT, "templates")
 
 DEFAULT_OG = {
     "src": "/assets/render-widgets-tablet.jpg",
-    "w": 1400,
-    "h": 933,
+    "w": 1536,
+    "h": 1024,
     "alt": "Elmtrackr home-screen widgets showing hours and estimated pay on an Android tablet.",
+}
+
+# Hebrew pages share a Hebrew-language preview image, so a shared link shows the
+# interface in the language of the page it points at.
+DEFAULT_OG_HE = {
+    "src": "/assets/render-app-overview-he.jpg",
+    "w": 1254,
+    "h": 1254,
+    "alt": "‏Elmtrackr בטלפון ובשעון בממשק עברי, עם משמרת פעילה, שעות שבועיות וברוטו משוער.",
 }
 
 # Per-locale UI strings and routing. Body content comes from the JSON files;
@@ -381,7 +390,7 @@ def render_page(page, manifest, page_tpl, header_raw, footer, loc):
     counterpart = en_canonical if loc == "he" else he_canonical
     strings["home_href"] = "/he/" if loc == "he" else "/"
 
-    og = dict(DEFAULT_OG)
+    og = dict(DEFAULT_OG_HE if loc == "he" else DEFAULT_OG)
     if page.get("og_image"):
         og.update(page["og_image"])
     og_abs = site_url + og["src"] if og["src"].startswith("/") else og["src"]
