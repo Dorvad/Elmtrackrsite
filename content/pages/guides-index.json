@@ -47,6 +47,25 @@
       ]
     },
     {
+      "h2": "Vacation and sick leave",
+      "blocks": [
+        {"p": "How to record a day you were paid for but did not work, without adding hours you never worked."},
+        {"ul": [
+          "<a href='/guides/how-to-report-a-vacation-day/'>How to report a vacation day</a>",
+          "<a href='/guides/how-to-report-sick-leave/'>How to report sick leave</a>"
+        ]}
+      ]
+    },
+    {
+      "h2": "Fixed-price project work",
+      "blocks": [
+        {"p": "How to track an agreed fee, the hours it took, and what a fixed price really paid per hour."},
+        {"ul": [
+          "<a href='/guides/how-to-track-fixed-price-projects/'>How to track fixed-price projects</a>"
+        ]}
+      ]
+    },
+    {
       "h2": "Using Android and Wear OS tools",
       "blocks": [
         {"p": "How the app, home-screen widgets and a watch make it easier to capture time as it happens."},

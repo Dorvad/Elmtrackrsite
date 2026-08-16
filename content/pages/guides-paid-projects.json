@@ -1,0 +1,121 @@
+{
+  "slug": "guides/how-to-track-fixed-price-projects",
+  "schema_type": "Article",
+  "title": "How to Track Fixed-Price Projects (Step by Step) | Elmtrackr",
+  "og_title": "How to track fixed-price projects, step by step",
+  "description": "How to track fixed-price work in Elmtrackr: set the agreed fee and tax, log hours against a project instead of a wage, and read your effective hourly rate.",
+  "h1": "How to track fixed-price projects",
+  "breadcrumb": "Track fixed-price projects",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-08-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "When you are paid an agreed price for a piece of work rather than an hourly wage, the useful question is not how many hours you worked but what those hours were worth. Paid Projects is the optional Elmtrackr module for that: record the fee, track the time against the project, record what you billed and what was paid, and read the effective hourly rate the arrangement actually produced.",
+  "sections": [
+    {
+      "h2": "When this module is the right one",
+      "blocks": [
+        {"p": "Paid Projects is for fixed-price work — a quoted job, a retainer piece, a commission. It sits alongside the hourly side of the app rather than replacing it, which matters if you do both: employed shifts on some days and project work on others."},
+        {"p": "It is off by default and adds nothing to the interface until you turn it on. You can enable it during onboarding, at the step that asks whether you are also paid per project, or at any time in <span class='ltr'>Settings → Features</span>. Turning it on adds a Projects tab; turning it off removes the tab and leaves your data in place."}
+      ]
+    },
+    {
+      "h2": "Step by step",
+      "blocks": [
+        {"h3": "1. Create the project"},
+        {"p": "A project carries a name and a client name, a currency, and the agreed fee. Everything else is optional: a tax label and rate, an hour budget, a target hourly rate, a start date and a deadline, and notes."},
+        {"h3": "2. Enter whichever amount you know"},
+        {"p": "The form asks which amount you know — your fee before tax, or the client total. Quote the fee and the tax is added on top; quote the client total and the fee is extracted from it. Either route produces the same three figures, and they always add up exactly."},
+        {"h3": "3. Track time against the project"},
+        {"p": "When you start a shift, the app asks what the time is for: hourly work, or project time. Choose project time and pick the project. Those hours are recorded against the project fee — they earn no wage, and they are not counted towards overtime or premiums. A shift is one or the other, never both."},
+        {"h3": "4. Record what you billed"},
+        {"p": "When you invoice the client, mark the project as billed and record the amount, the billing date, an optional due date, and the reference from the invoice you issued elsewhere. The record snapshots the amounts as they were when you billed, so editing the project later does not restate what was billed."},
+        {"h3": "5. Record each payment"},
+        {"p": "Payments are recorded against the billing record, one at a time, so partial payments are ordinary rather than a special case. The outstanding balance is derived from what has been recorded and never goes negative."},
+        {"h3": "6. Read the rate"},
+        {"p": "Once there are hours on the project, the effective hourly rate — your fee before tax divided by the hours tracked — tells you what the fixed price actually paid per hour. It is the number that says whether the next quote should be higher."}
+      ]
+    },
+    {
+      "h2": "Work status and billing status are separate",
+      "blocks": [
+        {"p": "A project's work status moves between draft, active, paused, completed, cancelled and archived, and you set it yourself. Its billing status — not billed, billed, partially paid, paid, overdue — is derived from the billing record, the payments and today's date, and there is no manual \"mark as paid\" switch."},
+        {"p": "The two are deliberately independent. Finishing the work does not mark it paid, and being paid does not finish the work. Keeping them apart is what lets the app tell you the thing worth knowing: which completed projects have not been billed, and which billed projects have not been paid."}
+      ]
+    },
+    {
+      "h2": "An example project",
+      "blocks": [
+        {"p": "A single commission might be recorded like this (illustrative values):"},
+        {"example": {
+          "title": "Illustrative project record",
+          "rows": [
+            ["Project", "Brand refresh"],
+            ["Client", "Northwind Studio"],
+            ["Your fee before tax", "8,000"],
+            ["Tax (VAT 18%)", "1,440"],
+            ["Client total", "9,440"],
+            ["Hour budget", "40h"],
+            ["Hours tracked", "47h 30m"],
+            ["Effective hourly rate", "168.42 per hour"],
+            ["Billing status", "Billed, due in 12 days"]
+          ],
+          "note": "Illustrative only — your own currency, tax label, rate and figures will differ."
+        }},
+        {"p": "The point of the example is the last two rows. The project was quoted as 40 hours of work and took 47 and a half, so the rate the fee really paid is lower than the rate it was quoted at — visible before the next quote rather than after it."}
+      ]
+    },
+    {
+      "h2": "Staying on top of the money",
+      "blocks": [
+        {"ul": [
+          "<strong>Hour budget.</strong> Set the hours you priced the job at, and the project flags when you are near it and when you are past it.",
+          "<strong>Target hourly rate.</strong> Set the rate you want the work to earn, and the project tells you how much time is left before the fee drops below it.",
+          "<strong>Due dates and overdue tracking.</strong> A due date on the billing record drives the overdue status, the days-overdue count, and optional reminders when a payment is due soon, due today, or late.",
+          "<strong>Project health.</strong> Each project shows one plain summary — on track, near budget, over budget, rate below target, payment due soon, overdue, or completed but not billed.",
+          "<strong>Reports and export.</strong> The Reports tab gains a projects view with filters for dates, client, work status, billing status and currency, plus a CSV export."
+        ]}
+      ]
+    },
+    {
+      "h2": "Why project money and hourly pay are never added together",
+      "blocks": [
+        {"p": "Hourly earnings are the value of work performed in a period. Project payments are cash that arrived in a period. The two measure different things, and a single combined total would be a number with no meaning — so the app reports them side by side and says which is which."},
+        {"p": "The same separation runs through the shift record. Project hours stay out of your wage, overtime and premium totals, because the fee already pays for them; counting them twice would inflate every hourly figure you rely on."}
+      ]
+    },
+    {
+      "h2": "What Elmtrackr does not do here",
+      "blocks": [
+        {"p": "The module records your own figures; it does not act as accounting software. Elmtrackr does not create official invoices — you record a reference from the invoice you issued elsewhere. It does not decide which tax applies or give tax advice; the label and rate are yours. It does not convert currencies, so a payment must be recorded in the currency the project was billed in. And it does not track expenses, so no figure it shows is net profit."}
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "How to read the project figures responsibly:",
+    "items": [
+      "Every figure is built from what you entered — the fee, the tax rate, the hours and the payments.",
+      "The effective hourly rate is gross: income tax, expenses and other deductions still apply.",
+      "Elmtrackr does not issue invoices and is not a substitute for accounting software or an accountant.",
+      "Amounts are grouped by currency and never converted between currencies.",
+      "Elmtrackr is not legal, payroll or tax advice."
+    ]
+  },
+  "faq": [
+    {"q": "How do I turn Paid Projects on?", "a": "In <span class='ltr'>Settings → Features</span>, or at the projects step during onboarding. It is off by default, and turning it off later hides the tab without deleting anything."},
+    {"q": "Do project hours count towards my overtime?", "a": "No. Time tracked against a project is paid by the project fee, so it earns no wage and is excluded from overtime and premium totals. A shift is either hourly work or project time."},
+    {"q": "Can I change a shift from hourly work to project time afterwards?", "a": "Yes. Editing a shift's compensation recalculates it — the hours move to the project and leave your wage and overtime totals, and the app warns you before the change."},
+    {"q": "Can I record a partial payment?", "a": "Yes. Payments are recorded individually against the billing record, and the outstanding balance follows on its own. The billing status becomes partially paid until the balance reaches zero."},
+    {"q": "Does Elmtrackr create the invoice?", "a": "No. It records what you billed and a reference from the invoice you issued in your own accounting or receipt system."},
+    {"q": "What happens if I delete a project?", "a": "Shifts tracked against it keep their hours and become regular paid work; the billing records and payments are deleted. To keep the project in reports without losing it, archive it instead."}
+  ],
+  "methodology": "This guide describes the Paid Projects module as it is implemented in the Elmtrackr Android app: the project fields and the fee/tax/client-total relationship, the per-shift choice between hourly work and project time, billing records and payments with a derived billing status, the effective-rate and budget insights, the projects report and CSV export, and the module's own stated exclusions. It cites no external sources, describes no tax or invoicing rules for any jurisdiction, and gives no accounting advice.",
+  "related": [
+    {"href": "/guides/how-to-track-work-hours/", "label": "How to track your work hours", "desc": "The hourly side of the record, shift by shift."},
+    {"href": "/guides/how-to-estimate-hourly-pay/", "label": "How to estimate your hourly pay", "desc": "Turn recorded hours into an estimated gross."},
+    {"href": "/work-hours-reports/", "label": "Reports and exports", "desc": "Monthly figures, filters, and CSV or PDF output."}
+  ],
+  "cta": {
+    "h2": "Find out what a fixed price really pays",
+    "p": "Track the fee, the hours and the payments in one place, and read the rate the work actually earned."
+  }
+}

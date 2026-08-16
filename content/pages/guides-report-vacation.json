@@ -1,0 +1,126 @@
+{
+  "slug": "guides/how-to-report-a-vacation-day",
+  "schema_type": "Article",
+  "title": "How to Report a Vacation Day (Step by Step) | Elmtrackr",
+  "og_title": "How to report a vacation day, step by step",
+  "description": "How to report vacation in Elmtrackr: why a day off is not a shift, how to pick the days you would have worked, and how the estimated pay is worked out.",
+  "h1": "How to report a vacation day",
+  "breadcrumb": "Report a vacation day",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-08-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "A day of paid vacation is time you were paid for and did not work. Recording it alongside your shifts keeps a month's record complete — but it has to be recorded as an absence, not as a shift, or it will quietly add hours you never worked and overtime you never earned. Elmtrackr keeps the two apart and estimates what the day is worth.",
+  "sections": [
+    {
+      "h2": "Why a day off is not a shift",
+      "blocks": [
+        {"p": "It is tempting to log a vacation day as an eight-hour shift so the month looks whole. It is also the fastest way to corrupt every figure you rely on. A shift means worked time: it feeds your net minutes, your overtime ladder, your weekend, night and holiday premiums, and your shift count. An absence has none of those properties."},
+        {"p": "So Elmtrackr records vacation separately. Worked minutes stay with your shifts alone, and the two only ever meet at the money level, where estimated leave pay sits beside estimated wages instead of being mixed into them."}
+      ]
+    },
+    {
+      "h2": "Step by step",
+      "blocks": [
+        {"h3": "1. Start from the add action"},
+        {"p": "On the Shifts screen, the add action asks what you would like to report: work, vacation, or sick leave. Choose vacation."},
+        {"h3": "2. Confirm the workplace"},
+        {"p": "Leave belongs to a job, not to a pay profile — your wage can change while the job stays the same. The first time you report leave, Elmtrackr creates a workplace for you, named after the pay profile you already track against. If you have more than one workplace, a picker appears; with only one, there is nothing to choose."},
+        {"h3": "3. Choose one day or several"},
+        {"p": "Report a single date, or a start and end date for a longer break. A range is the natural way to record a week off."},
+        {"h3": "4. Set the duration"},
+        {"p": "A full day, or part of a day expressed in days or hours — for the afternoon you took off rather than the whole of it."},
+        {"h3": "5. Tick the days you would have worked"},
+        {"p": "Only days you would otherwise have worked at that job count against your balance. Elmtrackr proposes the weekdays it has repeatedly seen you work at that workplace, and every proposed date is a row you can tick or untick. If it has no history to go on, it proposes nothing and asks you instead — because pre-ticking a full week is how a two-day break silently becomes seven days off a balance."},
+        {"h3": "6. Check the estimate and save"},
+        {"p": "Each selected day shows an estimated amount and the days add up to an estimated total. \"How was this calculated?\" opens the working behind the number. Add a note if the entry needs one, then save."}
+      ]
+    },
+    {
+      "h2": "How the estimate is worked out",
+      "blocks": [
+        {"p": "A vacation day is valued from a basis recorded against the workplace. The bases the app supports are:"},
+        {"ul": [
+          "Eligible earnings over a three-month period, divided by 90 — the arrangement most Israeli payslips will show, and the default for a workplace in Israel.",
+          "Average pay for a day you actually worked, over three months — the default elsewhere.",
+          "The hours you were due to work that day, at your hourly rate.",
+          "A standard working day, at your hourly rate.",
+          "An amount you enter yourself."
+        ]},
+        {"p": "When the three months before the absence are not complete — a new job, a gap in the record — the strongest three consecutive months of the past year are used instead, and the explanation says so rather than returning a quietly low number."},
+        {"p": "Every figure is an estimate. It is built from the settings on your workplace and the pay history in the app, and your entitlement, your balance and what you are actually paid can all differ under your employment agreement, a collective arrangement or applicable law."}
+      ]
+    },
+    {
+      "h2": "An example entry",
+      "blocks": [
+        {"p": "Three days off in the middle of a working week might be recorded like this (illustrative values):"},
+        {"example": {
+          "title": "Illustrative vacation entry",
+          "rows": [
+            ["Type", "Vacation"],
+            ["Workplace", "Main job"],
+            ["Dates", "Mon 10 – Wed 12 August"],
+            ["Duration", "Full day"],
+            ["Days counted", "3 of 3 proposed"],
+            ["Basis", "Eligible earnings over three months ÷ 90"],
+            ["Value of a full day", "412.50"],
+            ["Estimated total", "1,237.50"]
+          ],
+          "note": "Illustrative only — your own basis, currency and figures will differ."
+        }}
+      ]
+    },
+    {
+      "h2": "When the app cannot value a day",
+      "blocks": [
+        {"p": "Sometimes there is not enough information to produce an amount — no hourly rate for the workplace, not enough pay history, or no way to tell what you would have earned on that date. When that happens the app says which piece is missing and offers the shortest way to supply it, usually by entering the amount yourself."},
+        {"p": "It does not invent a number, and it does not refuse the entry either. The day is still recorded and still counts against your balance; only its value is left open."}
+      ]
+    },
+    {
+      "h2": "Conflicts and corrections",
+      "blocks": [
+        {"ul": [
+          "Reporting leave on a date that already has leave at the same workplace is blocked — one absence per day per job.",
+          "A work shift on the same date is a warning, not a block: working the morning and taking the afternoon off is ordinary. Check that the leave covers only the hours you missed.",
+          "An entry can be edited or deleted afterwards. Deleting it returns the days it covered to your estimated balance."
+        ]}
+      ]
+    },
+    {
+      "h2": "What is not in the app yet",
+      "blocks": [
+        {"p": "Reporting leave is the part that is built. The screens for entering your payslip balance and for editing a workplace's leave settings are not in the interface yet, so a new workplace starts from a regional preset. Reported leave does not yet appear in the monthly report, the CSV or the PDF, and it is not part of cloud sync — it is kept on the device, in the app's encrypted local database, so it does not follow a sign-in to a new device."},
+        {"p": "Elmtrackr also does not accrue leave for you. Days added by your employer each month are not counted automatically: getting accrual right for a part-time or irregular hourly worker depends on the work pattern, partial months, seniority and sector agreements, and a confidently wrong balance is worse than no balance at all."}
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "How to read a leave estimate responsibly:",
+    "items": [
+      "Figures are estimates built from your workplace settings and the information you entered.",
+      "Entitlement, balance and actual payment may differ under your employment agreement, collective arrangements, payslip data and applicable law.",
+      "Regional defaults are an editable starting point, not a statement of what the law requires of your employer.",
+      "Your employer's records and your payslip remain the official source.",
+      "Elmtrackr is not legal, payroll or tax advice."
+    ]
+  },
+  "faq": [
+    {"q": "Should I log a vacation day as a shift instead?", "a": "No. A shift means worked time and feeds your hours, overtime and premiums. Reporting the day as vacation keeps those figures honest and still records the day."},
+    {"q": "Which days of a longer break count?", "a": "Only the days you would otherwise have worked at that job. The app proposes the weekdays it has seen you work there and lets you tick or untick each one."},
+    {"q": "What if I only took half a day?", "a": "Set the duration to part of a day and enter the amount in days or hours."},
+    {"q": "Can I report leave for more than one job?", "a": "Yes. Leave is reported against a workplace, and each workplace keeps its own settings and its own record."},
+    {"q": "Does the app know my vacation balance?", "a": "Not on its own. The estimate is designed around a balance you enter from your payslip, and it never adds days accrued since that payslip."},
+    {"q": "Can I fix an entry after saving it?", "a": "Yes. Leave can be edited or deleted, and deleting it puts the days back on your estimated balance."}
+  ],
+  "methodology": "This guide describes the leave-reporting flow as it is implemented in the Elmtrackr Android app: the report-type choice, the workplace, date-range and duration fields, the proposed-workday selection and the rule behind it, the vacation pay bases and the three-month fallback, the insufficient-data and conflict behaviour, and the parts of the feature that are not yet in the interface. The regional defaults it mentions are reproduced in the app as an editable preset and are presented as estimates, not as legal advice; the guide cites no external legal source and gives no jurisdiction-specific advice.",
+  "related": [
+    {"href": "/guides/how-to-report-sick-leave/", "label": "How to report sick leave", "desc": "The same flow, with the day count that starts from the illness."},
+    {"href": "/guides/how-to-track-work-hours/", "label": "How to track your work hours", "desc": "The worked side of the record, shift by shift."},
+    {"href": "/guides/how-to-review-work-hours-against-a-payslip/", "label": "Review your hours against a payslip", "desc": "Compare your record with what you were paid."}
+  ],
+  "cta": {
+    "h2": "Keep the days off in the record too",
+    "p": "Report vacation as an absence, see what it is estimated to pay, and leave your hours untouched."
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "slug": "guides/how-to-report-sick-leave",
+  "schema_type": "Article",
+  "title": "How to Report Sick Leave (Step by Step) | Elmtrackr",
+  "og_title": "How to report sick leave, step by step",
+  "description": "How to report sick days in Elmtrackr: why the day count runs from the illness, how the pay tiers work, and what the estimate can and cannot tell you.",
+  "h1": "How to report sick leave",
+  "breadcrumb": "Report sick leave",
+  "hero_eyebrow": "Guide",
+  "reviewed": "2026-08-16",
+  "parent": {"label": "Guides", "href": "/guides/"},
+  "lead": "Sick pay is rarely a flat number. In many arrangements the first day of an illness pays nothing, the next days pay part, and full pay starts later — which makes the ordinal position of each day the thing that decides what it is worth. Elmtrackr records a sick absence as its own kind of entry, counts the days from the illness, and estimates what each one pays.",
+  "sections": [
+    {
+      "h2": "Sick leave is not a shift, and not a vacation day",
+      "blocks": [
+        {"p": "A sick day is not worked time, so recording it as a shift would add hours you did not work and could create overtime you never earned. Elmtrackr keeps absences out of your worked minutes entirely; they meet your wages only at the money level, where estimated leave pay sits beside estimated earnings."},
+        {"p": "It is also not interchangeable with vacation. A vacation day usually pays a full day from the first one. A sick day is priced by where it falls in the illness, so the same absence can pay nothing, part, and then in full across three consecutive days."}
+      ]
+    },
+    {
+      "h2": "Step by step",
+      "blocks": [
+        {"h3": "1. Start from the add action"},
+        {"p": "On the Shifts screen, the add action asks what you would like to report. Choose sick leave."},
+        {"h3": "2. Confirm the workplace"},
+        {"p": "The absence is reported against a workplace. The first time you report leave, Elmtrackr creates one for you, named after the pay profile you already track against; a picker appears only if you have more than one."},
+        {"h3": "3. Give the first day of the illness"},
+        {"p": "For a single day, that is the date. For a longer absence, the field is explicitly the first day of the illness — because the day count that decides what each day pays starts there, not at the first day you were due to work."},
+        {"h3": "4. Set the duration"},
+        {"p": "A full day, or part of a day expressed in days or hours."},
+        {"h3": "5. Tick the days you would have worked"},
+        {"p": "Only the days you would otherwise have worked at that job count against your balance. Elmtrackr proposes the weekdays it has repeatedly seen you work there; each proposed date is a row you can tick or untick, and if there is no history to go on it asks rather than guesses."},
+        {"h3": "6. Check the tiers, then save"},
+        {"p": "Each selected day is labelled with its position in the illness and the percentage it pays at that position, with an estimated amount beside it. \"How was this calculated?\" shows the working. Add a note if you need one, then save."}
+      ]
+    },
+    {
+      "h2": "The day count runs from the illness, not the employer",
+      "blocks": [
+        {"p": "This is the detail that most often goes wrong on paper, and it matters most if you work for more than one employer. One continuous illness has one day count. If the first day you would have worked at your second job falls on the third day of that illness, it is sick day three there too — not day one."},
+        {"p": "Counting separately at each employer would restart the opening tiers over and over and understate what you are owed, so Elmtrackr counts the illness once and applies each workplace's own tiers to the days that fall within it."},
+        {"p": "For the same reason, reporting a sick absence next to an existing one offers to merge the two into a single period. Merging keeps the count running instead of starting again at day one; keeping them separate is also offered, because two unrelated illnesses in the same week are genuinely two illnesses."}
+      ]
+    },
+    {
+      "h2": "How the tiers and the daily value work",
+      "blocks": [
+        {"p": "A workplace's sick policy has two parts. The tier ladder says what each day of the illness pays as a percentage — for example nothing on day one, half on days two and three, and full pay from day four, which is the preset for a workplace in Israel and the arrangement most users there will recognise on a payslip. Elsewhere the starting point is a neutral \"paid in full from day one\", because inventing plausible percentages for a country the app has no verified basis for would be worse than asking."},
+        {"p": "The second part is what a full day is worth. By default that is your average pay for a day you actually worked over the preceding three months. If those three months are not complete, the strongest three consecutive months of the past year are used instead, and the explanation says so."},
+        {"p": "The preset is a starting point you own, not a statement of the law. Every rung is data the app treats as editable, so a workplace with a better agreement is expressed as a single full-pay tier and every calculation follows from it — there is no code path that decides what a sick day pays because of where you live."}
+      ]
+    },
+    {
+      "h2": "An example entry",
+      "blocks": [
+        {"p": "Four days of one illness, at a workplace on the Israeli preset, might be recorded like this (illustrative values):"},
+        {"example": {
+          "title": "Illustrative sick leave entry",
+          "rows": [
+            ["Type", "Sick leave"],
+            ["First day of illness", "Mon 10 August"],
+            ["Sick day 1 — pays 0%", "0.00"],
+            ["Sick day 2 — pays 50%", "196.25"],
+            ["Sick day 3 — pays 50%", "196.25"],
+            ["Sick day 4 — pays 100%", "392.50"],
+            ["Basis", "Average pay per day actually worked, over three months"]
+          ],
+          "total": ["Estimated total", "785.00"],
+          "note": "Illustrative only — your own tiers, basis, currency and figures will differ."
+        }}
+      ]
+    },
+    {
+      "h2": "When the app cannot value a day",
+      "blocks": [
+        {"p": "If there is no hourly rate for the workplace, not enough pay history, or nothing to say what you would have earned on that date, the app names the missing piece and offers the shortest way to supply it — usually entering the amount yourself. It will not fabricate a figure."},
+        {"p": "The entry is still saved either way. The day is recorded and still counts against your balance; only its value is left open."}
+      ]
+    },
+    {
+      "h2": "Where sick records are kept",
+      "blocks": [
+        {"p": "Sick leave is the most sensitive thing this app stores, and it is treated that way. Reported leave lives on your device in the app's encrypted local database, and it is not part of cloud sync — so it does not travel to another device with a sign-in. Where the app does store data in the cloud, every leave table is scoped to its owner, and \"delete my account\" removes leave records explicitly rather than relying on a cascade."},
+        {"p": "Elmtrackr asks for nothing about the illness itself. There is no medical document storage, no diagnosis field, no employer approval workflow and no HR integration — just the dates, the workplace, and an optional note you write for yourself."}
+      ]
+    },
+    {
+      "h2": "What is not in the app yet",
+      "blocks": [
+        {"p": "The reporting flow is the part that is built. Screens for entering the sick balance from your payslip and for editing a workplace's leave settings are not in the interface yet, so a new workplace starts from the regional preset described above. Reported leave does not yet appear in the monthly report, the CSV or the PDF."},
+        {"p": "Elmtrackr also does not accrue sick days for you, does not check whether you are entitled to the day, and does not confirm anything with your employer. It records what you tell it and estimates what it is worth."}
+      ]
+    }
+  ],
+  "limitations": {
+    "intro": "How to read a sick pay estimate responsibly:",
+    "items": [
+      "Figures are estimates built from your workplace settings and the information you entered.",
+      "Entitlement, balance and actual payment may differ under your employment agreement, collective arrangements, payslip data and applicable law.",
+      "The regional tier ladder is a suggested starting point that you can replace, not payroll or legal advice.",
+      "Your employer's records and your payslip remain the official source.",
+      "Elmtrackr is not legal, payroll or tax advice."
+    ]
+  },
+  "faq": [
+    {"q": "Why does the form ask for the first day of the illness?", "a": "Because the percentage each day pays depends on its position in the illness. Counting from the first day you were due to work would restart the ladder and understate the days that follow."},
+    {"q": "I have two jobs. Does the count restart at the second one?", "a": "No. One illness has one day count. A day that is the third day of the illness is sick day three at every workplace it affects."},
+    {"q": "What if I report a sick day right after an existing sick period?", "a": "The app offers to merge them into one period so the day count keeps running. You can also keep them separate if they are unrelated illnesses."},
+    {"q": "Can I change the percentages?", "a": "The tier ladder is designed to be replaced by whatever your own agreement says. The screen for editing it is not in the app yet, so a new workplace currently starts from the regional preset."},
+    {"q": "Does the app need to know why I was ill?", "a": "No. It records the dates, the workplace and an optional note. There is no diagnosis field and no document storage."},
+    {"q": "Does reporting sick leave affect my hours or overtime?", "a": "No. Absences are kept out of worked minutes entirely, so your hours, overtime and premium figures are unchanged."}
+  ],
+  "methodology": "This guide describes the sick-leave reporting flow as it is implemented in the Elmtrackr Android app: the report-type choice, the first-day-of-illness field and the reason for it, the proposed-workday selection, the tier ladder and the per-day pay basis with its three-month fallback, the illness-level day count across employers, the merge offer for adjacent periods, the insufficient-data behaviour, where the records are stored, and the parts of the feature that are not yet in the interface. The Israeli tier sequence is reproduced in the app as an editable preset because it is the arrangement most users there will recognise; it is presented as an estimate, never as a statement of legal entitlement. The guide cites no external legal source and gives no jurisdiction-specific advice.",
+  "related": [
+    {"href": "/guides/how-to-report-a-vacation-day/", "label": "How to report a vacation day", "desc": "The same flow, valued a day at a time."},
+    {"href": "/privacy-and-security/", "label": "Privacy and security", "desc": "Where your data lives and when it leaves the device."},
+    {"href": "/guides/how-to-review-work-hours-against-a-payslip/", "label": "Review your hours against a payslip", "desc": "Compare your record with what you were paid."}
+  ],
+  "cta": {
+    "h2": "Record the days you could not work",
+    "p": "Report sick leave with the day count that starts from the illness, and see what each day is estimated to pay."
+  }
+}
