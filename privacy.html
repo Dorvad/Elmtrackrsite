@@ -61,10 +61,10 @@ footer nav a{font:600 13px 'Archivo',sans-serif;color:rgba(24,21,48,.6)}
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: July 16, 2026</p>
+  <p class="updated">Last updated: September 9, 2026</p>
   <p class="lede">This policy covers two separate things that are easy to confuse: the <strong>Elmtrackr app</strong> for Android and Wear OS, and the <strong>elmtrackr.site marketing website</strong>. They collect different data and use different services, so each is described on its own below.</p>
 
-  <div class="callout"><p><strong>In one line:</strong> the app keeps your work data on your device (and syncs to our cloud only if you sign in); the website is a public marketing site that shows Google AdSense advertising. Statements about “no ads” or “no analytics SDKs” apply to the <em>app</em>, not the website.</p></div>
+  <div class="callout"><p><strong>In one line:</strong> the app keeps your work data on your device (and syncs to our cloud only if you sign in); the website is a public marketing site that shows Google AdSense advertising. Statements about “no ads” apply to the <em>app</em>, not the website.</p></div>
 
   <h2>Part 1 — The Elmtrackr app</h2>
 
@@ -77,6 +77,9 @@ footer nav a{font:600 13px 'Archivo',sans-serif;color:rgba(24,21,48,.6)}
     <li><strong>Pay estimates</strong> the app calculates from your rules — for your reference, not official payroll.</li>
   </ul>
 
+  <h3>Crash reports and diagnostics</h3>
+  <p>When crash reporting is on — it is on by default and you can turn it off in Settings → Help &amp; About → Share crash reports — a failure sends a technical report to Sentry, our crash-reporting processor. It contains the error and its stack trace, your device model and Android version, the app version, a short trail of the screens and actions leading up to the failure, and a random identifier for the installation, which lets us tell one device’s crashes from another’s. It does not contain your name, your email address, your shifts, your pay or your receipts, and identifying values are stripped from error text before the report is sent. The Wear OS app does the same, following the setting you choose on the phone.</p>
+
   <h3>Where app data is stored</h3>
   <p>The app stores your data in a local database on your device, so it works offline and without an account. That local database is <strong>encrypted at rest using SQLCipher</strong>, with a passphrase kept on the device. This is local-database encryption; it is <strong>not</strong> end-to-end encryption of data in transit or in the cloud.</p>
   <p>If — and only if — you sign in and enable cloud sync, your account’s data (including receipt images) is synced to and stored on <strong>Supabase</strong> (a hosted PostgreSQL database and object storage) so you can use more than one device. Sign-in uses email and password; there is no Google or social sign-in and no anonymous account.</p>
@@ -84,14 +87,14 @@ footer nav a{font:600 13px 'Archivo',sans-serif;color:rgba(24,21,48,.6)}
   <h3>Receipt scanning (OCR)</h3>
   <p>When you scan a receipt, text recognition (OCR) runs <strong>on your device</strong> and supports Latin-script text and Hebrew. OCR is not perfect — accuracy depends on the receipt — so you review a claim before saving it. Receipt images stay on the device unless you have enabled cloud sync, in which case they are uploaded as part of sync.</p>
 
-  <h3>Crash diagnostics (optional)</h3>
-  <p>The app can send crash reports through <strong>Sentry</strong>, but only if a reporting key is built into the release <em>and</em> you have consented; it is configured not to send personally identifying information by default. You can turn it off under Settings → Help &amp; About → Share crash reports.</p>
+  <h3>Sharing</h3>
+  <p>We do not sell your personal data, and we use no advertising SDKs and no advertising or marketing trackers. Data reaches two processors, both acting on our instructions: Supabase, which hosts the database and receipt storage, and Sentry, which receives crash reports and app-health diagnostics when crash reporting is left on. You can turn crash reporting off at any time in Settings → Help &amp; About → Share crash reports.</p>
 
   <h3>Deleting app data</h3>
   <p>You can delete your account and its cloud data from inside the app (Settings → Account → Delete account). Uninstalling the app removes the app and its on-device data. See the <a href="/delete-account/">account-deletion page</a> for exactly what each action removes.</p>
 
   <h3>Permissions &amp; Google Play services</h3>
-  <p>The app requests only the permissions its features need — for example the camera for receipt capture and, on Android 13+, notification permission for the active-shift notification (the app still works if you decline). The app uses Google Play’s in-app-update service; it contains <strong>no advertising SDK, no third-party analytics SDK, and no billing/purchase code</strong>.</p>
+  <p>The app requests only the permissions its features need — for example the camera for receipt capture and, on Android 13+, notification permission for the active-shift notification (the app still works if you decline). The app uses Google Play’s in-app-update service; it contains <strong>no advertising SDK and no billing/purchase code</strong>. It does include the Sentry SDK for crash reporting, described under “Crash reports and diagnostics” above.</p>
 
   <h2>Part 2 — The elmtrackr.site website</h2>
 
